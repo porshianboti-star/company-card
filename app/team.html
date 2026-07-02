@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team dashboard — CompanyCard</title>
+<meta name="description" content="Manage your company's branded CompanyCard digital business cards from one place.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span class="sp"></span>
+    <a class="tab hide-sm active" href="team.html">Team</a>
+    <a class="tab hide-sm" href="dashboard.html">My cards</a>
+    <button class="btn btn-ghost" id="btn-invite" type="button" style="display:none" data-authonly>Invite employee</button>
+    <a class="btn btn-primary" href="onboarding.html">Add people</a>
+    <a class="btn btn-ghost" href="#" data-signout style="display:none" data-authonly>Sign out</a>
+  </div>
+</header>
+
+<main class="wrap-app">
+  <div id="team-root"></div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("admin");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) { return CC.esc(s); };
+  function toast(m){ var t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove("show");},2200); }
+
+  var root = $("#team-root");
+
+  function render(){
+    var t = CC.team();
+    if (!t.members.length) {
+      root.innerHTML =
+        '<div class="empty-state"><div class="em-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></div>'+
+        '<h2>No team yet</h2><p>Roll out branded cards to your whole company in a few minutes — import from CSV, Google Workspace or Microsoft 365.</p>'+
+        '<a class="btn btn-primary btn-lg" href="onboarding.html">Set up your team</a></div>';
+      return;
+    }
+    var co = t.company || {}, solid = (CC.themes[co.color]||CC.themes.indigo).solid;
+    var active = t.members.filter(function(m){return m.status==="active";}).length;
+    var invited = t.members.filter(function(m){return m.status==="invited";}).length;
+    var depts = {}; t.members.forEach(function(m){ if(m.dept) depts[m.dept]=1; });
+    var srcLabel={csv:"CSV import",google:"Google Workspace",microsoft:"Microsoft 365",manual:"Manual"}[t.source]||"Direct";
+
+    var html =
+      '<div class="team-hero">'+
+        '<div class="logo" style="background:'+(CC.themes[co.color]||CC.themes.indigo).grad+'">'+esc(CC.initials(co.name))+'</div>'+
+        '<div><h1>'+esc(co.name||"Your company")+'</h1><div class="sub">'+t.members.length+' people · synced from '+esc(srcLabel)+'</div></div>'+
+        '<span class="sp" style="flex:1"></span>'+
+        '<span class="brandchip"><span class="dotc" style="background:'+solid+'"></span> Brand locked · '+esc(co.template||"minimal")+'</span>'+
+      '</div>'+
+      '<div class="team-stats">'+
+        stat(t.members.length,"Employees")+stat(active,"Active")+stat(invited,"Invited")+stat(Object.keys(depts).length,"Departments")+
+      '</div>'+
+      '<div class="dash-head" style="margin-bottom:14px"><div><h1 style="font-size:1.2rem">People</h1></div>'+
+        '<div style="display:flex;gap:10px"><button class="btn btn-ghost" id="resend-all" type="button">Resend invites</button><a class="btn btn-primary" href="onboarding.html">Add people</a></div></div>'+
+      '<div class="member-table"><div class="mt-head"><span>Employee</span><span class="dept-col">Department</span><span class="status-col">Status</span><span style="text-align:right">Card</span></div>'+
+        t.members.map(rowHTML).join("")+'</div>';
+    root.innerHTML = html;
+
+    $("#resend-all").onclick=function(){ toast("Invites resent to "+invited+" people"); };
+    $$(".m-row [data-open]").forEach(function(b){ b.onclick=function(){ openCard(b.dataset.open); }; });
+    $$(".m-row [data-del]").forEach(function(b){ b.onclick=function(){ del(b.dataset.del); }; });
+    $$(".m-row [data-mail]").forEach(function(b){ b.onclick=function(){ toast("Invite resent"); }; });
+  }
+  function stat(k,l){ return '<div class="tstat"><div class="k">'+k+'</div><div class="l">'+l+'</div></div>'; }
+  function rowHTML(m){
+    var sub=[m.title,m.email].filter(Boolean).map(esc).join(" · ");
+    return '<div class="m-row">'+
+      '<div class="who"><div class="av">'+esc(CC.initials(m.name))+'</div><div style="min-width:0"><b>'+esc(m.name)+'</b><span>'+sub+'</span></div></div>'+
+      '<div class="dept-col">'+(m.dept?'<span class="dept" style="font-size:.78rem;font-weight:600;color:var(--slate-600)">'+esc(m.dept)+'</span>':'<span style="color:var(--slate-400)">—</span>')+'</div>'+
+      '<div class="status-col"><span class="pill '+(m.status==="active"?"active":"invited")+'">'+(m.status==="active"?"Active":"Invited")+'</span></div>'+
+      '<div class="ops"><a class="ic" href="employee.html?id='+m.id+'" aria-label="Personalise" title="Personalise card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>'+
+        '<button class="ic" type="button" data-open="'+m.id+'" aria-label="Open card" title="Open card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></button>'+
+        '<button class="ic" type="button" data-del="'+m.id+'" aria-label="Remove" title="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div>'+
+      '</div>';
+  }
+  function openCard(id){
+    var t=CC.team(), m=t.members.filter(function(x){return x.id===id;})[0]; if(!m) return;
+    var card=m.card||CC.memberCard(m,t.company);
+    var url=location.href.replace(/[^/]*(\?.*)?$/,"")+"card.html#c="+CC.encode(card,true);
+    window.open(url,"_blank","noopener");
+  }
+  function del(id){
+    var t=CC.team(), m=t.members.filter(function(x){return x.id===id;})[0];
+    if(!confirm('Remove '+(m?m.name:"this person")+" from the team? Their card will be revoked.")) return;
+    t.members=t.members.filter(function(x){return x.id!==id;}); CC.saveTeam(t); toast("Removed"); render();
+  }
+  render();
+})();
+</script>
+<script>
+(function () {
+  if (!window.CCAuth || !CCAuth.enabled) return;
+  document.querySelectorAll("[data-authonly]").forEach(function (el) { el.style.display = ""; });
+  var b = document.getElementById("btn-invite");
+  if (!b) return;
+  b.addEventListener("click", function () {
+    var email = prompt("Employee email (optional — leave empty for a generic link):") || "";
+    b.disabled = true; b.textContent = "Creating link…";
+    CCAuth.createInvite(email.trim(), "employee").then(function (link) {
+      b.disabled = false; b.textContent = "Invite employee";
+      if (navigator.clipboard) navigator.clipboard.writeText(link);
+      prompt("Invite link (copied to clipboard) — send it to the employee. Valid 14 days, single use:", link);
+    }).catch(function (ex) {
+      b.disabled = false; b.textContent = "Invite employee";
+      alert("Could not create invite: " + (ex && ex.message ? ex.message : ex));
+    });
+  });
+})();
+</script>
+</body>
+</html>

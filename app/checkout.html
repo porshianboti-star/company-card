@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upgrade to Pro — CompanyCard</title>
+<meta name="description" content="Unlock cover images, branded QR, custom colours and more with CompanyCard Pro.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span class="sp"></span>
+    <span class="co-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Secure checkout</span>
+  </div>
+</header>
+
+<main class="co-wrap">
+  <a class="co-back" id="co-back" href="builder.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> Back</a>
+
+  <div class="co-grid">
+    <!-- LEFT: plan + value -->
+    <div>
+      <div class="co-head">
+        <span class="pro-pill lg">PRO</span>
+        <h1>Upgrade to CompanyCard Pro</h1>
+        <p id="co-reason">Unlock the premium design tools and publish your card.</p>
+      </div>
+
+      <div class="seg co-seg" id="co-seg" role="tablist" aria-label="Billing period">
+        <button class="on" type="button" data-plan="annual" role="tab">Annual <span class="save">Save 25%</span></button>
+        <button type="button" data-plan="monthly" role="tab">Monthly</button>
+      </div>
+
+      <div class="co-price">
+        <div class="amt"><span class="cur" id="co-cur">$</span><span id="co-amt">5.99</span><span class="per">/ month</span></div>
+        <div class="co-bill" id="co-bill">Billed $71.88 per year</div>
+      </div>
+
+      <ul class="co-feats" id="co-feats"></ul>
+    </div>
+
+    <!-- RIGHT: payment -->
+    <div>
+      <div class="co-card">
+        <div class="co-summary">
+          <div class="row"><span>CompanyCard Pro</span><b id="sum-plan">Annual</b></div>
+          <div class="row"><span>Billed today</span><b id="sum-total">$71.88</b></div>
+          <div class="row muted"><span id="sum-renew">Renews yearly · cancel anytime</span></div>
+        </div>
+
+        <form id="pay-form" novalidate>
+          <div class="field"><label class="fl" for="pay-email">Email</label>
+            <input class="inp" id="pay-email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
+          <div class="field"><label class="fl" for="pay-name">Name on card</label>
+            <input class="inp" id="pay-name" type="text" placeholder="Jordan Diaz" autocomplete="cc-name" required></div>
+          <div class="field"><label class="fl" for="pay-num">Card number</label>
+            <div class="inp-icon"><input class="inp" id="pay-num" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="cc-number" required>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div></div>
+          <div class="grid2">
+            <div class="field"><label class="fl" for="pay-exp">Expiry</label>
+              <input class="inp" id="pay-exp" type="text" inputmode="numeric" placeholder="MM / YY" maxlength="7" autocomplete="cc-exp" required></div>
+            <div class="field"><label class="fl" for="pay-cvc">CVC</label>
+              <input class="inp" id="pay-cvc" type="text" inputmode="numeric" placeholder="123" maxlength="4" autocomplete="cc-csc" required></div>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block co-pay" id="pay-btn" type="submit">
+            <span class="lbl">Pay <span id="pay-amt">$71.88</span> &amp; activate Pro</span>
+          </button>
+          <p class="co-fine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> This is a demo checkout — no real card is charged. Use any details.</p>
+        </form>
+      </div>
+      <button class="co-later" id="co-later" type="button">Maybe later — keep building free</button>
+    </div>
+  </div>
+</main>
+
+<!-- SUCCESS -->
+<div class="modal" id="ok-modal" role="dialog" aria-modal="true" hidden>
+  <div class="modal-box">
+    <div class="done-hero"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+    <h3>You're Pro 🎉</h3>
+    <p class="sub" id="ok-sub">Every premium feature is unlocked. Taking you back to your card…</p>
+    <a class="btn btn-primary btn-block" id="ok-go" href="builder.html" style="margin-top:18px">Continue</a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("any");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var qs = new URLSearchParams(location.search);
+  var ret = qs.get("return") || "dashboard.html";
+  $("co-back").href = ret; $("ok-go").href = ret;
+
+  function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 2200); }
+  var P = CC.PRICING, cur = P.currency, fmt = function (n) { return cur + n.toFixed(2); };
+
+  /* prefill email if signed in */
+  var u = CC.user(); if (u && u.email) $("pay-email").value = u.email;
+
+  /* show which features triggered the upgrade (from ?id= card, or ?feat=) */
+  var reason = $("co-reason"), feats = (qs.get("feat") || "").split(",").filter(Boolean);
+  if (qs.get("id")) { var c = CC.get(qs.get("id")); if (c) feats = CC.cardProFeatures(c); }
+  if (feats.length) {
+    var names = feats.map(function (k) { return (CC.PRO_FEATURES[k] || {}).label || k; });
+    reason.innerHTML = "Your card uses <b>" + names.join("</b>, <b>") + "</b> — included in Pro.";
+  }
+
+  /* full Pro feature list */
+  var order = ["cover", "iconStyle", "brandColor", "customColor", "brandedQR", "fields", "multiCard"];
+  $("co-feats").innerHTML = order.map(function (k) {
+    var f = CC.PRO_FEATURES[k]; if (!f) return "";
+    var hot = feats.indexOf(k) >= 0 ? " hot" : "";
+    return '<li class="' + hot.trim() + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>' + f.label + '</b>' + f.hint + '</span></li>';
+  }).join("") + '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Card analytics &amp; contact export</b>See who saved your card.</span></li>';
+
+  /* plan toggle */
+  var plan = "annual";
+  function priceFor() { return plan === "annual" ? P.annual : P.monthly; }
+  function totalFor() { return plan === "annual" ? P.annualTotal : P.monthly; }
+  function refresh() {
+    $("co-amt").textContent = priceFor().toFixed(2);
+    $("co-bill").textContent = plan === "annual" ? ("Billed " + fmt(P.annualTotal) + " per year") : "Billed monthly";
+    $("sum-plan").textContent = plan === "annual" ? "Annual" : "Monthly";
+    $("sum-total").textContent = fmt(totalFor());
+    $("sum-renew").textContent = plan === "annual" ? "Renews yearly · cancel anytime" : "Renews monthly · cancel anytime";
+    $("pay-amt").textContent = fmt(totalFor());
+  }
+  $("co-seg").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    plan = b.getAttribute("data-plan");
+    $("co-seg").querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
+    refresh();
+  });
+  refresh();
+
+  /* light input formatting */
+  $("pay-num").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim(); });
+  $("pay-exp").addEventListener("input", function () { var v = this.value.replace(/\D/g, "").slice(0, 4); this.value = v.length > 2 ? v.slice(0, 2) + " / " + v.slice(2) : v; });
+  $("pay-cvc").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 4); });
+
+  /* simulated payment → set Pro → success */
+  $("pay-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = $("pay-email").value.trim();
+    if (!email || !$("pay-name").value.trim() || $("pay-num").value.replace(/\s/g, "").length < 12 || !$("pay-exp").value || !$("pay-cvc").value) { toast("Add your payment details"); return; }
+    var btn = $("pay-btn"); btn.classList.add("loading"); btn.disabled = true;
+    CC.signup(email, $("pay-name").value.trim(), u && u.via);
+    setTimeout(function () {
+      CC.setPro(plan);
+      $("ok-sub").textContent = "Every premium feature is unlocked. " + (ret.indexOf("builder") >= 0 ? "Taking you back to your card…" : "Taking you back…");
+      $("ok-modal").hidden = false;
+      setTimeout(function () { location.href = ret + (ret.indexOf("?") >= 0 ? "&" : "?") + "upgraded=1"; }, 1400);
+    }, 1100);
+  });
+
+  $("co-later").addEventListener("click", function () { location.href = ret; });
+})();
+</script>
+</body>
+</html>

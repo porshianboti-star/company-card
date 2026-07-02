@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account — CompanyCard</title>
+<meta name="description" content="Create your CompanyCard company account, or join your team with an invite.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .auth-wrap { min-height: calc(100vh - 70px); display: grid; place-items: center; padding: 40px 20px; }
+  .auth-card { width: 100%; max-width: 440px; background: #fff; border: 1px solid var(--slate-200); border-radius: 20px; box-shadow: var(--shadow); padding: 30px 28px; }
+  .auth-card h1 { font-family: var(--font-display); font-size: 1.45rem; color: var(--ink); margin-bottom: 6px; }
+  .auth-card .sub { color: var(--slate-500); font-size: .94rem; margin-bottom: 22px; }
+  .auth-err { display: none; background: #FEF2F2; border: 1px solid #FECACA; color: #B91C1C; border-radius: 12px; padding: 10px 14px; font-size: .88rem; margin-bottom: 14px; }
+  .auth-ok  { display: none; background: #F0FDF4; border: 1px solid #BBF7D0; color: #15803D; border-radius: 12px; padding: 10px 14px; font-size: .88rem; margin-bottom: 14px; }
+  .auth-foot { margin-top: 18px; text-align: center; font-size: .9rem; color: var(--slate-500); }
+  .auth-foot a { color: var(--indigo-600); font-weight: 600; }
+  .invite-chip { display: none; align-items: center; gap: 9px; background: var(--violet-50); border: 1px solid var(--violet-100); color: var(--indigo-700); border-radius: 12px; padding: 10px 14px; font-size: .9rem; font-weight: 600; margin-bottom: 18px; }
+  .demo-note { display: none; margin-top: 16px; background: var(--slate-50); border: 1px dashed var(--slate-200); border-radius: 12px; padding: 12px 14px; font-size: .84rem; color: var(--slate-500); }
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span class="sp"></span>
+    <a class="btn btn-ghost" href="login.html">Sign in</a>
+  </div>
+</header>
+
+<main class="auth-wrap">
+  <form class="auth-card" id="f" novalidate>
+    <h1 id="title">Create your company account</h1>
+    <p class="sub" id="sub">You’ll be the admin — you can invite employees right after.</p>
+    <div class="invite-chip" id="chip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      <span id="chip-txt">Joining a team</span>
+    </div>
+    <div class="auth-err" id="err"></div>
+    <div class="auth-ok" id="ok"></div>
+    <div class="field"><label class="fl" for="name">Full name</label>
+      <input class="inp" id="name" type="text" autocomplete="name" required placeholder="Jordan Diaz"></div>
+    <div class="field" id="co-field"><label class="fl" for="company">Company name</label>
+      <input class="inp" id="company" type="text" autocomplete="organization" required placeholder="Northwind"></div>
+    <div class="field"><label class="fl" for="email">Work email</label>
+      <input class="inp" id="email" type="email" autocomplete="username" required placeholder="you@company.com"></div>
+    <div class="field"><label class="fl" for="pass">Password <span style="color:var(--slate-400);font-weight:500">(8+ characters)</span></label>
+      <input class="inp" id="pass" type="password" autocomplete="new-password" minlength="8" required placeholder="••••••••"></div>
+    <button class="btn btn-primary btn-block btn-lg" id="go" type="submit">Create account</button>
+    <div class="auth-foot">Already have an account? <a href="login.html">Sign in</a></div>
+    <div class="demo-note" id="demo">You opened the site as plain files, so accounts are off. Start the local server (double-click <b>start-companycard.command</b>) and open <b>http://localhost:8787</b>.</div>
+  </form>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>
+(function () {
+  var f = document.getElementById("f"), err = document.getElementById("err"),
+      ok = document.getElementById("ok"), go = document.getElementById("go"),
+      token = new URLSearchParams(location.search).get("invite");
+  function show(el, m) { el.textContent = m; el.style.display = "block"; }
+
+  if (!CCAuth.enabled) {
+    document.getElementById("demo").style.display = "block";
+    go.disabled = true;
+    return;
+  }
+
+  /* Invited employee? adapt the form */
+  if (token) {
+    document.getElementById("co-field").style.display = "none";
+    document.getElementById("company").required = false;
+    document.getElementById("title").textContent = "Join your team";
+    document.getElementById("sub").textContent = "Create your personal login — you’ll only see your own card.";
+    CCAuth.inviteInfo(token).then(function (inv) {
+      var chip = document.getElementById("chip");
+      if (!inv) { show(err, "This invite link is invalid or has expired. Ask your admin for a new one."); go.disabled = true; return; }
+      chip.style.display = "flex";
+      document.getElementById("chip-txt").textContent = "Joining " + (inv.company_name || "your team") + (inv.role === "admin" ? " as admin" : "");
+      if (inv.email) document.getElementById("email").value = inv.email;
+    });
+  }
+
+  f.addEventListener("submit", function (e) {
+    e.preventDefault(); err.style.display = "none";
+    var name = document.getElementById("name").value.trim(),
+        comp = document.getElementById("company").value.trim(),
+        email = document.getElementById("email").value.trim(),
+        pass = document.getElementById("pass").value;
+    if (!name || !email || pass.length < 8 || (!token && !comp))
+      return show(err, "Fill in every field — password needs 8+ characters.");
+    go.disabled = true; go.textContent = "Creating account…";
+    var p = token ? CCAuth.signupInvited(name, email, pass, token)
+                  : CCAuth.signupAdmin(name, comp, email, pass);
+    p.then(function (r) {
+      if (r.error) throw r.error;
+      /* If email confirmation is ON there is no session yet */
+      if (!r.data.session) {
+        show(ok, "Account created! Check your inbox to confirm your email, then sign in.");
+        go.textContent = "Done";
+        return;
+      }
+      return CCAuth.init().then(function (prof) {
+        location.replace(CCAuth.homeFor(prof ? prof.role : "employee"));
+      });
+    }).catch(function (ex) {
+      go.disabled = false; go.textContent = "Create account";
+      show(err, ex && ex.message ? ex.message : "Signup failed. Try again.");
+    });
+  });
+})();
+</script>
+</body>
+</html>

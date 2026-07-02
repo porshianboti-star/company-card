@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set up your team — CompanyCard</title>
+<meta name="description" content="Design one branded card template, then roll it out to your whole team. Import from CSV, Google Workspace or Microsoft 365.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span style="margin-left:6px;font-weight:600;color:var(--slate-500);font-size:.92rem;" class="hide-sm">Team setup</span>
+    <span class="sp"></span>
+    <a class="tab hide-sm" href="team.html">Team dashboard</a>
+    <a class="btn btn-ghost" href="dashboard.html">Exit</a>
+  </div>
+</header>
+
+<main class="wiz">
+  <div class="wiz-steps" id="stepper">
+    <div class="st" data-s="1"><span class="dot">1</span><span class="lab">Design card</span></div>
+    <span class="line"></span>
+    <div class="st" data-s="2"><span class="dot">2</span><span class="lab">Add team</span></div>
+    <span class="line"></span>
+    <div class="st" data-s="3"><span class="dot">3</span><span class="lab">Employee details</span></div>
+    <span class="line"></span>
+    <div class="st" data-s="4"><span class="dot">4</span><span class="lab">Invite</span></div>
+  </div>
+
+  <!-- STEP 1 — DESIGN -->
+  <section data-pane="1">
+    <div class="wiz-2col">
+      <div>
+        <div class="wiz-card" style="margin-bottom:18px">
+          <h2>Design your team card</h2>
+          <p class="hint">Set it up once. Mark each item <b style="color:var(--indigo-700)">Company</b> (same on every card) or <b style="color:#0E7490">Per&#8209;employee</b> (each person fills their own).</p>
+          <div class="grid2">
+            <div class="field"><label class="fl" for="co-name">Company name</label><input class="inp" id="co-name" type="text" placeholder="Northwind" autocomplete="organization"></div>
+            <div class="field"><label class="fl" for="co-domain">Email domain</label><input class="inp" id="co-domain" type="text" placeholder="northwind.com"></div>
+          </div>
+          <div class="field" style="margin-bottom:0"><label class="fl">Your card <span style="color:var(--slate-400);font-weight:500">(you're the first user &mdash; clear the name to skip)</span></label>
+            <div class="grid2"><input class="inp" id="me-name" type="text" placeholder="Your name" autocomplete="name"><input class="inp" id="me-title" type="text" placeholder="Your title"></div>
+          </div>
+        </div>
+
+        <div class="wiz-card" style="margin-bottom:18px">
+          <h3 style="font-size:1.08rem">Design</h3>
+          <p class="hint">Template, colour &amp; photo shape &mdash; company-wide.</p>
+          <div class="field"><label class="fl">Design template</label>
+            <button class="btn btn-ghost btn-block" type="button" id="tpl-btn" style="justify-content:space-between;">
+              <span><b id="tpl-current" style="color:var(--ink)">Minimal</b></span>
+              <span style="color:var(--indigo-600);font-weight:600;">Browse designs &rarr;</span>
+            </button>
+          </div>
+          <div class="field"><label class="fl">Theme colour</label><div class="theme-row" id="themes"></div></div>
+          <div class="field" style="margin-bottom:0"><label class="fl">Photo shape</label>
+            <div class="shape-row" id="shapes">
+              <button class="shape-btn" type="button" data-shape="circle"><span class="sh circle"></span>Circle</button>
+              <button class="shape-btn" type="button" data-shape="rounded"><span class="sh rounded"></span>Rounded</button>
+              <button class="shape-btn" type="button" data-shape="square"><span class="sh square"></span>Square</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wiz-card" style="margin-bottom:18px">
+          <h3 style="font-size:1.08rem">Images</h3>
+          <p class="hint">Cover banner &amp; profile photo &mdash; choose who owns each.</p>
+          <div class="field">
+            <div class="scope-head"><label class="fl" style="margin:0">Cover image</label><div class="scope-toggle" id="cover-scope"><button type="button" data-sc="company">Company</button><button type="button" data-sc="employee">Per&#8209;employee</button></div></div>
+            <div id="cover-co">
+              <div class="cover-pv" id="cover-pv">No cover &mdash; using theme colour</div>
+              <div class="row-btns"><button class="btn btn-ghost" type="button" id="cover-btn">Upload cover</button><button class="btn btn-ghost" type="button" id="cover-rm" hidden>Remove</button></div>
+              <input type="file" id="cover-input" accept="image/*" hidden>
+            </div>
+            <div class="emp-note" id="cover-emp" hidden>Each employee adds their own cover</div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <div class="scope-head"><label class="fl" style="margin:0">Profile photo</label><div class="scope-toggle" id="photo-scope"><button type="button" data-sc="company">Company</button><button type="button" data-sc="employee">Per&#8209;employee</button></div></div>
+            <div id="photo-co">
+              <div class="photo"><div class="pv" id="photo-pv">NW</div><button class="btn btn-ghost" type="button" id="photo-btn">Upload photo</button><button class="btn btn-ghost" type="button" id="photo-rm" hidden>Remove</button><input type="file" id="photo-input" accept="image/*" hidden></div>
+            </div>
+            <div class="emp-note" id="photo-emp" hidden>Each employee uploads their own photo</div>
+          </div>
+        </div>
+
+        <div class="wiz-card">
+          <h3 style="font-size:1.08rem">Details &amp; links</h3>
+          <p class="hint">Each row is <b style="color:var(--indigo-700)">company&#8209;wide</b> or filled in <b style="color:#0E7490">per employee</b>. Name &amp; title are always per employee. Delete any row you don't want.</p>
+          <div class="links-list" id="links"></div>
+          <button class="btn-add" id="btn-add" type="button"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Add a row</button>
+        </div>
+      </div>
+
+      <div class="wiz-preview">
+        <div class="wiz-phone"><div class="scr" id="preview"></div></div>
+        <div class="cap"><span class="lock-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Live preview &mdash; sample employee</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 — ADD TEAM -->
+  <section data-pane="2" hidden>
+    <div class="wiz-card">
+      <h2>Add your team</h2>
+      <p class="hint">Import everyone at once, or add people by hand.</p>
+      <div class="src-grid" id="src-grid">
+        <button class="src-card" type="button" data-src="csv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+          <span class="tx"><b>Upload a CSV</b><p>Import a spreadsheet of names, titles &amp; emails.</p></span>
+          <span class="chk2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+        <button class="src-card" type="button" data-src="google">
+          <span class="ic"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.8 13.6-4.9l-6.3-5.2C29.1 35.5 26.7 36 24 36c-5.3 0-9.7-3.1-11.3-7.4l-6.5 5C9.6 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.3 5.2C41.5 36.7 44 31.7 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg></span>
+          <span class="tx"><b>Google Workspace</b><p>Sync employees straight from your directory.</p></span>
+          <span class="chk2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+        <button class="src-card" type="button" data-src="microsoft">
+          <span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="9.2" height="9.2" fill="#F25022"/><rect x="12.8" y="2" width="9.2" height="9.2" fill="#7FBA00"/><rect x="2" y="12.8" width="9.2" height="9.2" fill="#00A4EF"/><rect x="12.8" y="12.8" width="9.2" height="9.2" fill="#FFB900"/></svg></span>
+          <span class="tx"><b>Microsoft 365</b><p>Connect Entra ID / Azure AD and pull your users.</p></span>
+          <span class="chk2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+        <button class="src-card" type="button" data-src="manual">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+          <span class="tx"><b>Add manually</b><p>Type people in &mdash; with every per&#8209;employee field.</p></span>
+          <span class="chk2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+      </div>
+      <div class="src-panel" id="src-panel" hidden></div>
+    </div>
+  </section>
+
+  <!-- STEP 3 — EMPLOYEE DETAILS -->
+  <section data-pane="3" hidden>
+    <div class="wiz-card">
+      <h2>Fill in each employee</h2>
+      <p class="hint" id="emp-hint">Expand anyone to add the per-employee details your template asks for. Company items are already locked on.</p>
+      <div id="review"></div>
+    </div>
+  </section>
+
+  <!-- STEP 4 — INVITE -->
+  <section data-pane="4" hidden>
+    <div class="wiz-card" id="finish-card">
+      <h2>Invite your team</h2>
+      <p class="hint">Choose how people get their card. You can change this anytime.</p>
+      <div class="sum-grid" id="summary"></div>
+      <div class="field"><label class="fl">Rollout method</label>
+        <div class="seg" id="invite-seg">
+          <button type="button" data-inv="email" class="on">Email an invite</button>
+          <button type="button" data-inv="now">Provision now</button>
+        </div>
+        <p class="hint" id="inv-hint" style="margin:10px 0 0">Each person gets an email to claim and personalise their card.</p>
+      </div>
+      <div style="margin-top:22px"><button class="btn btn-primary btn-lg btn-block shine" id="provision-btn" type="button">Provision cards</button></div>
+    </div>
+  </section>
+
+  <div class="wiz-foot" id="foot">
+    <button class="btn btn-ghost" id="back" type="button">Back</button>
+    <span class="grow"></span>
+    <span class="muted" id="foot-note"></span>
+    <button class="btn btn-primary" id="next" type="button">Continue</button>
+  </div>
+</main>
+
+<!-- TEMPLATE GALLERY -->
+<div class="modal tpl-modal" id="tpl-modal" role="dialog" aria-modal="true" aria-labelledby="tpl-modal-title" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="tpl-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <h3 id="tpl-modal-title">Choose a design</h3>
+    <p class="sub">Different banners, dividers &amp; icon styles. This is the company template &mdash; same for everyone.</p>
+    <div class="tpl-grid" id="tpl-grid"></div>
+  </div>
+</div>
+
+<!-- CONNECT MODAL -->
+<div class="modal" id="connect-modal" role="dialog" aria-modal="true" aria-labelledby="connect-title" hidden>
+  <div class="connect-box">
+    <div class="connect-top"><span class="glyph" id="connect-glyph"></span><span><b id="connect-title">Connect</b><span id="connect-sub">Sign in to authorise CompanyCard</span></span></div>
+    <div class="connect-body">
+      <div class="acct"><span class="a" id="acct-a">A</span><span><b id="acct-name">admin@northwind.com</b><span>Workspace administrator</span></span></div>
+      <div class="scope"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> View users in your directory (read-only)</div>
+      <div class="scope"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Read names, job titles &amp; email addresses</div>
+      <div class="scope"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Keep cards in sync when people join or leave</div>
+    </div>
+    <div class="connect-foot"><button class="btn btn-ghost btn-block" id="connect-cancel" type="button">Cancel</button><button class="btn btn-primary btn-block" id="connect-allow" type="button">Allow access</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("admin");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var val = function (id) { var e = document.getElementById(id); return e ? e.value.trim() : ""; };
+  var esc = function (s) { return CC.esc(s); };
+  function toast(m){ var t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove("show");},2200); }
+  var CHK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  var TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>';
+  var XMARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+  var TYPES = ["email","phone","website","linkedin","instagram","twitter","facebook","youtube","tiktok","whatsapp","calendar","address","custom"];
+
+  /* ---- brand template (B) + wizard (S) ---- */
+  var B = { tpl:"minimal", theme:"indigo", shape:"rounded", iconColor:"brand", showQR:false,
+    cover:{ scope:"company", value:"" }, photo:{ scope:"employee", value:"" },
+    fields:[ {type:"email", scope:"employee", value:""}, {type:"phone", scope:"employee", value:""}, {type:"website", scope:"company", value:""}, {type:"linkedin", scope:"company", value:""} ] };
+  var S = { step:1, source:"", pending:[], manual:[], dir:[], invite:"email", done:false,
+    me:{ id:"me", name:"", title:"", email:"", phone:"", dept:"", links:[], photo:"", pick:true, skip:false } };
+
+  function brandCompany(){
+    return { name: val("co-name")||"Your Company", domain: val("co-domain"),
+      color:B.theme, template:B.tpl, shape:B.shape, iconColor:B.iconColor, showQR:B.showQR,
+      cover:{ scope:B.cover.scope, value:B.cover.value }, photo:{ scope:B.photo.scope, value:B.photo.value },
+      links: B.fields.map(function(f){ return { type:f.type, scope:f.scope, value:f.value }; }) };
+  }
+  function empSpec(){ return B.fields.filter(function(f){ return f.scope==="employee"; }); }
+  function everyone(){ var a=[]; if(!S.me.skip && (S.me.name||"").trim()) a.push(S.me); return a.concat(S.pending); }
+  function findMember(id){ if(S.me.id===id) return S.me; var a=S.pending.filter(function(x){return x.id===id;})[0]; if(a) return a; return S.manual.filter(function(x){return x.id===id;})[0]; }
+  function setEmp(m, type, value){ if(type==="email") m.email=value; else if(type==="phone") m.phone=value; else { if(!m.links) m.links=[]; var ml=m.links.filter(function(x){return x.type===type;})[0]; if(!ml){ ml={type:type,value:""}; m.links.push(ml); } ml.value=value; } }
+  function getEmp(m, type){ if(type==="email") return m.email||""; if(type==="phone") return m.phone||""; var ml=(m.links||[]).filter(function(x){return x.type===type;})[0]; return ml?ml.value:""; }
+
+  /* ---- live preview ---- */
+  function previewCard(){
+    var b=brandCompany();
+    var pcLinks=b.links.map(function(f){ return { type:f.type, scope:f.scope, value: f.scope==="company" ? (f.value||CC.fieldTypes[f.type].ph) : f.value }; });
+    var pc={ name:b.name, color:b.color, template:b.template, shape:b.shape, iconColor:b.iconColor, showQR:false, cover:b.cover, photo:b.photo, links:pcLinks };
+    var member={ name:"Alex Rivera", title:"Account Executive",
+      email:(val("co-domain")?("alex@"+val("co-domain")):"alex@company.com"), phone:"+1 555 0100", photo:"", cover:"",
+      links: empSpec().filter(function(f){return f.type!=="email"&&f.type!=="phone";}).map(function(f){ return {type:f.type, value:CC.fieldTypes[f.type].ph}; }) };
+    return CC.memberCard(member, pc);
+  }
+  function renderPreview(){ $("#preview").innerHTML='<div class="cc-shell">'+CC.renderCard(previewCard())+'</div>'; }
+
+  /* ---- template gallery ---- */
+  function buildGallery(){
+    var g=$("#tpl-grid"); g.innerHTML="";
+    CC.templates.forEach(function(t){
+      var sample={ name:"Your Name", title:"Job title", company:val("co-name")||"Company", theme:B.theme, tpl:t.id, shape:B.shape,
+        fields:[{type:"phone",value:"+1 555 0100"},{type:"email",value:"you@company.com"},{type:"website",value:"company.com"}] };
+      var el=document.createElement("div"); el.className="tpl-card"+(B.tpl===t.id?" on":"");
+      el.innerHTML='<div class="tpl-thumb">'+CC.renderCard(sample)+'</div><div class="tpl-name">'+t.name+'</div>';
+      el.onclick=function(){ B.tpl=t.id; $("#tpl-current").textContent=t.name; $("#tpl-modal").hidden=true; renderPreview(); };
+      g.appendChild(el);
+    });
+  }
+  $("#tpl-btn").onclick=function(){ buildGallery(); $("#tpl-modal").hidden=false; };
+  $("#tpl-close").onclick=function(){ $("#tpl-modal").hidden=true; };
+  $("#tpl-modal").addEventListener("click",function(e){ if(e.target===this) this.hidden=true; });
+
+  /* ---- themes + shapes + basics ---- */
+  (function(){
+    var tr=$("#themes");
+    CC.themeKeys.forEach(function(k){
+      var b=document.createElement("button"); b.type="button"; b.className="sw-btn"+(k===B.theme?" on":""); b.style.background=CC.themes[k].grad; b.dataset.k=k; b.setAttribute("aria-label",k);
+      b.onclick=function(){ B.theme=k; $$("#themes .sw-btn").forEach(function(x){x.classList.toggle("on",x.dataset.k===k);}); setPhotoUI(); renderPreview(); };
+      tr.appendChild(b);
+    });
+    $("#shapes").addEventListener("click",function(e){ var b=e.target.closest(".shape-btn"); if(!b) return; B.shape=b.dataset.shape; $$("#shapes .shape-btn").forEach(function(x){x.classList.toggle("on",x.dataset.shape===B.shape);}); setPhotoUI(); renderPreview(); });
+    $$("#shapes .shape-btn").forEach(function(x){ x.classList.toggle("on",x.dataset.shape===B.shape); });
+    ["co-name","co-domain"].forEach(function(id){ document.getElementById(id).addEventListener("input", function(){ renderPreview(); updateFoot(); }); });
+    $("#me-name").addEventListener("input", function(){ S.me.name=this.value; updateFoot(); });
+    $("#me-title").addEventListener("input", function(){ S.me.title=this.value; });
+  })();
+
+  /* ---- scope toggles (cover / photo) ---- */
+  function setScope(which){
+    var scope=B[which].scope;
+    $$('#'+which+'-scope button').forEach(function(b){ b.classList.toggle("on", b.dataset.sc===scope); });
+    var co=$('#'+which+'-co'), emp=$('#'+which+'-emp');
+    if(co) co.hidden = scope!=="company";
+    if(emp) emp.hidden = scope!=="employee";
+  }
+  ["cover","photo"].forEach(function(which){ $('#'+which+'-scope').addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return; B[which].scope=b.dataset.sc; setScope(which); renderPreview(); }); });
+
+  /* ---- cover + photo upload ---- */
+  function setCoverUI(){ var pv=$("#cover-pv"); if(B.cover.value){ pv.innerHTML='<img src="'+B.cover.value+'" alt="">'; $("#cover-rm").hidden=false; } else { pv.innerHTML="No cover — using theme colour"; $("#cover-rm").hidden=true; } }
+  $("#cover-btn").onclick=function(){ $("#cover-input").click(); };
+  $("#cover-input").addEventListener("change",function(e){ var f=e.target.files[0]; if(!f) return; CC.crop(f,{aspect:2.42,out:880,title:"Crop cover image"},function(url){ B.cover.value=url; setCoverUI(); renderPreview(); }); e.target.value=""; });
+  $("#cover-rm").onclick=function(){ B.cover.value=""; setCoverUI(); renderPreview(); };
+  function setPhotoUI(){ var pv=$("#photo-pv"); pv.style.borderRadius=CC.shapeRadius[B.shape]||CC.shapeRadius.rounded; if(B.photo.value){ pv.innerHTML='<img src="'+B.photo.value+'" alt="">'; $("#photo-rm").hidden=false; } else { pv.innerHTML=""; pv.textContent=CC.initials(val("co-name")||"NW"); $("#photo-rm").hidden=true; } }
+  $("#photo-btn").onclick=function(){ $("#photo-input").click(); };
+  $("#photo-input").addEventListener("change",function(e){ var f=e.target.files[0]; if(!f) return; CC.crop(f,{aspect:1,out:512,round:B.shape==="circle",title:"Crop photo"},function(url){ B.photo.value=url; setPhotoUI(); renderPreview(); }); e.target.value=""; });
+  $("#photo-rm").onclick=function(){ B.photo.value=""; setPhotoUI(); renderPreview(); };
+
+  /* ---- designer rows (with scope) ---- */
+  function renderLinks(){
+    var w=$("#links");
+    w.innerHTML=B.fields.map(function(f,i){
+      var opts=TYPES.map(function(t){ return '<option value="'+t+'"'+(f.type===t?" selected":"")+'>'+esc(CC.fieldTypes[t].label)+'</option>'; }).join("");
+      return '<div class="link-item" data-i="'+i+'"><div class="top">'+
+        '<select data-k="type" aria-label="Link type">'+opts+'</select>'+
+        '<div class="scope-toggle"><button type="button" data-sc="company"'+(f.scope==="company"?' class="on"':'')+'>Company</button><button type="button" data-sc="employee"'+(f.scope==="employee"?' class="on"':'')+'>Employee</button></div>'+
+        '<button class="rm" type="button" data-rm="'+i+'" aria-label="Remove">'+TRASH+'</button></div>'+
+        (f.scope==="company"
+          ? '<input class="inp" data-k="value" placeholder="'+esc(CC.fieldTypes[f.type].ph)+'" value="'+esc(f.value)+'">'
+          : '<div class="emp-note">Each employee fills this in</div>')+
+        '</div>';
+    }).join("");
+    $$('#links .link-item').forEach(function(item){
+      var i=+item.dataset.i;
+      item.querySelector('select[data-k="type"]').onchange=function(){ B.fields[i].type=this.value; renderLinks(); renderPreview(); };
+      var v=item.querySelector('input[data-k="value"]'); if(v) v.oninput=function(){ B.fields[i].value=this.value; renderPreview(); };
+      item.querySelector('[data-rm]').onclick=function(){ B.fields.splice(i,1); renderLinks(); renderPreview(); };
+      item.querySelectorAll('.scope-toggle button').forEach(function(b){ b.onclick=function(){ B.fields[i].scope=b.dataset.sc; renderLinks(); renderPreview(); }; });
+    });
+  }
+  $("#btn-add").onclick=function(){ B.fields.push({type:"website",scope:"company",value:""}); renderLinks(); renderPreview(); };
+
+  /* ---- shared: per-employee field inputs (driven by the template's employee rows) ---- */
+  function empInputs(m){
+    var sc=empSpec(); if(!sc.length) return '<p class="hint" style="margin:8px 0 0">No per-employee fields — everything is company-wide.</p>';
+    return '<div class="grid2" style="gap:10px;margin-top:8px">'+sc.map(function(f){
+      return '<div class="field" style="margin:0"><label class="fl">'+esc(CC.fieldTypes[f.type].label)+'</label><input class="inp" data-empf="'+f.type+'" data-id="'+m.id+'" placeholder="'+esc(CC.fieldTypes[f.type].ph)+'" value="'+esc(getEmp(m,f.type))+'"></div>';
+    }).join("")+'</div>';
+  }
+
+  /* ============================================================ STEP 2 ============================================================ */
+  $$("#src-grid .src-card").forEach(function(b){ b.onclick=function(){ selectSource(b.dataset.src); }; });
+  function selectSource(src){
+    S.source=src;
+    $$("#src-grid .src-card").forEach(function(x){ x.classList.toggle("on", x.dataset.src===src); });
+    var p=$("#src-panel"); p.hidden=false;
+    if(src==="csv") panelCSV(p); else if(src==="manual") panelManual(p); else panelConnect(p, src);
+    updateFoot();
+  }
+  /* CSV */
+  function panelCSV(p){
+    p.innerHTML='<div class="dropzone" id="dz"><div class="dz-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg></div>'+
+      '<b>Drop your CSV here, or click to browse</b><span>Columns like Name, Title, Email, Phone, Department</span></div>'+
+      '<input type="file" id="csv-input" accept=".csv,text/csv" hidden>'+
+      '<div style="margin-top:12px;text-align:center"><button class="people-bar link" id="dl-sample" type="button" style="background:none">Download a sample CSV</button></div><div id="csv-map" style="margin-top:18px"></div>';
+    var dz=$("#dz",p), inp=$("#csv-input",p);
+    dz.onclick=function(){ inp.click(); };
+    dz.addEventListener("dragover",function(e){e.preventDefault();dz.classList.add("drag");});
+    dz.addEventListener("dragleave",function(){dz.classList.remove("drag");});
+    dz.addEventListener("drop",function(e){ e.preventDefault(); dz.classList.remove("drag"); if(e.dataTransfer.files[0]) readCSV(e.dataTransfer.files[0]); });
+    inp.onchange=function(){ if(inp.files[0]) readCSV(inp.files[0]); };
+    $("#dl-sample",p).onclick=function(){ var blob=new Blob([CC.sampleCSV()],{type:"text/csv"}); var u=URL.createObjectURL(blob),a=document.createElement("a"); a.href=u; a.download="companycard-sample.csv"; a.click(); setTimeout(function(){URL.revokeObjectURL(u);},1000); };
+  }
+  function readCSV(file){ var rd=new FileReader(); rd.onload=function(e){ var rows=CC.parseCSV(e.target.result); if(!rows.length){ toast("That file looks empty"); return; } S.csvRows=rows; renderMap(); }; rd.readAsText(file); }
+  function renderMap(){
+    var rows=S.csvRows, hdr=rows[0], map=CC.guessMap(hdr);
+    var opts=function(sel){ var o='<option value="-1">— skip —</option>'; hdr.forEach(function(h,i){ o+='<option value="'+i+'"'+(sel===i?" selected":"")+'>'+esc(h||("Column "+(i+1)))+'</option>'; }); return o; };
+    var fields=[["name","Full name"],["title","Job title"],["email","Email"],["phone","Phone"],["dept","Department"]];
+    var html='<div class="people"><div class="people-bar"><b>Match your columns</b><span class="grow"></span><span>'+(rows.length-1)+' rows</span></div><div style="padding:16px"><div class="map-list">';
+    fields.forEach(function(f){ html+='<div class="map-row"><label>'+f[1]+'</label><select data-f="'+f[0]+'">'+opts(map[f[0]])+'</select></div>'; });
+    html+='</div><label style="display:flex;align-items:center;gap:8px;margin-top:14px;font-size:.88rem;color:var(--slate-600)"><input type="checkbox" id="has-header" checked> First row is a header</label><button class="btn btn-primary" id="use-csv" type="button" style="margin-top:16px">Use these people</button></div></div>';
+    $("#csv-map").innerHTML=html;
+    $("#use-csv").onclick=function(){
+      var m={}; $$('#csv-map select').forEach(function(s){ m[s.dataset.f]=parseInt(s.value,10); });
+      if(m.name<0){ toast("Pick which column is the name"); return; }
+      var members=CC.rowsToMembers(S.csvRows, m, $("#has-header").checked);
+      if(!members.length){ toast("No people found"); return; }
+      S.pending=members; toast(members.length+" people ready"); updateFoot();
+    };
+  }
+  /* connect */
+  function panelConnect(p, src){
+    var label = src==="google" ? "Google Workspace" : "Microsoft 365";
+    p.innerHTML='<div class="people"><div class="people-bar"><b>'+label+'</b><span class="grow"></span></div><div style="padding:22px;text-align:center"><p style="color:var(--slate-500);margin-bottom:16px">Securely connect your directory to import everyone.</p><button class="btn btn-dark" id="connect-btn" type="button">Connect '+label+'</button></div></div><div id="dir-wrap" style="margin-top:16px"></div>';
+    $("#connect-btn",p).onclick=function(){
+      var dom=val("co-domain")||"northwind.com";
+      if(CC.apiBase()){ var btn=this; btn.disabled=true; btn.textContent="Connecting…";
+        CC.startAuth(src).then(function(){ return CC.fetchDirectory(src,dom); }).then(function(dir){ if(!dir.length){ toast("No users"); btn.disabled=false; btn.textContent="Connect "+label; return; } S.dir=dir; S.dir.forEach(function(m){m.pick=true;}); renderDir(label,dom); toast("Connected — "+dir.length+" users"); }).catch(function(err){ toast(err.message||"Connection failed"); btn.disabled=false; btn.textContent="Connect "+label; });
+      } else { openConnect(src); }
+    };
+  }
+  function openConnect(src){
+    var g=$("#connect-glyph"), dom=val("co-domain")||"northwind.com";
+    if(src==="google"){ g.innerHTML='<svg viewBox="0 0 48 48" width="22" height="22"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.8 13.6-4.9l-6.3-5.2C29.1 35.5 26.7 36 24 36c-5.3 0-9.7-3.1-11.3-7.4l-6.5 5C9.6 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.3 5.2C41.5 36.7 44 31.7 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>'; $("#connect-title").textContent="Sign in with Google"; }
+    else { g.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="2" width="9.2" height="9.2" fill="#F25022"/><rect x="12.8" y="2" width="9.2" height="9.2" fill="#7FBA00"/><rect x="2" y="12.8" width="9.2" height="9.2" fill="#00A4EF"/><rect x="12.8" y="12.8" width="9.2" height="9.2" fill="#FFB900"/></svg>'; $("#connect-title").textContent="Sign in with Microsoft"; }
+    $("#connect-sub").textContent="Authorise CompanyCard for "+dom; $("#acct-name").textContent="admin@"+dom; $("#acct-a").textContent=(dom[0]||"A").toUpperCase();
+    var m=$("#connect-modal"); m.hidden=false;
+    $("#connect-allow").onclick=function(){ m.hidden=true; S.dir=CC.sampleDirectory(src,dom); S.dir.forEach(function(x){x.pick=true;}); renderDir(src==="google"?"Google Workspace":"Microsoft 365",dom); toast("Connected"); };
+  }
+  $("#connect-cancel").onclick=function(){ $("#connect-modal").hidden=true; };
+  $("#connect-modal").addEventListener("click",function(e){ if(e.target===this) this.hidden=true; });
+  function depts(){ var d={}; S.dir.forEach(function(m){ d[m.dept]=1; }); return Object.keys(d); }
+  function renderDir(label,dom){
+    var deptOpts='<option value="">All departments</option>'+depts().map(function(d){return '<option>'+esc(d)+'</option>';}).join("");
+    $("#dir-wrap").innerHTML='<div class="people"><div class="people-bar"><b>admin@'+esc(dom)+'</b> <span class="grow"></span><select id="dept-filter" style="padding:6px 10px;border:1px solid var(--slate-200);border-radius:9px;font-family:inherit;font-size:.84rem">'+deptOpts+'</select><button class="link" id="sel-all" type="button">All</button><button class="link" id="sel-none" type="button">None</button></div><div class="people-scroll" id="dir-rows"></div><div class="people-bar" style="border-top:1px solid var(--slate-100);border-bottom:none"><b id="dir-count"></b></div></div>';
+    drawDir(""); $("#dept-filter").onchange=function(){ drawDir(this.value); };
+    $("#sel-all").onclick=function(){ S.dir.forEach(function(m){m.pick=true;}); drawDir($("#dept-filter").value); };
+    $("#sel-none").onclick=function(){ S.dir.forEach(function(m){m.pick=false;}); drawDir($("#dept-filter").value); };
+  }
+  function drawDir(filter){
+    var rows=S.dir.filter(function(m){ return !filter || m.dept===filter; });
+    $("#dir-rows").innerHTML=rows.map(function(m){ return '<div class="p-row"><div class="cbx'+(m.pick?" on":"")+'" data-id="'+m.id+'">'+CHK+'</div><div class="av">'+esc(CC.initials(m.name))+'</div><div class="tx"><b>'+esc(m.name)+'</b><span>'+esc(m.title)+' · '+esc(m.email)+'</span></div><span class="dept">'+esc(m.dept)+'</span></div>'; }).join("");
+    $$("#dir-rows .cbx").forEach(function(c){ c.onclick=function(){ var m=S.dir.filter(function(x){return x.id===c.dataset.id;})[0]; m.pick=!m.pick; c.classList.toggle("on",m.pick); syncDir(); }; });
+    syncDir();
+  }
+  function syncDir(){ S.pending=S.dir.filter(function(m){return m.pick;}); var c=$("#dir-count"); if(c) c.textContent=S.pending.length+" selected"; updateFoot(); }
+  /* manual — full per-employee fields */
+  function blankPerson(){ return {id:CC.uid(), name:"", title:"", email:"", phone:"", dept:"", links:[], photo:""}; }
+  function panelManual(p){
+    if(!S.manual.length) S.manual=[blankPerson()];
+    p.innerHTML='<div class="people"><div class="people-bar"><b>Add people</b><span class="grow"></span><button class="link" id="add-row" type="button">+ Add another</button></div><div id="man-rows" style="padding:6px 14px 14px"></div></div>';
+    drawManual(); $("#add-row").onclick=function(){ S.manual.push(blankPerson()); drawManual(); };
+  }
+  function drawManual(){
+    var w=$("#man-rows");
+    w.innerHTML=S.manual.map(function(m){
+      return '<div class="man-card" data-id="'+m.id+'" style="border:1px solid var(--slate-200);border-radius:14px;padding:12px;margin-top:10px;background:#fff">'+
+        '<div class="grid2" style="gap:8px"><input class="inp" data-field="name" data-id="'+m.id+'" placeholder="Full name" value="'+esc(m.name)+'"><input class="inp" data-field="title" data-id="'+m.id+'" placeholder="Job title" value="'+esc(m.title)+'"></div>'+
+        empInputs(m)+
+        '<div style="text-align:right;margin-top:8px"><button class="link" data-rm="'+m.id+'" type="button" style="color:#e11d48">Remove</button></div></div>';
+    }).join("");
+    w.oninput=function(e){ var f=e.target.closest("[data-field]"), ef=e.target.closest("[data-empf]"); if(f){ var m=findMember(f.dataset.id); if(m) m[f.dataset.field]=f.value; syncManual(); } else if(ef){ var m2=findMember(ef.dataset.id); if(m2) setEmp(m2, ef.dataset.empf, ef.value); } };
+    w.onclick=function(e){ var rm=e.target.closest("[data-rm]"); if(rm){ S.manual=S.manual.filter(function(x){return x.id!==rm.dataset.rm;}); if(!S.manual.length) S.manual=[blankPerson()]; drawManual(); } };
+    syncManual();
+  }
+  function syncManual(){ S.pending=S.manual.filter(function(m){return (m.name||"").trim();}).map(function(m){ m.pick=true; return m; }); updateFoot(); }
+
+  /* ============================================================ STEP 3 — employee details ============================================================ */
+  function seed(){ var sc=empSpec(); everyone().forEach(function(m){ if(m.pick===undefined)m.pick=true; if(!m.links)m.links=[]; sc.forEach(function(f){ if(f.type!=="email"&&f.type!=="phone"&&!m.links.some(function(l){return l.type===f.type;})) m.links.push({type:f.type,value:""}); }); }); }
+  function reviewItem(m){
+    var sub=[m.title,m.email].filter(Boolean).map(esc).join(" · ")||"Add details →";
+    var sc=empSpec();
+    var photoBlock = B.photo.scope==="employee" ? '<div class="field" style="margin-top:12px"><label class="fl">Photo</label><div class="photo"><div class="pv" style="border-radius:'+(CC.shapeRadius[B.shape]||"16px")+'">'+(m.photo?'<img src="'+m.photo+'" alt="">':esc(CC.initials(m.name)))+'</div><button class="btn btn-ghost" type="button" data-photo="'+m.id+'">Upload</button>'+(m.photo?'<button class="btn btn-ghost" type="button" data-photorm="'+m.id+'">Remove</button>':'')+'</div></div>' : '';
+    return '<div class="p-item" data-pid="'+m.id+'"><div class="p-row">'+
+      '<div class="cbx'+(m.pick?" on":"")+'" data-id="'+m.id+'">'+CHK+'</div>'+
+      '<div class="av">'+esc(CC.initials(m.name))+'</div>'+
+      '<div class="tx"><b data-name="'+m.id+'">'+esc(m.name||"Unnamed")+(m.id==="me"?' <span style="font-weight:600;color:var(--indigo-600);font-size:.78rem">· you</span>':'')+'</b><span>'+sub+'</span></div>'+
+      (m.dept?'<span class="dept">'+esc(m.dept)+'</span>':"")+
+      '<button class="p-edit" type="button" data-edit="'+m.id+'" aria-label="Edit details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>'+
+      '<button class="rm" type="button" data-rm="'+m.id+'" aria-label="Remove">'+XMARK+'</button></div>'+
+      '<div class="p-detail" hidden>'+
+        '<div class="grid2">'+efield(m,"name","Full name")+efield(m,"title","Job title")+'</div>'+
+        (sc.length?'<div style="margin-top:10px"><label class="fl" style="font-size:.76rem">Per-employee details</label>'+empInputs(m)+'</div>':'')+
+        photoBlock+
+      '</div></div>';
+  }
+  function efield(m,k,label){ return '<div class="field" style="margin:0"><label class="fl">'+label+'</label><input class="inp" data-field="'+k+'" data-id="'+m.id+'" value="'+esc(m[k]||"")+'"></div>'; }
+  function renderReview(){
+    seed();
+    var sc=empSpec(); var bits=[]; if(B.photo.scope==="employee") bits.push("photo"); sc.forEach(function(f){ bits.push(CC.fieldTypes[f.type].label); });
+    $("#emp-hint").innerHTML = bits.length ? ('Each person needs: <b>'+bits.join(", ")+'</b>. Expand anyone to fill them in. Company items are already locked on.') : 'Everything is company-wide — just confirm who’s included.';
+    $("#review").innerHTML='<div class="people"><div class="people-bar"><b id="rv-count"></b><span class="grow"></span><span class="lock-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Company items auto-added</span></div><div class="people-scroll" id="rv-rows"></div></div>';
+    drawReview();
+  }
+  function reopen(id){ var it=document.querySelector('.p-item[data-pid="'+id+'"]'); if(it){ it.classList.add("open"); var d=it.querySelector(".p-detail"); if(d) d.hidden=false; } }
+  function drawReview(){
+    var rows=$("#rv-rows"); if(!rows) return;
+    rows.innerHTML=everyone().map(reviewItem).join("");
+    rows.onclick=function(e){
+      var cb=e.target.closest(".cbx"), ed=e.target.closest("[data-edit]"), rm=e.target.closest("[data-rm]"), ph=e.target.closest("[data-photo]"), phrm=e.target.closest("[data-photorm]");
+      if(cb){ var m=findMember(cb.dataset.id); m.pick=!m.pick; cb.classList.toggle("on",m.pick); reviewCount(); }
+      else if(ed){ var it=ed.closest(".p-item"); it.classList.toggle("open"); var d=it.querySelector(".p-detail"); d.hidden=!d.hidden; }
+      else if(rm){ var id=rm.dataset.rm; if(id==="me"){ S.me.skip=true; } else { S.pending=S.pending.filter(function(x){return x.id!==id;}); S.manual=S.manual.filter(function(x){return x.id!==id;}); } drawReview(); reviewCount(); }
+      else if(ph){ var mp=findMember(ph.dataset.photo); var inp=document.createElement("input"); inp.type="file"; inp.accept="image/*"; inp.onchange=function(){ if(inp.files[0]) CC.crop(inp.files[0],{aspect:1,out:512,round:B.shape==="circle",title:"Crop photo"},function(url){ mp.photo=url; drawReview(); reopen(mp.id); }); }; inp.click(); }
+      else if(phrm){ var mr=findMember(phrm.dataset.photorm); mr.photo=""; drawReview(); reopen(mr.id); }
+    };
+    rows.oninput=function(e){
+      var f=e.target.closest("[data-field]"), ef=e.target.closest("[data-empf]");
+      if(f){ var m=findMember(f.dataset.id); m[f.dataset.field]=f.value; if(f.dataset.field==="name"){ var b=document.querySelector('b[data-name="'+m.id+'"]'); if(b) b.innerHTML=esc(m.name||"Unnamed")+(m.id==="me"?' <span style="font-weight:600;color:var(--indigo-600);font-size:.78rem">· you</span>':''); } }
+      else if(ef){ setEmp(findMember(ef.dataset.id), ef.dataset.empf, ef.value); }
+    };
+    reviewCount();
+  }
+  function reviewCount(){ var all=everyone(); var n=all.filter(function(m){return m.pick;}).length; var c=$("#rv-count"); if(c) c.textContent=n+" of "+all.length+" people"; updateFoot(); }
+
+  /* ============================================================ STEP 4 ============================================================ */
+  function renderFinish(){
+    var picked=everyone().filter(function(m){return m.pick;});
+    var srcLabel={csv:"CSV import",google:"Google Workspace",microsoft:"Microsoft 365",manual:"Added manually"}[S.source]||"Just you";
+    $("#summary").innerHTML=
+      '<div class="sum"><div class="k">'+picked.length+'</div><div class="l">People to provision</div></div>'+
+      '<div class="sum"><div class="k"><span class="dotc" style="background:'+CC.themes[B.theme].solid+'"></span>'+esc(val("co-name")||"Your Company")+'</div><div class="l">Locked brand · '+B.tpl+'</div></div>'+
+      '<div class="sum"><div class="k" style="font-size:1.05rem">'+srcLabel+'</div><div class="l">Source</div></div>';
+    $$("#invite-seg button").forEach(function(b){ b.classList.toggle("on", b.dataset.inv===S.invite); b.onclick=function(){ S.invite=b.dataset.inv; $$("#invite-seg button").forEach(function(x){x.classList.toggle("on",x===b);}); $("#inv-hint").textContent = S.invite==="email" ? "Each person gets an email to claim and personalise their card." : "Cards are created and active immediately under your brand."; }; });
+  }
+  $("#provision-btn").onclick=function(){
+    var picked=everyone().filter(function(m){return m.pick;});
+    if(!picked.length){ toast("No people selected"); return; }
+    var t=CC.team(); t.company=brandCompany(); t.source=S.source||"manual";
+    var st=S.invite==="now"?"active":"invited";
+    CC.provision(t, picked, st);
+    if (CC.apiBase()) CC.provisionRemote(t.company, picked, st);
+    var card=$("#finish-card");
+    card.innerHTML='<div class="prov"><div class="dz-ic" style="margin:0 auto 6px;width:54px;height:54px;background:var(--violet-50)"><svg viewBox="0 0 24 24" width="26" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.6"/></svg></div><h2>Provisioning '+picked.length+' cards…</h2><div class="bar"><i id="pbar"></i></div></div>';
+    var pct=0, bar=$("#pbar");
+    var iv=setInterval(function(){ pct+=Math.random()*26+12; if(pct>=100){ pct=100; clearInterval(iv); setTimeout(showDone,420); } bar.style.width=pct+"%"; }, 230);
+    function showDone(){
+      S.done=true;
+      card.innerHTML='<div class="done-hero"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h2>Your team is set up.</h2><p class="hint" style="margin-bottom:0">'+picked.length+' branded cards created for <b>'+esc(val("co-name")||"your company")+'</b>'+(S.invite==="email"?" · invites are on their way.":" · all active now.")+'</p><div class="hero-actions" style="justify-content:center;margin-top:22px"><a class="btn btn-primary btn-lg" href="team.html">Open team dashboard</a><button class="btn btn-ghost btn-lg" id="add-more" type="button">Add more people</button></div></div>';
+      $("#foot").style.display="none";
+      $("#add-more").onclick=function(){ S.pending=[];S.dir=[];S.manual=[];S.source="";S.me.skip=true; $("#src-panel").hidden=true; $$("#src-grid .src-card").forEach(function(x){x.classList.remove("on");}); card.innerHTML=finishTemplate; $("#foot").style.display="flex"; go(2); };
+    }
+  };
+  var finishTemplate=$("#finish-card").innerHTML;
+
+  /* ============================================================ navigation ============================================================ */
+  function paneEls(){ return $$('section[data-pane]'); }
+  function canAdvance(){
+    if(S.step===1) return !!val("co-name");
+    if(S.step===2) return everyone().filter(function(m){return m.pick!==false;}).length>0;
+    if(S.step===3) return everyone().filter(function(m){return m.pick;}).length>0;
+    return true;
+  }
+  function updateFoot(){
+    var n=$("#next"); var ok=canAdvance(); n.disabled=!ok; n.style.opacity=ok?"1":".5"; n.style.pointerEvents=ok?"auto":"none";
+    var c=everyone().filter(function(m){return m.pick!==false;}).length;
+    $("#foot-note").textContent = (S.step===2||S.step===3) && c ? (c+" people") : "";
+    n.textContent = S.step===3 ? "Review & invite" : "Continue";
+    n.style.display = S.step===4 ? "none":"inline-flex";
+    $("#back").style.visibility = S.step===1 ? "hidden":"visible";
+  }
+  function go(step){
+    S.step=step;
+    paneEls().forEach(function(p){ p.hidden = (+p.dataset.pane)!==step; });
+    $$("#stepper .st").forEach(function(st){ var s=+st.dataset.s; st.classList.toggle("on",s===step); st.classList.toggle("done",s<step); });
+    if(step===1) renderPreview();
+    if(step===3) renderReview();
+    if(step===4) renderFinish();
+    updateFoot();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  $("#next").onclick=function(){ if(!canAdvance()) return; if(S.step<4) go(S.step+1); };
+  $("#back").onclick=function(){ if(S.done) return; if(S.step>1) go(S.step-1); };
+
+  /* init */
+  setScope("cover"); setScope("photo"); setCoverUI(); setPhotoUI(); renderLinks(); renderPreview(); go(1);
+})();
+</script>
+</body>
+</html>

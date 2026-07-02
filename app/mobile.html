@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<title>CompanyCard</title>
+<meta name="description" content="Your digital business card and contact manager. One tap. Every connection.">
+<meta name="theme-color" content="#6366F1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="CompanyCard">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="../assets/png/favicon-180.png">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="screen" id="view"></div>
+  <nav class="tabbar" id="tabbar"></nav>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("any");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  "use strict";
+  var view = document.getElementById("view"), tabbarEl = document.getElementById("tabbar");
+  var esc = CC.esc;
+  function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 2300); }
+  function go(p) { location.hash = p; }
+  function prefs() { try { return JSON.parse(localStorage.getItem("cc_mprefs")) || {}; } catch (e) { return {}; } }
+  function setPref(k, v) { var p = prefs(); p[k] = v; localStorage.setItem("cc_mprefs", JSON.stringify(p)); }
+
+  /* ---------- icons ---------- */
+  var I = {
+    cards: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h5"/></svg>',
+    scan: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M4 12h16"/></svg>',
+    contacts: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.6 19a5.4 5.4 0 0 1 10.8 0"/><path d="M16.5 7.2a3 3 0 0 1 0 5.6M19.6 19a5.2 5.2 0 0 0-3-4.7"/></svg>',
+    settings: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-2.87 1.2V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 7.1 19.2l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15H4.5a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 5.8 8.1l-.06-.06A2 2 0 1 1 8.57 5.2l.06.06A1.7 1.7 0 0 0 10.5 5.6h.05A1.7 1.7 0 0 0 11.6 4V3.9a2 2 0 1 1 4 0V4a1.7 1.7 0 0 0 2.87 1.2l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 11h.1a2 2 0 1 1 0 4z"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 16V3M8 7l4-4 4 4"/></svg>',
+    qr: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M14 21h3M21 17v4"/></svg>',
+    edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+    wallet: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M16 14h2"/></svg>',
+    stats: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+    call: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+    globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg>',
+    save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>',
+    plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+    chev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>',
+    msg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.9-.9L3 20l1.1-3.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>',
+    wa: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.3 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.9 1.2.2.1.4 0 .5-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.2.5.3.1.3.1.7-.1 1.3Z"/></svg>',
+    vbg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>',
+    trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>',
+    copy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+    open: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>',
+    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+    bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+    sign: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c3 0 3-9 6-9s3 9 6 9M15 17h6"/></svg>',
+    watch: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6l.5-3h5l.5 3M9 18l.5 3h5l.5-3"/></svg>',
+    widget: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>',
+    help: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>',
+    out: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>',
+    grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>'
+  };
+
+  function initials(s) { return CC.initials(s); }
+  function avatarHTML(photo, name, cls) { return '<div class="avatar ' + (cls || "") + '">' + (photo ? '<img src="' + photo + '" alt="">' : esc(initials(name))) + '</div>'; }
+
+  /* ---------- tab bar ---------- */
+  var TABS = [["/cards", "Cards", I.cards], ["/scan", "Scan", I.scan], ["/contacts", "Contacts", I.contacts], ["/settings", "Settings", I.settings]];
+  function renderTabs(activePath) {
+    tabbarEl.innerHTML = TABS.map(function (t) {
+      var on = activePath === t[0] || (t[0] === "/cards" && (activePath === "/" || activePath.indexOf("/share") === 0)) ||
+        (t[0] === "/contacts" && activePath.indexOf("/contact") === 0);
+      return '<button class="tab' + (on ? " on" : "") + '" data-go="' + t[0] + '">' + t[2] + "<span>" + t[1] + "</span></button>";
+    }).join("");
+  }
+  tabbarEl.addEventListener("click", function (e) { var b = e.target.closest("[data-go]"); if (b) go(b.getAttribute("data-go")); });
+
+  /* ---------- camera ---------- */
+  var stream = null;
+  function stopCamera() { if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; } }
+  function startCamera(videoEl, onFail) {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { onFail(); return; }
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false })
+      .then(function (s) { stream = s; videoEl.srcObject = s; videoEl.play().catch(function () {}); })
+      .catch(function () { onFail(); });
+  }
+
+  /* ---------- new-card gate (free = 1 card) ---------- */
+  function newCard() {
+    if (!CC.isPro() && CC.all().length >= CC.FREE_CARD_LIMIT) { location.href = "checkout.html?feat=multiCard&return=" + encodeURIComponent("mobile.html#/settings"); return; }
+    location.href = "builder.html";
+  }
+
+  /* ============================================================ SCREENS ============================================================ */
+
+  /* ---- My Cards ---- */
+  var activeCardId = null;
+  function screenCards() {
+    var cards = CC.all();
+    if (!cards.length) {
+      view.innerHTML =
+        '<div class="topbar"><h1>My Cards</h1></div>' +
+        '<div class="empty"><div class="em-ic">' + I.cards + '</div><h2>Create your card</h2>' +
+        '<p>Your digital business card — share it with a tap, no app needed on the other side.</p>' +
+        '<button class="btn btn-primary btn-lg" id="mk">' + I.plus + ' Create your free card</button></div>';
+      view.querySelector("#mk").addEventListener("click", newCard);
+      return;
+    }
+    var active = cards.filter(function (c) { return c.id === activeCardId; })[0] || cards[0];
+    activeCardId = active.id;
+    var switcher = cards.length > 1 ? '<div class="card-switch">' + cards.map(function (c) {
+      return '<button class="cs' + (c.id === active.id ? " on" : "") + '" data-card="' + c.id + '"><span class="dotc" style="background:' + CC.themeOf(c).solid + '"></span>' + esc(c.name || "Untitled") + "</button>";
+    }).join("") + '<button class="cs add" id="cs-add">' + I.plus + ' New</button></div>' : "";
+    view.innerHTML =
+      '<div class="topbar"><h1>My Cards</h1><span class="sp"></span><button class="ic-btn" id="add-card" aria-label="New card">' + I.plus + '</button></div>' +
+      switcher +
+      '<div class="card-surface" id="surface">' + CC.renderCard(active) + '</div>' +
+      '<div class="hero-actions">' +
+        '<button class="ha primary" data-act="share"><span class="ic">' + I.share + '</span>Share</button>' +
+        '<button class="ha" data-act="edit"><span class="ic">' + I.edit + '</span>Edit</button>' +
+        '<button class="ha" data-act="wallet"><span class="ic">' + I.wallet + '</span>Wallet</button>' +
+        '<button class="ha" data-act="stats"><span class="ic">' + I.stats + '</span>Stats</button>' +
+      '</div>' +
+      installHintHTML();
+    var surface = view.querySelector("#surface");
+    if (active.showQR) CC.fillQR(surface, active);
+    surface.addEventListener("click", function (e) { if (e.target.closest("[data-save]")) { e.preventDefault(); CC.downloadVcard(active); toast("Contact saved"); } });
+    view.querySelectorAll("[data-card]").forEach(function (b) { b.addEventListener("click", function () { activeCardId = b.getAttribute("data-card"); screenCards(); }); });
+    var add1 = view.querySelector("#add-card"), add2 = view.querySelector("#cs-add");
+    if (add1) add1.addEventListener("click", newCard); if (add2) add2.addEventListener("click", newCard);
+    view.querySelectorAll(".hero-actions [data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "share") go("/share/" + active.id);
+        else if (a === "edit") location.href = "builder.html?id=" + active.id;
+        else if (a === "wallet") toast("Added to Apple Wallet (demo)");
+        else if (a === "stats") { CC.isPro() ? toast("Views 128 · Saves 34 · Taps 71") : toast("Card analytics is a Pro feature"); }
+      });
+    });
+    wireInstallHint();
+  }
+
+  /* ---- Share ---- */
+  function screenShare(id) {
+    var card = CC.get(id); if (!card) { go("/cards"); return; }
+    var url = CC.shareUrl(card);
+    view.innerHTML =
+      '<div class="topbar"><button class="ic-btn back" data-back aria-label="Back">' + I.back + '</button><h1>Share</h1></div>' +
+      '<div class="share-screen">' +
+        '<div class="qr-wrap" id="qrw"></div>' +
+        '<div class="who"><b>' + esc(card.name || "Your card") + '</b><span>' + esc([card.title, card.company].filter(Boolean).join(" · ")) + '</span></div>' +
+        '<div class="share-grid">' +
+          '<button class="sg" data-s="msg"><span class="ic">' + I.msg + '</span>Message</button>' +
+          '<button class="sg" data-s="mail"><span class="ic">' + I.mail + '</span>Email</button>' +
+          '<button class="sg" data-s="wa"><span class="ic">' + I.wa + '</span>WhatsApp</button>' +
+          '<button class="sg" data-s="wallet"><span class="ic">' + I.wallet + '</span>Wallet</button>' +
+          '<button class="sg" data-s="vbg"><span class="ic">' + I.vbg + '</span>Video BG</button>' +
+          '<button class="sg" data-s="open"><span class="ic">' + I.open + '</span>Open card</button>' +
+        '</div>' +
+        '<div class="copy-link"><input id="su" readonly value="' + esc(url) + '"><button class="btn btn-primary" id="cp">Copy</button></div>' +
+      '</div>';
+    var col = card.brandedQR && CC.isPro() ? CC.themeOf(card).solid : "#0B0A1F";
+    if (!CC.qr(view.querySelector("#qrw"), url, 224, col)) CC.qr(view.querySelector("#qrw"), CC.shareUrl(card, true), 224, col);
+    view.querySelector("#cp").addEventListener("click", function () {
+      var i = view.querySelector("#su"); i.select();
+      if (navigator.clipboard) navigator.clipboard.writeText(i.value).then(function () { toast("Link copied"); }, function () { toast("Link copied"); });
+      else { document.execCommand("copy"); toast("Link copied"); }
+    });
+    view.querySelectorAll("[data-s]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var s = b.getAttribute("data-s"), txt = "Here's my CompanyCard: " + url;
+        if (s === "msg") location.href = "sms:?&body=" + encodeURIComponent(txt);
+        else if (s === "mail") location.href = "mailto:?subject=" + encodeURIComponent((card.name || "") + " — CompanyCard") + "&body=" + encodeURIComponent(txt);
+        else if (s === "wa") window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
+        else if (s === "wallet") toast("Added to Apple Wallet (demo)");
+        else if (s === "vbg") toast("Virtual background saved — set it in Zoom, Meet or Teams (demo)");
+        else if (s === "open") window.open(url, "_blank");
+      });
+    });
+  }
+
+  /* ---- Scanner ---- */
+  var SCAN_POOL = [
+    { name: "Maya Feldman", title: "Product Lead", company: "Tavor Labs", email: "maya@tavorlabs.com", phone: "+1 555 0182" },
+    { name: "Daniel Roth", title: "Founder & CEO", company: "Brightside", email: "daniel@brightside.io", phone: "+1 555 0177" },
+    { name: "Sara Lindqvist", title: "Head of Growth", company: "Northpeak", email: "sara@northpeak.co", phone: "+1 555 0164" },
+    { name: "Omar Haddad", title: "CTO", company: "Cinder", email: "omar@cinder.dev", phone: "+1 555 0190" }
+  ];
+  var scanMode = "card";
+  function screenScan() {
+    view.innerHTML =
+      '<div class="scanner">' +
+        '<div class="topbar on-dark"><h1>Scan</h1></div>' +
+        '<div class="scan-stage" id="stage">' +
+          '<video id="cam" playsinline muted></video>' +
+          '<div class="scan-fallback" id="fb" hidden><div class="em-ic">' + I.scan + '</div><b style="color:#fff">Camera preview</b><div style="margin-top:6px">Live camera needs the app served over HTTPS or installed.<br>Tap the shutter to simulate a scan.</div></div>' +
+          '<div class="reticle"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span></div>' +
+          '<div class="scan-hint">Point at a business card, badge or QR code</div>' +
+        '</div>' +
+        '<div class="scan-mode" id="modes">' +
+          '<button class="sm' + (scanMode === "card" ? " on" : "") + '" data-m="card">Card</button>' +
+          '<button class="sm' + (scanMode === "qr" ? " on" : "") + '" data-m="qr">QR</button>' +
+          '<button class="sm' + (scanMode === "badge" ? " on" : "") + '" data-m="badge">Badge</button>' +
+        '</div>' +
+        '<div class="scan-bar"><button class="btn btn-ghost" id="manual" style="color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08)">Enter manually</button><button class="shutter" id="shot" aria-label="Capture"></button><span style="width:96px"></span></div>' +
+      '</div>';
+    var vid = view.querySelector("#cam"), fb = view.querySelector("#fb");
+    startCamera(vid, function () { vid.style.display = "none"; fb.hidden = false; });
+    view.querySelectorAll("#modes .sm").forEach(function (b) { b.addEventListener("click", function () { scanMode = b.getAttribute("data-m"); view.querySelectorAll("#modes .sm").forEach(function (x) { x.classList.remove("on"); }); b.classList.add("on"); }); });
+    view.querySelector("#manual").addEventListener("click", function () { stopCamera(); go("/contact/new"); });
+    view.querySelector("#shot").addEventListener("click", function () {
+      var p = SCAN_POOL[Math.floor(Math.random() * SCAN_POOL.length)];
+      var c = CC.blankContact(); c.name = p.name; c.title = p.title; c.company = p.company; c.email = p.email; c.phone = p.phone; c.source = scanMode === "qr" ? "qr" : "scan"; c.tags = ["New"];
+      sessionStorage.setItem("cc_scan", JSON.stringify(c));
+      stopCamera(); toast("Scanned — review the details"); go("/contact/new");
+    });
+  }
+
+  /* ---- Contacts ---- */
+  function screenContacts() {
+    CC.seedContacts();
+    var all = CC.contacts(), q = (prefs().csearch || "");
+    function rows(list) {
+      if (!list.length) return '<div class="empty" style="padding:48px 28px"><div class="em-ic">' + I.contacts + '</div><h2>No contacts yet</h2><p>Scan a card or add one manually — they\'ll show up here.</p></div>';
+      return '<div class="list">' + list.map(function (c) {
+        var sub = [c.title, c.company].filter(Boolean).join(" · ");
+        var tags = (c.tags || []).slice(0, 2).map(function (t) { return '<span class="chip">' + esc(t) + "</span>"; }).join("");
+        return '<button class="row" data-id="' + c.id + '">' + avatarHTML(null, c.name) +
+          '<div class="tx"><b>' + esc(c.name || "Unknown") + "</b><span>" + esc(sub) + "</span>" + (tags ? '<div class="tags">' + tags + "</div>" : "") + "</div>" +
+          '<div class="meta">' + esc(CC.ago(c.met)) + "</div></button>";
+      }).join("") + "</div>";
+    }
+    function apply(list) {
+      var s = q.trim().toLowerCase(); if (!s) return list;
+      return list.filter(function (c) { return (c.name + " " + c.company + " " + c.title + " " + (c.tags || []).join(" ")).toLowerCase().indexOf(s) >= 0; });
+    }
+    view.innerHTML =
+      '<div class="topbar"><h1>Contacts</h1><span class="sp"></span><span style="color:var(--slate-400);font-size:.85rem;font-weight:600">' + all.length + '</span></div>' +
+      '<div class="search">' + I.search + '<input id="cq" placeholder="Search name, company, tag" value="' + esc(q) + '"></div>' +
+      '<div id="clist">' + rows(apply(all)) + "</div>" +
+      '<button class="fab" id="cadd" aria-label="Add contact">' + I.plus + "</button>";
+    var listEl = view.querySelector("#clist");
+    function bind() { listEl.querySelectorAll("[data-id]").forEach(function (b) { b.addEventListener("click", function () { go("/contact/" + b.getAttribute("data-id")); }); }); }
+    bind();
+    view.querySelector("#cq").addEventListener("input", function () { q = this.value; setPref("csearch", q); listEl.innerHTML = rows(apply(CC.contacts())); bind(); });
+    view.querySelector("#cadd").addEventListener("click", function () { go("/contact/new"); });
+  }
+
+  /* ---- Contact detail ---- */
+  function screenContactDetail(id) {
+    var c = CC.getContact(id); if (!c) { go("/contacts"); return; }
+    var sub = [c.title, c.company].filter(Boolean).join(" · ");
+    function field(k, v, attr) { return v ? '<div class="fc-row"><span class="k">' + k + '</span>' + (attr ? '<a class="v" href="' + attr + '">' + esc(v) + "</a>" : '<span class="v">' + esc(v) + "</span>") + "</div>" : ""; }
+    view.innerHTML =
+      '<div class="cd-head"><div class="topbar on-dark" style="padding-left:0;padding-right:0;margin-bottom:6px"><button class="ic-btn back" data-back>' + I.back + '</button><span class="sp"></span><button class="ic-btn" id="cedit">' + I.edit + '</button></div>' +
+        avatarHTML(null, c.name) + '<h2>' + esc(c.name || "Unknown") + '</h2><div class="sub">' + esc(sub) + '</div>' +
+        '<div class="met">' + I.scan.replace("currentColor", "rgba(255,255,255,.6)") + ' Met ' + esc(CC.ago(c.met)) + ' · ' + esc(c.source || "manual") + '</div>' +
+      '</div>' +
+      '<div class="qa">' +
+        '<button class="q" data-q="call"' + (c.phone ? "" : " disabled") + '><span class="ic">' + I.call + '</span>Call</button>' +
+        '<button class="q" data-q="mail"' + (c.email ? "" : " disabled") + '><span class="ic">' + I.mail + '</span>Email</button>' +
+        '<button class="q" data-q="save"><span class="ic">' + I.save + '</span>Save</button>' +
+        '<button class="q" data-q="web"' + (c.website ? "" : " disabled") + '><span class="ic">' + I.globe + '</span>Site</button>' +
+      '</div>' +
+      (c.phone || c.email || c.website ? '<div class="field-card">' + field("Phone", c.phone, c.phone ? "tel:" + c.phone.replace(/[^\d+]/g, "") : "") + field("Email", c.email, c.email ? "mailto:" + c.email : "") + field("Website", c.website, c.website ? CC.href({ type: "website", value: c.website }) : "") + "</div>" : "") +
+      '<div class="section-h">Tags</div><div class="field-card"><div class="tag-edit" id="tags"></div></div>' +
+      '<div class="section-h">Notes</div><div class="field-card"><textarea class="note-area" id="note" placeholder="Add a note about this connection…">' + esc(c.note || "") + '</textarea></div>' +
+      '<div class="stack-btns"><button class="btn btn-ghost" id="del" style="color:#e11d48">' + I.trash + ' Delete contact</button></div>';
+    view.querySelector("#cedit").addEventListener("click", function () { go("/contact/" + id + "/edit"); });
+    view.querySelectorAll("[data-q]").forEach(function (b) {
+      if (b.disabled) return;
+      b.addEventListener("click", function () {
+        var q = b.getAttribute("data-q");
+        if (q === "call") location.href = "tel:" + c.phone.replace(/[^\d+]/g, "");
+        else if (q === "mail") location.href = "mailto:" + c.email;
+        else if (q === "web") window.open(CC.href({ type: "website", value: c.website }), "_blank");
+        else if (q === "save") { CC.downloadContact(c); toast("Saved to your contacts"); }
+      });
+    });
+    /* tags */
+    var tagsEl = view.querySelector("#tags");
+    function drawTags() {
+      tagsEl.innerHTML = (c.tags || []).map(function (t, i) { return '<span class="chip">' + esc(t) + '<span class="x" data-rm="' + i + '">✕</span></span>'; }).join("") + '<button class="add-tag" id="addtag">+ Tag</button>';
+      tagsEl.querySelectorAll("[data-rm]").forEach(function (x) { x.addEventListener("click", function () { c.tags.splice(+x.getAttribute("data-rm"), 1); CC.saveContact(c); drawTags(); }); });
+      tagsEl.querySelector("#addtag").addEventListener("click", function () { var t = prompt("Add a tag"); if (t && t.trim()) { c.tags = c.tags || []; c.tags.push(t.trim()); CC.saveContact(c); drawTags(); } });
+    }
+    drawTags();
+    var note = view.querySelector("#note"); var nt;
+    note.addEventListener("input", function () { c.note = note.value; clearTimeout(nt); nt = setTimeout(function () { CC.saveContact(c); }, 400); });
+    view.querySelector("#del").addEventListener("click", function () { if (confirm("Delete " + (c.name || "this contact") + "?")) { CC.removeContact(id); toast("Contact deleted"); go("/contacts"); } });
+  }
+
+  /* ---- Contact edit / new ---- */
+  function screenContactEdit(id) {
+    var c, isNew = !id;
+    if (isNew) { var scanned = sessionStorage.getItem("cc_scan"); sessionStorage.removeItem("cc_scan"); c = scanned ? JSON.parse(scanned) : CC.blankContact(); }
+    else { c = CC.getContact(id); if (!c) { go("/contacts"); return; } c = JSON.parse(JSON.stringify(c)); }
+    function f(id2, label, val, ph, type) { return '<div class="m-field"><label for="' + id2 + '">' + label + '</label><input class="m-input" id="' + id2 + '" type="' + (type || "text") + '" placeholder="' + (ph || "") + '" value="' + esc(val || "") + '"></div>'; }
+    view.innerHTML =
+      '<div class="topbar"><button class="ic-btn back" data-back>' + I.back + '</button><h1>' + (isNew ? "New contact" : "Edit") + '</h1></div>' +
+      (isNew && c.name ? '<div class="install-hint" style="margin-top:14px">' + I.bolt + ' Captured from your scan — check the details and save.</div>' : '') +
+      '<div style="padding-top:6px"></div>' +
+      f("e-name", "Name", c.name, "Full name") + f("e-title", "Job title", c.title, "Head of Sales") + f("e-co", "Company", c.company, "Company") +
+      f("e-email", "Email", c.email, "name@company.com", "email") + f("e-phone", "Phone", c.phone, "+1 555 0100", "tel") + f("e-web", "Website", c.website, "company.com") +
+      f("e-tags", "Tags", (c.tags || []).join(", "), "Lead, Expo") +
+      '<div class="m-field"><label for="e-note">Notes</label><textarea class="m-input" id="e-note" style="min-height:90px;resize:vertical" placeholder="Where you met, follow-ups…">' + esc(c.note || "") + '</textarea></div>' +
+      '<div class="stack-btns"><button class="btn btn-primary btn-lg" id="save">Save contact</button></div>';
+    view.querySelector("#save").addEventListener("click", function () {
+      c.name = val("e-name"); c.title = val("e-title"); c.company = val("e-co"); c.email = val("e-email"); c.phone = val("e-phone"); c.website = val("e-web");
+      c.tags = val("e-tags").split(",").map(function (s) { return s.trim(); }).filter(Boolean); c.note = val("e-note");
+      if (!c.name.trim()) { toast("Add a name first"); return; }
+      CC.saveContact(c); toast("Contact saved"); go("/contact/" + c.id);
+    });
+    function val(i) { return view.querySelector("#" + i).value; }
+  }
+
+  /* ---- Settings ---- */
+  function screenSettings() {
+    var u = CC.user(), pro = CC.isPro(), p = prefs();
+    function tog(key, ic, label) {
+      return '<div class="set-row" data-tog="' + key + '"><span class="ic">' + ic + '</span><span class="lab">' + label + '</span>' +
+        '<div class="switch' + (p[key] ? " on" : "") + '"><span class="kn"></span></div></div>';
+    }
+    var profile = u ?
+      '<div class="profile">' + avatarHTML(null, u.name || u.email) + '<div class="tx"><b>' + esc(u.name || u.email.split("@")[0]) + '</b><span>' + esc(u.email) + '</span><br><span class="plan-chip2' + (pro ? "" : " free") + '">' + (pro ? "PRO" : "FREE") + '</span></div></div>'
+      : '<div class="profile">' + avatarHTML(null, "Guest") + '<div class="tx"><b>Guest</b><span>Create a free account to sync</span></div></div>' +
+        '<div class="m-field"><input class="m-input" id="si-email" type="email" placeholder="you@company.com"></div>' +
+        '<div class="stack-btns" style="padding-top:0"><button class="btn btn-primary" id="si-go">Create free account</button></div>';
+    var upgrade = pro ?
+      '<div class="up-card"><span class="pp">PRO</span><h3>You\'re on Pro 🎉</h3><p>All premium design tools, branded QR, multiple cards & analytics are unlocked.</p></div>'
+      : '<div class="up-card"><span class="pp">PRO</span><h3>Upgrade to CompanyCard Pro</h3><p>Cover images, custom & brand colours, branded QR, multiple cards and analytics.</p><a class="btn" href="checkout.html?return=' + encodeURIComponent("mobile.html#/settings") + '">Upgrade — from $5.99/mo</a></div>';
+    view.innerHTML =
+      '<div class="topbar"><h1>Settings</h1></div>' + profile + upgrade +
+      '<div class="section-h">Sharing</div><div class="set-group">' +
+        tog("wallet", I.wallet, "Add card to Apple Wallet") + tog("widget", I.widget, "Lock-screen widget") + tog("watch", I.watch, "Apple Watch face") + tog("sign", I.sign, "Email signature") +
+      '</div>' +
+      '<div class="section-h">Account</div><div class="set-group">' +
+        '<button class="set-row" data-nav="builder.html"><span class="ic">' + I.edit + '</span><span class="lab">Edit my card</span><span class="chev">' + I.chev + '</span></button>' +
+        '<button class="set-row" data-nav="dashboard.html"><span class="ic">' + I.grid + '</span><span class="lab">Manage cards</span><span class="chev">' + I.chev + '</span></button>' +
+        '<button class="set-row" id="install-row"><span class="ic">' + I.download + '</span><span class="lab">Install app</span><span class="chev">' + I.chev + '</span></button>' +
+        '<button class="set-row" data-nav="../index.html"><span class="ic">' + I.help + '</span><span class="lab">Help &amp; website</span><span class="chev">' + I.chev + '</span></button>' +
+        (u ? '<button class="set-row" id="signout"><span class="ic">' + I.out + '</span><span class="lab">Sign out</span><span class="chev">' + I.chev + '</span></button>' : "") +
+      '</div>' +
+      '<div class="muted-foot">CompanyCard · v1.0 · One tap. Every connection.</div>';
+    var siGo = view.querySelector("#si-go");
+    if (siGo) siGo.addEventListener("click", function () { var em = view.querySelector("#si-email").value.trim(); if (!em) { toast("Enter your email"); return; } CC.signup(em, em.split("@")[0], "email"); toast("Account created"); screenSettings(); });
+    view.querySelectorAll("[data-tog]").forEach(function (r) { r.addEventListener("click", function () { var k = r.getAttribute("data-tog"); setPref(k, !prefs()[k]); r.querySelector(".switch").classList.toggle("on"); toast(prefs()[k] ? "Enabled (demo)" : "Disabled"); }); });
+    view.querySelectorAll("[data-nav]").forEach(function (r) { r.addEventListener("click", function () { location.href = r.getAttribute("data-nav"); }); });
+    var so = view.querySelector("#signout"); if (so) so.addEventListener("click", function () { CC.signOut(); toast("Signed out"); screenSettings(); });
+    var ir = view.querySelector("#install-row"); if (ir) ir.addEventListener("click", function () {
+      if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt = null; }
+      else toast("Use your browser's “Add to Home Screen”");
+    });
+  }
+
+  /* ---- install hint (cards screen) ---- */
+  var deferredPrompt = null;
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferredPrompt = e; });
+  function installHintHTML() { return (deferredPrompt && !prefs().hideInstall) ? '<div class="install-hint" id="ih">' + I.download + ' <span>Install CompanyCard on your home screen.</span> <button class="btn btn-primary" id="ih-go" style="padding:6px 12px;font-size:.8rem">Install</button> <span class="x" id="ih-x">✕</span></div>' : ""; }
+  function wireInstallHint() {
+    var g = view.querySelector("#ih-go"), x = view.querySelector("#ih-x");
+    if (g) g.addEventListener("click", function () { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt = null; var ih = view.querySelector("#ih"); if (ih) ih.remove(); } });
+    if (x) x.addEventListener("click", function () { setPref("hideInstall", true); var ih = view.querySelector("#ih"); if (ih) ih.remove(); });
+  }
+
+  /* ---------- router ---------- */
+  function parseRoute() { var h = location.hash.slice(1) || "/cards"; var q = "", qi = h.indexOf("?"); if (qi >= 0) { q = h.slice(qi + 1); h = h.slice(0, qi); } return { path: h, query: q }; }
+  function router() {
+    stopCamera();
+    var r = parseRoute(), p = r.path;
+    if (location.search.indexOf("upgraded=1") >= 0 || r.query.indexOf("upgraded=1") >= 0) { setTimeout(function () { toast("Welcome to Pro 🎉"); }, 300); if (location.search) history.replaceState(null, "", "mobile.html#" + p); }
+    view.scrollTop = 0;
+    if (p === "/" || p === "/cards") screenCards();
+    else if (p === "/scan") screenScan();
+    else if (p === "/contacts") screenContacts();
+    else if (p === "/settings") screenSettings();
+    else if (p.indexOf("/share/") === 0) screenShare(p.slice(7));
+    else if (p.indexOf("/contact/") === 0) { var rest = p.slice(9); if (rest === "new") screenContactEdit(null); else if (rest.slice(-5) === "/edit") screenContactEdit(rest.slice(0, -5)); else screenContactDetail(rest); }
+    else screenCards();
+    renderTabs(p);
+  }
+  view.addEventListener("click", function (e) { var b = e.target.closest("[data-back]"); if (b) { if (history.length > 1) history.back(); else go("/cards"); } });
+  window.addEventListener("hashchange", router);
+  router();
+
+  /* service worker (only when served, not file://) */
+  if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) { navigator.serviceWorker.register("sw.js").catch(function () {}); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — CompanyCard</title>
+<meta name="description" content="Sign in to your CompanyCard account.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .auth-wrap { min-height: calc(100vh - 70px); display: grid; place-items: center; padding: 40px 20px; }
+  .auth-card { width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--slate-200); border-radius: 20px; box-shadow: var(--shadow); padding: 30px 28px; }
+  .auth-card h1 { font-family: var(--font-display); font-size: 1.45rem; color: var(--ink); margin-bottom: 6px; }
+  .auth-card .sub { color: var(--slate-500); font-size: .94rem; margin-bottom: 22px; }
+  .auth-err { display: none; background: #FEF2F2; border: 1px solid #FECACA; color: #B91C1C; border-radius: 12px; padding: 10px 14px; font-size: .88rem; margin-bottom: 14px; }
+  .auth-foot { margin-top: 18px; text-align: center; font-size: .9rem; color: var(--slate-500); }
+  .auth-foot a { color: var(--indigo-600); font-weight: 600; }
+  .demo-note { display: none; margin-top: 16px; background: var(--slate-50); border: 1px dashed var(--slate-200); border-radius: 12px; padding: 12px 14px; font-size: .84rem; color: var(--slate-500); }
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span class="sp"></span>
+    <a class="btn btn-ghost" href="signup.html">Create account</a>
+  </div>
+</header>
+
+<main class="auth-wrap">
+  <form class="auth-card" id="f" novalidate>
+    <h1>Welcome back</h1>
+    <p class="sub">Sign in with your email and password.</p>
+    <div class="auth-err" id="err"></div>
+    <div class="field"><label class="fl" for="email">Email</label>
+      <input class="inp" id="email" type="email" autocomplete="username" required placeholder="you@company.com"></div>
+    <div class="field"><label class="fl" for="pass">Password</label>
+      <input class="inp" id="pass" type="password" autocomplete="current-password" required placeholder="••••••••"></div>
+    <button class="btn btn-primary btn-block btn-lg" id="go" type="submit">Sign in</button>
+    <div class="auth-foot">New to CompanyCard? <a href="signup.html">Create your company account</a></div>
+    <div class="demo-note" id="demo">You opened the site as plain files, so accounts are off. Start the local server (double-click <b>start-companycard.command</b>) and open <b>http://localhost:8787</b>.</div>
+  </form>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>
+(function () {
+  var f = document.getElementById("f"), err = document.getElementById("err"),
+      go = document.getElementById("go");
+  function show(m) { err.textContent = m; err.style.display = "block"; }
+
+  if (!CCAuth.enabled) {
+    document.getElementById("demo").style.display = "block";
+    go.disabled = true;
+    return;
+  }
+  /* already signed in? go home */
+  CCAuth.init().then(function (p) {
+    if (p) location.replace(CCAuth.homeFor(p.role));
+  });
+
+  f.addEventListener("submit", function (e) {
+    e.preventDefault(); err.style.display = "none";
+    var email = document.getElementById("email").value.trim(),
+        pass  = document.getElementById("pass").value;
+    if (!email || !pass) return show("Enter your email and password.");
+    go.disabled = true; go.textContent = "Signing in…";
+    CCAuth.login(email, pass).then(function (r) {
+      if (r.error) throw r.error;
+      return CCAuth.init();
+    }).then(function (p) {
+      var next = new URLSearchParams(location.search).get("next");
+      var home = CCAuth.homeFor(p ? p.role : "employee");
+      /* employees can never be sent to admin pages via ?next= */
+      if (next && p && p.role !== "admin" && /^(dashboard|team|onboarding)\.html$/.test(next)) next = null;
+      location.replace(next || home);
+    }).catch(function (ex) {
+      go.disabled = false; go.textContent = "Sign in";
+      show(ex && ex.message ? ex.message : "Sign-in failed. Check your details and try again.");
+    });
+  });
+})();
+</script>
+</body>
+</html>

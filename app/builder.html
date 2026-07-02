@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card builder — CompanyCard</title>
+<meta name="description" content="Create your free digital business card — add your details, brand it, and share in one tap.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span class="sp"></span>
+    <a class="tab hide-sm" href="dashboard.html">My cards</a>
+    <button class="btn btn-ghost" id="btn-save" type="button">Save</button>
+    <button class="btn btn-primary" id="btn-share" type="button">Share</button>
+  </div>
+</header>
+
+<main class="build">
+  <!-- FORM -->
+  <div>
+    <div class="panel">
+      <h3>The basics</h3>
+      <p class="hint">This is what people see first.</p>
+      <div class="field"><label class="fl" for="f-name">Full name</label><input class="inp" id="f-name" type="text" placeholder="Jordan Diaz" autocomplete="name"></div>
+      <div class="grid2">
+        <div class="field"><label class="fl" for="f-title">Job title</label><input class="inp" id="f-title" type="text" placeholder="Head of Sales" autocomplete="organization-title"></div>
+        <div class="field"><label class="fl" for="f-company">Company</label><input class="inp" id="f-company" type="text" placeholder="CompanyCard" autocomplete="organization"></div>
+      </div>
+      <div class="field"><label class="fl" for="f-tag">Tagline <span style="color:var(--slate-400)">(optional)</span></label><textarea class="inp" id="f-tag" placeholder="Helping teams turn handshakes into pipeline."></textarea></div>
+    </div>
+
+    <div class="panel">
+      <h3>Make it yours</h3>
+      <p class="hint">Design, colours, photo &amp; cover.</p>
+
+      <div class="field"><label class="fl">Design template</label>
+        <button class="btn btn-ghost btn-block" type="button" id="tpl-btn" style="justify-content:space-between;">
+          <span><b id="tpl-current" style="color:var(--ink)">Minimal</b></span>
+          <span style="color:var(--indigo-600);font-weight:600;">Browse designs →</span>
+        </button>
+      </div>
+
+      <div class="field"><label class="fl">Theme colour <span class="fl-sub">name &amp; icons</span></label>
+        <div class="theme-row" id="themes"></div>
+        <div class="theme-tools">
+          <button class="theme-tool custom" type="button" id="color-pick" aria-label="Pick a custom colour"><span class="dot" id="color-dot"></span> Custom <span class="pro-pill sm">PRO</span></button>
+          <input type="color" id="color-input" value="#6366F1" hidden>
+          <button class="theme-tool more" type="button" id="see-more">See more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="field"><label class="fl">Profile photo</label>
+        <div class="photo">
+          <div class="pv" id="photo-pv">JD</div>
+          <button class="btn btn-ghost" type="button" id="photo-btn">Upload photo</button>
+          <button class="btn btn-ghost" type="button" id="photo-rm" hidden>Remove</button>
+          <input type="file" id="photo-input" accept="image/*" hidden>
+        </div>
+      </div>
+
+      <div class="field"><label class="fl">Photo shape</label>
+        <div class="shape-row" id="shapes">
+          <button class="shape-btn" type="button" data-shape="circle"><span class="sh circle"></span>Circle</button>
+          <button class="shape-btn" type="button" data-shape="rounded"><span class="sh rounded"></span>Rounded</button>
+          <button class="shape-btn" type="button" data-shape="square"><span class="sh square"></span>Square</button>
+        </div>
+      </div>
+
+      <div class="field"><label class="fl">Background colour <span class="fl-sub">card header</span></label>
+        <div class="theme-row" id="bg-themes"></div>
+        <div class="theme-tools">
+          <button class="theme-tool custom" type="button" id="bg-color-pick" aria-label="Pick a custom background colour"><span class="dot" id="bg-color-dot"></span> Custom <span class="pro-pill sm">PRO</span></button>
+          <input type="color" id="bg-color-input" value="#6366F1" hidden>
+          <button class="theme-tool more" type="button" id="bg-see-more">See more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="field"><label class="fl">Cover image <span style="color:var(--slate-400)">(optional)</span> <span class="pro-pill">PRO</span></label>
+        <div class="cover-pv" id="cover-pv">No cover — using background colour</div>
+        <div class="row-btns">
+          <button class="btn btn-ghost" type="button" id="cover-btn">Upload cover</button>
+          <button class="btn btn-ghost" type="button" id="cover-rm" hidden>Remove</button>
+        </div>
+        <input type="file" id="cover-input" accept="image/*" hidden>
+      </div>
+
+      <div class="field" style="margin-bottom:0"><label class="fl">Save-contact button</label>
+        <div class="switch-row">
+          <div class="tx"><b>Show the button</b><span>The tap-to-save call to action on your card.</span></div>
+          <div class="switch" id="save-switch" role="switch" tabindex="0" aria-label="Show the save-contact button"><span class="kn"></span></div>
+        </div>
+        <div id="save-opts" style="margin-top:12px">
+          <input class="inp" id="save-label" type="text" placeholder="Save contact" maxlength="28" aria-label="Button text" style="margin-bottom:10px">
+          <div class="save-colors" id="save-colors"></div>
+          <input type="color" id="save-color-input" value="#6366F1" hidden>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Links &amp; contact</h3>
+      <p class="hint">Phone, email, website, socials — add as many as you like.</p>
+      <div class="links-list" id="links"></div>
+      <button class="btn-add" id="btn-add" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Add a link</button>
+    </div>
+
+    <div class="panel">
+      <h3>Icons &amp; QR</h3>
+      <p class="hint">How your link icons look, plus your share QR.</p>
+
+      <div class="field"><label class="fl">Icon style</label>
+        <div class="icostyle-row" id="icostyles"></div>
+      </div>
+
+      <div class="field"><label class="fl">Icon colours</label>
+        <div class="switch-row">
+          <div class="tx"><b>Use your brand colour <span class="pro-pill">PRO</span></b><span>Off = each app's own colour (WhatsApp green, YouTube red…).</span></div>
+          <div class="switch" id="ic-switch" role="switch" tabindex="0" aria-label="Use your brand colour for icons"><span class="kn"></span></div>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:0"><label class="fl">QR code</label>
+        <div class="switch-row">
+          <div class="tx"><b>Show a QR on the card</b><span>We generate it from your share link — free.</span></div>
+          <div class="switch" id="qr-switch" role="switch" tabindex="0" aria-label="Show QR on card"><span class="kn"></span></div>
+        </div>
+        <div class="switch-row sub" id="bq-row" hidden>
+          <div class="tx"><b>Brand my QR <span class="pro-pill">PRO</span></b><span>Use your theme colour inside the QR code.</span></div>
+          <div class="switch" id="bq-switch" role="switch" tabindex="0" aria-label="Brand the QR code"><span class="kn"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview-col">
+    <div class="pphone"><div class="scr" id="preview"></div></div>
+    <div class="preview-actions">
+      <button class="btn btn-ghost btn-block" id="btn-save2" type="button">Save</button>
+      <button class="btn btn-primary btn-block" id="btn-share2" type="button">Share card</button>
+    </div>
+    <div class="pro-note" id="pro-note" hidden></div>
+  </div>
+</main>
+
+<!-- TEMPLATE GALLERY -->
+<div class="modal tpl-modal" id="tpl-modal" role="dialog" aria-modal="true" aria-labelledby="tpl-modal-title" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="tpl-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <h3 id="tpl-modal-title">Choose a design</h3>
+    <p class="sub">Pick a starting template — different banners, dividers &amp; icon styles. You can change it anytime.</p>
+    <div class="tpl-grid" id="tpl-grid"></div>
+  </div>
+</div>
+
+<!-- COLOUR GALLERY -->
+<div class="modal color-modal" id="color-modal" role="dialog" aria-modal="true" aria-labelledby="color-modal-title" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="color-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <h3 id="color-modal-title">Pick a colour</h3>
+    <p class="sub">Tap a colour, or open the picker for any custom shade.</p>
+    <div class="palette" id="palette"></div>
+    <button class="btn btn-ghost btn-block" id="color-custom2" type="button" style="margin-top:16px;">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125 0-.926.746-1.688 1.688-1.688H16.5c3.043 0 5.5-2.457 5.5-5.5C22 6.04 17.5 2 12 2z"/></svg>
+      Custom colour…
+    </button>
+  </div>
+</div>
+
+<!-- SIGN-UP -->
+<div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="signup-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <img src="../assets/logo-icon.svg" alt="" style="height:42px;margin:2px auto 14px;display:block">
+    <h3 id="signup-title">Create your free account</h3>
+    <p class="sub">Save your card and get a shareable link — no credit card needed.</p>
+    <button class="btn btn-ghost btn-block btn-google" id="su-google" type="button">
+      <svg viewBox="0 0 48 48" width="18" height="18"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.5 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.5 29.5 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.6-5.2l-6.3-5.2C29.2 35.5 26.7 36 24 36c-5.3 0-9.7-3.6-11.3-8.4l-6.6 5.1C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.6l6.3 5.2C41.9 35.7 44 30.3 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>
+      Continue with Google
+    </button>
+    <div class="or"><span>or</span></div>
+    <form id="su-form">
+      <div class="field" style="text-align:left;margin-bottom:12px"><label class="fl" for="su-name">Name</label><input class="inp" id="su-name" type="text" placeholder="Jordan Diaz" autocomplete="name"></div>
+      <div class="field" style="text-align:left;margin-bottom:14px"><label class="fl" for="su-email">Email</label><input class="inp" id="su-email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
+      <button class="btn btn-primary btn-block" id="su-submit" type="submit">Create account &amp; continue</button>
+    </form>
+    <p class="su-fine">Already have an account? Signing in with the same email restores your cards.</p>
+  </div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="modal" id="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-ready-title" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="modal-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <h3 id="share-ready-title">Your card is ready</h3>
+    <p class="sub">Scan the code or share the link — no app needed.</p>
+    <div class="qrbox" id="share-qr"></div>
+    <p class="sub" id="qr-note" hidden style="color:var(--indigo-600)">QR opens a lite version; the copied link includes your photos.</p>
+    <div class="share-link">
+      <input class="inp" id="share-url" type="text" readonly>
+      <button class="btn btn-primary" id="copy-link" type="button">Copy</button>
+    </div>
+    <div style="margin-top:14px;display:flex;gap:10px;">
+      <a class="btn btn-ghost btn-block" id="open-card" target="_blank" rel="noopener">Open card</a>
+      <button class="btn btn-dark btn-block" id="dl-vcf" type="button">Save contact</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script src="product.js"></script>
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search);
+  var existing = qs.get("id") ? CC.get(qs.get("id")) : null;
+  var card = existing || CC.blank();
+  if (!card.fields.length && !existing) {
+    card.fields = [{ type: "phone", value: "", label: "" }, { type: "whatsapp", value: "", label: "" }, { type: "email", value: "", label: "" }, { type: "website", value: "", label: "" }, { type: "instagram", value: "", label: "" }];
+  }
+  if (!card.iconColor) card.iconColor = "original";
+  if (!card.iconStyle) card.iconStyle = "";
+  if (card.customColor == null) card.customColor = "";
+  if (card.bg == null) card.bg = "";
+  if (card.bgCustomColor == null) card.bgCustomColor = "";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var preview = $("preview");
+  var qrT;
+  function render() {
+    preview.innerHTML = CC.renderCard(card);
+    var tn = $("tpl-current"); if (tn) tn.textContent = CC.tpl(card.tpl).name;
+    if (card.showQR) { clearTimeout(qrT); qrT = setTimeout(function () { CC.fillQR(preview, card); }, 250); }
+    updateProNote();
+  }
+  function buildGallery() {
+    var g = $("tpl-grid"); g.innerHTML = "";
+    CC.templates.forEach(function (t) {
+      var sample = JSON.parse(JSON.stringify(card)); sample.tpl = t.id;
+      if (!sample.name) sample.name = "Your Name";
+      if (!sample.fields || !sample.fields.length) sample.fields = [{ type: "phone", value: "+1 555 0100" }, { type: "email", value: "you@company.com" }, { type: "website", value: "company-card.com" }];
+      var el = document.createElement("div");
+      el.className = "tpl-card" + (card.tpl === t.id ? " on" : "");
+      el.innerHTML = '<div class="tpl-thumb">' + CC.renderCard(sample) + '</div><div class="tpl-name">' + t.name + "</div>";
+      el.addEventListener("click", function () { card.tpl = t.id; closeGallery(); buildIconStyles(); render(); });
+      g.appendChild(el);
+    });
+  }
+  function openGallery() { buildGallery(); $("tpl-modal").hidden = false; }
+  function closeGallery() { $("tpl-modal").hidden = true; }
+  $("tpl-btn").addEventListener("click", openGallery);
+  $("tpl-close").addEventListener("click", closeGallery);
+  $("tpl-modal").addEventListener("click", function (e) { if (e.target === $("tpl-modal")) closeGallery(); });
+
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 2200); }
+
+  /* basics */
+  function bind(id, key) { var el = $(id); el.value = card[key] || ""; el.addEventListener("input", function () { card[key] = el.value; render(); if (key === "name" && !card.photo) $("photo-pv").textContent = CC.initials(card.name); }); }
+  bind("f-name", "name"); bind("f-title", "title"); bind("f-company", "company"); bind("f-tag", "tagline");
+
+  /* colours — two controls (theme = name & icons · bg = background) sharing one gallery */
+  var paletteEl = $("palette"), colorSetter = null, colorInputEl = null;
+  function closeColors() { $("color-modal").hidden = true; }
+  function openColors(setter, inputEl, currentHex) {
+    colorSetter = setter; colorInputEl = inputEl;
+    paletteEl.querySelectorAll(".sw-btn").forEach(function (x) { x.classList.toggle("on", (currentHex || "").toLowerCase() === x.getAttribute("data-hex").toLowerCase()); });
+    $("color-modal").hidden = false;
+  }
+  CC.palette.forEach(function (hex) {
+    var b = document.createElement("button");
+    b.className = "sw-btn"; b.type = "button"; b.style.background = hex; b.setAttribute("aria-label", hex); b.setAttribute("data-hex", hex);
+    b.addEventListener("click", function () { if (colorSetter) colorSetter(hex); closeColors(); });
+    paletteEl.appendChild(b);
+  });
+  $("color-close").addEventListener("click", closeColors);
+  $("color-custom2").addEventListener("click", function () { closeColors(); if (colorInputEl) colorInputEl.click(); });
+  $("color-modal").addEventListener("click", function (e) { if (e.target === $("color-modal")) closeColors(); });
+
+  function colorControl(rowId, pickId, dotId, inputId, moreId, presetField, customField) {
+    var row = $(rowId), pick = $(pickId), dot = $(dotId), input = $(inputId);
+    function refresh() {
+      row.querySelectorAll(".sw-btn").forEach(function (x) { x.classList.toggle("on", card[presetField] !== "custom" && x.getAttribute("data-k") === card[presetField]); });
+      pick.classList.toggle("on", card[presetField] === "custom");
+      dot.style.background = card[presetField] === "custom" && card[customField] ? card[customField] : "";
+    }
+    function setPreset(k) { card[presetField] = k; refresh(); render(); }
+    function setCustom(hex) { card[presetField] = "custom"; card[customField] = hex; if (input.value !== hex) input.value = hex; refresh(); render(); }
+    CC.themeKeys.forEach(function (k) {
+      var b = document.createElement("button");
+      b.className = "sw-btn"; b.type = "button"; b.style.background = CC.themes[k].grad; b.setAttribute("aria-label", k); b.setAttribute("data-k", k);
+      b.addEventListener("click", function () { setPreset(k); });
+      row.appendChild(b);
+    });
+    pick.addEventListener("click", function () { input.click(); });
+    input.addEventListener("input", function () { setCustom(this.value); });
+    $(moreId).addEventListener("click", function () { openColors(setCustom, input, card[customField]); });
+    return { refresh: refresh };
+  }
+  var themeCtl = colorControl("themes", "color-pick", "color-dot", "color-input", "see-more", "theme", "customColor");
+  var bgCtl = colorControl("bg-themes", "bg-color-pick", "bg-color-dot", "bg-color-input", "bg-see-more", "bg", "bgCustomColor");
+  function refreshThemeUI() { themeCtl.refresh(); bgCtl.refresh(); }
+
+  /* icon style — 4 designs */
+  var icoRow = $("icostyles");
+  function curIconStyle() { return card.iconStyle || CC.tplToIconStyle[CC.tpl(card.tpl).icons] || "soft"; }
+  function buildIconStyles() {
+    icoRow.innerHTML = "";
+    CC.iconStyles.forEach(function (s) {
+      var b = document.createElement("button");
+      b.className = "icostyle-btn" + (curIconStyle() === s ? " on" : ""); b.type = "button"; b.setAttribute("data-ics", s);
+      var lock = s !== "soft" ? '<span class="pro-lock">PRO</span>' : "";
+      b.innerHTML = lock + '<span class="ics-pv ' + s + '">' + CC.icon("instagram") + "</span><span>" + CC.iconStyleLabel[s] + "</span>";
+      b.addEventListener("click", function () { card.iconStyle = s; buildIconStyles(); render(); });
+      icoRow.appendChild(b);
+    });
+  }
+  buildIconStyles();
+
+  /* photo */
+  function setPhotoUI() {
+    var pv = $("photo-pv");
+    pv.style.borderRadius = CC.shapeRadius[card.shape] || CC.shapeRadius.rounded;
+    if (card.photo) { pv.innerHTML = '<img src="' + card.photo + '" alt="">'; $("photo-rm").hidden = false; }
+    else { pv.innerHTML = ""; pv.textContent = CC.initials(card.name); $("photo-rm").hidden = true; }
+  }
+  $("photo-btn").addEventListener("click", function () { $("photo-input").click(); });
+  $("photo-input").addEventListener("change", function (e) {
+    var file = e.target.files[0]; if (!file) return;
+    CC.crop(file, { aspect: 1, out: 512, round: card.shape === "circle", title: "Crop photo" }, function (url) { card.photo = url; setPhotoUI(); render(); });
+    e.target.value = "";
+  });
+  $("photo-rm").addEventListener("click", function () { card.photo = ""; setPhotoUI(); render(); });
+
+  /* cover image */
+  function setCoverUI() {
+    var pv = $("cover-pv");
+    if (card.cover) { pv.innerHTML = '<img src="' + card.cover + '" alt="">'; $("cover-rm").hidden = false; }
+    else { pv.innerHTML = "No cover — using theme colour"; $("cover-rm").hidden = true; }
+  }
+  $("cover-btn").addEventListener("click", function () { $("cover-input").click(); });
+  $("cover-input").addEventListener("change", function (e) {
+    var file = e.target.files[0]; if (!file) return;
+    CC.crop(file, { aspect: 2.42, out: 880, title: "Crop cover image" }, function (url) { card.cover = url; setCoverUI(); render(); });
+    e.target.value = "";
+  });
+  $("cover-rm").addEventListener("click", function () { card.cover = ""; setCoverUI(); render(); });
+
+  /* photo shape */
+  var shapesEl = $("shapes");
+  function setShapeUI() { shapesEl.querySelectorAll(".shape-btn").forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-shape") === card.shape); }); }
+  shapesEl.addEventListener("click", function (e) {
+    var b = e.target.closest(".shape-btn"); if (!b) return;
+    card.shape = b.getAttribute("data-shape"); setShapeUI(); setPhotoUI(); render();
+  });
+
+  /* QR toggle (basic = free) + branded QR (Pro) */
+  var qrSw = $("qr-switch"), bqSw = $("bq-switch"), bqRow = $("bq-row");
+  function setQrUI() { qrSw.classList.toggle("on", !!card.showQR); bqRow.hidden = !card.showQR; bqSw.classList.toggle("on", !!card.brandedQR); }
+  function toggleQR() { card.showQR = !card.showQR; if (!card.showQR) card.brandedQR = false; setQrUI(); render(); }
+  function toggleBQ() { card.brandedQR = !card.brandedQR; setQrUI(); render(); }
+  qrSw.addEventListener("click", toggleQR);
+  qrSw.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleQR(); } });
+  bqSw.addEventListener("click", toggleBQ);
+  bqSw.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleBQ(); } });
+
+  /* save-contact button: show/hide, label, colour */
+  var saveSw = $("save-switch"), saveOpts = $("save-opts"), saveLabelEl = $("save-label"), saveRow = $("save-colors"), saveInput = $("save-color-input");
+  var SAVE_COLORS = ["", "#ffffff", "#6366F1", "#8B5CF6", "#0EA5E9", "#F43F5E", "#F59E0B", "#16A34A"], saveCustomBtn = null;
+  function refreshSaveColors() {
+    saveRow.querySelectorAll(".sw-btn:not(.save-custom)").forEach(function (x) { x.classList.toggle("on", (card.saveColor || "") === x.getAttribute("data-c")); });
+    if (saveCustomBtn) saveCustomBtn.classList.toggle("on", !!card.saveColor && SAVE_COLORS.indexOf(card.saveColor) < 0);
+  }
+  function setSaveColor(v) { card.saveColor = v; if (v && saveInput.value !== v) saveInput.value = v; refreshSaveColors(); render(); }
+  SAVE_COLORS.forEach(function (c) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "sw-btn" + (c === "" ? " save-def" : "");
+    b.setAttribute("data-c", c); b.setAttribute("aria-label", c === "" ? "Default dark" : (c === "#ffffff" ? "White" : c));
+    b.style.background = c === "" ? "var(--ink)" : c;
+    b.addEventListener("click", function () { setSaveColor(c); });
+    saveRow.appendChild(b);
+  });
+  saveCustomBtn = document.createElement("button"); saveCustomBtn.type = "button"; saveCustomBtn.className = "sw-btn save-custom"; saveCustomBtn.setAttribute("aria-label", "Custom button colour");
+  saveCustomBtn.addEventListener("click", function () { saveInput.click(); });
+  saveRow.appendChild(saveCustomBtn);
+  saveInput.addEventListener("input", function () { setSaveColor(this.value); });
+  function setSaveUI() { saveSw.classList.toggle("on", card.showSave !== false); saveOpts.hidden = card.showSave === false; saveLabelEl.value = card.saveLabel || ""; refreshSaveColors(); }
+  function toggleSave() { card.showSave = card.showSave === false; setSaveUI(); render(); }
+  saveSw.addEventListener("click", toggleSave);
+  saveSw.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSave(); } });
+  saveLabelEl.addEventListener("input", function () { card.saveLabel = this.value; render(); });
+
+  /* icon colour toggle */
+  var icSw = $("ic-switch");
+  function setIcUI() { icSw.classList.toggle("on", card.iconColor === "brand"); }
+  function toggleIc() { card.iconColor = card.iconColor === "brand" ? "original" : "brand"; setIcUI(); render(); }
+  icSw.addEventListener("click", toggleIc);
+  icSw.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleIc(); } });
+
+  /* links */
+  var linksEl = $("links");
+  function renderLinks() {
+    linksEl.innerHTML = "";
+    card.fields.forEach(function (f, i) {
+      var item = document.createElement("div"); item.className = "link-item";
+      var opts = CC.fieldTypeKeys.map(function (k) { return '<option value="' + k + '"' + (k === f.type ? " selected" : "") + '>' + CC.fieldTypes[k].label + '</option>'; }).join("");
+      var dsp = CC.fieldDisplay(f);
+      item.innerHTML =
+        '<div class="top"><select aria-label="Link type">' + opts + '</select>' +
+        '<div class="disp-toggle" role="group" aria-label="Show as">' +
+          '<button type="button" data-disp="strip"' + (dsp === "strip" ? ' class="on"' : "") + ' title="Full strip with details">Strip</button>' +
+          '<button type="button" data-disp="icon"' + (dsp === "icon" ? ' class="on"' : "") + ' title="Logo only">Icon</button>' +
+        '</div>' +
+        '<button class="rm" type="button" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div>' +
+        '<input class="inp val" type="text" placeholder="' + CC.fieldTypes[f.type].ph + '" inputmode="' + CC.fieldTypes[f.type].mode + '" value="' + CC.esc(f.value) + '">';
+      var sel = item.querySelector("select"), val = item.querySelector(".val");
+      var dispBtns = item.querySelectorAll(".disp-toggle button");
+      function syncDisp() { var d = CC.fieldDisplay(f); dispBtns.forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-disp") === d); }); }
+      dispBtns.forEach(function (db) { db.addEventListener("click", function () { f.display = db.getAttribute("data-disp"); syncDisp(); render(); }); });
+      sel.addEventListener("change", function () { f.type = sel.value; val.placeholder = CC.fieldTypes[f.type].ph; val.setAttribute("inputmode", CC.fieldTypes[f.type].mode); syncDisp(); render(); });
+      val.addEventListener("input", function () { f.value = val.value; render(); });
+      item.querySelector(".rm").addEventListener("click", function () { card.fields.splice(i, 1); renderLinks(); render(); });
+      linksEl.appendChild(item);
+    });
+  }
+  $("btn-add").addEventListener("click", function () { card.fields.push({ type: "website", value: "", label: "" }); renderLinks(); render(); });
+
+  /* preview save button → download vcard */
+  preview.addEventListener("click", function (e) { if (e.target.closest("[data-save]")) { e.preventDefault(); CC.downloadVcard(card); } });
+
+  /* ---------- Pro: badges, live note, sign-up, deploy gating ---------- */
+  function setProUI() { document.body.classList.toggle("is-pro", CC.isPro()); }
+  function updateProNote() {
+    var note = $("pro-note"); if (!note) return;
+    if (CC.isPro()) { note.hidden = true; return; }
+    var feats = CC.cardProFeatures(card);
+    if (!feats.length) { note.hidden = true; return; }
+    var names = feats.map(function (k) { return (CC.PRO_FEATURES[k] || {}).label || k; });
+    note.innerHTML = '<span class="pro-pill">PRO</span><span>Publishing uses <b>' + names.join("</b>, <b>") + '</b> — you\'ll upgrade at share.</span>';
+    note.hidden = false;
+  }
+
+  var pendingNext = null;
+  function openSignup(next) {
+    pendingNext = next || null;
+    var u = CC.user() || {};
+    $("su-email").value = u.email || ""; $("su-name").value = u.name || card.name || "";
+    $("signup-modal").hidden = false; setTimeout(function () { $("su-email").focus(); }, 50);
+  }
+  function closeSignup() { $("signup-modal").hidden = true; }
+  function finishSignup(email, name, via) {
+    if (!email) { toast("Add your email"); return; }
+    CC.signup(email, name, via); closeSignup();
+    var n = pendingNext; pendingNext = null; if (n) n();
+  }
+  $("signup-close").addEventListener("click", closeSignup);
+  $("signup-modal").addEventListener("click", function (e) { if (e.target === $("signup-modal")) closeSignup(); });
+  $("su-form").addEventListener("submit", function (e) { e.preventDefault(); finishSignup($("su-email").value.trim(), $("su-name").value.trim(), "email"); });
+  $("su-google").addEventListener("click", function () {
+    var guess = ((card.name || "you").toLowerCase().replace(/[^a-z]+/g, ".").replace(/^\.|\.$/g, "") || "you") + "@gmail.com";
+    finishSignup($("su-email").value.trim() || guess, $("su-name").value.trim() || card.name, "google");
+  });
+
+  /* run `proceed` only after sign-in AND (Pro OR the card is fully free) */
+  function gatedDeploy(intent, proceed) {
+    if (!card.name) { toast("Add your name first"); return; }
+    if (!CC.isAuthed()) { openSignup(function () { gatedDeploy(intent, proceed); }); return; }
+    var feats = CC.cardProFeatures(card);
+    if (feats.length && !CC.isPro()) {
+      CC.save(card);
+      try { sessionStorage.setItem("cc_intent", intent); } catch (e) {}
+      location.href = "checkout.html?id=" + encodeURIComponent(card.id) + "&return=" + encodeURIComponent("builder.html?id=" + card.id);
+      return;
+    }
+    proceed();
+  }
+
+  /* save + share */
+  function reallySave() { CC.save(card); toast("Card saved to My cards"); }
+  function doSave() { gatedDeploy("save", reallySave); }
+  $("btn-save").addEventListener("click", doSave);
+  $("btn-save2").addEventListener("click", doSave);
+
+  function reallyOpenShare() {
+    CC.save(card);
+    var full = CC.shareUrl(card);
+    $("share-url").value = full; $("open-card").href = full;
+    var note = $("qr-note");
+    var col = card.brandedQR ? CC.themeOf(card).solid : "#0B0A1F";
+    var ok = CC.qr($("share-qr"), full, 192, col);
+    if (!ok) { CC.qr($("share-qr"), CC.shareUrl(card, true), 192, col); if (note) note.hidden = false; }
+    else if (note) { note.hidden = true; }
+    $("share-modal").hidden = false;
+  }
+  function openShare() { gatedDeploy("share", reallyOpenShare); }
+  $("btn-share").addEventListener("click", openShare);
+  $("btn-share2").addEventListener("click", openShare);
+  $("modal-close").addEventListener("click", function () { $("share-modal").hidden = true; });
+  $("share-modal").addEventListener("click", function (e) { if (e.target === $("share-modal")) $("share-modal").hidden = true; });
+  $("dl-vcf").addEventListener("click", function () { CC.downloadVcard(card); });
+  $("copy-link").addEventListener("click", function () {
+    var inp = $("share-url"); inp.select();
+    function done() { toast("Link copied"); }
+    if (navigator.clipboard) { navigator.clipboard.writeText(inp.value).then(done, function () { document.execCommand("copy"); done(); }); }
+    else { document.execCommand("copy"); done(); }
+  });
+
+  setProUI();
+  setPhotoUI(); setCoverUI(); setShapeUI(); setQrUI(); setIcUI(); setSaveUI(); refreshThemeUI(); renderLinks(); render();
+  if (qs.get("upgraded") && CC.isPro()) {
+    toast("Welcome to Pro 🎉");
+    var intent = null; try { intent = sessionStorage.getItem("cc_intent"); sessionStorage.removeItem("cc_intent"); } catch (e) {}
+    if (intent === "share") setTimeout(reallyOpenShare, 500);
+    else if (intent === "save") reallySave();
+  } else if (!existing) { openGallery(); }
+})();
+</script>
+</body>
+</html>

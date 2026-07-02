@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finish your card — CompanyCard</title>
+<meta name="description" content="Personalise your company digital business card — add your photo and details. Your company's brand stays locked.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span class="sp"></span>
+    <button class="btn btn-ghost" id="btn-save" type="button">Save</button>
+    <button class="btn btn-primary" id="btn-share" type="button">Share card</button>
+    <a class="btn btn-ghost" href="#" data-signout style="display:none" data-authonly>Sign out</a>
+  </div>
+</header>
+
+<main class="build" id="root"></main>
+
+<!-- SHARE MODAL -->
+<div class="modal" id="share-modal" role="dialog" aria-modal="true" aria-labelledby="sh-title" hidden>
+  <div class="modal-box">
+    <button class="modal-x" id="modal-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <h3 id="sh-title">Your card is ready</h3>
+    <p class="sub">Scan the code or share the link — no app needed.</p>
+    <div class="qrbox" id="share-qr"></div>
+    <div class="share-link"><input class="inp" id="share-url" type="text" readonly><button class="btn btn-primary" id="copy-link" type="button">Copy</button></div>
+    <div style="margin-top:14px;display:flex;gap:10px;"><a class="btn btn-ghost btn-block" id="open-card" target="_blank" rel="noopener">Open card</a><button class="btn btn-dark btn-block" id="dl-vcf" type="button">Save contact</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("any");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (s) { return CC.esc(s); };
+  function toast(m){ var t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(function(){t.classList.remove("show");},2200); }
+
+  var team = CC.team();
+  var qs = new URLSearchParams(location.search);
+  var id = qs.get("id");
+  var member = id ? team.members.filter(function(m){return m.id===id;})[0] : team.members[0];
+
+  if (!team.members.length || !member) {
+    $("#root").innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="em-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h5"/></svg></div><h2>No card to personalise</h2><p>This invite link doesn’t point to a card yet. Ask your admin to add you, or create your own.</p><a class="btn btn-primary btn-lg" href="builder.html">Create a card</a></div>';
+    $("#btn-save").style.display=$("#btn-share").style.display="none";
+    return;
+  }
+  if (!member.links) member.links = [];
+  var company = team.company || {};
+  var links = company.links || [];
+  var empLinks = links.filter(function(l){ return l.scope === "employee"; });
+  var coLinks = links.filter(function(l){ return l.scope === "company"; });
+  var empPhoto = !company.photo || company.photo.scope === "employee";
+  var empCover = company.cover && company.cover.scope === "employee";
+
+  function getEmp(type){ if(type==="email")return member.email||""; if(type==="phone")return member.phone||""; var ml=member.links.filter(function(x){return x.type===type;})[0]; return ml?ml.value:""; }
+  function setEmp(type,v){ if(type==="email")member.email=v; else if(type==="phone")member.phone=v; else { var ml=member.links.filter(function(x){return x.type===type;})[0]; if(!ml){ml={type:type,value:""};member.links.push(ml);} ml.value=v; } }
+
+  function liveCard(){ return CC.memberCard(member, company); }
+  function renderPreview(){ $("#preview").innerHTML = CC.renderCard(liveCard()); }
+
+  function empFieldRow(l){
+    var ft=CC.fieldTypes[l.type]||CC.fieldTypes.custom;
+    return '<div class="field"><label class="fl">'+esc(ft.label)+'</label><input class="inp" data-empf="'+l.type+'" type="text" inputmode="'+(ft.mode||"text")+'" placeholder="'+esc(ft.ph)+'" value="'+esc(getEmp(l.type))+'"></div>';
+  }
+  function lockedRow(l){
+    var ft=CC.fieldTypes[l.type]||CC.fieldTypes.custom;
+    return '<div class="locked-row"><span class="lr-ic">'+CC.icon(l.type)+'</span><div class="lr-tx"><b>'+esc(ft.label)+'</b><span>'+esc(l.value||"—")+'</span></div><svg class="lr-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>';
+  }
+
+  $("#root").innerHTML =
+    '<div>'+
+      '<div class="panel">'+
+        '<h3>Welcome — finish your card</h3>'+
+        '<p class="hint"><b>'+esc(company.name||"Your company")+'</b> set up the brand. Just add your details below.</p>'+
+        '<div class="grid2">'+
+          '<div class="field"><label class="fl" for="f-name">Full name</label><input class="inp" id="f-name" type="text" value="'+esc(member.name||"")+'" autocomplete="name"></div>'+
+          '<div class="field"><label class="fl" for="f-title">Job title</label><input class="inp" id="f-title" type="text" value="'+esc(member.title||"")+'"></div>'+
+        '</div>'+
+        (empPhoto ? '<div class="field"><label class="fl">Your photo</label><div class="photo"><div class="pv" id="photo-pv" style="border-radius:'+(CC.shapeRadius[company.shape]||CC.shapeRadius.rounded)+'"></div><button class="btn btn-ghost" type="button" id="photo-btn">Upload photo</button><button class="btn btn-ghost" type="button" id="photo-rm" hidden>Remove</button><input type="file" id="photo-input" accept="image/*" hidden></div></div>' : '')+
+        (empCover ? '<div class="field" style="margin-bottom:0"><label class="fl">Your cover image</label><div class="cover-pv" id="cover-pv">No cover — using the company colour</div><div class="row-btns"><button class="btn btn-ghost" type="button" id="cover-btn">Upload cover</button><button class="btn btn-ghost" type="button" id="cover-rm" hidden>Remove</button></div><input type="file" id="cover-input" accept="image/*" hidden></div>' : '')+
+      '</div>'+
+      (empLinks.length ? '<div class="panel"><h3>Your details &amp; links</h3><p class="hint">These are yours — fill in or leave blank.</p>'+empLinks.map(empFieldRow).join("")+'</div>' : '')+
+      '<div class="panel locked-panel"><h3><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Set by '+esc(company.name||"your company")+'</h3><p class="hint">Locked to keep everyone on brand.</p>'+
+        '<div class="locked-row"><span class="lr-ic" style="background:'+(CC.themes[company.color]||CC.themes.indigo).grad+';color:#fff">'+CC.icon("website").replace("currentColor","#fff")+'</span><div class="lr-tx"><b>Design</b><span>'+esc(CC.tpl(company.template).name)+' template · '+esc(company.color||"indigo")+'</span></div><svg class="lr-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>'+
+        coLinks.map(lockedRow).join("")+
+      '</div>'+
+    '</div>'+
+    '<div class="preview-col"><div class="pphone"><div class="scr" id="preview"></div></div><div class="preview-actions"><button class="btn btn-ghost btn-block" id="btn-save2" type="button">Save</button><button class="btn btn-primary btn-block" id="btn-share2" type="button">Share card</button></div></div>';
+
+  /* basics */
+  $("#f-name").addEventListener("input", function(){ member.name=this.value; setPhotoUI(); renderPreview(); });
+  $("#f-title").addEventListener("input", function(){ member.title=this.value; renderPreview(); });
+
+  /* employee links */
+  $$('[data-empf]').forEach(function(inp){ inp.addEventListener("input", function(){ setEmp(inp.dataset.empf, inp.value); renderPreview(); }); });
+
+  /* photo */
+  function setPhotoUI(){ var pv=$("#photo-pv"); if(!pv) return; if(member.photo){ pv.innerHTML='<img src="'+member.photo+'" alt="">'; $("#photo-rm").hidden=false; } else { pv.innerHTML=""; pv.textContent=CC.initials(member.name); $("#photo-rm").hidden=true; } }
+  if(empPhoto){
+    $("#photo-btn").onclick=function(){ $("#photo-input").click(); };
+    $("#photo-input").addEventListener("change",function(e){ var f=e.target.files[0]; if(!f) return; CC.crop(f,{aspect:1,out:512,round:company.shape==="circle",title:"Crop photo"},function(url){ member.photo=url; setPhotoUI(); renderPreview(); }); e.target.value=""; });
+    $("#photo-rm").onclick=function(){ member.photo=""; setPhotoUI(); renderPreview(); };
+  }
+  /* cover */
+  function setCoverUI(){ var pv=$("#cover-pv"); if(!pv) return; if(member.cover){ pv.innerHTML='<img src="'+member.cover+'" alt="">'; $("#cover-rm").hidden=false; } else { pv.innerHTML="No cover — using the company colour"; $("#cover-rm").hidden=true; } }
+  if(empCover){
+    $("#cover-btn").onclick=function(){ $("#cover-input").click(); };
+    $("#cover-input").addEventListener("change",function(e){ var f=e.target.files[0]; if(!f) return; CC.crop(f,{aspect:2.42,out:880,title:"Crop cover image"},function(url){ member.cover=url; setCoverUI(); renderPreview(); }); e.target.value=""; });
+    $("#cover-rm").onclick=function(){ member.cover=""; setCoverUI(); renderPreview(); };
+  }
+
+  /* save + share */
+  function save(){ if(!member.name){ toast("Add your name first"); return false; } member.status="active"; CC.refreshMember(team, member); toast("Saved — your card is live"); return true; }
+  $("#btn-save").onclick=save; $("#btn-save2").onclick=save;
+  function openShare(){
+    if(!member.name){ toast("Add your name first"); return; }
+    save();
+    var full=location.href.replace(/[^/]*(\?.*)?$/,"")+"card.html#c="+CC.encode(member.card||liveCard(), true);
+    $("#share-url").value=full; $("#open-card").href=full;
+    CC.qr($("#share-qr"), full, 192);
+    $("#share-modal").hidden=false;
+  }
+  $("#btn-share").onclick=openShare; $("#btn-share2").onclick=openShare;
+  $("#modal-close").onclick=function(){ $("#share-modal").hidden=true; };
+  $("#share-modal").addEventListener("click",function(e){ if(e.target===this) this.hidden=true; });
+  $("#dl-vcf").onclick=function(){ CC.downloadVcard(member.card||liveCard()); };
+  $("#copy-link").onclick=function(){ var i=$("#share-url"); i.select(); function done(){toast("Link copied");} if(navigator.clipboard){navigator.clipboard.writeText(i.value).then(done,function(){document.execCommand("copy");done();});}else{document.execCommand("copy");done();} };
+
+  setPhotoUI(); setCoverUI(); renderPreview();
+})();
+</script>
+<script>
+(function(){ if (window.CCAuth && CCAuth.enabled) CCAuth.init().then(function(p){
+  if (p) document.querySelectorAll("[data-authonly]").forEach(function(el){ el.style.display=""; });
+}); })();
+</script>
+</body>
+</html>
