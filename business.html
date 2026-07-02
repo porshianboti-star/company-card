@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompanyCard for Teams — Branded digital business cards at scale</title>
+<meta name="description" content="Roll out branded digital business cards across your whole company. Central admin, SSO, CRM sync, analytics and enterprise security. CompanyCard for Teams.">
+<link rel="canonical" href="https://www.company-card.com/business.html">
+<meta property="og:title" content="CompanyCard for Teams — Branded digital business cards at scale">
+<meta property="og:description" content="Roll out branded digital business cards across your whole company. Central admin, SSO, CRM sync, analytics and enterprise security. CompanyCard for Teams.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.company-card.com/business.html">
+<link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+
+<style>
+/* ===== Teams page — brand wall & visual hero (ui-ux-pro-max: hero-centric showcase) ===== */
+.tw-trust { margin-top:38px; }
+.tw-trust .lbl { text-align:center; font-weight:600; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--slate-400); margin-bottom:16px; }
+.tw-logos { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 38px; }
+.tw-logos span { font-family:var(--font-display); font-weight:700; font-size:1.16rem; color:var(--slate-300); letter-spacing:-.01em; transition:color var(--t) ease; }
+.tw-logos span:hover { color:var(--slate-400); }
+
+.brandwall { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.bw-card { position:relative; background:#fff; border-radius:24px; overflow:hidden; border:1px solid var(--slate-100);
+  box-shadow:var(--shadow-sm); transition:transform var(--t) var(--ease-spring), box-shadow var(--t) ease; }
+.bw-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.bw-banner { position:relative; height:98px; background:var(--grad); overflow:hidden; }
+.bw-banner::after { content:""; position:absolute; inset:0; background:radial-gradient(140px 90px at 84% 14%, rgba(255,255,255,.30), transparent 60%); }
+.bw-wm { position:absolute; right:-16px; bottom:-22px; width:124px; height:124px; opacity:.16; z-index:1; }
+.bw-wm svg { width:100%; height:100%; }
+.bw-lock { position:absolute; left:18px; top:15px; z-index:2; display:flex; align-items:center; gap:8px; }
+.bw-lock svg { width:19px; height:19px; }
+.bw-lock b { color:#fff; font-family:var(--font-display); font-weight:700; font-size:1rem; letter-spacing:.01em; text-shadow:0 1px 2px rgba(15,23,42,.18); }
+.bw-av { width:76px; height:76px; border-radius:20px; margin:-38px 0 0 22px; border:4px solid #fff; position:relative; z-index:3;
+  box-shadow:var(--shadow); overflow:hidden; background:#fff; }
+.bw-av img { width:100%; height:100%; display:block; }
+.bw-body { padding:11px 22px 20px; }
+.bw-name { font-family:var(--font-display); font-weight:700; font-size:1.16rem; color:var(--ink); line-height:1.15; }
+.bw-role { color:var(--slate-500); font-size:.9rem; margin-top:3px; }
+.bw-company { display:inline-flex; align-items:center; gap:7px; margin-top:13px; padding:5px 11px 5px 9px; border-radius:var(--r-full);
+  background:var(--violet-50); color:var(--indigo-700); font-weight:600; font-size:.82rem; border:1px solid var(--violet-100); }
+.bw-company svg { width:13px; height:13px; }
+.bw-actions { display:flex; align-items:center; gap:8px; margin-top:16px; }
+.bw-actions i { width:36px; height:36px; border-radius:11px; background:var(--slate-50); display:grid; place-items:center; color:var(--indigo-600); transition:transform var(--t) var(--ease-spring), background .2s; }
+.bw-actions i:hover { transform:translateY(-2px); background:var(--violet-50); }
+.bw-actions i svg { width:17px; height:17px; }
+.bw-actions .save { flex:1; height:36px; border-radius:11px; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; gap:7px; font-size:.84rem; font-weight:600; }
+.bw-actions .save svg { width:16px; height:16px; }
+
+.bw-note { margin:30px auto 0; max-width:780px; display:flex; align-items:center; gap:13px; justify-content:center; flex-wrap:wrap;
+  background:linear-gradient(180deg,#fff,var(--violet-50)); border:1px solid var(--violet-100); border-radius:var(--r-lg);
+  padding:16px 24px; color:var(--slate-700); font-size:1.02rem; box-shadow:var(--shadow-xs); text-align:center; }
+.bw-note b { color:var(--indigo-700); font-weight:700; }
+.bw-note .chk { width:26px; height:26px; border-radius:50%; background:var(--grad); display:grid; place-items:center; color:#fff; flex:0 0 auto; }
+.bw-note .chk svg { width:15px; height:15px; }
+
+/* directory avatars (admin split) */
+.dir-av { width:40px; height:40px; border-radius:12px; overflow:hidden; flex:0 0 auto; box-shadow:0 0 0 2px #fff; }
+.dir-av img { width:100%; height:100%; display:block; }
+
+@media (max-width:920px){ .brandwall{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .brandwall{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <nav class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="business.html">For Teams</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="index.html#how">How it works</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="app/login.html" class="btn btn-ghost">Sign in</a>
+      <a href="app/onboarding.html" class="btn btn-primary shine">Get started</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal"><span class="dot"></span> CompanyCard for Teams</span>
+    <h1 class="reveal" style="margin-top:18px;">Every employee, <span class="gradient-text">perfectly on brand.</span></h1>
+    <p class="lead reveal">Deploy branded digital business cards across your whole organisation, manage them from one dashboard, and turn every conversation your team has into clean, trackable pipeline.</p>
+    <div class="hero-actions reveal" style="justify-content:center;">
+      <a href="app/onboarding.html" class="btn btn-primary btn-lg shine">Get started</a>
+      <a href="pricing.html" class="btn btn-ghost btn-lg">See team pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND WALL SHOWPIECE -->
+<section class="section" style="background:var(--slate-50);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> One company, one brand</span>
+      <h2>Same brand. Same logo. <span class="gradient-text">Different faces.</span></h2>
+      <p>Every card in the company shares the exact same banner, logo and company name &mdash; pulled from one locked template. Only the person changes. Roll it out once, stay on brand forever.</p>
+    </div>
+    <div class="brandwall">
+      <div class="bw-card reveal" style="transition-delay:0ms">
+        <div class="bw-banner">
+          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
+        </div>
+        <div class="bw-av"><img src="assets/team/rachel.svg" alt="Rachel Kim, VP Sales at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-body">
+          <div class="bw-name">Rachel Kim</div>
+          <div class="bw-role">VP Sales</div>
+          <span class="bw-company"><svg viewBox="0 0 32 32" fill="#4F46E5" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind</span>
+          <div class="bw-actions">
+            <i title="Call" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>
+            <i title="Email" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i>
+            <i title="LinkedIn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></i>
+            <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Save</span>
+          </div>
+        </div>
+      </div>
+      <div class="bw-card reveal" style="transition-delay:60ms">
+        <div class="bw-banner">
+          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
+        </div>
+        <div class="bw-av"><img src="assets/team/diego.svg" alt="Diego Martín, Account Executive at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-body">
+          <div class="bw-name">Diego Martín</div>
+          <div class="bw-role">Account Executive</div>
+          <span class="bw-company"><svg viewBox="0 0 32 32" fill="#4F46E5" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind</span>
+          <div class="bw-actions">
+            <i title="Call" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>
+            <i title="Email" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i>
+            <i title="LinkedIn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></i>
+            <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Save</span>
+          </div>
+        </div>
+      </div>
+      <div class="bw-card reveal" style="transition-delay:120ms">
+        <div class="bw-banner">
+          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
+        </div>
+        <div class="bw-av"><img src="assets/team/amara.svg" alt="Amara Okafor, Partnerships Lead at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-body">
+          <div class="bw-name">Amara Okafor</div>
+          <div class="bw-role">Partnerships Lead</div>
+          <span class="bw-company"><svg viewBox="0 0 32 32" fill="#4F46E5" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind</span>
+          <div class="bw-actions">
+            <i title="Call" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>
+            <i title="Email" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i>
+            <i title="LinkedIn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></i>
+            <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Save</span>
+          </div>
+        </div>
+      </div>
+      <div class="bw-card reveal" style="transition-delay:180ms">
+        <div class="bw-banner">
+          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
+        </div>
+        <div class="bw-av"><img src="assets/team/marcus.svg" alt="Marcus Bell, Solutions Engineer at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-body">
+          <div class="bw-name">Marcus Bell</div>
+          <div class="bw-role">Solutions Engineer</div>
+          <span class="bw-company"><svg viewBox="0 0 32 32" fill="#4F46E5" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind</span>
+          <div class="bw-actions">
+            <i title="Call" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>
+            <i title="Email" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i>
+            <i title="LinkedIn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></i>
+            <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Save</span>
+          </div>
+        </div>
+      </div>
+      <div class="bw-card reveal" style="transition-delay:240ms">
+        <div class="bw-banner">
+          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
+        </div>
+        <div class="bw-av"><img src="assets/team/sofia.svg" alt="Sofia Costa, Customer Success at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-body">
+          <div class="bw-name">Sofia Costa</div>
+          <div class="bw-role">Customer Success</div>
+          <span class="bw-company"><svg viewBox="0 0 32 32" fill="#4F46E5" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind</span>
+          <div class="bw-actions">
+            <i title="Call" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>
+            <i title="Email" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i>
+            <i title="LinkedIn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></i>
+            <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Save</span>
+          </div>
+        </div>
+      </div>
+      <div class="bw-card reveal" style="transition-delay:300ms">
+        <div class="bw-banner">
+          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
+        </div>
+        <div class="bw-av"><img src="assets/team/tom.svg" alt="Tom Walsh, Marketing Manager at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-body">
+          <div class="bw-name">Tom Walsh</div>
+          <div class="bw-role">Marketing Manager</div>
+          <span class="bw-company"><svg viewBox="0 0 32 32" fill="#4F46E5" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind</span>
+          <div class="bw-actions">
+            <i title="Call" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>
+            <i title="Email" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i>
+            <i title="LinkedIn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></i>
+            <span class="save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Save</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bw-note reveal">
+      <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <span>Notice it? <b>Identical Northwind banner, logo &amp; company</b> on all six &mdash; only the photo, name and title differ. That is brand consistency, automatically.</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section--tight">
+  <div class="container">
+    <div class="stats">
+      <div class="stat reveal"><div class="num gradient-text">3×</div><div class="lbl">More contacts captured</div></div>
+      <div class="stat reveal"><div class="num gradient-text">100%</div><div class="lbl">Brand-consistent cards</div></div>
+      <div class="stat reveal"><div class="num gradient-text">5&nbsp;min</div><div class="lbl">Company-wide rollout</div></div>
+      <div class="stat reveal"><div class="num gradient-text">SOC&nbsp;2</div><div class="lbl">Enterprise security</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE BENTO -->
+<section class="section" style="background:var(--slate-50);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Built for the whole company</span>
+      <h2>One platform to run them all.</h2>
+      <p>From a five-person startup to a global salesforce — manage cards, brand and data from a single place.</p>
+    </div>
+    <div class="bento">
+      <div class="card span-2 reveal">
+        <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Central admin dashboard</h3>
+        <p>Add and remove employees, push template changes, and oversee every card in your organisation from one clean control panel.</p>
+      </div>
+      <div class="card reveal">
+        <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2M4 17v2a2 2 0 0 0 2 2h2M20 7V5a2 2 0 0 0-2-2h-2M20 17v2a2 2 0 0 1-2 2h-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Locked-in branding</h3>
+        <p>Logo, colours and layout stay consistent on every card — no rogue designs.</p>
+      </div>
+      <div class="card reveal">
+        <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>SSO &amp; provisioning</h3>
+        <p>SAML/SSO, SCIM and bulk import. Onboard hundreds in minutes.</p>
+      </div>
+      <div class="card grad span-2 reveal">
+        <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg></div>
+        <h3>Team-wide analytics</h3>
+        <p>Track views, taps, saves and leads by person, team or region. Export to your BI tools and prove the ROI of every event and meeting.</p>
+      </div>
+      <div class="card reveal">
+        <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+        <h3>CRM sync</h3>
+        <p>Two-way sync with Salesforce, HubSpot, Pipedrive and more.</p>
+      </div>
+      <div class="card reveal">
+        <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+        <h3>Signature &amp; video background — for every employee</h3>
+        <p>Each employee automatically gets a matching email signature and a branded virtual background. Your card on every email and every video call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT: dashboard -->
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span> Admin control</span>
+      <h2>Manage thousands of cards like one.</h2>
+      <p class="lead">A single source of truth for your team's identity. Update a job title, swap the company logo, or offboard someone — and it's reflected everywhere instantly.</p>
+      <ul class="checklist">
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Role-based permissions &amp; departments</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Approve or lock individual fields</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Instant offboarding &amp; card revocation</li>
+      </ul>
+    </div>
+    <div class="split-media reveal">
+      <div class="media-frame">
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div style="background:var(--grad-ink); padding:18px 22px; display:flex; align-items:center; justify-content:space-between;">
+            <b style="color:#fff;font-family:var(--font-display);display:inline-flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> Northwind &middot; Team directory</b>
+            <span class="save-tag" style="background:rgba(255,255,255,.16);color:#fff;">214 members</span>
+          </div>
+          <div style="padding:8px 0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-bottom:1px solid var(--slate-100);">
+              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/rachel.svg" alt="Rachel Kim" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Rachel Kim</b><div style="color:var(--slate-500);font-size:.82rem;">VP Sales</div></div></div>
+              <span class="save-tag">Active</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-bottom:1px solid var(--slate-100);">
+              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/diego.svg" alt="Diego Martín" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Diego Martín</b><div style="color:var(--slate-500);font-size:.82rem;">Account Exec</div></div></div>
+              <span class="save-tag">Active</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;">
+              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/amara.svg" alt="Amara Okafor" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Amara Okafor</b><div style="color:var(--slate-500);font-size:.82rem;">Partnerships</div></div></div>
+              <span class="save-tag" style="background:var(--slate-100);color:var(--slate-500);">Invited</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="section" style="background:var(--slate-50);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Integrations</span>
+      <h2>Plays nicely with your stack.</h2>
+      <p>Send every captured contact exactly where it needs to go.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card center reveal"><b style="color:var(--ink);font-size:1.05rem;">Salesforce</b><p style="font-size:.9rem;margin-top:6px;">Two-way lead sync</p></div>
+      <div class="card center reveal"><b style="color:var(--ink);font-size:1.05rem;">HubSpot</b><p style="font-size:.9rem;margin-top:6px;">Auto-create contacts</p></div>
+      <div class="card center reveal"><b style="color:var(--ink);font-size:1.05rem;">Okta / Azure</b><p style="font-size:.9rem;margin-top:6px;">SSO &amp; SCIM</p></div>
+      <div class="card center reveal"><b style="color:var(--ink);font-size:1.05rem;">Zapier</b><p style="font-size:.9rem;margin-top:6px;">5,000+ apps</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section">
+  <div class="container split split--rev">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span> Security &amp; compliance</span>
+      <h2>Enterprise-grade by default.</h2>
+      <p class="lead">Your people's data is protected with the controls your security team expects — and the certifications procurement asks for.</p>
+      <ul class="checklist">
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> SOC 2 Type II &amp; GDPR compliant</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Encryption in transit &amp; at rest</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Audit logs &amp; data residency options</li>
+      </ul>
+    </div>
+    <div class="split-media reveal">
+      <div class="media-frame center">
+        <div class="feature-ico" style="margin:8px auto 18px; width:72px; height:72px; border-radius:22px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px;height:36px;"><path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div class="grid grid-2" style="gap:14px;">
+          <span class="save-tag" style="padding:10px;">SOC 2</span>
+          <span class="save-tag" style="padding:10px;">GDPR</span>
+          <span class="save-tag" style="padding:10px;">SSO / SAML</span>
+          <span class="save-tag" style="padding:10px;">SCIM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Ready to brand every handshake?</h2>
+      <p>See how CompanyCard for Teams rolls out across your company in minutes — import your directory and provision everyone in a few clicks.</p>
+      <div class="cta-actions">
+        <a href="app/onboarding.html" class="btn btn-white btn-lg">Get started</a>
+        <a href="pricing.html" class="btn btn-outline-white btn-lg">View pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#C6A15B" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#C6A15B" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#C6A15B" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#F5F2EC">CompanyCard</text></svg>
+        <p>The digital business card for people and teams. Share who you are in one tap — no app required.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="business.html">For Teams</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="index.html#how">How it works</a></li></ul></div>
+      <div><h4>Solutions</h4><ul><li><a href="digital-business-card.html">Digital Business Card</a></li><li><a href="virtual-business-card.html">Virtual Business Card</a></li><li><a href="qr-code-business-card.html">QR Code Business Card</a></li><li><a href="digital-business-card-maker.html">Business Card Maker</a></li><li><a href="free-digital-business-card.html">Free Digital Card</a></li></ul></div>
+      <div><h4>Compare &amp; Tools</h4><ul><li><a href="best-digital-business-card.html">Best Digital Card Apps</a></li><li><a href="electronic-business-card.html">Electronic Business Card</a></li><li><a href="email-signature-generator.html">Email Signature Generator</a></li><li><a href="virtual-background-for-video-calls.html">Virtual Backgrounds</a></li><li><a href="digital-business-cards-for-teams.html">Cards for Teams</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> CompanyCard, Inc. · www.company-card.com</span>
+      <div class="footer-social">
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-7-6.1 7H1.6l8-9.2L1 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

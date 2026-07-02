@@ -1,0 +1,8 @@
+# local data & secrets — never commit
+server/data.json
+server/data.json.tmp
+server/.env
+node_modules/
+.DS_Store
+*.zip
+.claude/

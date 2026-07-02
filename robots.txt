@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /app/dashboard.html
+Disallow: /app/team.html
+Disallow: /app/employee.html
+Disallow: /app/checkout.html
+Disallow: /server/
+
+Sitemap: https://www.company-card.com/sitemap.xml

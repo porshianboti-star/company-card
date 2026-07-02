@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CompanyCard — The digital business card for people & teams</title>
+<meta name="description" content="CompanyCard is the modern digital business card. Share your details in one tap — QR, link, email signature or wallet. Built for individuals and teams. company-card.com">
+<link rel="canonical" href="https://www.company-card.com/">
+<meta property="og:title" content="CompanyCard — The digital business card for people & teams">
+<meta property="og:description" content="CompanyCard is the modern digital business card. Share your details in one tap — QR, link, email signature or wallet. Built for individuals and teams. company-card.com">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.company-card.com/">
+<link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/home.css">
+<style>
+  .builder { margin-top: 26px; background:rgba(255,255,255,.85); backdrop-filter:blur(10px); border:1px solid var(--slate-200); border-radius: var(--r-lg); padding:18px; box-shadow: var(--shadow-sm); max-width: 540px; }
+  .builder .builder-head { display:flex; align-items:center; gap:8px; font-weight:600; font-size:.9rem; color:var(--ink); margin-bottom:12px; }
+  .builder .builder-head .ico { width:24px;height:24px;border-radius:7px;background:var(--grad-soft);color:var(--indigo-600);display:grid;place-items:center; }
+  .builder .builder-head .ico svg{width:14px;height:14px;}
+  .builder-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .builder input { width:100%; font-family:inherit; font-size:.92rem; padding:11px 13px; border:1px solid var(--slate-200); border-radius:11px; color:var(--ink); background:var(--slate-50); transition:border-color .15s, background .15s; }
+  .builder input:focus { outline:none; border-color:var(--indigo-500); background:#fff; }
+  .builder input.full { grid-column: span 2; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CompanyCard","url":"https://www.company-card.com","logo":"https://www.company-card.com/assets/png/logo-icon.png","description":"The digital business card for people and teams."}</script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <nav class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="business.html">For Teams</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="index.html#how">How it works</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="app/login.html" class="btn btn-ghost">Sign in</a>
+      <a href="app/builder.html" class="btn btn-primary shine">Get started free</a>
+    </div>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-x">
+  <div class="mesh"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+  <div class="grid-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow live fx" style="--d:.05s"><span class="dot"></span> One tap. Every connection.</span>
+      <h1 class="fx" style="--d:.15s; margin-top:22px;">The digital business card<br><span class="gtext-anim">for people &amp; teams.</span></h1>
+      <p class="lead fx" style="--d:.28s; margin-top:22px; max-width:540px;">Share your contact details, socials and links in a single tap — by QR, link or email signature. No app to download. Always up to date. Built for individuals and the whole company.</p>
+      <div class="hero-actions fx" style="--d:.4s">
+        <a href="app/builder.html" class="btn btn-primary btn-lg shine glow" data-magnetic>Create your free card
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="business.html" class="btn btn-ghost btn-lg">Explore for teams</a>
+      </div>
+
+      <div class="hero-trust fx" style="--d:.52s">
+        <div class="avatars"><span>A</span><span>M</span><span>S</span><span>+</span></div>
+        <div><span>Free to start &middot; no app for the receiver</span><br><span>Your card, signature &amp; video background in one</span></div>
+      </div>
+
+      <div class="builder fx" style="--d:.62s">
+        <div class="builder-head">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+          Try it live — your card updates as you type
+        </div>
+        <div class="builder-row">
+          <input id="b-name" class="full" type="text" placeholder="Full name" value="Jordan Diaz" aria-label="Full name">
+          <input id="b-role" type="text" placeholder="Job title" value="Head of Sales" aria-label="Job title">
+          <input id="b-company" type="text" placeholder="Company" value="CompanyCard" aria-label="Company">
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D stage -->
+    <div class="phone-stage stage3d fx" data-tilt="10" style="--d:.3s">
+      <div class="glow-base"></div>
+
+      <div class="tilt3d">
+        <div class="depth" style="--z:50px">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="dcard-cover"></div>
+              <div class="dcard-avatar" id="dc-avatar">JD</div>
+              <div class="dcard-body">
+                <div class="dcard-name" id="dc-name">Jordan Diaz</div>
+                <div class="dcard-role" id="dc-role">Head of Sales</div>
+                <div class="dcard-company"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M4 11h16"/></svg> <span id="dc-company-name">CompanyCard</span></div>
+                <div class="dcard-actions">
+                  <a href="#" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></a>
+                  <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+                  <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></a>
+                </div>
+                <div class="dcard-save"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Save contact</div>
+                <div class="dcard-qr">
+                  <svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" aria-label="QR code">
+                    <g fill="#0B0A1F">
+                      <rect x="0" y="0" width="24" height="24" rx="4"/><rect x="6" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="9" width="6" height="6" rx="1"/>
+                      <rect x="60" y="0" width="24" height="24" rx="4"/><rect x="66" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="69" y="9" width="6" height="6" rx="1"/>
+                      <rect x="0" y="60" width="24" height="24" rx="4"/><rect x="6" y="66" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="69" width="6" height="6" rx="1"/>
+                      <rect x="36" y="6" width="6" height="6"/><rect x="48" y="0" width="6" height="6"/><rect x="30" y="18" width="6" height="6"/><rect x="42" y="18" width="6" height="6"/>
+                      <rect x="36" y="30" width="6" height="6"/><rect x="48" y="36" width="6" height="6"/><rect x="60" y="30" width="6" height="6"/><rect x="72" y="36" width="6" height="6"/>
+                      <rect x="6" y="36" width="6" height="6"/><rect x="18" y="42" width="6" height="6"/><rect x="30" y="48" width="6" height="6"/><rect x="42" y="54" width="6" height="6"/>
+                      <rect x="54" y="48" width="6" height="6"/><rect x="66" y="54" width="6" height="6"/><rect x="36" y="66" width="6" height="6"/><rect x="48" y="72" width="6" height="6"/>
+                      <rect x="60" y="66" width="6" height="6"/><rect x="72" y="72" width="6" height="6"/><rect x="30" y="36" width="6" height="6"/>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- floating UI -->
+      <div class="tap-pill">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z M18 18h3v3h-3z"/></svg></span>
+        Scan to share
+      </div>
+      <div class="chip c1"><span class="ic v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/></svg></span> QR scanned</div>
+      <div class="chip c2"><span class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Contact saved</div>
+      <div class="chip c3"><span class="ic o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span> +1 new lead</div>
+      <div class="chip c4"><span class="ic i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg></span> 1.2k views</div>
+    </div>
+  </div>
+
+  <div class="container"><div class="scroll-cue"><span></span></div></div>
+</section>
+
+<!-- SEE IT IN ACTION (real product video) -->
+<section class="section action-band">
+  <div class="container split" style="align-items:center;">
+    <div class="reveal">
+      <span class="eyebrow live"><span class="dot"></span> See it in action</span>
+      <h2>Design a card that <span class="gtext-anim">makes you a pro.</span></h2>
+      <p class="lead">Add your photo, brand colours, logo and links — and watch every change preview live. No design skills, no app. Just a card that looks the part in seconds.</p>
+      <ul class="checklist">
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Drag-and-drop builder &amp; premium templates</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Brand colours, cover photo &amp; logo</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Unlimited links, files, socials &amp; video</li>
+      </ul>
+      <div class="hero-actions"><a href="app/builder.html" class="btn btn-primary btn-lg shine glow" data-magnetic>Create your free card</a></div>
+    </div>
+    <div class="split-media reveal">
+      <div class="reel-wrap">
+        <div class="reel-glow"></div>
+        <div class="clip-square">
+          <span class="reel-tag"><span class="pd"></span> LIVE DEMO</span>
+          <video autoplay loop muted playsinline poster="assets/video/card-edit-poster.jpg" aria-label="Customising a CompanyCard digital business card">
+            <source src="assets/video/card-edit.webm" type="video/webm">
+            <source src="assets/video/card-edit.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CINEMATIC BRAND FILM -->
+<section class="film-band">
+  <video class="bgvid" autoplay loop muted playsinline poster="assets/video/brand-film-poster.jpg" aria-label="People connecting at an event with CompanyCard">
+    <source src="assets/video/brand-film.mp4" type="video/mp4">
+  </video>
+  <div class="scrim"></div>
+  <div class="container">
+    <span class="badge-film reveal"><span class="pd"></span> Real connections, in the wild</span>
+    <h2 class="reveal" style="margin-top:18px;">Where great <span class="gtext-anim">first impressions</span> begin.</h2>
+    <p class="reveal">Conferences, coffees, chance encounters — whenever you meet someone, one tap of CompanyCard makes sure they never lose you.</p>
+    <div class="hero-actions reveal" style="margin-top:28px;">
+      <a href="app/builder.html" class="btn btn-white btn-lg" data-magnetic>Create your free card</a>
+      <a href="business.html" class="btn btn-outline-white btn-lg">CompanyCard for Teams</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES (bento, tilt) -->
+<section class="section" id="features" style="background:var(--slate-50);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Everything in one place</span>
+      <h2>One card. Every way to share.</h2>
+      <p>QR, wallet, email signatures, virtual backgrounds and more — explore everything your CompanyCard can do.</p>
+    </div>
+    <div class="gallery">
+
+      <!-- QR -->
+      <div class="gtile reveal">
+        <div class="media bg-blue">
+          <div class="mk mk-qr">
+            <div class="q"><svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><g fill="#0B0A1F"><rect x="0" y="0" width="24" height="24" rx="4"/><rect x="6" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="60" y="0" width="24" height="24" rx="4"/><rect x="66" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="69" y="9" width="6" height="6" rx="1"/><rect x="0" y="60" width="24" height="24" rx="4"/><rect x="6" y="66" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="69" width="6" height="6" rx="1"/><rect x="36" y="6" width="6" height="6"/><rect x="48" y="0" width="6" height="6"/><rect x="30" y="18" width="6" height="6"/><rect x="42" y="18" width="6" height="6"/><rect x="36" y="30" width="6" height="6"/><rect x="48" y="36" width="6" height="6"/><rect x="60" y="30" width="6" height="6"/><rect x="6" y="36" width="6" height="6"/><rect x="30" y="48" width="6" height="6"/><rect x="42" y="54" width="6" height="6"/><rect x="60" y="66" width="6" height="6"/><rect x="36" y="66" width="6" height="6"/><rect x="72" y="72" width="6" height="6"/><rect x="30" y="36" width="6" height="6"/></g></svg></div>
+            <div class="who"><span class="pf">AB</span><b>Aria Bianchi</b></div>
+          </div>
+        </div>
+        <div class="foot"><div><b>QR Code</b><p>Scan to share instantly</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+
+      <!-- Virtual backgrounds (wide) -->
+      <div class="gtile span2 reveal">
+        <div class="media bg-tan">
+          <div class="vcall">
+            <div class="brandmark"><i></i>CompanyCard</div>
+            <div class="person"></div>
+            <div class="tag">Jordan Diaz &middot; Co-Founder &amp; CEO</div>
+            <div class="bar"><span></span><span></span><span class="end"></span></div>
+          </div>
+        </div>
+        <div class="foot"><div><b>Virtual Backgrounds</b><p>Your card on every video call &mdash; included for every employee</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+
+      <!-- Email signatures -->
+      <div class="gtile reveal">
+        <div class="media bg-pink">
+          <div class="sig"><span class="pf"></span><div style="flex:1;"><b style="color:var(--ink);">Rachel Kim</b><div class="ln" style="width:85%;"></div><div class="ln" style="width:62%;"></div></div></div>
+        </div>
+        <div class="foot"><div><b>Email Signatures</b><p>A polished sign-off in one click</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+
+      <!-- Wallet -->
+      <div class="gtile reveal">
+        <div class="media bg-olive">
+          <div class="wallet-card"><div class="row"><small style="opacity:.65;font-size:.68rem;letter-spacing:.08em;">WORK</small><b style="font-size:.78rem;">CompanyCard</b></div><div style="margin-top:26px;"><div style="font-family:var(--font-display);font-weight:700;">Samuel Okoro</div><div style="opacity:.7;font-size:.74rem;">Founder &amp; Director</div></div></div>
+        </div>
+        <div class="foot"><div><b>Apple &amp; Google Wallet</b><p>Your card, a tap away</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+
+      <!-- Apple Watch -->
+      <div class="gtile reveal">
+        <div class="media bg-lav">
+          <div class="watch"><div class="scr"><div class="q"><svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><g fill="#0B0A1F"><rect x="0" y="0" width="24" height="24" rx="4"/><rect x="6" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="60" y="0" width="24" height="24" rx="4"/><rect x="66" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="69" y="9" width="6" height="6" rx="1"/><rect x="0" y="60" width="24" height="24" rx="4"/><rect x="6" y="66" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="69" width="6" height="6" rx="1"/><rect x="36" y="30" width="6" height="6"/><rect x="48" y="36" width="6" height="6"/><rect x="36" y="48" width="6" height="6"/><rect x="48" y="6" width="6" height="6"/></g></svg></div></div></div>
+        </div>
+        <div class="foot"><div><b>Apple Watch</b><p>Share straight from your wrist</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+
+      <!-- Live analytics -->
+      <div class="gtile reveal">
+        <div class="media bg-gray">
+          <div class="stat-mini"><div class="row"><span>This week</span><span class="up">+24%</span></div><div class="bars"><i style="height:34%"></i><i style="height:52%"></i><i style="height:40%"></i><i style="height:68%"></i><i style="height:55%"></i><i class="hi" style="height:88%"></i><i style="height:72%"></i></div></div>
+        </div>
+        <div class="foot"><div><b>Live Analytics</b><p>See who viewed and saved your card</p></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+
+      <!-- CTA -->
+      <div class="gtile cta reveal">
+        <div class="cta-in"><h3>Create<br>my card</h3><a href="#" class="arrow" aria-label="Create my card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (animated) -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> How it works</span>
+      <h2>Up and running in 60 seconds.</h2>
+    </div>
+    <div class="split" style="align-items:center;">
+      <div class="demo-steps reveal">
+        <button class="demo-step-btn" type="button">
+          <div class="row"><span class="n">1</span><div><b>Create your card</b><p>Add your details, links and brand. Pick a template — no design skills needed.</p></div></div>
+          <div class="bar"><i></i></div>
+        </button>
+        <button class="demo-step-btn" type="button">
+          <div class="row"><span class="n">2</span><div><b>Share any way</b><p>Tap your phone, show a QR, drop a link or add it to your wallet.</p></div></div>
+          <div class="bar"><i></i></div>
+        </button>
+        <button class="demo-step-btn" type="button">
+          <div class="row"><span class="n">3</span><div><b>Grow your network</b><p>Capture contacts back, sync to your CRM and follow up while top of mind.</p></div></div>
+          <div class="bar"><i></i></div>
+        </button>
+      </div>
+
+      <div class="split-media reveal">
+        <div class="media-frame demo-screens" style="min-height:340px; display:grid; place-items:center;">
+          <!-- step 1: build -->
+          <div class="demo-screen active">
+            <div class="card" style="width:300px;">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><span class="dcard-avatar" style="width:52px;height:52px;border-radius:15px;margin:0;font-size:1.1rem;border-width:2px;">JD</span><div><b style="color:var(--ink)">Jordan Diaz</b><div style="color:var(--slate-500);font-size:.85rem;">Head of Sales</div></div></div>
+              <div style="display:grid;gap:9px;">
+                <div style="height:12px;border-radius:6px;background:var(--slate-100);width:90%;"></div>
+                <div style="height:12px;border-radius:6px;background:var(--slate-100);width:70%;"></div>
+                <div style="height:12px;border-radius:6px;background:var(--violet-100);width:80%;"></div>
+              </div>
+              <div style="margin-top:16px;display:flex;gap:8px;"><span class="save-tag">＋ Link</span><span class="save-tag">＋ Social</span><span class="save-tag">＋ File</span></div>
+            </div>
+          </div>
+          <!-- step 2: share -->
+          <div class="demo-screen">
+            <div class="card center" style="width:300px;">
+              <div class="dcard-qr" style="margin:0 auto;width:130px;height:130px;"><svg viewBox="0 0 84 84" xmlns="http://www.w3.org/2000/svg"><g fill="#0B0A1F"><rect x="0" y="0" width="24" height="24" rx="4"/><rect x="6" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="60" y="0" width="24" height="24" rx="4"/><rect x="66" y="6" width="12" height="12" rx="2" fill="#fff"/><rect x="69" y="9" width="6" height="6" rx="1"/><rect x="0" y="60" width="24" height="24" rx="4"/><rect x="6" y="66" width="12" height="12" rx="2" fill="#fff"/><rect x="9" y="69" width="6" height="6" rx="1"/><rect x="36" y="6" width="6" height="6"/><rect x="48" y="0" width="6" height="6"/><rect x="36" y="30" width="6" height="6"/><rect x="48" y="36" width="6" height="6"/><rect x="30" y="48" width="6" height="6"/><rect x="42" y="54" width="6" height="6"/><rect x="60" y="66" width="6" height="6"/><rect x="36" y="66" width="6" height="6"/></g></svg></div>
+              <div style="margin-top:16px;font-weight:700;color:var(--ink);">Scan, send or share a link</div>
+              <div style="margin-top:14px;display:flex;gap:8px;justify-content:center;"><span class="save-tag" style="padding:9px 12px;"> Email</span><span class="save-tag" style="padding:9px 12px;"> Wallet</span><span class="save-tag" style="padding:9px 12px;"> Link</span></div>
+            </div>
+          </div>
+          <!-- step 3: grow -->
+          <div class="demo-screen">
+            <div class="card" style="width:300px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><b style="color:var(--ink);">This week</b><span class="save-tag">+24%</span></div>
+              <div style="display:flex;align-items:flex-end;gap:8px;height:96px;margin-bottom:16px;">
+                <div style="flex:1;background:var(--slate-100);border-radius:6px 6px 0 0;height:40%;"></div>
+                <div style="flex:1;background:var(--violet-100);border-radius:6px 6px 0 0;height:62%;"></div>
+                <div style="flex:1;background:var(--purple-400);border-radius:6px 6px 0 0;height:52%;"></div>
+                <div style="flex:1;background:var(--violet-500);border-radius:6px 6px 0 0;height:78%;"></div>
+                <div style="flex:1;background:var(--grad);border-radius:6px 6px 0 0;height:100%;"></div>
+              </div>
+              <div class="stats" style="grid-template-columns:1fr 1fr 1fr;gap:10px;">
+                <div class="stat"><div class="num gradient-text" style="font-size:1.5rem;">1.2k</div><div class="lbl">Views</div></div>
+                <div class="stat"><div class="num gradient-text" style="font-size:1.5rem;">340</div><div class="lbl">Contacts</div></div>
+                <div class="stat"><div class="num gradient-text" style="font-size:1.5rem;">86</div><div class="lbl">Leads</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT: individuals -->
+<section class="section" style="background:var(--slate-50);">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span> For individuals</span>
+      <h2>One card for the whole of you.</h2>
+      <p class="lead">Phone, email, website, socials, calendar link, payment handle — everything someone needs, in one elegant place.</p>
+      <ul class="checklist">
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Unlimited links, socials and files</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Add to Apple &amp; Google Wallet</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Works on any phone — nothing to install</li>
+      </ul>
+      <div class="hero-actions"><a href="pricing.html" class="btn btn-dark">Start free</a></div>
+    </div>
+    <div class="split-media reveal">
+      <div class="media-frame">
+        <div class="design-card">
+          <div class="dc2-cover"></div>
+          <div class="dc2-av"></div>
+          <div class="dc2-body">
+            <div class="dc2-name">Jordan Diaz</div>
+            <div class="dc2-role">Head of Sales · CompanyCard</div>
+            <div class="dc2-links">
+              <div class="link-chip" style="animation-delay:.1s"><i></i><span></span></div>
+              <div class="link-chip" style="animation-delay:.5s"><i></i><span style="max-width:78%"></span></div>
+              <div class="link-chip" style="animation-delay:.9s"><i></i><span style="max-width:58%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT: teams -->
+<section class="section">
+  <div class="container split split--rev">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span> For teams</span>
+      <h2>Every employee, on brand.</h2>
+      <p class="lead">Roll out branded digital cards across the whole company, manage them from one dashboard and see the relationships your team is building.</p>
+      <ul class="checklist">
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Centralised brand &amp; template control</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Bulk-create cards &amp; SSO provisioning</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> CRM sync: Salesforce, HubSpot &amp; more</li>
+      </ul>
+      <div class="hero-actions"><a href="business.html" class="btn btn-primary shine">See CompanyCard for Teams</a></div>
+    </div>
+    <div class="split-media reveal">
+      <div class="dash">
+        <div class="dash-top"><span class="dots"><i></i><i></i><i></i></span><b>Team dashboard</b><span class="live"><span class="pd"></span> Live</span></div>
+        <div class="dash-body">
+          <div class="dash-tiles">
+            <div class="dash-tile"><div class="k gradient-text">12.4k</div><div class="l">Views</div></div>
+            <div class="dash-tile"><div class="k gradient-text">3.1k</div><div class="l">Contacts</div></div>
+            <div class="dash-tile"><div class="k gradient-text">742</div><div class="l">Leads</div></div>
+          </div>
+          <div class="dash-chart">
+            <i style="--h:.45;animation-delay:0s"></i><i style="--h:.7;animation-delay:.12s"></i><i style="--h:.55;animation-delay:.24s"></i><i style="--h:.85;animation-delay:.36s"></i><i style="--h:.62;animation-delay:.48s"></i><i style="--h:1;animation-delay:.6s"></i><i style="--h:.8;animation-delay:.72s"></i>
+          </div>
+          <div class="dash-rows">
+            <div class="dash-row" style="animation-delay:.2s"><span class="dcard-avatar" style="width:34px;height:34px;border-radius:10px;margin:0;font-size:.72rem;border-width:2px;">RK</span><b style="color:var(--ink);font-size:.9rem;">Rachel Kim</b><span class="save-tag" style="margin-left:auto;">+18 leads</span></div>
+            <div class="dash-row" style="animation-delay:.5s"><span class="dcard-avatar" style="width:34px;height:34px;border-radius:10px;margin:0;font-size:.72rem;border-width:2px;">DM</span><b style="color:var(--ink);font-size:.9rem;">Diego Martín</b><span class="save-tag" style="margin-left:auto;">+12 leads</span></div>
+            <div class="dash-row" style="animation-delay:.8s"><span class="dcard-avatar" style="width:34px;height:34px;border-radius:10px;margin:0;font-size:.72rem;border-width:2px;">AO</span><b style="color:var(--ink);font-size:.9rem;">Amara Okafor</b><span class="save-tag" style="margin-left:auto;">+9 leads</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS count-up -->
+<section class="section--tight" style="background:var(--slate-50);">
+  <div class="container">
+    <div class="stats">
+      <div class="stat reveal"><div class="num gradient-text" data-count="50" data-suffix="k+">0</div><div class="lbl">Professionals</div></div>
+      <div class="stat reveal"><div class="num gradient-text" data-count="7" data-suffix="M+">0</div><div class="lbl">Connections made</div></div>
+      <div class="stat reveal"><div class="num gradient-text" data-count="4.9" data-dec="1" data-suffix="★">0</div><div class="lbl">Average rating</div></div>
+      <div class="stat reveal"><div class="num gradient-text" data-count="100" data-suffix="+">0</div><div class="lbl">Countries</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Loved at work</span>
+      <h2>The last business card you'll buy.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="quote reveal" data-hov3d><p>"We rolled CompanyCard out to 200 reps in a week. Brand-consistent, trackable, and our CRM finally has clean contact data."</p><div class="who"><span class="pf">RK</span><div><b>Rachel Kim</b><span>VP Sales, Vertex</span></div></div></div>
+      <div class="quote reveal" data-hov3d><p>"I haven't printed a card in a year. One tap and people have everything — and it always shows my latest role."</p><div class="who"><span class="pf">DM</span><div><b>Diego Martín</b><span>Founder, Lumen Studio</span></div></div></div>
+      <div class="quote reveal" data-hov3d><p>"Setup took minutes and the analytics are addictive. It paid for itself at the first conference."</p><div class="who"><span class="pf">AO</span><div><b>Amara Okafor</b><span>Partnerships, Atlas Co</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Make your next handshake count.</h2>
+      <p>Create your free digital business card today. Upgrade your whole team whenever you're ready.</p>
+      <div class="cta-actions">
+        <a href="app/builder.html" class="btn btn-white btn-lg" data-magnetic>Create your free card</a>
+        <a href="business.html" class="btn btn-outline-white btn-lg">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#C6A15B" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#C6A15B" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#C6A15B" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#F5F2EC">CompanyCard</text></svg>
+        <p>The digital business card for people and teams. Share who you are in one tap — no app required.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="business.html">For Teams</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="index.html#how">How it works</a></li></ul></div>
+      <div><h4>Solutions</h4><ul><li><a href="digital-business-card.html">Digital Business Card</a></li><li><a href="virtual-business-card.html">Virtual Business Card</a></li><li><a href="qr-code-business-card.html">QR Code Business Card</a></li><li><a href="digital-business-card-maker.html">Business Card Maker</a></li><li><a href="free-digital-business-card.html">Free Digital Card</a></li></ul></div>
+      <div><h4>Compare &amp; Tools</h4><ul><li><a href="best-digital-business-card.html">Best Digital Card Apps</a></li><li><a href="electronic-business-card.html">Electronic Business Card</a></li><li><a href="email-signature-generator.html">Email Signature Generator</a></li><li><a href="virtual-background-for-video-calls.html">Virtual Backgrounds</a></li><li><a href="digital-business-cards-for-teams.html">Cards for Teams</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> CompanyCard, Inc. · www.company-card.com</span>
+      <div class="footer-social">
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-7-6.1 7H1.6l8-9.2L1 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.3 18V10H5.7v8h2.6Zm-1.3-9.1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 0 0-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>
