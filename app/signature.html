@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Signature Generator — CompanyCard</title>
+<meta name="description" content="Generate a professional, clickable email signature from your CompanyCard — ready for Gmail, Outlook and Apple Mail.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .sig-wrap { max-width: 980px; margin: 0 auto; padding: 34px 20px 70px; }
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  @media (max-width: 860px) { .sig-grid { grid-template-columns: 1fr; } }
+  .panel { background: #fff; border: 1px solid var(--slate-200); border-radius: 18px; padding: 22px; box-shadow: var(--shadow-xs); }
+  .panel h2 { font-size: 1.1rem; margin-bottom: 14px; }
+  .sig-preview { border: 1px dashed var(--slate-200); border-radius: 12px; padding: 20px; background: var(--slate-50); overflow-x: auto; }
+  .hint2 { color: var(--slate-500); font-size: .88rem; margin-top: 10px; }
+  .copied { display: none; color: #15803D; font-weight: 600; margin-left: 10px; }
+  details.help { border: 1px solid var(--slate-200); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; background: #fff; }
+  details.help summary { font-weight: 700; cursor: pointer; color: var(--ink); }
+  details.help p { margin-top: 10px; color: var(--slate-600); line-height: 1.65; font-size: .94rem; }
+  .card-pick { margin-bottom: 16px; }
+  .no-card { text-align: center; padding: 40px 20px; }
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span style="margin-left:6px;font-weight:600;color:var(--slate-500);font-size:.92rem;" class="hide-sm">Email signature</span>
+    <span class="sp"></span>
+    <a class="tab hide-sm" href="background.html">Video background</a>
+    <a class="btn btn-ghost" href="dashboard.html">My cards</a>
+  </div>
+</header>
+
+<main class="sig-wrap">
+  <div id="nocard" class="no-card" style="display:none;">
+    <h2>First, create your card</h2>
+    <p class="hint2">Your signature is generated from your CompanyCard — it takes a minute to make one.</p>
+    <p style="margin-top:18px;"><a class="btn btn-primary btn-lg" href="builder.html">Create my card</a></p>
+  </div>
+
+  <div id="tool" style="display:none;">
+    <div class="sig-grid">
+      <div class="panel">
+        <h2>Your signature</h2>
+        <div class="card-pick" id="pickwrap" style="display:none;">
+          <label class="fl" for="pick">Card</label>
+          <select class="inp" id="pick"></select>
+        </div>
+        <div class="sig-preview" id="preview"></div>
+        <div style="margin-top:16px;display:flex;align-items:center;">
+          <button class="btn btn-primary btn-lg" id="copy" type="button">Copy signature</button>
+          <span class="copied" id="ok">Copied! Now paste it in your mail settings ✔</span>
+        </div>
+        <p class="hint2">The copy includes formatting — paste it straight into the signature box of your email app.</p>
+      </div>
+
+      <div class="panel">
+        <h2>Install it (once)</h2>
+        <details class="help" open>
+          <summary>Gmail</summary>
+          <p>Gmail → ⚙️ → <b>See all settings</b> → General → <b>Signature</b> → Create new → paste (Cmd/Ctrl+V) → scroll down → <b>Save changes</b>.</p>
+        </details>
+        <details class="help">
+          <summary>Outlook</summary>
+          <p>Outlook → Settings → <b>Compose and reply</b> → Email signature → paste → choose it for new messages and replies → <b>Save</b>.</p>
+        </details>
+        <details class="help">
+          <summary>Apple Mail</summary>
+          <p>Mail → Settings → <b>Signatures</b> → + → paste into the right-hand box. Untick "Always match my default message font" to keep the colours.</p>
+        </details>
+        <p class="hint2">Your signature links to your live card — recipients click through and save your contact in one tap. Update your card and the link keeps working; re-copy any time your details change.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("any");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  var cards = CC.all();
+  if (!cards.length) {
+    /* cloud users may not have synced yet — wait for auth sync then re-check */
+    var tries = 0;
+    var t = setInterval(function () {
+      cards = CC.all(); tries++;
+      if (cards.length || tries > 6) { clearInterval(t); boot(); }
+    }, 500);
+  } else boot();
+
+  function esc(s) { return String(s || "").replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+
+  function field(card, type) {
+    var f = (card.fields || []).filter(function (x) { return x.type === type && x.value; })[0];
+    return f ? f.value : "";
+  }
+
+  function buildSig(card) {
+    var color = (CC.themeOf(card) || {}).solid || "#C6A15B";
+    var url = CC.shareUrl(card);
+    var phone = field(card, "phone"), email = field(card, "email"), site = field(card, "website");
+    var initials = (card.name || "?").trim().split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
+    var photoCell = /^https?:/.test(card.photo || "")
+      ? '<img src="' + esc(card.photo) + '" width="64" height="64" alt="" style="border-radius:12px;display:block;">'
+      : '<div style="width:64px;height:64px;border-radius:12px;background:' + color + ';color:#ffffff;font-family:Arial,sans-serif;font-size:24px;font-weight:bold;text-align:center;line-height:64px;">' + esc(initials) + '</div>';
+    var rows = [];
+    if (phone) rows.push(esc(phone));
+    if (email) rows.push('<a href="mailto:' + esc(email) + '" style="color:#475569;text-decoration:none;">' + esc(email) + '</a>');
+    if (site) rows.push('<a href="' + (/^https?:/.test(site) ? esc(site) : "https://" + esc(site)) + '" style="color:#475569;text-decoration:none;">' + esc(site.replace(/^https?:\/\//, "")) + '</a>');
+    return '' +
+'<table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#334155;">' +
+  '<tr>' +
+    '<td style="padding-right:16px;vertical-align:top;">' + photoCell + '</td>' +
+    '<td style="border-left:3px solid ' + color + ';padding-left:16px;vertical-align:top;">' +
+      '<div style="font-size:16px;font-weight:bold;color:#111827;">' + esc(card.name) + '</div>' +
+      '<div style="color:#64748B;padding:2px 0 6px;">' + esc(card.title || "") + (card.title && card.company ? " · " : "") + esc(card.company || "") + '</div>' +
+      (rows.length ? '<div style="line-height:1.6;">' + rows.join("<br>") + "</div>" : "") +
+      '<div style="padding-top:8px;"><a href="' + esc(url) + '" style="color:' + color + ';font-weight:bold;text-decoration:none;">Save my contact →</a></div>' +
+    '</td>' +
+  '</tr>' +
+'</table>';
+  }
+
+  function boot() {
+    if (!cards.length) { document.getElementById("nocard").style.display = "block"; return; }
+    document.getElementById("tool").style.display = "block";
+    var pick = document.getElementById("pick");
+    if (cards.length > 1) {
+      document.getElementById("pickwrap").style.display = "block";
+      cards.forEach(function (c, i) { var o = document.createElement("option"); o.value = i; o.textContent = c.name || ("Card " + (i + 1)); pick.appendChild(o); });
+      pick.addEventListener("change", render);
+    }
+    function current() { return cards[+(pick.value || 0)]; }
+    function render() { document.getElementById("preview").innerHTML = buildSig(current()); }
+    render();
+
+    document.getElementById("copy").addEventListener("click", function () {
+      var html = buildSig(current());
+      var done = function () { var ok = document.getElementById("ok"); ok.style.display = "inline"; setTimeout(function () { ok.style.display = "none"; }, 4000); };
+      if (navigator.clipboard && window.ClipboardItem) {
+        navigator.clipboard.write([new ClipboardItem({
+          "text/html": new Blob([html], { type: "text/html" }),
+          "text/plain": new Blob([document.getElementById("preview").innerText], { type: "text/plain" })
+        })]).then(done, fallback);
+      } else fallback();
+      function fallback() {
+        var range = document.createRange(); range.selectNodeContents(document.getElementById("preview"));
+        var sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        document.execCommand("copy"); sel.removeAllRanges(); done();
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

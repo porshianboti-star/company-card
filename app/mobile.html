@@ -190,7 +190,7 @@
         else if (s === "mail") location.href = "mailto:?subject=" + encodeURIComponent((card.name || "") + " — CompanyCard") + "&body=" + encodeURIComponent(txt);
         else if (s === "wa") window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank");
         else if (s === "wallet") toast("Added to Apple Wallet (demo)");
-        else if (s === "vbg") toast("Virtual background saved — set it in Zoom, Meet or Teams (demo)");
+        else if (s === "vbg") location.href = "background.html";
         else if (s === "open") window.open(url, "_blank");
       });
     });

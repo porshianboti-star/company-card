@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Background Generator — CompanyCard</title>
+<meta name="description" content="Generate a branded 1920×1080 virtual background with your name, role and QR code — for Zoom, Google Meet and Microsoft Teams.">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .bg-wrap { max-width: 1080px; margin: 0 auto; padding: 34px 20px 70px; }
+  .bg-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 26px; align-items: start; }
+  @media (max-width: 900px) { .bg-grid { grid-template-columns: 1fr; } }
+  .panel { background: #fff; border: 1px solid var(--slate-200); border-radius: 18px; padding: 22px; box-shadow: var(--shadow-xs); }
+  .panel h2 { font-size: 1.1rem; margin-bottom: 14px; }
+  #cv { width: 100%; border-radius: 12px; border: 1px solid var(--slate-200); display: block; }
+  .styles { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .stylebtn { border: 2px solid var(--slate-200); background: #fff; border-radius: 12px; padding: 9px 16px; font-weight: 600; cursor: pointer; font-family: inherit; font-size: .92rem; color: var(--ink); }
+  .stylebtn.on { border-color: var(--indigo-500); background: var(--violet-50); }
+  .optrow { display: flex; align-items: center; gap: 9px; margin: 6px 0 14px; color: var(--slate-600); font-size: .94rem; }
+  .hint2 { color: var(--slate-500); font-size: .88rem; margin-top: 10px; }
+  details.help { border: 1px solid var(--slate-200); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; background: #fff; }
+  details.help summary { font-weight: 700; cursor: pointer; color: var(--ink); }
+  details.help p { margin-top: 10px; color: var(--slate-600); line-height: 1.65; font-size: .94rem; }
+  .no-card { text-align: center; padding: 40px 20px; }
+  #qrsrc { position: absolute; left: -9999px; top: 0; }
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span style="margin-left:6px;font-weight:600;color:var(--slate-500);font-size:.92rem;" class="hide-sm">Virtual background</span>
+    <span class="sp"></span>
+    <a class="tab hide-sm" href="signature.html">Email signature</a>
+    <a class="btn btn-ghost" href="dashboard.html">My cards</a>
+  </div>
+</header>
+
+<main class="bg-wrap">
+  <div id="nocard" class="no-card" style="display:none;">
+    <h2>First, create your card</h2>
+    <p class="hint2">Your background is generated from your CompanyCard — it takes a minute to make one.</p>
+    <p style="margin-top:18px;"><a class="btn btn-primary btn-lg" href="builder.html">Create my card</a></p>
+  </div>
+
+  <div id="tool" style="display:none;">
+    <div class="bg-grid">
+      <div class="panel">
+        <h2>Preview (1920 × 1080)</h2>
+        <canvas id="cv" width="1920" height="1080"></canvas>
+        <div style="margin-top:16px;">
+          <button class="btn btn-primary btn-lg" id="dl" type="button">Download PNG</button>
+        </div>
+        <p class="hint2">Sized for Zoom, Google Meet and Microsoft Teams. The QR opens your live card — people on the call can scan it straight off the screen.</p>
+      </div>
+
+      <div>
+        <div class="panel" style="margin-bottom:18px;">
+          <h2>Style</h2>
+          <div class="styles" id="styles">
+            <button class="stylebtn on" data-s="ink" type="button">Ink</button>
+            <button class="stylebtn" data-s="gold" type="button">Gold</button>
+            <button class="stylebtn" data-s="light" type="button">Light</button>
+          </div>
+          <label class="optrow"><input type="checkbox" id="showqr" checked> Include QR code to my card</label>
+          <div id="pickwrap" style="display:none;">
+            <label class="fl" for="pick">Card</label>
+            <select class="inp" id="pick"></select>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Set it (once)</h2>
+          <details class="help" open><summary>Zoom</summary><p>Zoom → Settings → <b>Background &amp; effects</b> → <b>+ Add image</b> → choose the downloaded PNG.</p></details>
+          <details class="help"><summary>Google Meet</summary><p>In a call → ⋮ → <b>Apply visual effects</b> → upload image.</p></details>
+          <details class="help"><summary>Microsoft Teams</summary><p>Before joining → <b>Background filters</b> → <b>+ Add new</b> → choose the PNG.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="qrsrc"></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("any");</script>
+<script src="product.js"></script>
+<script>
+(function () {
+  var STYLES = {
+    ink:   { bg: ["#12100C", "#1A1814", "#2A2418"], text: "#F5F2EC", sub: "rgba(245,242,236,.72)", accent: "#C6A15B", qrbg: "#F5F2EC", qrfg: "#1A1814" },
+    gold:  { bg: ["#8A6C33", "#C6A15B", "#D9BC82"], text: "#14120E", sub: "rgba(20,18,14,.72)", accent: "#14120E", qrbg: "#FFFFFF", qrfg: "#1A1814" },
+    light: { bg: ["#FDFCF9", "#F5F2EC", "#EAE3D3"], text: "#1A1814", sub: "rgba(26,24,20,.66)", accent: "#C6A15B", qrbg: "#FFFFFF", qrfg: "#1A1814" }
+  };
+  var style = "ink", cards = CC.all(), qrCanvas = null;
+
+  if (!cards.length) {
+    var tries = 0;
+    var t = setInterval(function () {
+      cards = CC.all(); tries++;
+      if (cards.length || tries > 6) { clearInterval(t); boot(); }
+    }, 500);
+  } else boot();
+
+  function current() { var p = document.getElementById("pick"); return cards[+((p && p.value) || 0)]; }
+
+  function makeQR(cb) {
+    var host = document.getElementById("qrsrc"); host.innerHTML = "";
+    var url = CC.shareUrl(current(), true);
+    try { new QRCode(host, { text: url, width: 232, height: 232, colorDark: "#1A1814", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M }); } catch (e) { cb(null); return; }
+    setTimeout(function () {
+      var c = host.querySelector("canvas"), img = host.querySelector("img");
+      if (c) cb(c); else if (img && img.src) { var i = new Image(); i.onload = function () { cb(i); }; i.src = img.src; } else cb(null);
+    }, 120);
+  }
+
+  function symbol(ctx, x, y, s, color) {
+    /* CompanyCard mark: rounded card + two interlocking C arcs */
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = color; ctx.lineCap = "round";
+    ctx.lineWidth = 2; ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(9, 18, 74, 48, 9); else ctx.rect(9, 18, 74, 48);
+    ctx.stroke();
+    ctx.globalAlpha = .4; ctx.beginPath(); ctx.arc(50, 36, 13, Math.PI * .32, Math.PI * 1.68, false); ctx.stroke();
+    ctx.globalAlpha = 1; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(36, 46, 13, Math.PI * .32, Math.PI * 1.68, false); ctx.stroke();
+    ctx.restore();
+  }
+
+  function draw() {
+    var card = current(), S = STYLES[style];
+    var cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+    var W = 1920, H = 1080;
+    var g = ctx.createLinearGradient(0, 0, W, H);
+    g.addColorStop(0, S.bg[0]); g.addColorStop(.55, S.bg[1]); g.addColorStop(1, S.bg[2]);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+    /* faint oversized brand mark, top-right */
+    ctx.save(); ctx.globalAlpha = .10; symbol(ctx, W - 560, -60, 6, S.accent); ctx.restore();
+
+    /* top-left brand */
+    symbol(ctx, 70, 46, 1.05, S.accent);
+    ctx.fillStyle = S.text; ctx.font = "500 34px Marcellus, Georgia, serif"; ctx.textBaseline = "middle";
+    ctx.fillText("CompanyCard", 175, 90);
+
+    /* bottom-left identity */
+    ctx.fillStyle = S.accent; ctx.fillRect(80, H - 250, 7, 150);
+    ctx.fillStyle = S.text; ctx.font = "700 76px Poppins, Arial, sans-serif"; ctx.textBaseline = "alphabetic";
+    ctx.fillText(card.name || "", 120, H - 168);
+    ctx.fillStyle = S.sub; ctx.font = "500 40px Inter, Arial, sans-serif";
+    var line2 = [card.title, card.company].filter(Boolean).join("  ·  ");
+    ctx.fillText(line2, 122, H - 108);
+
+    /* QR bottom-right */
+    if (document.getElementById("showqr").checked && qrCanvas) {
+      var qs = 232, pad = 22, x = W - qs - pad * 2 - 70, y = H - qs - pad * 2 - 70;
+      ctx.save();
+      ctx.fillStyle = S.qrbg;
+      if (ctx.roundRect) { ctx.beginPath(); ctx.roundRect(x, y, qs + pad * 2, qs + pad * 2 + 44, 20); ctx.fill(); }
+      else ctx.fillRect(x, y, qs + pad * 2, qs + pad * 2 + 44);
+      ctx.drawImage(qrCanvas, x + pad, y + pad, qs, qs);
+      ctx.fillStyle = S.qrfg; ctx.font = "600 22px Inter, Arial, sans-serif"; ctx.textAlign = "center";
+      ctx.fillText("Scan to save my card", x + pad + qs / 2, y + pad + qs + 32);
+      ctx.restore(); ctx.textAlign = "left";
+    }
+  }
+
+  function refresh() { makeQR(function (q) { qrCanvas = q; draw(); }); }
+
+  function boot() {
+    if (!cards.length) { document.getElementById("nocard").style.display = "block"; return; }
+    document.getElementById("tool").style.display = "block";
+    var pick = document.getElementById("pick");
+    if (cards.length > 1) {
+      document.getElementById("pickwrap").style.display = "block";
+      cards.forEach(function (c, i) { var o = document.createElement("option"); o.value = i; o.textContent = c.name || ("Card " + (i + 1)); pick.appendChild(o); });
+      pick.addEventListener("change", refresh);
+    }
+    document.querySelectorAll(".stylebtn").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll(".stylebtn").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); style = b.dataset.s; draw();
+      });
+    });
+    document.getElementById("showqr").addEventListener("change", draw);
+    document.getElementById("dl").addEventListener("click", function () {
+      var a = document.createElement("a");
+      a.download = "companycard-virtual-background.png";
+      a.href = document.getElementById("cv").toDataURL("image/png");
+      a.click();
+    });
+    /* draw after webfonts are ready so canvas text uses them */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh); else refresh();
+    setTimeout(refresh, 1200); /* late font load safety */
+  }
+})();
+</script>
+</body>
+</html>
