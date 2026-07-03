@@ -96,22 +96,26 @@
   };
 
   /* ---------- auth actions (all return { error } / { data:{session} }) ---------- */
+  function trackSignup(r) {
+    if (!r || !r.error) { try { window.CCTrack && CCTrack("signup"); } catch (e) {} }
+    return r;
+  }
   A.signupAdmin = function (fullName, companyName, email, password) {
     if (MODE === "local")
       return call("POST", "/api/signup",
         { fullName: fullName, companyName: companyName, email: email, password: password })
-        .then(function (r) { return r.error ? r : { data: { session: true } }; });
+        .then(function (r) { return r.error ? r : { data: { session: true } }; }).then(trackSignup);
     return sb.auth.signUp({ email: email, password: password,
-      options: { data: { full_name: fullName, company_name: companyName } } });
+      options: { data: { full_name: fullName, company_name: companyName } } }).then(trackSignup);
   };
 
   A.signupInvited = function (fullName, email, password, token) {
     if (MODE === "local")
       return call("POST", "/api/signup-invite",
         { fullName: fullName, email: email, password: password, token: token })
-        .then(function (r) { return r.error ? r : { data: { session: true } }; });
+        .then(function (r) { return r.error ? r : { data: { session: true } }; }).then(trackSignup);
     return sb.auth.signUp({ email: email, password: password,
-      options: { data: { full_name: fullName, invite_token: token } } });
+      options: { data: { full_name: fullName, invite_token: token } } }).then(trackSignup);
   };
 
   A.login = function (email, password) {

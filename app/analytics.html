@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funnel Analytics — CompanyCard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="app.css">
+<style>
+  .an-wrap { max-width: 860px; margin: 0 auto; padding: 34px 20px 70px; }
+  .an-head { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }
+  .an-head h1 { font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); }
+  .ranges { display: flex; gap: 8px; margin-left: auto; }
+  .rbtn { border: 2px solid var(--slate-200); background: #fff; border-radius: 11px; padding: 8px 14px; font-weight: 600; cursor: pointer; font-family: inherit; font-size: .9rem; color: var(--ink); }
+  .rbtn.on { border-color: var(--indigo-500); background: var(--violet-50); }
+  .step { background: #fff; border: 1px solid var(--slate-200); border-radius: 16px; padding: 18px 22px; margin-bottom: 12px; display: grid; grid-template-columns: 34px 1fr auto auto; gap: 16px; align-items: center; }
+  .step .n { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: #C6A15B; font-weight: 700; display: grid; place-items: center; }
+  .step .t b { display: block; color: var(--ink); font-size: 1.02rem; }
+  .step .t span { color: var(--slate-500); font-size: .85rem; }
+  .step .num { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; color: var(--ink); min-width: 70px; text-align: right; }
+  .step .cv { font-size: .85rem; font-weight: 700; color: var(--slate-400); min-width: 84px; text-align: right; }
+  .step .cv.good { color: #15803D; }
+  .bar { grid-column: 2 / 5; height: 8px; border-radius: 6px; background: var(--slate-100); overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, #C6A15B, #8A6C33); }
+  .meta { color: var(--slate-500); font-size: .88rem; margin-top: 18px; line-height: 1.6; }
+  .err { display: none; background: #FEF2F2; border: 1px solid #FECACA; color: #B91C1C; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="inner">
+    <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+    <span style="margin-left:6px;font-weight:600;color:var(--slate-500);font-size:.92rem;" class="hide-sm">Funnel analytics</span>
+    <span class="sp"></span>
+    <a class="btn btn-ghost" href="dashboard.html">My cards</a>
+  </div>
+</header>
+
+<main class="an-wrap">
+  <div class="an-head">
+    <h1>Product funnel</h1>
+    <div class="ranges">
+      <button class="rbtn" data-d="1" type="button">Today</button>
+      <button class="rbtn" data-d="7" type="button">7 days</button>
+      <button class="rbtn" data-d="30" type="button">30 days</button>
+      <button class="rbtn on" data-d="36500" type="button">All time</button>
+    </div>
+  </div>
+
+  <div class="err" id="err"></div>
+  <div id="funnel"></div>
+
+  <p class="meta">Numbers are <b>unique visitors</b> (by device session; signed-in actions count by user). The grey number in each row is total clicks. Percentages are conversion from step 1. Data updates live — refresh to see new events.</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script>CCAuth.guard("any");</script>
+<script>
+(function () {
+  var URL = "https://ohobtgbyrlczfdztzvqi.supabase.co/rest/v1/rpc/funnel_stats";
+  var KEY = "sb_publishable_H3hDKJRE0oOH7dkg7496Rw_trmUMPW9";
+  var STEPS = [
+    ["create_card_click", "Create your free card", "Clicked a 'Create your free card' button anywhere on the site"],
+    ["share_save_click", "Share or save card", "Clicked Share card / Save on a card"],
+    ["signup", "Signed up", "Created an account"],
+    ["checkout_click", "Reached payment", "Clicked upgrade / opened the checkout page"],
+    ["pro_paid", "Paid (fake) — Pro accounts", "Completed the demo payment and got Pro"]
+  ];
+
+  function load(days) {
+    fetch(URL, {
+      method: "POST",
+      headers: { apikey: KEY, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_days: days })
+    }).then(function (r) { return r.json(); }).then(function (rows) {
+      if (!Array.isArray(rows)) throw new Error(JSON.stringify(rows).slice(0, 120));
+      var by = {}; rows.forEach(function (r) { by[r.event] = r; });
+      var base = (by.create_card_click || {}).uniques || 0;
+      var html = "";
+      STEPS.forEach(function (s, i) {
+        var d = by[s[0]] || { total: 0, uniques: 0 };
+        var pct = base ? Math.round(d.uniques / base * 100) : 0;
+        var w = base ? Math.max(2, d.uniques / base * 100) : 2;
+        html += '<div class="step">' +
+          '<div class="n">' + (i + 1) + '</div>' +
+          '<div class="t"><b>' + s[1] + '</b><span>' + s[2] + '</span></div>' +
+          '<div class="cv' + (i > 0 && pct >= 20 ? " good" : "") + '">' + (i === 0 ? (d.total + " clicks") : (pct + "% · " + d.total + " total")) + '</div>' +
+          '<div class="num">' + d.uniques + '</div>' +
+          '<div class="bar"><i style="width:' + w + '%"></i></div>' +
+        '</div>';
+      });
+      document.getElementById("funnel").innerHTML = html;
+      document.getElementById("err").style.display = "none";
+    }).catch(function (e) {
+      var el = document.getElementById("err");
+      el.textContent = "Could not load stats: " + e.message;
+      el.style.display = "block";
+    });
+  }
+
+  document.querySelectorAll(".rbtn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".rbtn").forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on"); load(+b.dataset.d);
+    });
+  });
+  load(36500);
+})();
+</script>
+</body>
+</html>
