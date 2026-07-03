@@ -6,4 +6,4 @@ Disallow: /app/employee.html
 Disallow: /app/checkout.html
 Disallow: /server/
 
-Sitemap: https://www.company-card.com/sitemap.xml
+Sitemap: https://company-card.com/sitemap.xml
