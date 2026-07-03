@@ -192,6 +192,12 @@
       .eq("owner_id", A.session.user.id).order("updated_at", { ascending: false });
   };
 
+  /* Mark the current user's plan (called when the fake payment completes). */
+  A.setPlan = function (plan) {
+    if (MODE !== "supabase" || !A.session) return Promise.resolve(null);
+    return sb.from("profiles").update({ plan: plan || "pro" }).eq("id", A.session.user.id);
+  };
+
   /* Every card + owner of my company (admin only — server enforces). */
   A.companyCards = function () {
     if (MODE === "local") return call("GET", "/api/cards").then(function (r) {

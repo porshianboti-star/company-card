@@ -237,6 +237,8 @@
   CC.setPro = function (plan) {
     var u = CC.user() || CC.signup("you@company-card.com");
     u.pro = true; u.plan = plan || "monthly"; u.proSince = Date.now();
+    /* also record Pro on the account in the cloud, so it's queryable */
+    try { if (window.CCAuth && CCAuth.setPlan) CCAuth.setPlan("pro"); } catch (e) {}
     return CC.saveUser(u);
   };
   CC.signOut = function () { localStorage.removeItem(UKEY); };
