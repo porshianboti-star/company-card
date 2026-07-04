@@ -372,21 +372,27 @@
   /* connect */
   function panelConnect(p, src){
     var label = src==="google" ? "Google Workspace" : "Microsoft 365";
-    p.innerHTML='<div class="people"><div class="people-bar"><b>'+label+'</b><span class="grow"></span></div><div style="padding:22px;text-align:center"><p style="color:var(--slate-500);margin-bottom:16px">Securely connect your directory to import everyone.</p><button class="btn btn-dark" id="connect-btn" type="button">Connect '+label+'</button></div></div><div id="dir-wrap" style="margin-top:16px"></div>';
+    var ready = CC.canConnect(src);
+    p.innerHTML='<div class="people"><div class="people-bar"><b>'+label+'</b><span class="grow"></span></div><div style="padding:22px;text-align:center"><p style="color:var(--slate-500);margin-bottom:16px">Sign in as a '+(src==="google"?"Workspace":"Microsoft 365")+' admin to import everyone from your real directory.</p><button class="btn btn-dark" id="connect-btn" type="button">Connect '+label+'</button><div id="setup-note" style="display:none;margin-top:16px;text-align:left;background:var(--slate-50);border:1px dashed var(--slate-200);border-radius:12px;padding:14px 16px;color:var(--slate-600);font-size:.9rem"></div></div></div><div id="dir-wrap" style="margin-top:16px"></div>';
     $("#connect-btn",p).onclick=function(){
-      var dom=val("co-domain")||"northwind.com";
-      if(CC.apiBase()){ var btn=this; btn.disabled=true; btn.textContent="Connecting…";
-        CC.startAuth(src).then(function(){ return CC.fetchDirectory(src,dom); }).then(function(dir){ if(!dir.length){ toast("No users"); btn.disabled=false; btn.textContent="Connect "+label; return; } S.dir=dir; S.dir.forEach(function(m){m.pick=true;}); renderDir(label,dom); toast("Connected — "+dir.length+" users"); }).catch(function(err){ toast(err.message||"Connection failed"); btn.disabled=false; btn.textContent="Connect "+label; });
-      } else { openConnect(src); }
+      var dom=val("co-domain")||"";
+      if(!CC.canConnect(src)){
+        var n=$("#setup-note",p); n.style.display="block";
+        n.innerHTML = src==="google"
+          ? '<b>One-time setup to enable the real Google connection:</b><br>1. In Google Cloud Console create an OAuth <b>Client ID</b> (Web) and enable the <b>Admin SDK API</b>.<br>2. Add this site to Authorized JavaScript origins.<br>3. Paste the Client ID into <code>app/config.js</code> as <code>googleClientId</code>.<br>See <b>SETUP-DIRECTORY.md</b> for full steps. (No client secret is needed — the sign-in happens securely in the browser.)'
+          : '<b>One-time setup to enable the real Microsoft connection:</b><br>1. In Entra ID (Azure AD) register an app as a <b>public client (SPA)</b> with redirect = this site.<br>2. Grant admin consent for <b>User.Read.All</b> + <b>Directory.Read.All</b>.<br>3. Paste the Application (client) ID into <code>app/config.js</code> as <code>msClientId</code>.<br>See <b>SETUP-DIRECTORY.md</b> for full steps.';
+        return;
+      }
+      var btn=this; btn.disabled=true; btn.textContent="Connecting…";
+      CC.fetchDirectory(src,dom).then(function(dir){
+        if(!dir.length){ toast("No users found in the directory"); btn.disabled=false; btn.textContent="Connect "+label; return; }
+        S.dir=dir; S.dir.forEach(function(m){m.pick=true;}); renderDir(label,dom); toast("Connected — "+dir.length+" users imported");
+      }).catch(function(err){
+        btn.disabled=false; btn.textContent="Connect "+label;
+        toast((err&&err.message==="SETUP_NEEDED") ? "Connection needs one-time setup — see the note" : (err&&err.message)||"Connection failed");
+        if(err&&err.message==="SETUP_NEEDED"){ btn.click(); }
+      });
     };
-  }
-  function openConnect(src){
-    var g=$("#connect-glyph"), dom=val("co-domain")||"northwind.com";
-    if(src==="google"){ g.innerHTML='<svg viewBox="0 0 48 48" width="22" height="22"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.8 13.6-4.9l-6.3-5.2C29.1 35.5 26.7 36 24 36c-5.3 0-9.7-3.1-11.3-7.4l-6.5 5C9.6 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.3 5.2C41.5 36.7 44 31.7 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>'; $("#connect-title").textContent="Sign in with Google"; }
-    else { g.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22"><rect x="2" y="2" width="9.2" height="9.2" fill="#F25022"/><rect x="12.8" y="2" width="9.2" height="9.2" fill="#7FBA00"/><rect x="2" y="12.8" width="9.2" height="9.2" fill="#00A4EF"/><rect x="12.8" y="12.8" width="9.2" height="9.2" fill="#FFB900"/></svg>'; $("#connect-title").textContent="Sign in with Microsoft"; }
-    $("#connect-sub").textContent="Authorise CompanyCard for "+dom; $("#acct-name").textContent="admin@"+dom; $("#acct-a").textContent=(dom[0]||"A").toUpperCase();
-    var m=$("#connect-modal"); m.hidden=false;
-    $("#connect-allow").onclick=function(){ m.hidden=true; S.dir=CC.sampleDirectory(src,dom); S.dir.forEach(function(x){x.pick=true;}); renderDir(src==="google"?"Google Workspace":"Microsoft 365",dom); toast("Connected"); };
   }
   $("#connect-cancel").onclick=function(){ $("#connect-modal").hidden=true; };
   $("#connect-modal").addEventListener("click",function(e){ if(e.target===this) this.hidden=true; });

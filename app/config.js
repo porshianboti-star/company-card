@@ -16,6 +16,14 @@ window.CC_CONFIG = {
   supabaseUrl: "https://ohobtgbyrlczfdztzvqi.supabase.co",
   supabaseAnonKey: "sb_publishable_H3hDKJRE0oOH7dkg7496Rw_trmUMPW9",
 
+  /* --- Real directory import (Google Workspace / Microsoft 365) ------
+     Public OAuth Client IDs (safe to expose — no secret). An admin signs
+     in and consents, then real users are pulled from the directory.
+     Leave empty and the connect buttons show one-time setup steps.
+     See SETUP-DIRECTORY.md.                                            */
+  googleClientId: "",
+  msClientId: "",
+
   apiBase: "",
   providers: { google: true, microsoft: true, csv: true }
 };

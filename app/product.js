@@ -612,6 +612,87 @@
      otherwise the built-in simulation (sampleDirectory).
      ============================================================ */
   CC.config = global.CC_CONFIG || { apiBase: "", providers: { google: true, microsoft: true, csv: true } };
+  CC.googleClientId = function () { return (CC.config.googleClientId || "").trim(); };
+  CC.msClientId = function () { return (CC.config.msClientId || "").trim(); };
+  CC.canConnect = function (p) { return p === "google" ? !!CC.googleClientId() : p === "microsoft" ? !!CC.msClientId() : true; };
+
+  /* load an external script once, resolve when ready */
+  CC._scripts = {};
+  CC.loadScript = function (src) {
+    if (CC._scripts[src]) return CC._scripts[src];
+    CC._scripts[src] = new Promise(function (res, rej) {
+      var s = document.createElement("script"); s.src = src; s.async = true;
+      s.onload = function () { res(); }; s.onerror = function () { rej(new Error("Could not load " + src)); };
+      document.head.appendChild(s);
+    });
+    return CC._scripts[src];
+  };
+
+  /* ---- REAL Google Workspace directory (client-side OAuth, no secret) ---- */
+  CC.googleDirectory = function () {
+    var cid = CC.googleClientId();
+    if (!cid) return Promise.reject(new Error("SETUP_NEEDED"));
+    return CC.loadScript("https://accounts.google.com/gsi/client").then(function () {
+      return new Promise(function (resolve, reject) {
+        var client = google.accounts.oauth2.initTokenClient({
+          client_id: cid,
+          scope: "https://www.googleapis.com/auth/admin.directory.user.readonly",
+          callback: function (resp) {
+            if (resp.error || !resp.access_token) { reject(new Error("Google sign-in was cancelled or denied.")); return; }
+            var out = [], page = "";
+            function grab() {
+              var url = "https://admin.googleapis.com/admin/directory/v1/users?customer=my_customer&maxResults=200&orderBy=email" + (page ? "&pageToken=" + page : "");
+              fetch(url, { headers: { Authorization: "Bearer " + resp.access_token } })
+                .then(function (r) { if (r.status === 403) throw new Error("This Google account isn't a Workspace admin, or the Directory API isn't enabled."); if (!r.ok) throw new Error("Google Directory error " + r.status); return r.json(); })
+                .then(function (d) {
+                  (d.users || []).forEach(function (u, i) {
+                    var org = (u.organizations && u.organizations[0]) || {};
+                    out.push({ id: u.id || ("g" + out.length), name: (u.name && u.name.fullName) || u.primaryEmail,
+                      title: org.title || "", email: u.primaryEmail || "", phone: (u.phones && u.phones[0] && u.phones[0].value) || "",
+                      dept: org.department || "", pick: true });
+                  });
+                  if (d.nextPageToken) { page = d.nextPageToken; grab(); } else resolve(out);
+                }).catch(reject);
+            }
+            grab();
+          }
+        });
+        client.requestAccessToken();
+      });
+    });
+  };
+
+  /* ---- REAL Microsoft 365 / Entra directory (MSAL, public client, no secret) ---- */
+  CC.microsoftDirectory = function () {
+    var cid = CC.msClientId();
+    if (!cid) return Promise.reject(new Error("SETUP_NEEDED"));
+    var scopes = ["User.Read.All", "Directory.Read.All"];
+    return CC.loadScript("https://alcdn.msauth.net/browser/2.38.3/js/msal-browser.min.js").then(function () {
+      var pca = new msal.PublicClientApplication({ auth: { clientId: cid, authority: "https://login.microsoftonline.com/organizations", redirectUri: location.origin + location.pathname } });
+      var init = pca.initialize ? pca.initialize() : Promise.resolve();
+      return init.then(function () { return pca.loginPopup({ scopes: scopes }); }).then(function (login) {
+        return pca.acquireTokenSilent({ account: login.account, scopes: scopes })
+          .catch(function () { return pca.acquireTokenPopup({ scopes: scopes }); })
+          .then(function (r) { return r.accessToken; });
+      }).then(function (tok) {
+        var out = [];
+        function grab(url) {
+          return fetch(url, { headers: { Authorization: "Bearer " + tok } })
+            .then(function (r) { if (r.status === 403) throw new Error("This account lacks directory permission, or admin consent wasn't granted."); if (!r.ok) throw new Error("Microsoft Graph error " + r.status); return r.json(); })
+            .then(function (d) {
+              (d.value || []).forEach(function (u) {
+                out.push({ id: u.id || ("m" + out.length), name: u.displayName || u.userPrincipalName,
+                  title: u.jobTitle || "", email: u.mail || u.userPrincipalName || "", phone: u.mobilePhone || "",
+                  dept: u.department || "", pick: true });
+              });
+              if (d["@odata.nextLink"]) return grab(d["@odata.nextLink"]);
+              return out;
+            });
+        }
+        return grab("https://graph.microsoft.com/v1.0/users?$select=displayName,jobTitle,mail,userPrincipalName,department,mobilePhone&$top=200");
+      });
+    });
+  };
   CC.apiBase = function () { return (CC.config.apiBase || "").replace(/\/+$/, ""); };
 
   /* Open the provider's OAuth popup; resolves when it reports back (or closes). */
@@ -628,17 +709,15 @@
     });
   };
 
-  /* Fetch the directory — real API if configured, else simulated. Always resolves to member objects. */
+  /* Fetch the directory — REAL provider APIs via client-side OAuth (no fake data). */
   CC.fetchDirectory = function (provider, domain) {
+    if (provider === "google") return CC.googleDirectory();
+    if (provider === "microsoft") return CC.microsoftDirectory();
     var base = CC.apiBase();
-    if (!base) { return new Promise(function (res) { setTimeout(function () { res(CC.sampleDirectory(provider, domain)); }, 480); }); }
-    return fetch(base + "/api/directory?provider=" + encodeURIComponent(provider), { credentials: "include" })
+    if (base) return fetch(base + "/api/directory?provider=" + encodeURIComponent(provider), { credentials: "include" })
       .then(function (r) { if (!r.ok) throw new Error("Directory " + r.status); return r.json(); })
-      .then(function (d) {
-        return (d.users || []).map(function (u, i) {
-          return { id: u.id || ("d" + i), name: u.name, title: u.title || "", email: u.email || "", phone: u.phone || "", dept: u.dept || "", pick: true };
-        });
-      });
+      .then(function (d) { return (d.users || []).map(function (u, i) { return { id: u.id || ("d" + i), name: u.name, title: u.title || "", email: u.email || "", phone: u.phone || "", dept: u.dept || "", pick: true }; }); });
+    return Promise.reject(new Error("Unsupported provider"));
   };
 
   /* Persist provisioning server-side when a backend is configured (no-op otherwise). */
