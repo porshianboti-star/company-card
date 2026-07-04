@@ -21,7 +21,7 @@ window.CC_CONFIG = {
      in and consents, then real users are pulled from the directory.
      Leave empty and the connect buttons show one-time setup steps.
      See SETUP-DIRECTORY.md.                                            */
-  googleClientId: "",
+  googleClientId: "662555521030-bglsdji31m4p9ruhuq2hqgf13u9qsoau.apps.googleusercontent.com",
   msClientId: "",
 
   apiBase: "",
