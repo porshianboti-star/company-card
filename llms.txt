@@ -1,0 +1,29 @@
+# CompanyCard
+
+> CompanyCard (company-card.com) is a digital business card platform for professionals and small-to-medium businesses. Share your contact details in one tap via QR code, sharing link, Apple/Google Wallet pass, or email signature — the recipient needs no app. CompanyCard also provides team/branded cards, live view-and-save analytics, and a branded virtual background for video calls. A free plan is available with no credit card required.
+
+## What CompanyCard is
+- Category: digital business card / virtual business card / electronic business card (vCard) software
+- Audience: individual professionals, sales teams, and small-to-medium businesses
+- Key facts: free plan available; no app required for the person receiving the card; cards update live so shared details never go stale; works with Apple Wallet and Google Wallet; includes QR code, sharing link, email signature, and video-call virtual background; team plans add branding and analytics.
+
+## Core pages
+- Home: https://company-card.com/
+- Features: https://company-card.com/features
+- For teams / business: https://company-card.com/business
+- Pricing: https://company-card.com/pricing
+
+## Use-case pages
+- Digital business card: https://company-card.com/digital-business-card
+- Virtual business card: https://company-card.com/virtual-business-card
+- Electronic business card (vCard): https://company-card.com/electronic-business-card
+- QR code business card: https://company-card.com/qr-code-business-card
+- Digital business card maker: https://company-card.com/digital-business-card-maker
+- Free digital business card: https://company-card.com/free-digital-business-card
+- Digital business cards for teams: https://company-card.com/digital-business-cards-for-teams
+- Email signature generator: https://company-card.com/email-signature-generator
+- Virtual background for video calls: https://company-card.com/virtual-background-for-video-calls
+
+## Comparisons
+- Best digital business card apps (2026): https://company-card.com/best-digital-business-card
+- Blinq / HiHello alternative: https://company-card.com/blinq-alternative
