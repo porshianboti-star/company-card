@@ -30,8 +30,8 @@
 .bw-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
 .bw-banner { position:relative; height:98px; background:var(--grad); overflow:hidden; }
 .bw-banner::after { content:""; position:absolute; inset:0; background:radial-gradient(140px 90px at 84% 14%, rgba(255,255,255,.30), transparent 60%); }
-.bw-wm { position:absolute; right:-16px; bottom:-22px; width:124px; height:124px; opacity:.16; z-index:1; }
-.bw-wm svg { width:100%; height:100%; }
+.bw-wm { position:absolute; right:13px; top:9px; width:80px; height:80px; opacity:.95; z-index:2; filter:drop-shadow(0 2px 4px rgba(15,23,42,.28)); }
+.bw-wm img, .bw-wm svg { width:100%; height:100%; display:block; }
 .bw-lock { position:absolute; left:18px; top:15px; z-index:2; display:flex; align-items:center; gap:8px; }
 .bw-lock svg { width:19px; height:19px; }
 .bw-lock b { color:#fff; font-family:var(--font-display); font-weight:700; font-size:1rem; letter-spacing:.01em; text-shadow:0 1px 2px rgba(15,23,42,.18); }
@@ -110,10 +110,10 @@
     <div class="brandwall">
       <div class="bw-card reveal" style="transition-delay:0ms">
         <div class="bw-banner">
-          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-wm"><img src="assets/team/northwind-logo.svg" alt="" width="86" height="86" loading="lazy"></span>
           <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
         </div>
-        <div class="bw-av"><img src="assets/team/rachel.svg" alt="Rachel Kim, VP Sales at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-av"><img src="assets/team/photos/rachel.jpg" onerror="this.onerror=null;this.src='assets/team/rachel.svg'" alt="Rachel Kim, VP Sales at Northwind" width="76" height="76" loading="lazy"></div>
         <div class="bw-body">
           <div class="bw-name">Rachel Kim</div>
           <div class="bw-role">VP Sales</div>
@@ -128,10 +128,10 @@
       </div>
       <div class="bw-card reveal" style="transition-delay:60ms">
         <div class="bw-banner">
-          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-wm"><img src="assets/team/northwind-logo.svg" alt="" width="86" height="86" loading="lazy"></span>
           <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
         </div>
-        <div class="bw-av"><img src="assets/team/diego.svg" alt="Diego Martín, Account Executive at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-av"><img src="assets/team/photos/diego.jpg" onerror="this.onerror=null;this.src='assets/team/diego.svg'" alt="Diego Martín, Account Executive at Northwind" width="76" height="76" loading="lazy"></div>
         <div class="bw-body">
           <div class="bw-name">Diego Martín</div>
           <div class="bw-role">Account Executive</div>
@@ -146,10 +146,10 @@
       </div>
       <div class="bw-card reveal" style="transition-delay:120ms">
         <div class="bw-banner">
-          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-wm"><img src="assets/team/northwind-logo.svg" alt="" width="86" height="86" loading="lazy"></span>
           <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
         </div>
-        <div class="bw-av"><img src="assets/team/amara.svg" alt="Amara Okafor, Partnerships Lead at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-av"><img src="assets/team/photos/amara.jpg" onerror="this.onerror=null;this.src='assets/team/amara.svg'" alt="Amara Okafor, Partnerships Lead at Northwind" width="76" height="76" loading="lazy"></div>
         <div class="bw-body">
           <div class="bw-name">Amara Okafor</div>
           <div class="bw-role">Partnerships Lead</div>
@@ -164,10 +164,10 @@
       </div>
       <div class="bw-card reveal" style="transition-delay:180ms">
         <div class="bw-banner">
-          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-wm"><img src="assets/team/northwind-logo.svg" alt="" width="86" height="86" loading="lazy"></span>
           <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
         </div>
-        <div class="bw-av"><img src="assets/team/marcus.svg" alt="Marcus Bell, Solutions Engineer at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-av"><img src="assets/team/photos/marcus.jpg" onerror="this.onerror=null;this.src='assets/team/marcus.svg'" alt="Marcus Bell, Solutions Engineer at Northwind" width="76" height="76" loading="lazy"></div>
         <div class="bw-body">
           <div class="bw-name">Marcus Bell</div>
           <div class="bw-role">Solutions Engineer</div>
@@ -182,10 +182,10 @@
       </div>
       <div class="bw-card reveal" style="transition-delay:240ms">
         <div class="bw-banner">
-          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-wm"><img src="assets/team/northwind-logo.svg" alt="" width="86" height="86" loading="lazy"></span>
           <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
         </div>
-        <div class="bw-av"><img src="assets/team/sofia.svg" alt="Sofia Costa, Customer Success at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-av"><img src="assets/team/photos/sofia.jpg" onerror="this.onerror=null;this.src='assets/team/sofia.svg'" alt="Sofia Costa, Customer Success at Northwind" width="76" height="76" loading="lazy"></div>
         <div class="bw-body">
           <div class="bw-name">Sofia Costa</div>
           <div class="bw-role">Customer Success</div>
@@ -200,10 +200,10 @@
       </div>
       <div class="bw-card reveal" style="transition-delay:300ms">
         <div class="bw-banner">
-          <span class="bw-wm"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg></span>
+          <span class="bw-wm"><img src="assets/team/northwind-logo.svg" alt="" width="86" height="86" loading="lazy"></span>
           <span class="bw-lock"><svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 1.5 19.2 12.8 30.5 16 19.2 19.2 16 30.5 12.8 19.2 1.5 16 12.8 12.8Z"/></svg> <b>Northwind</b></span>
         </div>
-        <div class="bw-av"><img src="assets/team/tom.svg" alt="Tom Walsh, Marketing Manager at Northwind" width="76" height="76" loading="lazy"></div>
+        <div class="bw-av"><img src="assets/team/photos/tom.jpg" onerror="this.onerror=null;this.src='assets/team/tom.svg'" alt="Tom Walsh, Marketing Manager at Northwind" width="76" height="76" loading="lazy"></div>
         <div class="bw-body">
           <div class="bw-name">Tom Walsh</div>
           <div class="bw-role">Marketing Manager</div>
@@ -301,15 +301,15 @@
           </div>
           <div style="padding:8px 0;">
             <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-bottom:1px solid var(--slate-100);">
-              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/rachel.svg" alt="Rachel Kim" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Rachel Kim</b><div style="color:var(--slate-500);font-size:.82rem;">VP Sales</div></div></div>
+              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/photos/rachel.jpg" onerror="this.onerror=null;this.src='assets/team/rachel.svg'" alt="Rachel Kim" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Rachel Kim</b><div style="color:var(--slate-500);font-size:.82rem;">VP Sales</div></div></div>
               <span class="save-tag">Active</span>
             </div>
             <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;border-bottom:1px solid var(--slate-100);">
-              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/diego.svg" alt="Diego Martín" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Diego Martín</b><div style="color:var(--slate-500);font-size:.82rem;">Account Exec</div></div></div>
+              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/photos/diego.jpg" onerror="this.onerror=null;this.src='assets/team/diego.svg'" alt="Diego Martín" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Diego Martín</b><div style="color:var(--slate-500);font-size:.82rem;">Account Exec</div></div></div>
               <span class="save-tag">Active</span>
             </div>
             <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 22px;">
-              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/amara.svg" alt="Amara Okafor" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Amara Okafor</b><div style="color:var(--slate-500);font-size:.82rem;">Partnerships</div></div></div>
+              <div style="display:flex;align-items:center;gap:12px;"><span class="dir-av"><img src="assets/team/photos/amara.jpg" onerror="this.onerror=null;this.src='assets/team/amara.svg'" alt="Amara Okafor" width="40" height="40"></span><div><b style="color:var(--ink);font-size:.95rem;">Amara Okafor</b><div style="color:var(--slate-500);font-size:.82rem;">Partnerships</div></div></div>
               <span class="save-tag" style="background:var(--slate-100);color:var(--slate-500);">Invited</span>
             </div>
           </div>
