@@ -1,0 +1,21 @@
+.lp-prose { max-width: 760px; margin: 0 auto; }
+.lp-prose p { font-size: 1.06rem; line-height: 1.75; color: var(--slate-700); margin-bottom: 18px; }
+.lp-prose h3 { font-size: 1.28rem; margin: 30px 0 10px; color: var(--ink); }
+.lp-prose a { color: var(--indigo-600); font-weight: 600; }
+.lp-faq { max-width: 760px; margin: 0 auto 12px; background:#fff; border:1px solid var(--slate-200); border-radius:14px; padding: 16px 20px; }
+.lp-faq summary { cursor: pointer; font-weight: 700; color: var(--ink); font-size: 1.04rem; }
+.lp-faq p { margin-top: 12px; color: var(--slate-600); line-height: 1.7; }
+.lp-related { text-align:center; color: var(--slate-500); font-size: .95rem; }
+.lp-related a { color: var(--indigo-600); font-weight: 600; }
+.grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.grid-3 .card { background:#fff; border:1px solid var(--slate-100); border-radius: 20px; padding: 26px; box-shadow: var(--shadow-xs); }
+.grid-3 .card h3 { margin-bottom: 10px; font-size: 1.12rem; }
+.grid-3 .card p { color: var(--slate-600); }
+@media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+.lp-table { max-width: 860px; margin: 0 auto; overflow-x: auto; }
+.lp-table table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--slate-200); border-radius: 14px; overflow: hidden; }
+.lp-table th, .lp-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--slate-200); font-size: .98rem; line-height: 1.5; }
+.lp-table th { background: var(--slate-50); font-weight: 700; color: var(--ink); }
+.lp-table td { color: var(--slate-600); }
+.lp-table tr:last-child td { border-bottom: none; }
+.lp-note { max-width: 860px; margin: 14px auto 0; color: var(--slate-500); font-size: .88rem; text-align:center; }

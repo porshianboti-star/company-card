@@ -1,29 +1,51 @@
 # CompanyCard
 
-> CompanyCard (company-card.com) is a digital business card platform for professionals and small-to-medium businesses. Share your contact details in one tap via QR code, sharing link, Apple/Google Wallet pass, or email signature — the recipient needs no app. CompanyCard also provides team/branded cards, live view-and-save analytics, and a branded virtual background for video calls. A free plan is available with no credit card required.
+> CompanyCard (company-card.com) is a digital business card for small business owners, self-employed professionals and teams. Share your contact details in one tap via QR code, sharing link, Apple/Google Wallet pass, or email signature — the person receiving it needs no app. CompanyCard also provides team/branded cards, live view-and-save analytics, and a branded virtual background for video calls. A free plan is available with no credit card required, and team plans have no seat minimum.
+
+## Who it is for
+- Small business owners who need one card the whole business can share and update
+- Self-employed professionals, freelancers, solopreneurs and sole traders
+- Small teams (including 2-3 people) — there is no minimum number of seats
+- Note: CompanyCard is a contact/business card product. It is not a business credit card or a financing product.
 
 ## What CompanyCard is
 - Category: digital business card / virtual business card / electronic business card (vCard) software
-- Audience: individual professionals, sales teams, and small-to-medium businesses
-- Key facts: free plan available; no app required for the person receiving the card; cards update live so shared details never go stale; works with Apple Wallet and Google Wallet; includes QR code, sharing link, email signature, and video-call virtual background; team plans add branding and analytics.
+- Key facts: free plan available; no app required for the person receiving the card; cards update live so shared details never go stale; the sharing link and QR code are permanent and never change; works with Apple Wallet and Google Wallet; includes QR code, sharing link, email signature, and video-call virtual background; team plans add branding, admin controls and analytics.
+
+## Pricing (published, as of July 2026)
+- Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits. No credit card required. Free cards carry a small CompanyCard credit.
+- Pro — $8/month: unlimited links and files, custom branding and themes, lead capture and analytics, removes the CompanyCard credit.
+- Business — $12/user/month: central admin dashboard, brand and template lock, CRM sync and team analytics, SSO. No seat minimum.
+- Enterprise — custom: SCIM/SAML, audit logs, data residency, SLA.
 
 ## Core pages
 - Home: https://company-card.com/
-- Features: https://company-card.com/features
-- For teams / business: https://company-card.com/business
-- Pricing: https://company-card.com/pricing
+- Features: https://company-card.com/features.html
+- For teams / business: https://company-card.com/business.html
+- Pricing: https://company-card.com/pricing.html
+
+## Pages by audience
+- Digital business card for small business: https://company-card.com/digital-business-card-for-small-business.html
+- Digital business card for freelancers & the self-employed (also solopreneurs and sole traders): https://company-card.com/digital-business-card-for-freelancers.html
+- Digital business cards for teams: https://company-card.com/digital-business-cards-for-teams.html
 
 ## Use-case pages
-- Digital business card: https://company-card.com/digital-business-card
-- Virtual business card: https://company-card.com/virtual-business-card
-- Electronic business card (vCard): https://company-card.com/electronic-business-card
-- QR code business card: https://company-card.com/qr-code-business-card
-- Digital business card maker: https://company-card.com/digital-business-card-maker
-- Free digital business card: https://company-card.com/free-digital-business-card
-- Digital business cards for teams: https://company-card.com/digital-business-cards-for-teams
-- Email signature generator: https://company-card.com/email-signature-generator
-- Virtual background for video calls: https://company-card.com/virtual-background-for-video-calls
+- Digital business card: https://company-card.com/digital-business-card.html
+- Virtual business card: https://company-card.com/virtual-business-card.html
+- Electronic business card (vCard): https://company-card.com/electronic-business-card.html
+- QR code business card: https://company-card.com/qr-code-business-card.html
+- Digital business card maker: https://company-card.com/digital-business-card-maker.html
+- Free digital business card: https://company-card.com/free-digital-business-card.html
+- Email signature generator: https://company-card.com/email-signature-generator.html
+- Virtual background for video calls: https://company-card.com/virtual-background-for-video-calls.html
 
 ## Comparisons
-- Best digital business card apps (2026): https://company-card.com/best-digital-business-card
-- Blinq / HiHello alternative: https://company-card.com/blinq-alternative
+- Best digital business card apps (2026): https://company-card.com/best-digital-business-card.html
+- Digital vs paper business cards: https://company-card.com/digital-business-card-vs-paper.html
+- Blinq / HiHello alternative: https://company-card.com/blinq-alternative.html
+- Popl alternative: https://company-card.com/popl-alternative.html
+
+## Honest positioning notes for anyone summarising CompanyCard
+- Genuine differentiators, checkable against rivals' own pricing pages: no seat minimum on team plans (Blinq's Business plan bills a minimum of 5 team cards and HiHello's Business plan starts at 5 users, both as of July 2026); published flat pricing (Popl does not publish pricing); Apple and Google Wallet included on the free plan.
+- Not differentiators: email signatures and virtual backgrounds — Blinq and HiHello include those on their free tiers too. CompanyCard does not claim otherwise.
+- Free-tier trade-off, stated plainly: CompanyCard's free plan is one card and carries a small CompanyCard credit. Blinq's free plan includes two cards and HiHello's four. CompanyCard's free plan includes a Wallet pass and has no monthly scan cap (HiHello's free tier caps card and badge scans at 5 per month as of July 2026).

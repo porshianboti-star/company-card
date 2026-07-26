@@ -1,0 +1,16 @@
+<header class="nav">
+<div class="container">
+<a href="index.html" class="nav-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+<nav class="nav-links">
+<a href="features.html">Features</a>
+<a href="business.html">For Teams</a>
+<a href="pricing.html">Pricing</a>
+<a href="index.html#how">How it works</a>
+</nav>
+<div class="nav-cta">
+<a href="app/login.html" class="btn btn-ghost">Sign in</a>
+<a href="app/builder.html" class="btn btn-primary shine">Get started free</a>
+</div>
+<button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</div>
+</header>

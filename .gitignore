@@ -6,3 +6,5 @@ node_modules/
 .DS_Store
 *.zip
 .claude/
+seo/__pycache__/
+*.pyc
