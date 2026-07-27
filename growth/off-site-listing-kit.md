@@ -60,11 +60,19 @@ Why first: the only third-party source that consistently feeds the AI answers
 in this category. **10 approved reviews unlocks G2 Grid eligibility**, which is
 what gets you into "best of" comparisons.
 
-1. Claim/create the profile: https://www.g2.com/products/new
-2. Paste the long description, categories, pricing and logo above.
-3. Ask real customers for reviews. G2 has a review-invite link — use it, and
-   send it to people who actually use the product.
-4. Target 10 approved reviews. Track progress; tell me when you're listed.
+**Correct 2026 URLs** (the old `/products/new` path 403s — verified 2026-07-27):
+1. Create the profile: **https://sell.g2.com/create-a-profile**
+   On the form, tick **"I would like to serve as admin for this profile"** — that
+   way the profile is already yours when it's approved, and you skip a second
+   claim step.
+2. If a CompanyCard profile already exists, claim it instead:
+   **https://sell.g2.com/claim-your-profile**
+3. Approval takes **1-3 business days**. A free profile is enough — paid plans
+   only add branding and lead-gen analytics, none of which affect being cited.
+4. Paste the long description, categories, pricing and logo above.
+5. Ask real customers for reviews using G2's review-invite link. Target 10
+   approved reviews (the published Grid-eligibility threshold).
+6. Tell me when it's live and I'll wire the URL into `sameAs` the same day.
 
 **Review-request email — send only to genuine users, no incentive:**
 ```
@@ -89,7 +97,7 @@ Thanks either way,
 
 ## 2. Capterra / GetApp / Software Advice (one submission, three sites)
 
-https://www.capterra.com/vendors — Gartner-owned; one vendor submission lists
+https://www.capterra.com/vendors/ — Gartner-owned; one vendor submission lists
 you on all three, which is the best effort-to-coverage ratio available.
 
 ## 3. Product Hunt
