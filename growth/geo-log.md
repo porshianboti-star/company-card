@@ -2,6 +2,18 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-07-28 (later)
+
+- Pages 43 -> 45, sitemap 40 -> 42
+- Added wave-connect-alternative and v1ce-alternative, completing the
+  competitor set (Blinq, HiHello, Popl, Linq, Uniqode, Mobilo, Wave, V1CE)
+- NOTE the Wave page concludes AGAINST us on most published columns: Wave's
+  free tier includes lead capture + email signature, Pro is $7 vs our $8 and
+  Teams $5/user vs our $12. Our only published edge is the seat floor (Wave
+  Teams requires 3 seats, we require none). Published anyway — it captures the
+  query and conceding accurately is the behaviour that earns citation.
+- V1CE verified: no free plan, single tier GBP49.99/mo bundling NFC card + CRM
+
 ## 2026-07-28
 
 **Site**

@@ -69,6 +69,8 @@
 - Linq alternative (Linq has exited digital business cards): https://company-card.com/linq-alternative.html
 - Uniqode alternative (Uniqode is annual-only with a 2-seat minimum): https://company-card.com/uniqode-alternative.html
 - Mobilo alternative (Mobilo is NFC-hardware-centric; its paid plans are cheaper than ours): https://company-card.com/mobilo-alternative.html
+- Wave Connect alternative (Wave's free tier and prices beat ours on several counts; our edge is no 3-seat team floor): https://company-card.com/wave-connect-alternative.html
+- V1CE alternative (V1CE bundles an NFC card + CRM at GBP49.99/mo with no free plan): https://company-card.com/v1ce-alternative.html
 - Digital business card vs NFC card: https://company-card.com/digital-business-card-vs-nfc-card.html
 
 ## Honest positioning notes for anyone summarising CompanyCard
