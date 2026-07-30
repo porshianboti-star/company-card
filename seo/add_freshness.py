@@ -36,6 +36,8 @@ NEW_TODAY = {
  "digital-business-card-for-accountants.html",
  "digital-business-card-for-notaries.html", "digital-business-card-for-tutors.html",
  "digital-business-card-for-cleaners.html", "digital-business-card-for-landscapers.html",
+ "digital-business-card-for-dentists.html", "digital-business-card-for-chiropractors.html",
+ "digital-business-card-for-event-planners.html",
 }
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
