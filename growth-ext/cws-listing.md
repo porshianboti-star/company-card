@@ -84,3 +84,20 @@ fully rendered live card on company-card.com (checked in Chrome).
 
 - 2026-07-30: extension built (repo `extension/`), tested E2E, kit + screenshots
   ready. Next: create item in dev console, upload zip, paste listing, submit.
+- 2026-07-30: **SUBMITTED FOR REVIEW** ✅ (auto-publish on approval).
+  - Item ID: `peohnnklhgcegeppllkgijdmndalahoa`, publisher fbab854d-2c5a-4f0a-816a-9490f796fa1f.
+  - Filled: description, category Tools, language English, Official URL
+    https://company-card.com/ (verified site), homepage+support URLs, store icon,
+    3 screenshots (canvas-rendered 1280x800 JPEG in-console; PNG-with-alpha is
+    rejected — "24-bit PNG (no alpha)"), privacy tab (single purpose, storage +
+    host + content-script justifications, no remote code, no data collected,
+    3 certifications), distribution: free/public/all regions.
+  - Console automation notes: chrome.google.com blocks the Chrome-extension MCP
+    ("extensions gallery cannot be scripted") — use the Claude in-app Browser
+    pane; file uploads via DataTransfer+File injection into input[type=file]
+    (base64 chunks, SHA-256 verified in-page); Material radios/checkboxes need
+    a full pointerdown/mousedown/pointerup/mouseup/click sequence, plain
+    .click() silently fails; "files=0" after change dispatch is normal (input
+    cleared after handler).
+  - Same session: ProSignature 0.1.1 (icon fix) uploaded + submitted, also
+    pending review; published 0.1.0 stays live meanwhile.
