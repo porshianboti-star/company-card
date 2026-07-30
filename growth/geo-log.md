@@ -2,6 +2,39 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-07-30 (later)
+
+**Shipped batch 11** (drafting + adversarial-verification workflow; 2 checkers
+per draft caught soft implied statistics pre-render): dentists, chiropractors,
+event-planners. Sitemap 47 -> 50, all live 200. Event-planners page targets the
+profession; cross-links the events-attendance page to avoid cannibalisation.
+
+**Measured (GSC, read directly this session):**
+- Indexed 16 / not-indexed 6 (all benign "alternate page with proper canonical");
+  "Crawled - currently not indexed" = 0 — still no quality penalty.
+- Performance 28d: 636 impressions, 4 clicks, CTR 0.6%, avg position 55.3,
+  115 query rows. Impressions exist on target queries: "free digital business
+  card" 23, "qr code business card" 27, "digital business cards free" 12,
+  "hihello vs blinq" 9, "what is a virtual business card" 15.
+- Sitemap RESUBMITTED in GSC: re-read same day, discovered pages 24 -> 47
+  (before batch 11; will pick up 50 next read).
+- Manual indexing REQUESTED for best-digital-business-card.html (was "URL
+  unknown to Google" — the money page had never been crawled) and
+  free-digital-business-card-comparison.html (same state).
+
+**Measured (SERP + mention sweep, 6 queries + 8 mention searches, workflow):**
+- CompanyCard ABSENT from all 6 target SERPs, including the brand query
+  "CompanyCard digital business card" (zero brand-entity recognition).
+- Third-party mentions of company-card.com anywhere: 0 (Reddit, G2, Trustpilot,
+  Product Hunt, listicles, directories — nothing).
+- Who wins these SERPs: vendor-owned listicles (Uniqode, Mobilo, Wave, V1CE,
+  Blinq, HiHello, Krofile, DBC) + aggregators (G2 holds 2 slots on
+  "wave connect alternative"; Slashdot, CB Insights). Only quasi-independent
+  media: Small Business Trends.
+- Conclusion unchanged and now better-evidenced: on-site coverage is compounding
+  (impressions exist, position ~55) but entry into AI answers and top-10 SERPs
+  runs through third-party surfaces (G2 etc.) that DO NOT EXIST for us yet.
+
 ## 2026-07-30
 
 - Sitemap URLs: 43 -> 47 (xmllint clean). Pages: +4.
