@@ -2,6 +2,31 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-07-30
+
+- Sitemap URLs: 43 -> 47 (xmllint clean). Pages: +4.
+- Shipped batch 10: four self-employed-trade profession pages —
+  `/digital-business-card-for-notaries`, `/-tutors`, `/-cleaners`,
+  `/-landscapers`. Each written with trade-specific substance (how they get
+  hired, the one load-bearing field), not noun-swaps: notary = commission
+  no./expiry/E&O/RON; tutor = subjects + safeguarding check + forwards through
+  parent group chats; cleaner = insurance + service split + QR on flyer/van;
+  landscaper = photo portfolio + QR on truck/yard sign + seasonal edits.
+- Product claims held to /pricing: free = 1 card + QR/link + wallet + unlimited
+  edits, carries small CompanyCard credit; Pro $8; Business $12/user, no seat
+  min. Did NOT claim lead-capture-on-free (that's gated behind Pro; Wave beats
+  us there). No invented licensing/insurance/regulatory rules — pages say
+  "check your own regulator / commissioning authority".
+- Wired: index.html footer Solutions column (homepage body links), llms.txt
+  "Pages by profession", sitemap.xml. add_freshness DATE bumped 07-26 -> 07-30
+  (restamps dateModified sitewide + sitemap lastmod; footer changed on all
+  pages this run, so the restamp is honest). sync_faq_schema: 0 mismatches.
+- Validation: each new page = exactly one h1, unique title/meta/canonical, 3
+  valid JSON-LD blocks (FAQPage + BreadcrumbList + WebPage).
+- OFF-SITE STILL BLOCKED: Organization.sameAs = [] — no G2/Capterra/Product
+  Hunt/AlternativeTo/Trustpilot/social profiles exist yet. Only the user can
+  create them; remains the single biggest GEO blocker.
+
 ## 2026-07-28 (later)
 
 - Pages 43 -> 45, sitemap 40 -> 42

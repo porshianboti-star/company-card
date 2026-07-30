@@ -19,7 +19,7 @@ import glob, re, json, os
 
 MARK = "<!-- FRESH:BEGIN -->"
 ENDMARK = "<!-- FRESH:END -->"
-DATE = "2026-07-26"
+DATE = "2026-07-30"
 BASE = "https://company-card.com/"
 
 SKIP = {"google6d2321e9b9904736.html"}
@@ -34,6 +34,8 @@ NEW_TODAY = {
  "how-to-make-a-digital-business-card.html", "digital-business-card-for-coaches.html",
  "digital-business-card-for-insurance-agents.html", "digital-business-card-for-salons.html",
  "digital-business-card-for-accountants.html",
+ "digital-business-card-for-notaries.html", "digital-business-card-for-tutors.html",
+ "digital-business-card-for-cleaners.html", "digital-business-card-for-landscapers.html",
 }
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
