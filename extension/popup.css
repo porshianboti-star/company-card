@@ -1,0 +1,65 @@
+:root {
+  --ink: #0B0A1F;
+  --slate: #475569;
+  --slate-soft: #64748B;
+  --line: #E2E8F0;
+  --indigo: #6366F1;
+  --indigo-dark: #4F46E5;
+  --tint: #EEF2FF;
+}
+* { box-sizing: border-box; }
+body {
+  width: 320px; margin: 0; background: #fff; color: var(--ink);
+  font: 13px/1.45 -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+}
+.hd {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 14px; border-bottom: 1px solid var(--line);
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
+  color: #fff;
+}
+.hd b { font-size: 14px; letter-spacing: .2px; }
+.hd-link { margin-left: auto; color: #fff; opacity: .85; font-size: 11.5px; text-decoration: none; }
+.hd-link:hover { opacity: 1; text-decoration: underline; }
+.pad { padding: 14px; }
+
+.pick {
+  width: 100%; margin-bottom: 12px; padding: 7px 9px; font: inherit;
+  border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink);
+}
+
+.qrwrap { display: flex; justify-content: center; }
+.qr {
+  padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fff;
+  line-height: 0; min-height: 40px;
+}
+.qr img, .qr canvas { display: block; }
+
+.name { margin: 12px 0 0; text-align: center; font-size: 15px; font-weight: 700; }
+.sub { margin: 2px 0 12px; text-align: center; font-size: 12px; color: var(--slate-soft); }
+
+.linkrow { display: flex; gap: 6px; margin-bottom: 10px; }
+.link {
+  flex: 1; min-width: 0; padding: 7px 9px; font: 11.5px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--slate); border: 1px solid var(--line); border-radius: 9px; background: #F8FAFC;
+}
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px; }
+.btn {
+  border: 0; border-radius: 9px; padding: 9px 10px; font: 600 12.5px/1 inherit;
+  cursor: pointer; font-family: inherit;
+}
+.btn.primary { background: var(--indigo); color: #fff; }
+.btn.primary:hover { background: var(--indigo-dark); }
+.btn.ghost { background: var(--tint); color: var(--indigo-dark); }
+.btn.ghost:hover { background: #E0E7FF; }
+.btn.sm { padding: 7px 11px; }
+.btn.wide { width: 100%; }
+
+.msg { min-height: 16px; margin: 8px 0 0; text-align: center; font-size: 11.5px; color: #16A34A; }
+.msg.err { color: #DC2626; }
+
+.empty-art { font-size: 34px; text-align: center; }
+.empty-t { margin: 8px 0 4px; text-align: center; font-size: 14px; font-weight: 700; }
+.empty-s { margin: 0 0 14px; text-align: center; font-size: 12px; color: var(--slate-soft); }
+#empty .btn { width: 100%; }

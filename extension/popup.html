@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CompanyCard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hd">
+    <img src="icon32.png" width="22" height="22" alt="">
+    <b>CompanyCard</b>
+    <a class="hd-link" id="openSite" href="#">Dashboard</a>
+  </header>
+
+  <main id="empty" class="pad" hidden>
+    <div class="empty-art">🪪</div>
+    <p class="empty-t">No card here yet</p>
+    <p class="empty-s">Create or open your card on company-card.com and it will show up here automatically — QR code included.</p>
+    <button class="btn primary" id="makeCard">Create my card</button>
+  </main>
+
+  <main id="tool" hidden>
+    <div class="pad">
+      <select id="pick" class="pick" hidden aria-label="Choose card"></select>
+
+      <div class="qrwrap">
+        <div id="qr" class="qr"></div>
+      </div>
+
+      <p class="name" id="name"></p>
+      <p class="sub" id="sub"></p>
+
+      <div class="linkrow">
+        <input id="link" class="link" readonly aria-label="Share link">
+        <button class="btn ghost sm" id="copyLink">Copy</button>
+      </div>
+
+      <div class="grid">
+        <button class="btn primary" id="openCard">Open card</button>
+        <button class="btn ghost" id="vcf">Save contact</button>
+      </div>
+      <button class="btn ghost wide" id="copySig">Copy email signature</button>
+
+      <p class="msg" id="msg" role="status"></p>
+    </div>
+  </main>
+
+  <script src="vendor/qrcode.min.js"></script>
+  <script src="cc-core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
