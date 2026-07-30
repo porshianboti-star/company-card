@@ -141,3 +141,32 @@ LinkedIn company page, X, Instagram, YouTube. Once they exist, send me the URLs.
   whether a DPA exists, encryption, export) and I'll write it.
 - **No AggregateRating schema.** It requires real ratings. After G2 reviews
   exist, this becomes available and is worth adding.
+
+---
+
+## Domain email — EXACT GoDaddy DNS records (prepared 2026-07-30)
+
+Goal: make sales@ / privacy@ / any@company-card.com deliver to porshianboti@gmail.com
+using forwardemail.net's free DNS-only forwarding (no account, no payment).
+This also unlocks G2's "business email" vendor validation (their Google OAuth uses
+hd=* which structurally rejects @gmail.com — verified 2026-07-30).
+
+Add in GoDaddy → company-card.com → DNS (I can click this through once signed in):
+
+| Type | Name | Value                      | Priority | TTL |
+|------|------|----------------------------|----------|-----|
+| MX   | @    | mx1.forwardemail.net       | 10       | 1h  |
+| MX   | @    | mx2.forwardemail.net       | 10       | 1h  |
+| TXT  | @    | forward-email=porshianboti@gmail.com | — | 1h  |
+
+Then: G2 → business-email validation with boti@company-card.com → verification
+email arrives in Gmail (via forward) → profile creation unlocks.
+
+## Netlify contact form — FIXED & VERIFIED 2026-07-30
+
+- Root cause found: site had processing_settings.ignore_html_forms=true, so the
+  form shipped 07-28 was never registered (submissions would have been dropped).
+- Enabled via API, rebuilt, form registered (id 6a6b106646d9460008cf261e).
+- Email notification hook created: submission_created → porshianboti@gmail.com.
+- E2E PROVEN: live POST test submission captured (visible in Netlify) and
+  notification email sent. The enterprise "Contact sales" path now works.
