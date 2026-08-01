@@ -170,3 +170,26 @@ email arrives in Gmail (via forward) → profile creation unlocks.
 - Email notification hook created: submission_created → porshianboti@gmail.com.
 - E2E PROVEN: live POST test submission captured (visible in Netlify) and
   notification email sent. The enterprise "Contact sales" path now works.
+
+## ⚠️ Email forwarding BLOCKED — root cause found (2026-07-30 evening)
+
+forwardemail.net system alert (in Gmail, 1:26 PM): company-card.com was
+"created within the past 90 days" per WHOIS, and their FREE tier blocks
+newly-registered domains as abuse prevention. **Forwarding requires their $3/mo
+paid plan** (lifts instantly on upgrade; DNS records already correct).
+
+CORRECTION of an earlier conclusion: the "2 messages" thread that looked like
+proof of forwarding was actually TWO DIRECT Netlify notifications (11:58 AM +
+2:34 PM tests) threaded by identical subject. The forwarded copies were
+silently blocked. The SMTP probe's "250 Accepted" happens at RCPT; the block
+applies after acceptance (hence an alert email instead of a bounce).
+
+Options (all need the owner — payment or account creation):
+  a) forwardemail.net paid — $3/mo, instant unblock, DNS already in place. FASTEST.
+  b) ImprovMX free tier — user creates the account; then I reconfigure MX to
+     mx1/mx2.improvmx.com + set the alias, and re-test end-to-end.
+  c) Skip domain email for now; user signs into LinkedIn once for G2 instead.
+
+G2 state right now: boti@company-card.com added to the account, validation
+emails queued on G2's side — they deliver the moment forwarding goes live;
+then click the link in Gmail and /products/new unlocks.
