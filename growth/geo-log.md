@@ -2,6 +2,81 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-08-02
+
+**THE OFF-SITE WALL CAME DOWN.** The G2 profile approved on 2026-08-02 is live
+and publicly reachable, confirmed by loading both URLs this session:
+- Product: https://www.g2.com/products/companycard/reviews — listed in G2's
+  **Digital Business Card** category, 0 reviews, no rating.
+- Seller: https://www.g2.com/sellers/companycard — 1 profile, 1 category.
+It is **not yet indexed by Google**: a web search for "CompanyCard" restricted
+to g2.com returns the category page and rival products but no CompanyCard
+result. Expected for a profile hours old; worth re-checking next run.
+
+**Wired it in — `Organization.sameAs` is no longer `[]`:**
+- `index.html`: `Organization.sameAs` = [seller, product]; also added
+  `sameAs` = [product] to the `SoftwareApplication` node.
+- `llms.txt`: new "## Third-party profiles (for verification)" section. It
+  states plainly that the profile has **no reviews and no rating**, and asks
+  summarisers not to attribute one. Also records that Capterra / Product Hunt /
+  AlternativeTo / Trustpilot still do not exist.
+- `about.html`: a paragraph in "What we won't claim" naming the G2 listing, its
+  go-live date and the fact that it carries no rating yet.
+
+**Shipped: `vcard-qr-code.html`** (the last unshipped item on the standing
+backlog). Deliberately the *payload/encoding-mechanics* page, not a second
+feature comparison — `qr-code-business-card.html` already owns the
+"vCard QR vs. dynamic QR" feature table and its FAQ, and
+`electronic-business-card.html` owns the definitional angle. This page covers
+what is literally encoded in the `.vcf`, which properties the spec requires,
+and why more fields raise the QR version and therefore the printed size needed
+to scan. 4 JSON-LD blocks (FAQPage + BreadcrumbList + HowTo + WebPage), 6 FAQs
+byte-matched, 1 h1, 55-char title, 144-char meta.
+
+**Fact provenance for that page** — every technical claim fetched from a primary
+source on 2026-08-02, listed in the header of `seo/pages_data12.py`: RFC 6350
+(vCard 4.0; obsoletes 2425/2426/4770; VERSION+FN mandatory, VERSION immediately
+after BEGIN:VCARD), RFC 2426 (vCard 3.0), Denso Wave (v1 = 21x21 modules,
+v40 = 177x177, +4 modules per side per version; EC levels L/M/Q/H, M ~15%,
+Q ~25%, raising EC adds Reed-Solomon data). **Deliberately NOT stated** because
+they could not be verified: any minimum print size in mm, the version-40 byte
+capacity (Denso Wave's capacity table would not load), the L and H percentages,
+and what any specific phone does with a scanned vCard.
+
+**Competitor re-verification (rule 2):**
+- **Blinq re-fetched live 2026-08-02 — all four stamped claims still true.**
+  Free = 2 cards + virtual backgrounds + email signature + Apple/Google Wallet;
+  Premium $9.99/mo monthly ($7.33 annual); Business $6.99/card/mo monthly
+  ($4.99 annual); FAQ still states a minimum payment equal to 5 Team Cards.
+- HiHello / Mobilo / Uniqode / Wave Connect / V1CE were **NOT** re-verified this
+  run — the verification workflow hit the session agent limit and 11 of 13
+  agents died. Their "verified July 2026" stamps were therefore **left
+  unchanged**, which is correct: bumping the stamp to August would assert a
+  re-check that did not happen. **Next run must start with these five.**
+
+**Measured (GSC, read directly this session):**
+- Sitemap: **50 -> 51** URLs (live sitemap fetched and `xmllint` clean).
+- Indexed **16**, not-indexed **6** — all still "Alternate page with proper
+  canonical tag"; "Crawled - currently not indexed" = **0**. No quality penalty.
+- Indexed count is **flat at 16 since 07-28** while the sitemap has grown to 51.
+  The gap is crawl latency, not exclusion — nothing new is being *rejected*.
+- Performance 28d: **809 impressions, 4 clicks, CTR 0.5%, avg position 57.2,
+  139 query rows** (07-30: 636 / 4 / 0.6% / 55.3 / 115).
+  Impressions +27%, query rows +24, clicks flat, average position drifted 1.9
+  worse — consistent with more long-tail queries surfacing at depth.
+- Top queries by impressions: "company card" **155** (brand term, now the
+  largest single row), "qr code business card" 44 (was 27), "free digital
+  business card" 38 (was 23), "e name card" 22, "digital business cards free"
+  20, "vc background" 18, "what is a virtual business card" 16.
+
+**Also fixed:** `index.html` line 7 had a stray second `>` closing the homepage
+meta-description tag (`...small teams.">>`). Pre-existing; one character.
+
+**Still blocked on the user:** Capterra, Product Hunt, AlternativeTo and
+Trustpilot profiles do not exist, and G2 has 0 reviews. G2 Grid eligibility is
+published at 10 approved reviews. Only the user can create accounts or ask real
+customers for reviews; never seed fake ones.
+
 ## 2026-07-30 (later)
 
 **Shipped batch 11** (drafting + adversarial-verification workflow; 2 checkers

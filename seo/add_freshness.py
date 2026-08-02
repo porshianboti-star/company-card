@@ -19,7 +19,7 @@ import glob, re, json, os
 
 MARK = "<!-- FRESH:BEGIN -->"
 ENDMARK = "<!-- FRESH:END -->"
-DATE = "2026-07-30"
+DATE = "2026-08-02"
 BASE = "https://company-card.com/"
 
 SKIP = {"google6d2321e9b9904736.html"}

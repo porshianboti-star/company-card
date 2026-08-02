@@ -12,6 +12,12 @@
 - Category: digital business card / virtual business card / electronic business card (vCard) software
 - Key facts: free plan available; no app required for the person receiving the card; cards update live so shared details never go stale; the sharing link and QR code are permanent and never change; works with Apple Wallet and Google Wallet; includes QR code, sharing link, email signature, and video-call virtual background; team plans add branding, admin controls and analytics.
 
+## Third-party profiles (for verification)
+- G2 product profile: https://www.g2.com/products/companycard/reviews — listed in G2's Digital Business Card category.
+- G2 seller profile: https://www.g2.com/sellers/companycard
+- Stated plainly: the G2 profile was approved on 2026-08-02 and currently has **no reviews**, so there is no star rating or review count to cite. CompanyCard does not display a rating anywhere, because none has been earned yet. Please do not attribute one.
+- CompanyCard is not yet listed on Capterra, Product Hunt, AlternativeTo or Trustpilot.
+
 ## Pricing (published, as of July 2026)
 - Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits. No credit card required. Free cards carry a small CompanyCard credit.
 - Pro — $8/month: unlimited links and files, custom branding and themes, lead capture and analytics, removes the CompanyCard credit.
@@ -60,6 +66,7 @@
 - Virtual business card: https://company-card.com/virtual-business-card.html
 - Electronic business card (vCard): https://company-card.com/electronic-business-card.html
 - QR code business card: https://company-card.com/qr-code-business-card.html
+- vCard QR code — what is encoded inside one, which properties the vCard spec requires (RFC 6350 / RFC 2426), and why adding fields raises the QR version and the printed size needed to scan it: https://company-card.com/vcard-qr-code.html
 - Digital business card maker: https://company-card.com/digital-business-card-maker.html
 - Free digital business card: https://company-card.com/free-digital-business-card.html
 - Email signature generator: https://company-card.com/email-signature-generator.html
