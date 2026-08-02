@@ -4,6 +4,29 @@ Measured state, appended each time work ships. Numbers only — no claims.
 
 ## 2026-08-02
 
+> ### ⛔ NOTHING IN THIS ENTRY IS LIVE YET — NETLIFY DEPLOYS ARE BLOCKED
+>
+> **The site has not deployed since 2026-08-01 07:05 (commit `f5d9ab8`).** Every
+> deploy since then fails before building with the Netlify error:
+> **`Skipped due to account credit usage exceeded`**
+>
+> Confirmed by API against site `steady-cendol-c884c0`
+> (`00bb5c43-f376-4091-9712-d007e2be7dfe`), three consecutive failures:
+> `d1a0224` (14:19), `d2f273c8` (20:13), and a manual rebuild I triggered at
+> 20:20 to check whether it was transient — it is not.
+> `build_settings.stop_builds` is `false`, so builds are not paused manually;
+> `published_deploy` is still `f5d9ab8`. Account is the Personal tier,
+> billing email porshianboti@gmail.com.
+>
+> **Only the user can clear this** — it needs a billing/credit action on the
+> Netlify account. I did not and will not attempt any payment or plan change.
+> Everything below is committed and pushed to `main` and will go live on the
+> first successful build with no further work.
+>
+> **Consequence for measurement:** the GSC and sitemap numbers recorded below
+> describe the site as it stands at `f5d9ab8` (50 sitemap URLs live). The 51-URL
+> sitemap, the `sameAs` values and `/vcard-qr-code` are in the repo only.
+
 **THE OFF-SITE WALL CAME DOWN.** The G2 profile approved on 2026-08-02 is live
 and publicly reachable, confirmed by loading both URLs this session:
 - Product: https://www.g2.com/products/companycard/reviews — listed in G2's
@@ -23,7 +46,7 @@ result. Expected for a profile hours old; worth re-checking next run.
 - `about.html`: a paragraph in "What we won't claim" naming the G2 listing, its
   go-live date and the fact that it carries no rating yet.
 
-**Shipped: `vcard-qr-code.html`** (the last unshipped item on the standing
+**Built (not yet live): `vcard-qr-code.html`** (the last unshipped item on the standing
 backlog). Deliberately the *payload/encoding-mechanics* page, not a second
 feature comparison — `qr-code-business-card.html` already owns the
 "vCard QR vs. dynamic QR" feature table and its FAQ, and
