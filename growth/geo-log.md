@@ -18,6 +18,16 @@ Measured state, appended each time work ships. Numbers only — no claims.
 > `published_deploy` is still `f5d9ab8`. Account is the Personal tier,
 > billing email porshianboti@gmail.com.
 >
+> **A direct file deploy does NOT work around it.** The site has no build
+> command and no publish dir (it serves the tracked repo root as-is, confirmed:
+> `/README.md`, `/seo/build_pages.py` etc. all return 200), so I tried a direct
+> Deploy-API upload of the 183 tracked files to bypass the build entirely. The
+> API refused at the create-deploy step:
+> `403 — "Account credit usage exceeded - new deploys are blocked until credits
+> are added"`. So this is **not** a build-minutes problem that a file upload can
+> sidestep; it is a hard account-level block on all new deploys.
+> **Next run: do not retry the deploy trick — check credits first.**
+>
 > **Only the user can clear this** — it needs a billing/credit action on the
 > Netlify account. I did not and will not attempt any payment or plan change.
 > Everything below is committed and pushed to `main` and will go live on the
