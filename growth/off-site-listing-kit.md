@@ -193,3 +193,23 @@ Options (all need the owner — payment or account creation):
 G2 state right now: boti@company-card.com added to the account, validation
 emails queued on G2's side — they deliver the moment forwarding goes live;
 then click the link in Gmail and /products/new unlocks.
+
+## 🎉 G2 PROFILE APPROVED — 2026-08-02
+
+Full chain that got us here (each step self-executed):
+GoDaddy MX -> ImprovMX (user account; domain+catch-all configured by agent) ->
+fresh address hello@company-card.com (boti@ was ESP-suppressed from the
+forwardemail era) -> G2 validation email delivered to INBOX -> verified ->
+/products/new unlocked -> full listing submitted (Software, GA, pricing URL
+B2B-verified, canonical description, logo from site SVG, "I work at the
+company" + "serve as admin", terms accepted per user's explicit direction) ->
+**"Profile Approved!"** Categories being assigned by G2; direct link arriving
+by email. Review-solicitation emails: left EMPTY (no real customers to name —
+never fabricate).
+
+NEXT: (1) capture profile URL -> populate Organization.sameAs + llms.txt +
+about.html; (2) request admin access from the product profile if not granted
+(logged-in email is Gmail; business email validated on account); (3) start
+the honest review track — kit has the no-incentive request template;
+10 approved reviews = G2 Grid eligibility. Then Capterra/Trustpilot with
+hello@company-card.com.
