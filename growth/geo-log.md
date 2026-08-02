@@ -78,7 +78,9 @@ and what any specific phone does with a scanned vCard.
   re-check that did not happen. **Next run must start with these five.**
 
 **Measured (GSC, read directly this session):**
-- Sitemap: **50 -> 51** URLs (live sitemap fetched and `xmllint` clean).
+- Sitemap: **50 URLs live** (fetched from company-card.com, `xmllint` clean).
+  The repo is at **51** — the extra URL is `/vcard-qr-code.html`, which cannot
+  appear live until the deploy block above is cleared.
 - Indexed **16**, not-indexed **6** — all still "Alternate page with proper
   canonical tag"; "Crawled - currently not indexed" = **0**. No quality penalty.
 - Indexed count is **flat at 16 since 07-28** while the sitemap has grown to 51.
