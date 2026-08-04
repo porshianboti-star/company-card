@@ -2,6 +2,101 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-08-04
+
+> ### ⛔ STILL NOT LIVE — NETLIFY DEPLOYS REMAIN BLOCKED (day 3)
+>
+> `published_deploy` is **still `f5d9ab8` (2026-08-01 07:05)**. A deploy fired
+> today at 08:52 UTC and came back `state=error`, `skipped=true`,
+> `published_at=null` — the same account-credit block, not a build failure.
+> Live `/vcard-qr-code` still 404s; live sitemap still 50 URLs against 52 in
+> the repo. **Only the owner can clear this (billing action).** Everything in
+> this entry is committed and goes live on the first successful build.
+
+**Shipped — monthly competitor re-verification (commit `805efb8`)**
+
+Re-read all seven vendors' own pricing pages on 2026-08-04 *before* moving any
+stamp from July to August. No stamp was bumped on a figure that was not
+re-fetched today.
+
+| Vendor | Re-read today | Result |
+|---|---|---|
+| Blinq | blinq.me/pricing | Free = 2 cards, **Google *and* Apple Wallet**, email signature, virtual backgrounds. Premium $9.99/mo ($7.33 annual). Business $6.99/card/mo ($4.99 annual), "minimum payment equal to 5 Team Cards" |
+| HiHello | hihello.com/pricing | Personal free = 4 cards, 5 card & badge scans/mo. Professional $6/mo. Business $5/user/mo, 5–100 users |
+| Uniqode | uniqode.com/pricing | "We currently only offer annual subscription plans." First card free, free forever. Team $6/user/mo. **No seat minimum published** |
+| Mobilo | mobilocard.com/pricing-2 | Pro $3/mo, Teams $4/mo annual, Business $5/mo annual. Free digital card. NFC sold separately. List prices $19.99 / $39 / $139 still shown |
+| Wave Connect | wavecnct.com/pages/pricing | Free tier real. Pro $7/mo. Teams $5/user/mo, **"3 minimum seats"**. NFC not required |
+| V1CE | v1ce.co/pricing | No free plan. 30-day trial, then single tier (£49 headline, "£49.99/mo after trial"). Card from £75, "no subscription required" |
+| Popl | popl.co + /pages/pricing | No free plan, no published prices. H1 still "Your AI GTM platform for in-person events" |
+| Linq | linqapp.com | Still "APIs for iMessage, RCS, SMS, and Voice" — no card product |
+
+**Correction shipped: Uniqode's "2-seat minimum" is gone from the site.**
+Four pages asserted Uniqode's Team plan "requires at least two seats". That
+figure is **not published on uniqode.com/pricing today** — searched the rendered
+page for `2 seats`, `two seats`, `seat minimum`, `minimum of N`: zero matches.
+It may still be true; we cannot verify it, so it came off every page.
+`uniqode-alternative.html` was re-anchored on the axis that *is* verifiable —
+annual-only billing, stated outright in their own FAQ — including its `<title>`,
+meta description, og/twitter tags, lead, body, comparison table and FAQ schema.
+This is the **third** instance of the same failure mode (after the false "Blinq
+lacks email signature" claim and the stale "Popl is an NFC hardware company"
+thesis). The rule holds: re-fetch, never restate.
+
+Also corrected from today's re-read:
+- Blinq's free plan gets Google Wallet too, and lists no scan cap — our
+  comparison table understated the competitor on both.
+- **New Wave Connect row** in the free-plan table: free tier, $7/mo Pro, and a
+  real **3-seat floor** on Teams. Verified, and it carries the seat-minimum
+  argument better than the claim just removed.
+- Mobilo source link pointed at a redirecting `/pricing` → now `/pricing-2`.
+- V1CE source link pointed at `v1ce.co/pages/pricing` (403) → now `v1ce.co/pricing`.
+- Stray `>` was closing the meta description on `best-digital-business-card.html`
+  and **rendering as a visible `>` above the nav**. Same typo class as the one
+  fixed on `index.html` in batch 12.
+- **`linq-alternative.html` was live and footer-linked but had never been added
+  to `sitemap.xml`.** Added — the page has existed unindexed-by-sitemap since
+  batch 1.
+
+Freshness handled honestly this pass: `dateModified` and sitemap `lastmod` were
+bumped **only for the 12 pages actually changed**, not sitewide.
+`seo/add_freshness.py` rewrites all 55 pages by default; the 43 whitespace-only
+rewrites were reverted so the diff shows only real edits.
+
+**Validation:** 12/12 changed pages have exactly one `<h1>`, a title, a meta
+description, one canonical, and valid JSON-LD. `sync_faq_schema.py` reports
+**0 mismatches**. `xmllint --noout sitemap.xml` passes.
+
+**Site**
+- Sitemap URLs: 51 → **52** in repo (linq-alternative added); **50 live** (frozen)
+- Pages carrying a July 2026 stamp: 13 → **0** (only `privacy-policy.html`
+  retains "5 July 2026", which is its true last-updated date)
+- `llms.txt` competitor stamps re-dated to August 2026 (facts re-verified)
+
+**Google Search Console (read 2026-08-04)**
+- Indexed **16** · Not indexed **6** — unchanged since 07-28
+- All 6 exclusions still "Alternate page with proper canonical tag";
+  **"Crawled – currently not indexed" = 0**. No new exclusion reason appeared.
+- Performance, 28d (Jul 6 – Aug 2): **921 impressions** (was 636 on 07-30,
+  **+45%**), **3 clicks**, avg position **57.9** (was 55.3), **159 query rows**
+  (was 115, **+38%**)
+- Growing queries: "qr code business card" 27 → **51**, "free digital business
+  card" 23 → **46**. Top row is "company card" at 155 impressions.
+- GSC flagged `free-digital-business-card.html` impressions **+6,000%**
+- Sitemap last read **Jul 30**, 47 discovered. **Not resubmitted this run** —
+  production is frozen, so a re-read would only surface the 3 URLs that went
+  live before the block. Resubmit once deploys work and the 52-URL sitemap is
+  actually being served.
+
+**Off-site — still the binding constraint**
+- G2: live and wired (`sameAs`, `llms.txt`, `about.html`) — still returns
+  nothing on a brand search, i.e. not yet indexed by Google
+- Capterra / Trustpilot / Product Hunt / AlternativeTo: **still do not exist**
+- A brand search for "CompanyCard company-card.com digital business card"
+  returns **zero CompanyCard results** — competitors only. Unchanged since 07-30.
+- Direct URL probes are useless for this check: capterra/trustpilot/PH/
+  alternativeto/G2 all return **403 to curl**, including the G2 profile we know
+  exists. Use search, not status codes.
+
 ## 2026-08-02
 
 > ### ⛔ NOTHING IN THIS ENTRY IS LIVE YET — NETLIFY DEPLOYS ARE BLOCKED
