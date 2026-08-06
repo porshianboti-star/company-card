@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-33HCVG9DKG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33HCVG9DKG');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital Business Card Pricing — Free Plan &amp; Team Plans | CompanyCard</title>
@@ -211,5 +214,25 @@
 
 <script src="assets/app.js"></script>
 <script src="assets/analytics.js"></script>
+<script>
+/* GA4 CTA events: pay_intent (paid-plan buttons) + signup_click (free/get-started) */
+document.addEventListener('click',function(e){
+  if(typeof gtag!=='function')return;
+  var a=e.target.closest&&e.target.closest('a.btn');
+  if(!a)return;
+  var plan=a.closest('.plan');
+  if(plan){
+    var h=plan.querySelector('h3');
+    var name=h?h.textContent.trim().toLowerCase():'';
+    if(name==='pro'||name==='business'){
+      gtag('event','pay_intent',{plan:name,page_location:location.pathname});
+      return;
+    }
+  }
+  if((a.getAttribute('href')||'').indexOf('app/builder.html')>-1){
+    gtag('event','signup_click',{page_location:location.pathname});
+  }
+});
+</script>
 </body>
 </html>
