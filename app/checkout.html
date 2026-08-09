@@ -14,6 +14,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
 <link rel="stylesheet" href="app.css">
+<style>
+/* Demo-checkout notice. Deliberately loud: this form asks for a card number,
+   and until it takes real money it must never look like it does. */
+.co-demo-notice{display:flex;gap:10px;align-items:flex-start;margin:0 0 18px;
+  padding:12px 14px;border-radius:10px;line-height:1.5;font-size:14px;
+  background:#FFF6E5;border:1px solid #F0C86B;color:#5A4416}
+.co-demo-notice svg{width:19px;height:19px;flex:0 0 auto;margin-top:1px;color:#B7791F}
+.co-demo-notice b{color:#3F2F0D}
+.fl-demo{margin-inline-start:6px;padding:1px 6px;border-radius:99px;font-size:10.5px;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  background:#F0C86B;color:#3F2F0D;vertical-align:1px}
+@media (prefers-color-scheme:dark){
+  .co-demo-notice{background:#2E2408;border-color:#7A5E1C;color:#F2E3BE}
+  .co-demo-notice b{color:#FFF3D4}
+  .co-demo-notice svg{color:#E0B44E}
+}
+</style>
 </head>
 <body>
 
@@ -21,7 +38,7 @@
   <div class="inner">
     <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
     <span class="sp"></span>
-    <span class="co-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Secure checkout</span>
+    <span class="co-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg> Demo checkout — no card is charged</span>
   </div>
 </header>
 
@@ -56,27 +73,35 @@
         <div class="co-summary">
           <div class="row"><span>CompanyCard Pro</span><b id="sum-plan">Annual</b></div>
           <div class="row"><span>Billed today</span><b id="sum-total">$71.88</b></div>
-          <div class="row muted"><span id="sum-renew">Renews yearly · cancel anytime</span></div>
+          <div class="row muted"><span id="sum-renew">Preview — nothing is charged</span></div>
         </div>
 
-        <form id="pay-form" novalidate>
+        <!-- The notice sits ABOVE the card fields on purpose. Below the pay button
+             it was the faintest text on a page headed "Secure checkout", next to
+             inputs whose autocomplete asked the browser for a real saved card. -->
+        <p class="co-demo-notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+          <span><b>This is a demo checkout.</b> No card is charged and nothing is sent anywhere.
+          The test number below is already filled in — <b>please don't type a real card.</b></span>
+        </p>
+
+        <form id="pay-form" novalidate autocomplete="off">
           <div class="field"><label class="fl" for="pay-email">Email</label>
             <input class="inp" id="pay-email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
           <div class="field"><label class="fl" for="pay-name">Name on card</label>
-            <input class="inp" id="pay-name" type="text" placeholder="Jordan Diaz" autocomplete="cc-name" required></div>
-          <div class="field"><label class="fl" for="pay-num">Card number</label>
-            <div class="inp-icon"><input class="inp" id="pay-num" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="cc-number" required>
+            <input class="inp" id="pay-name" type="text" placeholder="Jordan Diaz" autocomplete="off" required></div>
+          <div class="field"><label class="fl" for="pay-num">Card number <span class="fl-demo">demo</span></label>
+            <div class="inp-icon"><input class="inp" id="pay-num" type="text" inputmode="numeric" value="4242 4242 4242 4242" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="off" required>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div></div>
           <div class="grid2">
             <div class="field"><label class="fl" for="pay-exp">Expiry</label>
-              <input class="inp" id="pay-exp" type="text" inputmode="numeric" placeholder="MM / YY" maxlength="7" autocomplete="cc-exp" required></div>
+              <input class="inp" id="pay-exp" type="text" inputmode="numeric" value="12 / 34" placeholder="MM / YY" maxlength="7" autocomplete="off" required></div>
             <div class="field"><label class="fl" for="pay-cvc">CVC</label>
-              <input class="inp" id="pay-cvc" type="text" inputmode="numeric" placeholder="123" maxlength="4" autocomplete="cc-csc" required></div>
+              <input class="inp" id="pay-cvc" type="text" inputmode="numeric" value="123" placeholder="123" maxlength="4" autocomplete="off" required></div>
           </div>
           <button class="btn btn-primary btn-lg btn-block co-pay" id="pay-btn" type="submit">
-            <span class="lbl">Pay <span id="pay-amt">$71.88</span> &amp; activate Pro</span>
+            <span class="lbl">Activate Pro (demo) — <span id="pay-amt">$71.88</span> not charged</span>
           </button>
-          <p class="co-fine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> This is a demo checkout — no real card is charged. Use any details.</p>
         </form>
       </div>
       <button class="co-later" id="co-later" type="button">Maybe later — keep building free</button>
@@ -107,6 +132,13 @@
   var qs = new URLSearchParams(location.search);
   var ret = qs.get("return") || "dashboard.html";
   $("co-back").href = ret; $("ok-go").href = ret;
+  /* Preselect the billing period chosen on /pricing.html. Without this the
+     pricing toggle was decorative — every click landed on annual. */
+  var wantPlan = (qs.get("plan") || "").toLowerCase();
+  if (wantPlan === "monthly" || wantPlan === "annual") {
+    var segBtns = $("co-seg").querySelectorAll("button");
+    segBtns.forEach(function (b) { b.classList.toggle("on", b.getAttribute("data-plan") === wantPlan); });
+  }
 
   function toast(m) { var t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 2200); }
   var P = CC.PRICING, cur = P.currency, fmt = function (n) { return cur + n.toFixed(2); };
@@ -139,7 +171,7 @@
     $("co-bill").textContent = plan === "annual" ? ("Billed " + fmt(P.annualTotal) + " per year") : "Billed monthly";
     $("sum-plan").textContent = plan === "annual" ? "Annual" : "Monthly";
     $("sum-total").textContent = fmt(totalFor());
-    $("sum-renew").textContent = plan === "annual" ? "Renews yearly · cancel anytime" : "Renews monthly · cancel anytime";
+    $("sum-renew").textContent = "Preview — nothing is charged";
     $("pay-amt").textContent = fmt(totalFor());
   }
   $("co-seg").addEventListener("click", function (e) {

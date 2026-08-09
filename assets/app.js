@@ -50,7 +50,14 @@
         if (v !== null) el.firstChild.nodeValue = v;
       });
       pers.forEach(function (el) {
-        el.textContent = annual ? "per user / month · billed yearly" : "per user / month";
+        // The label differs per plan (Pro is not per-seat), so read it from the
+        // element rather than hardcoding Business's wording for every row.
+        var base = el.getAttribute("data-per") || el.textContent;
+        el.textContent = annual ? base + " · billed yearly" : base;
+      });
+      // Carry the period into checkout, otherwise the toggle is decorative.
+      document.querySelectorAll('a[href*="checkout"]').forEach(function (a) {
+        a.href = a.href.split("?")[0] + "?plan=" + (annual ? "annual" : "monthly");
       });
     });
   }
