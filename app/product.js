@@ -307,6 +307,16 @@
       else L.push("URL:" + CC.href(f));
     });
     if (card.tagline) L.push("NOTE:" + card.tagline);
+    /* Link the saved contact back to the live card. Without this the vCard is a
+       snapshot: the moment it lands in someone's address book it stops updating,
+       which is exactly the thing a digital card is supposed to beat paper at.
+       With it, the recipient keeps a way back to the current details — and to us.
+       Guarded because shareUrl reads location, and a vCard must still download
+       even if that ever fails. */
+    try {
+      var back = CC.shareUrl(card, true);
+      if (back) L.push("URL:" + back);
+    } catch (e) { /* fall through — the contact is still worth saving */ }
     L.push("REV:" + new Date().toISOString());
     L.push("END:VCARD");
     return L.join("\r\n");
