@@ -86,11 +86,19 @@
     await navigator.clipboard.writeText(text);
   }
 
+  /* Tag traffic the extension sends to the site. The Chrome Web Store listing
+     ranks #1 for "digital business card" (measured 2026-08-09), so this is the
+     one channel we know is working — and until now its visits arrived untagged
+     and were indistinguishable from direct traffic in GA4. */
+  function siteUrl(path, source) {
+    return CC.SITE + path + "?utm_source=chrome_extension&utm_medium=popup&utm_campaign=" + source;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     $("openSite").addEventListener("click", function (e) {
-      e.preventDefault(); openTab(CC.SITE + "/app/dashboard.html");
+      e.preventDefault(); openTab(siteUrl("/app/dashboard.html", "open_dashboard"));
     });
-    $("makeCard").addEventListener("click", function () { openTab(CC.SITE + "/app/builder.html"); });
+    $("makeCard").addEventListener("click", function () { openTab(siteUrl("/app/builder.html", "empty_state_create")); });
     $("openCard").addEventListener("click", function () { if (state.url) openTab(state.url); });
 
     $("copyLink").addEventListener("click", function () {
