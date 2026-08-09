@@ -8,6 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Digital business card — CompanyCard</title>
 <meta name="description" content="A CompanyCard digital business card. Tap to save the contact — no app needed.">
+<!-- A card is shared as a link far more often than it is visited from search,
+     so this page's preview is the product's first impression. It had none:
+     WhatsApp, Slack and iMessage rendered a bare URL. These are deliberately
+     static — the card itself is rendered client-side, and link crawlers do not
+     run JavaScript, so per-person titles would need prerendering (see notes). -->
+<meta property="og:title" content="Digital business card — CompanyCard">
+<meta property="og:description" content="Someone shared their CompanyCard with you. Tap to see their details and save the contact — no app needed.">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="CompanyCard">
+<meta property="og:image" content="https://company-card.com/assets/png/favicon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Digital business card — CompanyCard">
+<meta name="twitter:description" content="Someone shared their CompanyCard with you. Tap to see their details and save the contact — no app needed.">
+<meta name="twitter:image" content="https://company-card.com/assets/png/favicon-512.png">
 <link rel="icon" href="../assets/logo-icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
