@@ -64,6 +64,22 @@
       if (e.target.closest("[data-save]")) { e.preventDefault(); CC.downloadVcard(card); toast("Contact downloaded"); }
     });
 
+    /* A shared card is the one place we reach someone who is not looking for
+       us — the product's only growth channel that owes nothing to domain
+       authority. It was the last unmeasured step on that path. Reported as
+       signup_click so it lands in the same funnel as the site's CTAs, with a
+       source so the viral loop can be told apart from them. */
+    var madeEl = document.querySelector(".made a");
+    if (madeEl) {
+      madeEl.addEventListener("click", function () {
+        try {
+          if (typeof gtag === "function") {
+            gtag("event", "signup_click", { source: "shared_card", page_location: "/app/card" });
+          }
+        } catch (e) { /* never block the navigation on analytics */ }
+      });
+    }
+
     if (card.showQR) { CC.fillQR(ccEl, card); }
     else { var qel = document.getElementById("qr"); if (!CC.qr(qel, location.href, 168)) CC.qr(qel, CC.shareUrl(card, true), 168); }
   })();
