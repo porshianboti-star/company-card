@@ -111,7 +111,15 @@
 
   function buildSig(card) {
     var color = (CC.themeOf(card) || {}).solid || "#C6A15B";
-    var url = CC.shareUrl(card);
+    /* This signature rides on every email the user sends, and its link is a real
+       acquisition path: recipient → the card → "Make your own CompanyCard". The
+       loop already worked; it just arrived in GA4 as Direct, indistinguishable
+       from everything else, so we could not tell how much it was worth.
+       The params go before the hash — GA4 never sees anything after "#". */
+    var url = CC.shareUrl(card).replace(
+      "card.html#",
+      "card.html?utm_source=email_signature&utm_medium=email&utm_campaign=card_share#"
+    );
     var phone = field(card, "phone"), email = field(card, "email"), site = field(card, "website");
     var initials = (card.name || "?").trim().split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
     var photoCell = /^https?:/.test(card.photo || "")
