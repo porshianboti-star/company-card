@@ -181,7 +181,18 @@
     try { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return JSON.parse(decodeURIComponent(escape(atob(s)))); }
     catch (e) { return null; }
   };
-  CC.shareUrl = function (card, lite) { return location.href.replace(/[^/]*(\?.*)?$/, "") + "card.html#c=" + CC.encode(card, lite); };
+  /* Never read location.href here: it carries the fragment, and mobile.html is a hash
+     router. On a route like  .../app/mobile.html#/share/c8k3xyz  the old regex treated
+     "mobile.html#/share/" as the directory and produced
+     .../app/mobile.html#/share/card.html#c=…  — two fragments, so the recipient landed
+     back in the PWA, whose router then looked for a card called "card.html", found
+     nothing, and showed the empty "create your card" screen. That silently broke the
+     QR, the copy field, the SMS/mailto/WhatsApp bodies and the .vcf back-link for
+     every share started from the installed app on a phone. origin + pathname cannot
+     see the fragment or the query at all. */
+  CC.shareUrl = function (card, lite) {
+    return location.origin + location.pathname.replace(/[^/]*$/, "") + "card.html#c=" + CC.encode(card, lite);
+  };
 
   /* ---------- Storage ---------- */
   var KEY = "cc_cards_v1";
@@ -412,7 +423,10 @@
     else if (card.bg) coverStyle = "background:" + bg.grad;
     else if (tpl.bg) coverStyle = img(tpl.bg);
     else coverStyle = "background:" + (tpl.dark ? "linear-gradient(150deg,#2a2540,#0b0a1f)" : bg.grad);
-    var avInner = card.photo ? '<img src="' + card.photo + '" alt="">' : '<span>' + CC.initials(card.name) + "</span>";
+    /* esc() on the href/src as well as the label: an attribute ends at the first straight
+       quote, so an unescaped value breaks out of it. The aria-label on the same line already
+       escaped, which is what made the omission easy to miss. */
+    var avInner = card.photo ? '<img src="' + esc(card.photo) + '" alt="">' : '<span>' + CC.initials(card.name) + "</span>";
     var avStyle = "border-radius:" + shapeR + ";" + (card.photo ? "background:#fff" : "background:" + th.grad);
     var avatar = '<div class="cc-avatar" style="' + avStyle + '">' + avInner + "</div>";
     var divider = CC.dividerSVG(tpl.divider);
@@ -427,20 +441,20 @@
     if (iconFields.length) {
       if (tpl.links === "grid") {
         iconBlock = '<div class="cc-grid">' + iconFields.map(function (f) {
-          return '<a class="cc-gi" href="' + CC.href(f) + '" target="_blank" rel="noopener">' +
+          return '<a class="cc-gi" href="' + esc(CC.href(f)) + '" target="_blank" rel="noopener">' +
             '<span class="cc-gi-ic"' + icStyle(f.type) + ">" + CC.icon(f.type) + "</span>" +
             '<span class="cc-gi-l">' + esc(f.label || CC.fieldTypes[f.type].label) + "</span></a>";
         }).join("") + "</div>";
       } else {
         iconBlock = '<div class="cc-actions">' + iconFields.map(function (f) {
-          return '<a class="cc-act"' + icStyle(f.type) + ' href="' + CC.href(f) + '" target="_blank" rel="noopener" aria-label="' + esc(f.label || CC.fieldTypes[f.type].label) + '">' + CC.icon(f.type) + "</a>";
+          return '<a class="cc-act"' + icStyle(f.type) + ' href="' + esc(CC.href(f)) + '" target="_blank" rel="noopener" aria-label="' + esc(f.label || CC.fieldTypes[f.type].label) + '">' + CC.icon(f.type) + "</a>";
         }).join("") + "</div>";
       }
     }
 
     /* strip group — full rows with label + value */
     var stripBlock = stripFields.length ? '<div class="cc-fields">' + stripFields.map(function (f) {
-      return '<a class="cc-row" href="' + CC.href(f) + '" target="_blank" rel="noopener">' +
+      return '<a class="cc-row" href="' + esc(CC.href(f)) + '" target="_blank" rel="noopener">' +
         '<span class="cc-row-ic"' + icStyle(f.type) + ">" + CC.icon(f.type) + "</span>" +
         '<span class="cc-row-tx"><b>' + esc(f.label || CC.fieldTypes[f.type].label) + "</b><span>" + esc(f.value) + "</span></span>" +
         '<span class="cc-row-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>';

@@ -33,11 +33,23 @@
     state.card = card;
     var full = CC.shareUrl(card);
     var lite = CC.shareUrl(card, true);
-    /* Long payloads (a photo is inlined) blow past QR capacity — the site does
-       the same fallback to the photo-stripped link. */
-    var url = full.length <= 900 && drawQr(full) ? full : (drawQr(lite) ? lite : full);
-    if (url === lite && full.length > 900) { /* photo dropped from the QR link */ }
-    state.url = url;
+    /* A photo is inlined as a data URI, so any card carrying one is far past QR
+       capacity and the code has to fall back to the photo-stripped link. That
+       fallback used to be assigned to `url` and then used for the copy field and
+       "Open card" as well — so every card with a photo handed out a link that
+       dropped it, and the recipient saw grey initials instead of a face. It hit
+       100% of photo-bearing cards and needed no unusual input at all. The notice
+       that should have explained it was an empty stub.
+
+       app/dashboard.html:119-122 already had this right: the LINK is always the
+       full card, only the QR degrades, and it says so. Same shape here now. */
+    state.url = full;
+    var qrIsLite = false;
+    if (full.length <= 900 && drawQr(full)) { qrIsLite = false; }
+    else if (drawQr(lite)) { qrIsLite = true; }
+    else { drawQr(full); }
+    var note = $("qrnote");
+    if (note) note.hidden = !(qrIsLite && (card.photo || card.cover));
 
     $("name").textContent = card.name || "Untitled card";
     var bits = [card.title, card.company].filter(Boolean);
