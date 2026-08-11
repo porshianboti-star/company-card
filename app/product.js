@@ -291,22 +291,39 @@
   };
 
   /* ---------- vCard ---------- */
+  /* vCard 3.0 treats \ ; , and line breaks as structure, not text (RFC 2426 §5).
+     Pasting a value in raw means a two-line tagline — and the tagline IS edited in
+     a <textarea>, so Enter works — ends the NOTE property mid-value and leaves the
+     next line as something no parser recognises. Everything after it is at the
+     mercy of the importer, and the URL back to the live card is pushed after NOTE,
+     so the first thing lost is the link that makes the card live at all. That is
+     the whole reason the URL was added in the first place. */
+  function vesc(v) {
+    return String(v == null ? "" : v)
+      .replace(/\\/g, "\\\\")
+      .replace(/\r\n|\r|\n/g, "\\n")
+      .replace(/;/g, "\\;")
+      .replace(/,/g, "\\,");
+  }
+
   CC.vcard = function (card) {
     var L = ["BEGIN:VCARD", "VERSION:3.0"];
-    L.push("FN:" + (card.name || ""));
+    L.push("FN:" + vesc(card.name));
     var parts = (card.name || "").trim().split(/\s+/);
-    L.push("N:" + (parts.slice(1).join(" ") || "") + ";" + (parts[0] || "") + ";;;");
-    if (card.company) L.push("ORG:" + card.company);
-    if (card.title) L.push("TITLE:" + card.title);
+    L.push("N:" + vesc(parts.slice(1).join(" ")) + ";" + vesc(parts[0] || "") + ";;;");
+    if (card.company) L.push("ORG:" + vesc(card.company));
+    if (card.title) L.push("TITLE:" + vesc(card.title));
     (card.fields || []).forEach(function (f) {
       if (!f.value) return;
-      if (f.type === "phone") L.push("TEL;TYPE=CELL:" + f.value);
-      else if (f.type === "whatsapp") L.push("TEL;TYPE=WHATSAPP:" + f.value);
-      else if (f.type === "email") L.push("EMAIL;TYPE=INTERNET:" + f.value);
-      else if (f.type === "address") L.push("ADR;TYPE=WORK:;;" + f.value + ";;;;");
+      if (f.type === "phone") L.push("TEL;TYPE=CELL:" + vesc(f.value));
+      else if (f.type === "whatsapp") L.push("TEL;TYPE=WHATSAPP:" + vesc(f.value));
+      else if (f.type === "email") L.push("EMAIL;TYPE=INTERNET:" + vesc(f.value));
+      /* ADR is structured: the ;; separators are real syntax and must NOT be
+         escaped — only the street value going into the slot is. */
+      else if (f.type === "address") L.push("ADR;TYPE=WORK:;;" + vesc(f.value) + ";;;;");
       else L.push("URL:" + CC.href(f));
     });
-    if (card.tagline) L.push("NOTE:" + card.tagline);
+    if (card.tagline) L.push("NOTE:" + vesc(card.tagline));
     /* Link the saved contact back to the live card. Without this the vCard is a
        snapshot: the moment it lands in someone's address book it stops updating,
        which is exactly the thing a digital card is supposed to beat paper at.
