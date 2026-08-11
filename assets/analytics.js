@@ -1,7 +1,11 @@
 /* CompanyCard — lightweight product analytics.
    Sends anonymous funnel events to Supabase (insert-only; nobody can read
    raw events through the public key — stats come via an aggregate RPC).
-   Events: create_card_click, share_save_click, signup, checkout_click, pro_paid */
+   Events: card_view, create_card_click, builder_save_draft, card_share_open,
+   card_save_contact, signup, checkout_click, pro_paid.
+   `share_save_click` was retired 2026-08-11 — it conflated the owner saving a
+   draft with the recipient saving a contact, so historical rows of that event
+   cannot be split and should not be read as a viral signal. */
 (function () {
   "use strict";
   var URL = "https://ohobtgbyrlczfdztzvqi.supabase.co/rest/v1/events";
@@ -41,9 +45,28 @@
     var href = (el.getAttribute && el.getAttribute("href")) || "";
     if (/builder(\.html)?$/.test(href.split("?")[0])) CCTrack("create_card_click");
     else if (/checkout/.test(href)) CCTrack("checkout_click");
-    if (el.id === "btn-share" || el.id === "btn-save") CCTrack("share_save_click");
-    else if (/^(share card|save|save contact|share)$/i.test((el.textContent || "").trim())) CCTrack("share_save_click");
+    /* Until 2026-08-11 every one of these fired a single `share_save_click`,
+       including a text match on /^(share card|save|save contact|share)$/i. That
+       collapsed the card OWNER saving their own draft together with the
+       RECIPIENT saving the contact — opposite ends of the loop — into one
+       number, which made the viral coefficient uncomputable rather than merely
+       unknown. The text branch is gone: it matched any button reading "Save"
+       anywhere on the site. */
+    if (el.id === "btn-save" || el.id === "btn-save2") CCTrack("builder_save_draft");
+    else if (el.id === "btn-share" || el.id === "btn-share2") CCTrack("card_share_open");
+    else if (el.id === "dl-vcf" || el.id === "save" || el.id === "vcf") CCTrack("card_save_contact");
   }, true);
+
+  /* A shared card being viewed is step one of the only growth loop that does not
+     depend on domain authority (D-031) — and it fired nothing at all until
+     2026-08-11, so the loop was measured from its second step onward. Only count
+     a real recipient view: the viewer renders from location.hash or ?id=, so an
+     owner opening the bare page is correctly excluded. */
+  if (/\/app\/(card|mobile)(\.html)?$/.test(location.pathname)) {
+    var _hasCard = (location.hash && location.hash.length > 1) ||
+                   !!new URLSearchParams(location.search).get("id");
+    if (_hasCard) CCTrack("card_view");
+  }
 
   /* checkout page view = entered payment (covers JS-driven navigation too) */
   if (/checkout\.html$/.test(location.pathname) || /\/checkout$/.test(location.pathname)) CCTrack("checkout_click");

@@ -71,8 +71,11 @@
   var URL = "https://ohobtgbyrlczfdztzvqi.supabase.co/rest/v1/rpc/funnel_stats";
   var KEY = "sb_publishable_H3hDKJRE0oOH7dkg7496Rw_trmUMPW9";
   var STEPS = [
+    ["card_view", "Shared card viewed", "Someone opened a card that was shared with them — step one of the viral loop, unmeasured until 2026-08-11"],
+    ["card_save_contact", "Recipient saved the contact", "A recipient tapped Save contact on a card they were shown"],
     ["create_card_click", "Create your free card", "Clicked a 'Create your free card' button anywhere on the site"],
-    ["share_save_click", "Share or save card", "Clicked Share card / Save on a card"],
+    ["card_share_open", "Owner opened share", "The card owner opened the share sheet"],
+    ["builder_save_draft", "Owner saved a draft", "The card owner saved their own card in the builder — NOT a viral signal"],
     ["signup", "Signed up", "Created an account"],
     ["checkout_click", "Reached payment", "Clicked upgrade / opened the checkout page"],
     ["pro_paid", "Paid (fake) — Pro accounts", "Completed the demo payment and got Pro"]
