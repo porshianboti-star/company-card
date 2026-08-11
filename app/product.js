@@ -255,12 +255,19 @@
     localStorage.setItem(CKEY, JSON.stringify(a)); return c;
   };
   CC.removeContact = function (id) { localStorage.setItem(CKEY, JSON.stringify(CC.contacts().filter(function (c) { return c.id !== id; }))); };
+  /* The saved-contact export, sibling to CC.vcard below and subject to the same
+     RFC 2426 §5 rules. This one is MORE exposed than the card export, not less: the
+     note is entered in a textarea whose placeholder is "Where you met, follow-ups…"
+     (app/mobile.html:287 and :326), which asks for several lines. Every such contact
+     produced a vCard whose NOTE ended mid-value, orphaning REV and END — the two
+     lines an importer needs to accept the file at all. vesc is a hoisted function
+     declaration in this IIFE, so it is in scope here despite being defined below. */
   CC.contactVcard = function (c) {
-    var L = ["BEGIN:VCARD", "VERSION:3.0", "FN:" + (c.name || "")];
-    var p = (c.name || "").trim().split(/\s+/); L.push("N:" + (p.slice(1).join(" ") || "") + ";" + (p[0] || "") + ";;;");
-    if (c.company) L.push("ORG:" + c.company); if (c.title) L.push("TITLE:" + c.title);
-    if (c.phone) L.push("TEL;TYPE=CELL:" + c.phone); if (c.email) L.push("EMAIL;TYPE=INTERNET:" + c.email);
-    if (c.website) L.push("URL:" + c.website); if (c.note) L.push("NOTE:" + c.note);
+    var L = ["BEGIN:VCARD", "VERSION:3.0", "FN:" + vesc(c.name)];
+    var p = (c.name || "").trim().split(/\s+/); L.push("N:" + vesc(p.slice(1).join(" ")) + ";" + vesc(p[0] || "") + ";;;");
+    if (c.company) L.push("ORG:" + vesc(c.company)); if (c.title) L.push("TITLE:" + vesc(c.title));
+    if (c.phone) L.push("TEL;TYPE=CELL:" + vesc(c.phone)); if (c.email) L.push("EMAIL;TYPE=INTERNET:" + vesc(c.email));
+    if (c.website) L.push("URL:" + vesc(c.website)); if (c.note) L.push("NOTE:" + vesc(c.note));
     L.push("REV:" + new Date().toISOString(), "END:VCARD"); return L.join("\r\n");
   };
   CC.downloadContact = function (c) {

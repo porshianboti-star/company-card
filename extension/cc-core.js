@@ -72,22 +72,38 @@
     return f ? f.value : "";
   };
 
+  /* Keep in step with vesc() in app/product.js — this file is a SECOND copy of the
+     vCard builder that ships inside the extension, and when the escaping fix landed
+     in product.js on 2026-08-11 it did not reach here. The bug was reported fixed
+     while the extension kept emitting broken cards. vCard 3.0 treats \ ; , and line
+     breaks as structure (RFC 2426 §5), so an unescaped two-line tagline ends the
+     NOTE property mid-value and orphans the rest — and the REV and END lines after
+     it are what an importer needs to accept the file at all. */
+  function vesc(v) {
+    return String(v == null ? "" : v)
+      .replace(/\\/g, "\\\\")
+      .replace(/\r\n|\r|\n/g, "\\n")
+      .replace(/;/g, "\\;")
+      .replace(/,/g, "\\,");
+  }
+
   CC.vcard = function (card) {
     var L = ["BEGIN:VCARD", "VERSION:3.0"];
-    L.push("FN:" + (card.name || ""));
+    L.push("FN:" + vesc(card.name));
     var parts = (card.name || "").trim().split(/\s+/);
-    L.push("N:" + (parts.slice(1).join(" ") || "") + ";" + (parts[0] || "") + ";;;");
-    if (card.company) L.push("ORG:" + card.company);
-    if (card.title) L.push("TITLE:" + card.title);
+    L.push("N:" + vesc(parts.slice(1).join(" ")) + ";" + vesc(parts[0] || "") + ";;;");
+    if (card.company) L.push("ORG:" + vesc(card.company));
+    if (card.title) L.push("TITLE:" + vesc(card.title));
     (card.fields || []).forEach(function (f) {
       if (!f.value) return;
-      if (f.type === "phone") L.push("TEL;TYPE=CELL:" + f.value);
-      else if (f.type === "whatsapp") L.push("TEL;TYPE=WHATSAPP:" + f.value);
-      else if (f.type === "email") L.push("EMAIL;TYPE=INTERNET:" + f.value);
-      else if (f.type === "address") L.push("ADR;TYPE=WORK:;;" + f.value + ";;;;");
+      if (f.type === "phone") L.push("TEL;TYPE=CELL:" + vesc(f.value));
+      else if (f.type === "whatsapp") L.push("TEL;TYPE=WHATSAPP:" + vesc(f.value));
+      else if (f.type === "email") L.push("EMAIL;TYPE=INTERNET:" + vesc(f.value));
+      /* ADR is structured — the ;; separators are real syntax, only the slot value is escaped. */
+      else if (f.type === "address") L.push("ADR;TYPE=WORK:;;" + vesc(f.value) + ";;;;");
       else L.push("URL:" + CC.href(f));
     });
-    if (card.tagline) L.push("NOTE:" + card.tagline);
+    if (card.tagline) L.push("NOTE:" + vesc(card.tagline));
     L.push("REV:" + new Date().toISOString());
     L.push("END:VCARD");
     return L.join("\r\n");
