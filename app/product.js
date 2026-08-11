@@ -346,12 +346,36 @@
     setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
   };
 
-  /* ---------- QR (qrcodejs from CDN). Returns false if it can't encode. ---------- */
+  /* ---------- QR (qrcodejs from CDN). Returns false if it can't encode. ----------
+     The share link carries the whole card in its hash, so the QR payload grows with
+     what the user types — and there is no maxlength on the name, title, company or
+     the tagline textarea. Measured against this library at CorrectLevel.M on
+     2026-08-11: it throws above ~2,325 characters, and at that size the code is 177
+     modules rendered into 168px — 0.95px per module. A phone camera needs roughly
+     3px per module, so the code stops being scannable LONG before it stops being
+     generated. Both failures were silent: the catch branch blanked the element, so a
+     user with a wordy tagline saw an empty square and had no way to learn that
+     shortening it would fix their card. The no-library branch above already showed a
+     real message; this one now does too. */
+  CC.QR_DENSE_AT = 900;   /* ~2px per module at 168px — degraded but usually still scans */
   CC.qr = function (el, text, size, colorDark) {
     el.innerHTML = "";
     if (!global.QRCode) { el.innerHTML = '<div class="cc-qr-fallback">QR needs an internet connection</div>'; return false; }
-    try { new global.QRCode(el, { text: text, width: size || 168, height: size || 168, colorDark: colorDark || "#0B0A1F", colorLight: "#ffffff", correctLevel: global.QRCode.CorrectLevel.M }); return true; }
-    catch (e) { el.innerHTML = ""; return false; }
+    var px = size || 168;
+    try {
+      new global.QRCode(el, { text: text, width: px, height: px, colorDark: colorDark || "#0B0A1F", colorLight: "#ffffff", correctLevel: global.QRCode.CorrectLevel.M });
+      if (String(text).length > CC.QR_DENSE_AT) {
+        var warn = document.createElement("div");
+        warn.className = "cc-qr-fallback is-note";
+        warn.textContent = "This QR is very dense and may be slow to scan — shortening your tagline or company name makes it easier.";
+        el.appendChild(warn);
+      }
+      return true;
+    }
+    catch (e) {
+      el.innerHTML = '<div class="cc-qr-fallback">There is too much on this card to fit in a QR code. Shorten the tagline, or share the link instead — the link always works.</div>';
+      return false;
+    }
   };
 
   /* ---------- Divider shapes ---------- */

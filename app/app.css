@@ -172,6 +172,9 @@ textarea.inp { resize: vertical; min-height: 64px; }
 .qrbox { display: grid; place-items: center; }
 .qrbox img, .qrbox canvas { display: block; border-radius: 8px; }
 .cc-qr-fallback { color: var(--slate-400); font-size: .85rem; padding: 30px; }
+/* The dense-QR warning sits UNDER a rendered code rather than replacing it, so it
+   must not carry the 30px block padding meant for the replacement message. */
+.cc-qr-fallback.is-note { padding: 8px 4px 0; font-size: .78rem; line-height: 1.4; max-width: 220px; margin: 0 auto; }
 .viewer .made { margin-top: 20px; text-align: center; }
 .viewer .made a { display: inline-flex; align-items: center; gap: 8px; }
 
