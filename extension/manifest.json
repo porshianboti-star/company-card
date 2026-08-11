@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Digital Business Card — CompanyCard",
-  "version": "1.0.1",
+  "name": "CompanyCard — digital business card",
+  "version": "1.0.0",
   "description": "Your digital business card, one click away: show its QR code, copy the share link, or save it as a contact.",
   "permissions": [
     "storage"
