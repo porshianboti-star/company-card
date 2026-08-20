@@ -142,6 +142,23 @@ and `pricing.html` was restored and re-patched.
 - Diff review: 53 files changed by exactly the one footer line; `pricing.html`
   was the only page with a content change.
 
+**Live verification & post-push actions (all done after the push)**
+- `https://company-card.com/e-name-card.html` returns **200**, serves one `<h1>`
+  ("Make your e-name card in about a minute"), the intended title, the correct
+  canonical and **4 valid JSON-LD blocks**. Live sitemap serves **54** URLs.
+- Live `pricing.html` now serves "Apple and Google Wallet passes are not on that
+  list — those are included on the free plan"; the old sentence returns **0**
+  matches on the live page.
+- **Sitemap resubmitted in GSC** (the item deferred since 08-04 because
+  production was frozen). It had been showing *last read Jul 30, 47 discovered*
+  against 54 live URLs — three weeks stale, which is what produced the "No
+  referring sitemaps detected" line on the money-page inspection. Now
+  *Submitted: Aug 20*; "Sitemap submitted successfully".
+- **Indexing requested** for the new page. It inspected as "URL is unknown to
+  Google", expected for a page minutes old. Confirmation was verified in the
+  accessibility tree ("Indexing requested"), not from the screenshot — the
+  known GSC gotcha where the visual state does not change.
+
 **Off-site — still the binding constraint, unchanged**
 - `Organization.sameAs` = G2 (product + seller) and the Chrome Web Store listing.
 - **Capterra / Trustpilot / Product Hunt / AlternativeTo still do not exist.**
