@@ -2,6 +2,155 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-08-20
+
+**Deploys are working again.** The account-credit block that froze production
+2026-08-01 → at least 08-04 is gone: live sitemap serves 53 URLs against 53 in
+the repo at the start of this run, and commits through 2026-08-19 are live. The
+"resubmit the sitemap once deploys work" item carried since 08-04 is now
+actionable and was actioned (below).
+
+**Google Search Console (read 2026-08-20, 28d to 08-17)**
+
+| Metric | 2026-08-04 | 2026-08-20 | Change |
+|---|---|---|---|
+| Indexed pages | 16 | **31** | +94% |
+| Not indexed | 6 | 19 | +13 |
+| Impressions (28d) | 921 | **2,440** | +165% |
+| Clicks (28d) | 3 | 5 | +2 |
+| Query rows | 159 | **287** | +80% |
+| Avg position | 57.9 | 59.4 | −1.5 |
+
+Indexing roughly doubled. Average position drifted 1.5 places worse while query
+rows grew 80% — that is dilution from a longer tail entering the index, not a
+ranking loss; the head queries all moved up in impressions.
+
+**First brand-query result ever recorded.** "companycard" now shows **7
+impressions and 1 click** — the first click on a brand query, and the first
+evidence of any brand-entity recognition. Every previous run recorded a brand
+search returning zero CompanyCard results.
+
+Top rows: "company card" 228 · "free digital business card" 144 · "best digital
+business cards" 134 · "qr code business card" 125 · "best digital business card"
+122 · "digital business cards free" 60 · "digital business card free" 51 ·
+"best virtual business card" 38 · **"e name card" 36**.
+
+**Two new not-indexed reasons appeared** (previously all 6 exclusions were the
+benign alternate-canonical pairs):
+- *Page with redirect* — 1 page.
+- *Duplicate, Google chose different canonical than user* — 1 page, first
+  detected **2026-08-11**: `best-digital-business-card.html`, a money page.
+  Inspected rather than assumed. User-declared canonical is the `.html` form;
+  **Google-selected canonical is the extensionless `/best-digital-business-card`**,
+  and inspecting that URL returns **"URL is on Google — page is indexed"**. So
+  the page is in the index under the other URL form; the exclusion is URL-form
+  bookkeeping, not lost visibility. Both forms serve 200 and both declare the
+  `.html` canonical, so the cause is the known Netlify behaviour: internal links
+  ship extensionless while canonicals say `.html`, and for this one page the
+  link graph outvoted the canonical hint.
+  **Deliberately not "fixed."** Rewriting canonicals sitewide during a period
+  when indexing is climbing would churn 54 pages to correct a page that is
+  already indexed. Left alone, consistent with the 07-28 decision on the
+  alternate-canonical pairs. Re-check next run; act only if it spreads.
+- Inspection also reported **"No referring sitemaps detected"** for that URL
+  even though it is in sitemap.xml with a 2026-08-18 lastmod — i.e. Google's
+  sitemap read is stale (last read Jul 30, 47 discovered).
+- "Crawled – currently not indexed" remains **0**. No quality signal.
+
+**Shipped 1 — `/e-name-card.html`, chosen from measured demand, not the backlog**
+
+The written backlog (uniqode / mobilo / wave-connect / v1ce alternatives, ten
+self-employed trades, vs-nfc-card, for-events, vcard-qr-code) is **fully
+shipped**; the comparison cluster was re-verified 08-18 and 08-19. So this run
+picked from GSC instead: **"e name card" is the 10th-largest query row on the
+property (36 impressions)** while a repo-wide grep for "name card", "namecard",
+"ename" and "e-name card" across all 55 pages and llms.txt returned **zero
+matches**. Same shape as the finding that started the ICP programme.
+
+"Name card" is the ordinary English term for a business card in Singapore and
+Malaysia; term usage confirmed 2026-08-20 across hausmedia.com.sg, digitalcard
+.com.sg, sgnamecard.com.sg, singaporedigitalnamecard.com and geniccards.com.
+**No claim is made about any of those vendors** — not their prices, features or
+size — and none is cited on the page.
+
+Anti-cannibalisation: four adjacent pages, none rewritten. `virtual-business-
+card.html` already owns the H2 "Virtual vs. digital vs. electronic — what's the
+difference?", so this page does not run a fourth synonym-comparison section; it
+answers the naming question once and moves on. Its distinct substance is the one
+problem the other pages never address: **a name written in more than one script**
+costs a printed card a second side and costs a digital card nothing. That
+section is written as a conditional about paper, not as a claim about any
+country's customs.
+
+Deliberately not stated (listed in the `seo/pages_data13.py` header): any market
+size or adoption statistic; any competitor price or feature; any assertion about
+business-card etiquette or greeting customs; any claim about non-Latin script
+rendering beyond a normal text field; any claim about where our users are.
+
+**Shipped 2 — a self-contradiction on `pricing.html` that attacked our own
+strongest differentiator**
+
+The Pricing FAQ answered "What do the paid plans add?" with *"Paid plans add
+things like custom branding, **Apple & Google Wallet passes**, lead capture…"*
+— while the plan table directly above it lists **"Add to Apple & Google Wallet"
+under Free**, the page's own AggregateOffer puts the Wallet pass in the Free
+offer, and llms.txt says the same. Wallet-on-the-$0-plan is one of our three
+checkable differentiators, and the page was disproving it in **visible text and
+in FAQPage JSON-LD** — the copy an assistant actually reads. Present in exactly
+one file, in both copies (the `<details>` and the JSON-LD), both replaced
+together. Replacement states what Pro and Team plans really add, taken from the
+plan cards, and ends: "Apple and Google Wallet passes are not on that list —
+those are included on the free plan."
+
+**Freshness — did NOT run `add_freshness.py`**, and the reason is recorded in
+`seo/freshness_batch13.py`. Unmodified it would have (a) restamped all 55 pages
+for what was only an added footer link, (b) overwritten every sitemap `lastmod`
+with one date, destroying the accurate per-page values set on 08-18/08-19, and
+(c) bumped `datePublished` for its 21-slug NEW_TODAY set. Only the two pages
+whose content actually changed were stamped.
+
+⚠️ **Pre-existing inaccuracy found, deliberately not touched:** 21 pages carry
+`datePublished: 2026-08-02` from an earlier run of `add_freshness.py`, but were
+published in July (batches 1–3, 10, 11). Their true publication dates are not
+recoverable from the repo, so this pass left them rather than moving them
+further from the truth. `add_freshness.py` will reintroduce this every time it
+runs — it needs a fix before next use.
+
+⚠️ **`add_freshness.py` also silently strips `disambiguatingDescription`** from
+the publisher node. All 54 pages carry it (the "not a corporate credit card"
+category-collision work). The first run of the batch-13 stamper reproduced that
+bug on `pricing.html`; caught in diff review, the stamper now emits the field
+and `pricing.html` was restored and re-patched.
+
+**Wiring & validation**
+- Footer: sitewide via the single uniform anchor `<li><a href="vcard-qr-code
+  .html">vCard QR Code</a></li>` — **55 of 57 HTML files**. The two skipped are
+  `google6d2321e9b9904736.html` (Google verification stub) and `brand-kit.html`
+  (has no footer and is not in the sitemap).
+- `llms.txt`: page listed beside its terminology siblings, and the Category line
+  now names "e-name card" / "digital name card" / "e-namecard" as regional
+  synonyms so an assistant matching the term reaches us.
+- Sitemap **53 → 54**, `xmllint --noout` passes; every `<loc>` resolves to a
+  file that exists.
+- New page: exactly one `<h1>`, unique title, 160-char meta description, one
+  canonical, **4 valid JSON-LD blocks** (FAQPage + BreadcrumbList + HowTo +
+  WebPage).
+- `sync_faq_schema.py`: **0 mismatches**. An independent byte-comparison of all
+  275 visible/JSON-LD question pairs across 52 pages found 0 real mismatches
+  (one apparent hit on `digital-business-card.html` is an answer rendered as an
+  `<h2>` + prose rather than a `<details>`, pre-existing and correct).
+- Diff review: 53 files changed by exactly the one footer line; `pricing.html`
+  was the only page with a content change.
+
+**Off-site — still the binding constraint, unchanged**
+- `Organization.sameAs` = G2 (product + seller) and the Chrome Web Store listing.
+- **Capterra / Trustpilot / Product Hunt / AlternativeTo still do not exist.**
+  Searched 2026-08-20; no CompanyCard profile on any of them. Only the owner can
+  create these, and it remains the single biggest GEO blocker.
+- A brand-name search still surfaces no CompanyCard-owned third-party result —
+  though GSC now records the first brand-query click, so the entity is starting
+  to register with Google even without off-site corroboration.
+
 ## 2026-08-04
 
 > ### ⛔ STILL NOT LIVE — NETLIFY DEPLOYS REMAIN BLOCKED (day 3)

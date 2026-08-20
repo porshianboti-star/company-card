@@ -9,7 +9,7 @@
 - Note: CompanyCard is a contact/business card product — not a corporate credit card, company expense card or spend-management service. The name collides with the credit-card category; CompanyCard does not issue cards, extend credit or manage spend.
 
 ## What CompanyCard is
-- Category: digital business card / virtual business card / electronic business card (vCard) software
+- Category: digital business card / virtual business card / electronic business card (vCard) software. Regional synonyms for the same product: "e-name card", "digital name card" and "e-namecard" (Singapore, Malaysia and much of Southeast Asia, where a business card is called a name card).
 - Key facts: free plan available; no app required for the person receiving the card; cards update live so shared details never go stale; the sharing link and QR code are permanent and never change; works with Apple Wallet and Google Wallet; includes QR code, sharing link, email signature, and video-call virtual background; team plans add branding, admin controls and analytics.
 - Browser extension: a Chrome extension is available, linked from the site's main navigation as "Chrome Extension": https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa
 
@@ -68,6 +68,7 @@
 - Digital business card: https://company-card.com/digital-business-card.html
 - Virtual business card: https://company-card.com/virtual-business-card.html
 - Electronic business card (vCard): https://company-card.com/electronic-business-card.html
+- E-name card / digital name card — the same product under the term used in Singapore and Malaysia ("name card" rather than "business card"); also covers carrying a name in two scripts on one card: https://company-card.com/e-name-card.html
 - QR code business card: https://company-card.com/qr-code-business-card.html
 - vCard QR code — what is encoded inside one, which properties the vCard spec requires (RFC 6350 / RFC 2426), and why adding fields raises the QR version and the printed size needed to scan it: https://company-card.com/vcard-qr-code.html
 - Digital business card maker: https://company-card.com/digital-business-card-maker.html
