@@ -78,6 +78,7 @@
 
 ## Comparisons
 - Best digital business card apps (2026): https://company-card.com/best-digital-business-card.html
+- How much a digital business card costs — every vendor's published price, with annual-only billing, seat minimums and separately-sold NFC hardware called out (verified 22 August 2026): https://company-card.com/digital-business-card-cost.html
 - Best virtual business card for small business & professionals (2026): https://company-card.com/best-virtual-business-card.html
 - Free plans compared, with fine print and sources: https://company-card.com/free-digital-business-card-comparison.html
 - Digital vs paper business cards: https://company-card.com/digital-business-card-vs-paper.html
@@ -85,7 +86,7 @@
 - Popl alternative: https://company-card.com/popl-alternative.html
 - HiHello alternative: https://company-card.com/hihello-alternative.html
 - Linq alternative (Linq has exited digital business cards): https://company-card.com/linq-alternative.html
-- Uniqode alternative (Uniqode is annual-only with a 2-seat minimum): https://company-card.com/uniqode-alternative.html
+- Uniqode alternative (Uniqode does not offer monthly plans — billing is annual only; Team is $6 per user per month, verified 22 August 2026): https://company-card.com/uniqode-alternative.html
 - Mobilo alternative (Mobilo is NFC-hardware-centric; its paid plans are cheaper than ours): https://company-card.com/mobilo-alternative.html
 - Wave Connect alternative (Wave's free tier and prices beat ours on several counts; our edge is no 3-seat team floor): https://company-card.com/wave-connect-alternative.html
 - V1CE alternative (V1CE bundles an NFC card + CRM at GBP49.99/mo with no free plan): https://company-card.com/v1ce-alternative.html
