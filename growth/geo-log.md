@@ -2,6 +2,94 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-08-22
+
+**Google Search Console (read 2026-08-22, 28d to 08-19)**
+
+| Metric | 2026-08-20 | 2026-08-22 | Change |
+|---|---|---|---|
+| Indexed pages | 31 | **31** | flat |
+| Not indexed | 19 | 19 | flat |
+| Crawled – currently not indexed | 0 | **0** | flat |
+| Impressions (28d) | 2,440 | 2,300 | −140 |
+| Clicks (28d) | 5 | 1 | −4 |
+| Query rows | 287 | 257 | −30 |
+| Avg position | 59.4 | 61 | −1.6 |
+
+Two days is not a trend and the 28d figures are a **rolling window** — the two
+days that dropped off the back (07-21/07-22) carried impressions and the four
+clicks, so most of the fall is the window moving, not a decline. Indexed count,
+exclusion count and crawled-not-indexed are all unchanged, which is the part
+that would show a real problem. Exclusion breakdown today: 17 "Alternate page
+with proper canonical tag", 1 "Page with redirect", 1 "Duplicate, Google chose
+different canonical than user" (the known, benign `best-digital-business-card`
+pair — the extensionless twin is indexed).
+
+**Sitemap: 54 → 55 URLs** (repo and live matched at 54 before this run's push).
+
+**Shipped: `/digital-business-card-cost.html`** — the cross-vendor cost page.
+
+Chosen from the query rows, not from the backlog list (which is fully shipped).
+A cost/price intent cluster exists on the property and no page owned it:
+
+| Query | Impressions (28d) |
+|---|---|
+| digital business card cost | 12 |
+| which digital business card is best | 11 |
+| digital business card comparison | 7 |
+| digital business card platform | 7 |
+| compare digital business cards | 6 |
+| digital business card options | 6 |
+
+A check of all 55 pages found exactly two titles containing "pricing" or "cost":
+our own `pricing.html` and `popl-alternative.html`. Nothing answered what the
+category costs.
+
+Anti-cannibalisation: `pricing.html` is our own plans only,
+`free-digital-business-card-comparison.html` stops at $0, and
+`best-digital-business-card.html` is the ranked feature matrix. The new page
+owns the **paid** side and the gap between headline price and real bill —
+annual-only billing, seat minimums, hardware sold separately, unpublished
+pricing. That axis was on none of the three.
+
+**All eight vendors re-fetched 2026-08-22 before a single figure was written**
+(blinq.me/pricing, hihello.com/pricing, uniqode.com/pricing,
+mobilocard.com/pricing-2, wavecnct.com/pricing, v1ce.co/pricing,
+popl.co/pages/pricing, plus our own pricing.html and llms.txt). Newly recorded
+this run: Wave Connect Teams is **$5/user/mo with "3 minimum seats"**; Mobilo
+Teams **$4/mo** and Business **$5/mo**, both billed annually, with the plan
+table listing team members as "Unlimited"; V1CE's page gives **£49.99/mo as the
+UK list price** while its headline card rounds to £49; Popl's pricing page still
+publishes no prices at all ("Request Pricing" / "Book a Demo").
+
+The page concedes three columns outright: our free plan is the smallest here (1
+card + a CompanyCard credit vs HiHello's 4 and Blinq's 2), Mobilo Pro at $3/mo
+is less than half our Pro price, and our $12/user Business plan is the most
+expensive team plan on the page.
+
+**Integrity fix: a retracted claim had survived in `llms.txt`.** The 2026-08-04
+pass removed "Uniqode requires a 2-seat minimum" from all four HTML pages
+carrying it, because the figure is not on uniqode.com/pricing — but llms.txt
+still described Uniqode as "annual-only with a 2-seat minimum", so the retracted
+claim was still being served to AI crawlers 18 days later. Re-checked live
+today: the page says "We do not offer monthly plans" and "the Team plan at $6
+per user per month", with no seat minimum anywhere. Annual-only kept, seat
+minimum removed. **Lesson for future passes: when a claim is retracted from the
+HTML, grep `llms.txt` in the same pass — it is a separate surface and it is the
+one AI crawlers read.**
+
+**Off-site — unchanged, still the binding constraint.** Searched 2026-08-22:
+Capterra, Trustpilot, Product Hunt and AlternativeTo profiles for CompanyCard
+still do not exist. `Organization.sameAs` remains G2 (product + seller) +
+Chrome Web Store. Only the owner can create the missing accounts.
+
+**Validation before push:** 1 `<h1>`, title, meta description and canonical on
+every page; 3 valid JSON-LD blocks on the new page (FAQPage, BreadcrumbList,
+WebPage); `sync_faq_schema.py` reports 0 mismatches across 53 FAQ pages;
+`xmllint --noout sitemap.xml` passes. Freshness stamped with a targeted script
+(`seo/wire_batch14.py`), not the sitewide `add_freshness.py` sweep — the added
+footer link does not earn a `dateModified` bump on the other 55 pages.
+
 ## 2026-08-20
 
 **Deploys are working again.** The account-credit block that froze production
