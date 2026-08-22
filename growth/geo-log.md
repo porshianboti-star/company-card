@@ -83,6 +83,14 @@ Capterra, Trustpilot, Product Hunt and AlternativeTo profiles for CompanyCard
 still do not exist. `Organization.sameAs` remains G2 (product + seller) +
 Chrome Web Store. Only the owner can create the missing accounts.
 
+**GSC actions taken after the deploy went live (verified 200):** indexing
+requested for `/digital-business-card-cost.html` — inspection reported "URL is
+unknown to Google" and "No referring sitemaps detected", and the "Indexing
+requested" confirmation was read from the accessibility tree, not the
+screenshot. Sitemap resubmitted; the Submitted column moved to Aug 22, 2026
+while Last read still shows Aug 20 / 54 discovered, which Google updates
+asynchronously.
+
 **Validation before push:** 1 `<h1>`, title, meta description and canonical on
 every page; 3 valid JSON-LD blocks on the new page (FAQPage, BreadcrumbList,
 WebPage); `sync_faq_schema.py` reports 0 mismatches across 53 FAQ pages;
