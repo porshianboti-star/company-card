@@ -2,6 +2,109 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-08-27
+
+**Google Search Console (read 2026-08-27, 28d to 08-24)**
+
+| Metric | 2026-08-22 | 2026-08-27 | Change |
+|---|---|---|---|
+| Indexed pages | 31 | **37** | **+6** |
+| Not indexed | 19 | **40** | +21 |
+| — Alternate page w/ proper canonical | 17 | 17 | flat |
+| — Page with redirect | 1 | 1 | flat |
+| — Duplicate, Google chose diff. canonical | 1 | 1 | flat |
+| — Discovered – currently not indexed | 0 | **20** | **new** |
+| — Crawled – currently not indexed | 0 | **1** | +1 |
+| Impressions (28d) | 2,300 | **2,720** | +420 |
+| Clicks (28d) | 1 | 1 | flat |
+| Query rows | 257 | **308** | +51 |
+| Avg position | 61 | 61 | flat |
+
+Indexed is up 6 and impressions up 420 on a like-for-like 28d window — the
+first reading where both moved up together since 08-20.
+
+**The +21 "not indexed" is mostly a reporting artifact, but not entirely —
+checked rather than assumed.** A new bucket appeared, "Discovered – currently
+not indexed", 20 pages, first detected 8/22 (the day last run's sitemap was
+resubmitted), every one of them a `.html` form with Last crawled = N/A. Report
+last updated 8/21, i.e. it lags. Two were inspected directly:
+
+- `digital-business-card-for-realtors.html` → **"URL is on Google — Page is
+  indexed."** So the bucket contains pages that are already indexed; for these
+  the report is simply stale.
+- `linq-alternative.html` → **"URL is unknown to Google"**, with "No referring
+  sitemaps detected" and "Referring page: None detected" — despite being in
+  sitemap.xml and linked from the footer of 57 pages. This one is real.
+
+So the bucket is part lag, part genuine backlog. **The generalisable lesson
+from 08-20 held and got sharper: never read an exclusion count as a page
+count — inspect. And this run, never read one inspection as the whole story
+either; the first URL checked said "indexed" and the second said "unknown".**
+Re-check next run; act only if the genuinely-unknown share grows.
+
+**Sitemap: last read Aug 22, 55 URLs discovered, against 57 live URLs now.**
+The 08-24 toolkit page was never discovered. Resubmitted this run.
+
+**Shipped: `/hihello-vs-blinq.html`** — the first vendor-vs-vendor page on the
+site. Sitemap **56 → 57**.
+
+Chosen from the query rows. **"hihello vs blinq" is the 11th-largest query row
+on the whole property at 37 impressions** — bigger than "e name card" (35),
+which justified batch 13, and three times "digital business card cost" (12),
+which justified batch 14. A repo check found the gap was total: two pages have
+"vs" in the title and both compare *formats* (`digital-business-card-vs-nfc-card`,
+`digital-business-card-vs-paper`). **Zero pages compared two named products.**
+`blinq-alternative` and `hihello-alternative` each argue our case against one
+vendor; neither answers "which of those two should I pick".
+
+**Both vendors re-fetched 2026-08-27 before a figure was written.** Both
+matched the 08-22 record; newly recorded is Blinq Premium's card count ("up to
+5 cards").
+- **Blinq** Free 2 cards, unlimited sharing. Premium $9.99/mo ($7.33 annual),
+  up to 5 cards. Business $6.99/mo per user ($4.99 annual), "minimum of five"
+  cards, "Billed per card, per month", "Admins and team members who don't have
+  a card assigned aren't billed".
+- **HiHello** Personal free, 4 cards, "5 card & badge scans/month".
+  Professional $6/mo ($72/yr), 16 cards, 20 scans/mo. Business $5/user/mo
+  ($60/user/yr), "5-100 users". Enterprise 101+.
+
+**The page concludes against us, on purpose.** HiHello is cheaper at every
+tier and gives more cards; that is the headline answer. Blinq wins on unmetered
+contact scanning and per-card billing. CompanyCard appears only after the
+question is answered and concedes: smallest free plan of the three (1 card +
+credit vs 2 and 4), Pro $7.99 vs HiHello's $6, Business $12/user vs $5 and
+$6.99 — the most expensive on every axis — and team plans that are not
+self-serve. A comparison that pivots to the publisher in paragraph one does not
+get quoted; one that concedes the question might.
+
+**⚠️ A SECOND STANDING DIFFERENTIATOR DIES ON THIS PAGE.** The house rule
+already bars claiming email signatures and virtual backgrounds as edges (Blinq
+and HiHello ship both free). Verified today: **Apple/Google Wallet on the $0
+plan is also not an edge against these two** — Blinq's free tier lists Apple
+and Google Wallet and HiHello's Personal lists Apple and Google wallet. Wallet
+-on-free remains true against parts of the wider field and stays on the
+cross-vendor pages; it is absent here because here it is false. **That leaves
+exactly one checkable CompanyCard edge against these two: no team seat
+minimum** (HiHello sells Business for 5–100 users; Blinq needs a minimum of
+five cards). The page claims nothing beyond it, and states the caveat — at
+$12/user our advantage is worth $24 vs a $25 five-user HiHello floor, and it
+vanishes at five people.
+
+**Build note:** `build_pages.table()` escapes its *header* row (`esc(h)`) but
+not its body cells. `<b>` in a header renders as literal `&lt;b&gt;`. Caught in
+the post-build audit, not in review — headers must be plain strings.
+
+**Validation:** one h1, unique title/meta/canonical, 3 valid JSON-LD blocks
+(FAQPage + BreadcrumbList + WebPage), FAQ schema byte-matches all 8 visible
+answers, `sync_faq_schema.py` reports 0 mismatches sitewide, `xmllint` passes.
+Every one of the 58 footer edits is a 1-line diff, verified by `git diff
+--numstat`. Freshness stamped on the new page only (not `add_freshness.py` —
+the two latent bugs are unfixed).
+
+**Off-site: STILL the binding constraint, unchanged 2026-08-27.** Capterra /
+Product Hunt / AlternativeTo / Trustpilot searched again — none exist. `sameAs`
+= G2 (product + seller) + Chrome Web Store. Only the owner can clear this.
+
 ## 2026-08-22
 
 **Google Search Console (read 2026-08-22, 28d to 08-19)**
