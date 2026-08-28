@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-33HCVG9DKG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33HCVG9DKG');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open a VCF File Online — Free vCard Viewer &amp; CSV Converter | CompanyCard</title>
+<meta name="description" content="Open any .vcf (vCard) file in your browser: see every contact, decode old vCard 2.1 exports, and download the lot as a CSV. Nothing is uploaded — it all runs locally.">
+<link rel="canonical" href="https://company-card.com/open-vcf-file.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="Open a VCF File Online — Free vCard Viewer &amp; CSV Converter | CompanyCard">
+<meta property="og:description" content="Open any .vcf (vCard) file in your browser: see every contact, decode old vCard 2.1 exports, and download the lot as a CSV. Nothing is uploaded — it all runs locally.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://company-card.com/open-vcf-file.html">
+<meta property="og:site_name" content="CompanyCard">
+<meta property="og:image" content="https://company-card.com/assets/png/favicon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Open a VCF File Online — Free vCard Viewer &amp; CSV Converter | CompanyCard">
+<meta name="twitter:description" content="Open any .vcf (vCard) file in your browser: see every contact, decode old vCard 2.1 exports, and download the lot as a CSV. Nothing is uploaded — it all runs locally.">
+<link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.lp-prose { max-width: 760px; margin: 0 auto; }
+.lp-prose p { font-size: 1.06rem; line-height: 1.75; color: var(--slate-700); margin-bottom: 18px; }
+.lp-prose a { color: var(--indigo-600); font-weight: 600; }
+.lp-faq { max-width: 760px; margin: 0 auto 12px; background:#fff; border:1px solid var(--slate-200); border-radius:14px; padding: 16px 20px; }
+.lp-faq summary { cursor: pointer; font-weight: 700; color: var(--ink); font-size: 1.04rem; }
+.lp-faq p { margin-top: 12px; color: var(--slate-600); line-height: 1.7; }
+.lp-related { text-align:center; color: var(--slate-500); font-size: .95rem; }
+.lp-related a { color: var(--indigo-600); font-weight: 600; }
+.vcf-tool { max-width: 980px; margin: 0 auto; background:#fff; border:1px solid var(--slate-200); border-radius: 20px; padding: 26px; box-shadow: var(--shadow-xs); }
+.vcf-drop { border: 2px dashed var(--slate-300); border-radius: 14px; padding: 34px 20px; text-align: center; color: var(--slate-600); transition: border-color .15s, background .15s; }
+.vcf-drop.is-over { border-color: var(--indigo-600); background: var(--slate-50); }
+.vcf-drop input[type=file] { display: none; }
+.vcf-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 16px; }
+.vcf-paste { width: 100%; min-height: 120px; margin-top: 16px; border: 1px solid var(--slate-200); border-radius: 12px; padding: 12px 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .86rem; color: var(--slate-700); display: none; }
+.vcf-paste.is-open { display: block; }
+.vcf-summary { margin: 18px 0 6px; font-weight: 700; color: var(--ink); }
+.vcf-warn { background: #FFF8E6; border: 1px solid #F0DCA0; border-radius: 12px; padding: 10px 14px; margin: 8px 0; color: #7A5D0E; font-size: .93rem; line-height: 1.55; }
+.vcf-tablewrap { overflow-x: auto; margin-top: 14px; }
+.vcf-tablewrap table { width: 100%; border-collapse: collapse; }
+.vcf-tablewrap th, .vcf-tablewrap td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--slate-200); font-size: .93rem; line-height: 1.5; vertical-align: top; }
+.vcf-tablewrap th { background: var(--slate-50); font-weight: 700; color: var(--ink); white-space: nowrap; }
+.vcf-tablewrap td { color: var(--slate-600); }
+.vcf-note { color: var(--slate-500); font-size: .88rem; margin-top: 12px; text-align: center; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"VCF File Opener & CSV Converter","url":"https://company-card.com/open-vcf-file.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (runs in the browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Opens .vcf (vCard) files in the browser — versions 2.1, 3.0 and 4.0 — shows every contact in a table and converts the file to CSV. All processing is local; contacts are never uploaded.","publisher":{"@type":"Organization","name":"CompanyCard","url":"https://company-card.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I open a VCF file?","acceptedAnswer":{"@type":"Answer","text":"A VCF file is plain text, so any contacts app can import it — or you can open it here without installing anything: choose the file above and every contact in it appears in a table. On a phone, tapping a .vcf usually offers to add the contacts to your address book directly."}},{"@type":"Question","name":"Can I open a VCF file without installing an app?","acceptedAnswer":{"@type":"Answer","text":"Yes. This page reads the file with your browser's own file reader and parses it in JavaScript on your device. There is no upload, no account and nothing to install."}},{"@type":"Question","name":"How do I convert a VCF file to CSV or Excel?","acceptedAnswer":{"@type":"Answer","text":"Open the file above and press Download CSV. The export puts each contact on a row with name, phones, emails, organisation, title, website, address, birthday and notes, and includes a byte-order mark so Excel opens it with the right characters."}},{"@type":"Question","name":"Why does my VCF file show codes like =D7=A9 instead of names?","acceptedAnswer":{"@type":"Answer","text":"That is quoted-printable encoding, used by the old vCard 2.1 format that many phones and Outlook versions exported. Each =XX pair is one byte of the real text. This page decodes quoted-printable automatically, so names in Hebrew, Arabic or accented Latin come out readable."}},{"@type":"Question","name":"Are my contacts uploaded when I open a file here?","acceptedAnswer":{"@type":"Answer","text":"No. The parsing runs entirely in your browser and the page makes no network request with your data. Close the tab and nothing of the file remains."}},{"@type":"Question","name":"What is a VCF file?","acceptedAnswer":{"@type":"Answer","text":"A VCF (virtual contact file) holds one or more contacts in the vCard format — the standard your phone uses when it shares or backs up contacts. Version 4.0 is defined in RFC 6350, version 3.0 in RFC 2426, and the older 2.1 spec still appears in exports from legacy phones and mail clients."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://company-card.com/"},{"@type":"ListItem","position":2,"name":"Open a VCF File","item":"https://company-card.com/open-vcf-file.html"}]}</script>
+<!-- FRESH:BEGIN -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Open a VCF File Online — Free vCard Viewer &amp; CSV Converter | CompanyCard","url":"https://company-card.com/open-vcf-file.html","datePublished":"2026-08-28","dateModified":"2026-08-28","isPartOf":{"@type":"WebSite","name":"CompanyCard","url":"https://company-card.com/"},"publisher":{"@type":"Organization","name":"CompanyCard","disambiguatingDescription":"A digital business card app for sharing your contact details by QR code, link or wallet pass. Not a corporate credit card, company expense card or spend-management service.","url":"https://company-card.com/"},"inLanguage":"en"}</script>
+<!-- FRESH:END -->
+</head>
+<body>
+
+<header class="nav">
+<div class="container">
+<a href="index.html" class="nav-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+<nav class="nav-links">
+<a href="features.html">Features</a>
+<a href="business.html">For Teams</a>
+<a href="pricing.html">Pricing</a>
+<a href="index.html#how">How it works</a>
+</nav>
+<div class="nav-cta">
+<a href="app/login.html" class="btn btn-ghost">Sign in</a>
+<a href="app/builder.html" class="btn btn-primary shine">Get started free</a>
+</div>
+<button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="container">
+<h1 style="max-width:840px;margin:0 auto;">Open a <span class="gradient-text">VCF file</span> — right here in your browser</h1>
+<p class="lead">Someone sent you a .vcf and double-clicking got you nowhere. Drop it below: every contact inside appears in a table, old 2.1-era encodings are decoded, and one button turns the lot into a CSV. Nothing is uploaded — the file never leaves your device.</p>
+</div>
+</section>
+
+<section class="section" style="padding-top:0;">
+<div class="container">
+<div class="vcf-tool">
+<label class="vcf-drop" id="vcfDrop" for="vcfFile">
+<b>Drop your .vcf file here</b> or click to choose it<br>
+<span style="font-size:.9rem;">Works with vCard 2.1, 3.0 and 4.0 — single contact or a whole address-book export</span>
+<input type="file" id="vcfFile" accept=".vcf,.vcard,text/vcard,text/x-vcard">
+</label>
+<div class="vcf-actions">
+<button class="btn btn-ghost" id="vcfPasteBtn" type="button">Paste vCard text instead</button>
+<button class="btn btn-ghost" id="vcfSampleBtn" type="button">Try a sample file</button>
+<button class="btn btn-primary" id="vcfCsvBtn" type="button" style="display:none;">Download CSV</button>
+</div>
+<textarea class="vcf-paste" id="vcfPaste" placeholder="BEGIN:VCARD&#10;VERSION:3.0&#10;FN:..." spellcheck="false"></textarea>
+<div id="vcfOut"></div>
+<p class="vcf-note">Everything on this page runs locally in your browser. Your contacts are not sent to CompanyCard or anyone else — you can load this page, go offline, and it still works.</p>
+</div>
+</div>
+</section>
+
+<section class="section"><div class="container lp-prose"><div class="section-head" style="margin-bottom:24px;"><h2>What a VCF file actually is</h2></div><p>A VCF (virtual contact file) is plain text in the vCard format — the standard every phone uses when it shares or backs up contacts. The current specification, vCard&nbsp;4.0, is defined in <a href="https://www.rfc-editor.org/rfc/rfc6350" target="_blank" rel="noopener nofollow">RFC&nbsp;6350</a>; the widely used 3.0 version in <a href="https://www.rfc-editor.org/rfc/rfc2426" target="_blank" rel="noopener nofollow">RFC&nbsp;2426</a>; and the 2.1 format from the 1990s still turns up in exports from older phones and mail clients. One file can hold a single contact or an entire address book — each contact sits between a <code>BEGIN:VCARD</code> and an <code>END:VCARD</code> line.</p><p>Because it is text, you can open a .vcf in any editor and read it. What makes a viewer useful is the decoding: names split across folded lines, structured fields packed with semicolons, and — in 2.1 files — quoted-printable sequences like <code>=D7=A9</code> that hide non-English names. The parser on this page handles those cases and shows you the contacts the way an address book would.</p></div></section>
+
+<section class="section" style="background:var(--slate-50);"><div class="container lp-prose"><div class="section-head" style="margin-bottom:24px;"><h2>A .vcf is a snapshot — here is the catch</h2></div><p>Every VCF file is a photograph of someone's details on the day it was made. The person changes their number or job and every copy of the file quietly goes stale — there is no way to tell by looking at it. That is fine for a one-off import, and it is why we built our product the other way round: a <a href="digital-business-card.html">CompanyCard digital business card</a> is a live link — when your details change you edit the card once, and everyone who saved your QR or link sees the current version. The free plan includes a card with a QR code, sharing link and unlimited edits, and the person receiving it needs no app — just a browser and a one-tap save-contact button.</p></div></section>
+
+<section class="section"><div class="container"><div class="section-head" style="margin-bottom:32px;"><h2>Frequently asked questions</h2></div><details class="lp-faq"><summary>How do I open a VCF file?</summary><p>A VCF file is plain text, so any contacts app can import it — or you can open it here without installing anything: choose the file above and every contact in it appears in a table. On a phone, tapping a .vcf usually offers to add the contacts to your address book directly.</p></details><details class="lp-faq"><summary>Can I open a VCF file without installing an app?</summary><p>Yes. This page reads the file with your browser's own file reader and parses it in JavaScript on your device. There is no upload, no account and nothing to install.</p></details><details class="lp-faq"><summary>How do I convert a VCF file to CSV or Excel?</summary><p>Open the file above and press Download CSV. The export puts each contact on a row with name, phones, emails, organisation, title, website, address, birthday and notes, and includes a byte-order mark so Excel opens it with the right characters.</p></details><details class="lp-faq"><summary>Why does my VCF file show codes like =D7=A9 instead of names?</summary><p>That is quoted-printable encoding, used by the old vCard 2.1 format that many phones and Outlook versions exported. Each =XX pair is one byte of the real text. This page decodes quoted-printable automatically, so names in Hebrew, Arabic or accented Latin come out readable.</p></details><details class="lp-faq"><summary>Are my contacts uploaded when I open a file here?</summary><p>No. The parsing runs entirely in your browser and the page makes no network request with your data. Close the tab and nothing of the file remains.</p></details><details class="lp-faq"><summary>What is a VCF file?</summary><p>A VCF (virtual contact file) holds one or more contacts in the vCard format — the standard your phone uses when it shares or backs up contacts. Version 4.0 is defined in RFC 6350, version 3.0 in RFC 2426, and the older 2.1 spec still appears in exports from legacy phones and mail clients.</p></details></div></section>
+
+<section class="section"><div class="container"><div class="cta-band"><h2>Tired of stale contact files?</h2><p>A CompanyCard is a live card behind one permanent QR — edit once, current everywhere. Free forever, no credit card.</p><div class="hero-actions" style="justify-content:center;margin-top:28px;"><a href="app/builder.html" class="btn btn-primary btn-lg shine">Create your free card</a></div></div><p class="lp-related" style="margin-top:28px;">Related: <a href="vcard-qr-code.html">vCard QR code</a> &middot; <a href="electronic-business-card.html">Electronic business card (vCard)</a> &middot; <a href="qr-code-business-card.html">QR code business card</a> &middot; <a href="free-digital-business-card.html">Free digital business card</a></p></div></section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#C6A15B" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#C6A15B" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.35"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#C6A15B" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#F5F2EC">CompanyCard</text></svg>
+<p>The digital business card for people and teams. Share who you are in one tap — no app required.</p>
+</div>
+<div><h4>Product</h4><ul><li><a href="features.html">Features</a></li><li><a href="business.html">For Teams</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="index.html#how">How it works</a></li><li><a href="https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa" target="_blank" rel="noopener">Chrome Extension</a></li></ul></div>
+<div><h4>Solutions</h4><ul><li><a href="digital-business-card.html">Digital Business Card</a></li><li><a href="virtual-business-card.html">Virtual Business Card</a></li><li><a href="qr-code-business-card.html">QR Code Business Card</a></li><li><a href="vcard-qr-code.html">vCard QR Code</a></li><li><a href="e-name-card.html">E-Name Card</a></li><li><a href="digital-business-card-maker.html">Business Card Maker</a></li><li><a href="free-digital-business-card.html">Free Digital Card</a></li></ul></div>
+<div><h4>Compare &amp; Tools</h4><ul><li><a href="best-digital-business-card.html">Best Digital Card Apps</a></li><li><a href="digital-business-card-cost.html">How Much It Costs</a></li><li><a href="blinq-alternative.html">Blinq &amp; HiHello Alternative</a></li><li><a href="popl-alternative.html">Popl Alternative</a></li><li><a href="digital-business-card-vs-paper.html">Digital vs Paper Cards</a></li><li><a href="email-signature-generator.html">Email Signature Generator</a></li><li><a href="virtual-background-for-video-calls.html">Virtual Backgrounds</a></li><li><a href="digital-business-cards-for-teams.html">Cards for Teams</a></li></ul></div>
+</div>
+<div class="footer-bottom">
+<span>&copy; <span id="year">2026</span> CompanyCard, Ltd &middot; www.company-card.com</span> &middot; <a href="privacy-policy.html">Privacy Policy</a>
+</div>
+</div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/analytics.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ---------- vCard parser (2.1 / 3.0 / 4.0) ---------- */
+
+function qpDecode(s){
+  // quoted-printable: soft breaks already handled at unfold stage; decode =XX bytes as UTF-8
+  var bytes=[];
+  for(var i=0;i<s.length;i++){
+    var c=s[i];
+    if(c==="="&&/^[0-9A-Fa-f]{2}$/.test(s.substr(i+1,2))){
+      bytes.push(parseInt(s.substr(i+1,2),16)); i+=2;
+    } else {
+      var enc=new TextEncoder().encode(c);
+      for(var j=0;j<enc.length;j++)bytes.push(enc[j]);
+    }
+  }
+  try{ return new TextDecoder("utf-8",{fatal:false}).decode(new Uint8Array(bytes)); }
+  catch(e){ return s; }
+}
+
+function unescapeVal(s){
+  return s.replace(/\\n/gi,"\n").replace(/\\,/g,",").replace(/\\;/g,";").replace(/\\\\/g,"\\");
+}
+
+function unfold(text){
+  // normalize newlines, join folded lines (RFC: CRLF + space/tab), and 2.1 QP soft breaks (= at EOL)
+  var lines=text.replace(/\r\n?/g,"\n").split("\n");
+  var out=[];
+  for(var i=0;i<lines.length;i++){
+    var ln=lines[i];
+    if(out.length&&(/^[ \t]/.test(ln))){ out[out.length-1]+=ln.slice(1); continue; }
+    // 2.1 quoted-printable soft line break: previous logical line ends with "="
+    while(/=$/.test(ln)&&i+1<lines.length&&/ENCODING=QUOTED-PRINTABLE|;QUOTED-PRINTABLE/i.test(ln)){
+      ln=ln.slice(0,-1)+lines[++i];
+    }
+    if(ln.trim()!=="")out.push(ln);
+  }
+  return out;
+}
+
+function parseLine(ln){
+  // group.NAME;PARAM=V;BARE:value  — find the first ":" not inside quotes
+  var q=false,ci=-1;
+  for(var i=0;i<ln.length;i++){
+    var ch=ln[i];
+    if(ch==='"')q=!q;
+    else if(ch===":"&&!q){ci=i;break;}
+  }
+  if(ci<0)return null;
+  var left=ln.slice(0,ci),val=ln.slice(ci+1);
+  var parts=left.split(";");
+  var name=parts[0].toUpperCase();
+  var dot=name.indexOf(".");
+  if(dot>-1)name=name.slice(dot+1);
+  var params={types:[],enc:"",charset:""};
+  for(var p=1;p<parts.length;p++){
+    var kv=parts[p],eq=kv.indexOf("=");
+    if(eq>-1){
+      var k=kv.slice(0,eq).toUpperCase(),v=kv.slice(eq+1).replace(/^"|"$/g,"");
+      if(k==="TYPE")params.types=params.types.concat(v.toUpperCase().split(","));
+      else if(k==="ENCODING")params.enc=v.toUpperCase();
+      else if(k==="CHARSET")params.charset=v.toUpperCase();
+    } else if(kv){
+      var bare=kv.toUpperCase();
+      if(bare==="QUOTED-PRINTABLE")params.enc="QUOTED-PRINTABLE";
+      else if(bare==="BASE64")params.enc="BASE64";
+      else params.types.push(bare); // 2.1 bare types: CELL, WORK, HOME...
+    }
+  }
+  return {name:name,params:params,value:val};
+}
+
+function vcfParse(text){
+  var lines=unfold(text);
+  var cards=[],cur=null,warnings=[],stray=0;
+  for(var i=0;i<lines.length;i++){
+    var pl=parseLine(lines[i]);
+    if(!pl){ if(cur)stray++; continue; }
+    if(pl.name==="BEGIN"&&/^VCARD$/i.test(pl.value.trim())){
+      cur={fn:"",n:null,version:"",tels:[],emails:[],urls:[],org:"",title:"",adrs:[],notes:[],bday:"",photo:0,qp:false,props:0};
+      continue;
+    }
+    if(pl.name==="END"&&/^VCARD$/i.test(pl.value.trim())){ if(cur){cards.push(cur);cur=null;} continue; }
+    if(!cur)continue;
+    cur.props++;
+    var v=pl.value;
+    if(pl.params.enc==="QUOTED-PRINTABLE"){ v=qpDecode(v); cur.qp=true; }
+    if(pl.name==="PHOTO"||pl.name==="LOGO"){
+      if(pl.params.enc==="BASE64"||/^b$/i.test(pl.params.enc)||/BASE64/i.test(pl.value.slice(0,80)))cur.photo+=Math.round(pl.value.length*0.75);
+      continue;
+    }
+    switch(pl.name){
+      case "VERSION": cur.version=v.trim(); break;
+      case "FN": cur.fn=unescapeVal(v).trim(); break;
+      case "N": cur.n=v.split(/(?<!\\);/).map(function(x){return unescapeVal(x).trim();}); break;
+      case "TEL": var tv=unescapeVal(v).trim(); if(tv)cur.tels.push({num:tv,types:pl.params.types}); break;
+      case "EMAIL": var ev=unescapeVal(v).trim(); if(ev)cur.emails.push(ev); break;
+      case "URL": var uv=unescapeVal(v).trim(); if(uv)cur.urls.push(uv); break;
+      case "ORG": cur.org=unescapeVal(v.split(/(?<!\\);/)[0]).trim(); break;
+      case "TITLE": cur.title=unescapeVal(v).trim(); break;
+      case "ADR": var a=v.split(/(?<!\\);/).map(function(x){return unescapeVal(x).trim();}).filter(Boolean).join(", "); if(a)cur.adrs.push(a); break;
+      case "NOTE": var nv=unescapeVal(v).trim(); if(nv)cur.notes.push(nv); break;
+      case "BDAY": cur.bday=v.trim(); break;
+    }
+  }
+  if(cur){cards.push(cur);warnings.push("The last contact has no END:VCARD line — the file may be truncated.");}
+  cards.forEach(function(c,idx){
+    if(!c.fn&&c.n){ c.fn=[c.n[3],c.n[1],c.n[2],c.n[0],c.n[4]].filter(Boolean).join(" ").trim(); c.fnDerived=true; }
+    if(!c.fn)c.fn="(unnamed contact "+(idx+1)+")";
+  });
+  var qpCount=cards.filter(function(c){return c.qp;}).length;
+  if(qpCount)warnings.push(qpCount+" contact"+(qpCount>1?"s":"")+" used the old vCard 2.1 quoted-printable encoding — decoded automatically.");
+  var noVer=cards.filter(function(c){return !c.version;}).length;
+  if(noVer)warnings.push(noVer+" contact"+(noVer>1?"s are":" is")+" missing the required VERSION line.");
+  var derived=cards.filter(function(c){return c.fnDerived;}).length;
+  if(derived)warnings.push(derived+" contact"+(derived>1?"s have":" has")+" no FN (formatted name) — the display name was assembled from the N field.");
+  var bigPhoto=cards.filter(function(c){return c.photo>100*1024;}).length;
+  if(bigPhoto)warnings.push(bigPhoto+" contact"+(bigPhoto>1?"s carry":" carries")+" a large embedded photo — fine for import, but far too heavy to encode in a QR code.");
+  if(stray)warnings.push(stray+" line"+(stray>1?"s":"")+" could not be parsed and "+(stray>1?"were":"was")+" skipped.");
+  return {cards:cards,warnings:warnings};
+}
+
+/* ---------- UI ---------- */
+
+var drop=document.getElementById("vcfDrop"),
+    fileIn=document.getElementById("vcfFile"),
+    out=document.getElementById("vcfOut"),
+    csvBtn=document.getElementById("vcfCsvBtn"),
+    pasteBtn=document.getElementById("vcfPasteBtn"),
+    sampleBtn=document.getElementById("vcfSampleBtn"),
+    paste=document.getElementById("vcfPaste");
+var lastResult=null,lastName="contacts";
+
+function esc(s){var d=document.createElement("div");d.textContent=s==null?"":String(s);return d.innerHTML;}
+
+function render(res){
+  lastResult=res;
+  var h="";
+  h+='<p class="vcf-summary">'+res.cards.length+' contact'+(res.cards.length===1?"":"s")+' found</p>';
+  res.warnings.forEach(function(w){h+='<div class="vcf-warn">'+esc(w)+'</div>';});
+  if(res.cards.length){
+    h+='<div class="vcf-tablewrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Organisation</th><th>Title</th><th>More</th></tr></thead><tbody>';
+    res.cards.forEach(function(c){
+      var more=[];
+      if(c.urls.length)more.push(esc(c.urls.join(", ")));
+      if(c.adrs.length)more.push(esc(c.adrs.join(" / ")));
+      if(c.bday)more.push("Birthday: "+esc(c.bday));
+      if(c.photo)more.push("Embedded photo ("+Math.round(c.photo/1024)+" KB)");
+      if(c.notes.length)more.push(esc(c.notes.join(" ")));
+      h+="<tr><td><b>"+esc(c.fn)+"</b>"+(c.version?'<br><span style="font-size:.8rem;color:var(--slate-400);">vCard '+esc(c.version)+"</span>":"")+"</td>"+
+         "<td>"+c.tels.map(function(t){return esc(t.num)+(t.types.length?' <span style="font-size:.8rem;color:var(--slate-400);">('+esc(t.types.join(",").toLowerCase())+")</span>":"");}).join("<br>")+"</td>"+
+         "<td>"+c.emails.map(esc).join("<br>")+"</td>"+
+         "<td>"+esc(c.org)+"</td><td>"+esc(c.title)+"</td>"+
+         "<td>"+more.join("<br>")+"</td></tr>";
+    });
+    h+="</tbody></table></div>";
+    csvBtn.style.display="";
+  } else {
+    h+='<div class="vcf-warn">No BEGIN:VCARD blocks found — is this actually a vCard file?</div>';
+    csvBtn.style.display="none";
+  }
+  out.innerHTML=h;
+}
+
+function handleText(text,name){
+  lastName=(name||"contacts").replace(/\.[^.]+$/,"");
+  try{ render(vcfParse(text)); }
+  catch(e){ out.innerHTML='<div class="vcf-warn">Could not parse this file: '+esc(e.message)+"</div>"; csvBtn.style.display="none"; }
+}
+
+function handleFile(f){
+  if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){handleText(String(r.result||""),f.name);};
+  r.readAsText(f);
+}
+
+fileIn.addEventListener("change",function(){handleFile(fileIn.files[0]);});
+["dragover","dragenter"].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add("is-over");});});
+["dragleave","drop"].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove("is-over");});});
+drop.addEventListener("drop",function(e){
+  var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];
+  if(f)handleFile(f);
+});
+pasteBtn.addEventListener("click",function(){
+  paste.classList.toggle("is-open");
+  if(paste.classList.contains("is-open"))paste.focus();
+});
+paste.addEventListener("input",function(){
+  if(/BEGIN:VCARD/i.test(paste.value))handleText(paste.value,"pasted");
+});
+
+var SAMPLE="BEGIN:VCARD\r\nVERSION:4.0\r\nFN:Dana Field\r\nN:Field;Dana;;;\r\nORG:Field Landscaping LLC\r\nTITLE:Owner\r\nTEL;TYPE=cell:+1-415-555-0142\r\nTEL;TYPE=work:+1-415-555-0143\r\nEMAIL:dana@fieldlandscaping.example\r\nURL:https://fieldlandscaping.example\r\nADR:;;12 Willow Court;Austin;TX;78702;USA\r\nEND:VCARD\r\nBEGIN:VCARD\r\nVERSION:3.0\r\nFN:Jonny Mills\r\nN:Mills;Jonny;;;\r\nORG:company-card.com\r\nTITLE:VP of Sales\r\nTEL;TYPE=CELL:+1-415-556-643\r\nEMAIL;TYPE=INTERNET:jonny@company-card.example\r\nNOTE:Met at the trade fair\\, follow up next week.\r\nEND:VCARD\r\nBEGIN:VCARD\r\nVERSION:2.1\r\nN;ENCODING=QUOTED-PRINTABLE;CHARSET=UTF-8:=D7=9B=D7=94=D7=9F;=D7=A8=D7=95=D7=AA\r\nTEL;CELL:+972-52-555-0177\r\nEMAIL;INTERNET:rut@example.co.il\r\nEND:VCARD";
+sampleBtn.addEventListener("click",function(){
+  paste.classList.add("is-open");
+  paste.value=SAMPLE;
+  handleText(SAMPLE,"sample");
+});
+
+function csvCell(s){
+  s=s==null?"":String(s);
+  return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
+}
+csvBtn.addEventListener("click",function(){
+  if(!lastResult)return;
+  var head=["Name","Phone 1","Phone 2","Phone 3","Email 1","Email 2","Organisation","Title","Website","Address","Birthday","Notes"];
+  var rows=[head.join(",")];
+  lastResult.cards.forEach(function(c){
+    rows.push([
+      c.fn,
+      c.tels[0]?c.tels[0].num:"",c.tels[1]?c.tels[1].num:"",c.tels[2]?c.tels[2].num:"",
+      c.emails[0]||"",c.emails[1]||"",
+      c.org,c.title,
+      c.urls.join(" "),
+      c.adrs.join(" / "),
+      c.bday,
+      c.notes.join(" ")
+    ].map(csvCell).join(","));
+  });
+  var blob=new Blob(["\uFEFF"+rows.join("\r\n")],{type:"text/csv;charset=utf-8"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=lastName+".csv";
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+});
+
+window.vcfParse=vcfParse; // exposed for testing
+})();
+</script>
+</body>
+</html>
