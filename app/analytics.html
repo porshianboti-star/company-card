@@ -72,7 +72,9 @@
   var KEY = "sb_publishable_H3hDKJRE0oOH7dkg7496Rw_trmUMPW9";
   var STEPS = [
     ["card_view", "Shared card viewed", "Someone opened a card that was shared with them — step one of the viral loop, unmeasured until 2026-08-11"],
-    ["card_save_contact", "Recipient saved the contact", "A recipient tapped Save contact on a card they were shown"],
+    ["card_save_contact", "Recipient saved the contact", "A recipient tapped Save contact on a card that was SHARED with them (card in the URL). Fixed 2026-08-31: until then this branch matched only element ids, and the recipient's button is rendered with data-save and no id, so this event could never fire — while two OWNER actions were being counted into it. Rows before 2026-08-31 are owner actions, not viral signals, and must not be read as such."],
+    ["owner_save_own_vcard", "Owner saved their own card", "The card owner downloaded their own vCard from the builder share modal or their own preview — NOT a viral signal. Split out of card_save_contact on 2026-08-31."],
+    ["lead_saved", "Owner saved a lead", "Our user filed a contact they collected, in the mobile lead editor — NOT a viral signal. Split out of card_save_contact on 2026-08-31."],
     ["create_card_click", "Create your free card", "Clicked a 'Create your free card' button anywhere on the site"],
     ["card_share_open", "Owner opened share", "The card owner opened the share sheet"],
     ["builder_save_draft", "Owner saved a draft", "The card owner saved their own card in the builder — NOT a viral signal"],

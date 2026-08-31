@@ -38,6 +38,20 @@
     } catch (e) {}
   };
 
+  /* One definition of "a recipient is looking at a shared card", used by both
+     card_view and card_save_contact so the two ends of the loop can never
+     drift apart again. The card travels in the URL (hash for the encoded card,
+     ?id= for a stored one), so an owner opening the bare page is excluded.
+     Function declaration, not a var — the click listener below is registered
+     before this point in source order and must still be able to call it. */
+  function _viewingSharedCard() {
+    if (!/\/app\/(card|mobile)(\.html)?$/.test(location.pathname)) return false;
+    try {
+      return (location.hash && location.hash.length > 1) ||
+             !!new URLSearchParams(location.search).get("id");
+    } catch (e) { return false; }
+  }
+
   /* ---- automatic click tracking ---- */
   document.addEventListener("click", function (e) {
     var el = e.target.closest && e.target.closest("a,button");
@@ -54,7 +68,30 @@
        anywhere on the site. */
     if (el.id === "btn-save" || el.id === "btn-save2") CCTrack("builder_save_draft");
     else if (el.id === "btn-share" || el.id === "btn-share2") CCTrack("card_share_open");
-    else if (el.id === "dl-vcf" || el.id === "save" || el.id === "vcf") CCTrack("card_save_contact");
+    /* CC:SAVE-ATTRIBUTION v1 (2026-08-31) — card_save_contact was measuring the
+       wrong people, in both directions.
+
+       FALSE NEGATIVE: the recipient's Save button on a shared card is rendered
+       by CC.renderCard as `<button class="cc-save" data-save>` with NO id, and
+       this branch only ever matched ids. The one event that means "a stranger
+       put our user in their phone" — the whole viral loop — could not fire.
+
+       FALSE POSITIVE: both ids it did match are the ACCOUNT OWNER acting on
+       their own data. `dl-vcf` is the "Save contact" button inside the
+       builder's own share modal; `save` is the button in the mobile lead
+       editor (the fields around it are Tags and "Where you met, follow-ups…"),
+       i.e. our user filing a lead they collected. Counting either as a viral
+       signal is the same owner/recipient conflation that retiring
+       share_save_click was meant to end — and it biased the number in the
+       flattering direction, since every row it could ever produce came from
+       our own users.
+
+       So: attribute by WHO is looking, not by which id was clicked. A shared
+       card is one whose card travels in the URL — the same test card_view uses
+       below, which correctly excludes an owner opening the bare page. */
+    else if (el.matches && el.matches("[data-save]")) CCTrack(_viewingSharedCard() ? "card_save_contact" : "owner_save_own_vcard");
+    else if (el.id === "dl-vcf" || el.id === "vcf") CCTrack("owner_save_own_vcard");
+    else if (el.id === "save") CCTrack("lead_saved");
   }, true);
 
   /* A shared card being viewed is step one of the only growth loop that does not
@@ -62,11 +99,7 @@
      2026-08-11, so the loop was measured from its second step onward. Only count
      a real recipient view: the viewer renders from location.hash or ?id=, so an
      owner opening the bare page is correctly excluded. */
-  if (/\/app\/(card|mobile)(\.html)?$/.test(location.pathname)) {
-    var _hasCard = (location.hash && location.hash.length > 1) ||
-                   !!new URLSearchParams(location.search).get("id");
-    if (_hasCard) CCTrack("card_view");
-  }
+  if (_viewingSharedCard()) CCTrack("card_view");
 
   /* checkout page view = entered payment (covers JS-driven navigation too) */
   if (/checkout\.html$/.test(location.pathname) || /\/checkout$/.test(location.pathname)) CCTrack("checkout_click");
