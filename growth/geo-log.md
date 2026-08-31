@@ -2,6 +2,108 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-08-31
+
+**Google Search Console (read 2026-08-31)**
+
+| Metric | 2026-08-27 | 2026-08-31 | Change |
+|---|---|---|---|
+| Indexed pages | 37 | **37** | flat |
+| Not indexed | 40 | **40** | flat |
+| — Alternate page w/ proper canonical | 17 | 17 | flat |
+| — Discovered – currently not indexed | 20 | 20 | flat |
+| — Page with redirect | 1 | 1 | flat |
+| — Duplicate, Google chose diff. canonical | 1 | 1 | flat |
+| — Crawled – currently not indexed | 1 | 1 | flat |
+| Impressions (28d) | 2,720 | **3,230** | **+510** |
+| Clicks (28d) | 1 | 1 | flat |
+| Avg position (28d) | 61 | **60.6** | flat |
+| Query rows (3mo) | — | **406** | — |
+| Sitemap URLs live | 57 | **59** | +2 |
+
+Impressions up 510 on a 28-day window in four days — the second consecutive
+reading where impressions rose. Every indexing bucket is byte-for-byte flat,
+which is the shape of a report that has not been recomputed rather than a site
+that has not moved. Query rows are recorded from the 3-month table this run
+because the 28-day table would not re-render in the automation; the 28-day
+header figures above were read from the rendered page.
+
+**The "Discovered – currently not indexed" bucket, checked for the second run
+running — and this time it produced an actionable answer.** Two members
+inspected, as the standing note requires:
+
+- `linq-alternative.html` — on 08-27 this inspected as **"URL is unknown to
+  Google"**, no referring sitemaps, no referring page. Today: **"URL is on
+  Google — Page is indexed."** The genuinely-missing case from last run has
+  resolved on its own.
+- `open-vcf-file.html` — shipped 08-28. Today, three days on: **"URL is unknown
+  to Google"**, "No referring sitemaps detected", "Referring page: None
+  detected".
+
+**What separates them is the sitewide footer.** `linq-alternative` carries the
+60-page footer link and got found. `open-vcf-file` was deliberately linked from
+three vCard pages only — the tidier, more topical choice — and has not been
+found at all. Fixed this run: `open-vcf-file.html` added to the Solutions column
+sitewide and to `seo/_tpl_footer.txt` so future pages inherit it. Indexing
+requested for it directly.
+
+This is the third run in a row where the bucket contained one page that was
+already indexed and one that genuinely was not. **The count itself still carries
+no information. The inspections do.**
+
+**Shipped: `/business-card-for-business-owners.html`** — "What to put on a
+business card when you own the company". Sitemap **58 → 59**. Live, verified
+200, title confirmed.
+
+Chosen from the query table, and it is the most on-ICP intent in all 406 rows:
+
+| Query | Impressions | Position |
+|---|---|---|
+| co owner on business card | 9 | 73.3 |
+| business card for owner of company | 7 | 89.7 |
+| business cards for multiple employees | 1 | 69.0 |
+| business card for employees | 1 | 64.0 |
+| business card without a business | 1 | 76.0 |
+| entrepreneur card | 1 | 60.0 |
+
+Twenty impressions, all of them a small business owner at the exact moment they
+decide what the card says. For scale, batch 14 was justified by a 12-impression
+row and batch 13 by a 35-impression one. Grepped the repo before writing:
+"co-owner", "sole trader" and "what title" appear on **zero** of 61 pages. The
+small-business, freelancer and teams pages sell the product; none of them
+answers the question.
+
+**This page cannot go stale, by construction.** No competitor is named, so
+there is no vendor figure to re-verify next month — a first for a page shipped
+under this programme. No statistics, no survey results, no "most owners…"
+claims. The only product claims are read off `pricing.html` today, and the free
+plan's one-card limit is stated in the co-owners section where it is an actual
+disadvantage (two co-owners need two free accounts) rather than buried. The
+page defers to the reader's own companies registry on anything touching legal
+status instead of giving legal advice.
+
+Validation: one `<h1>`, unique title/meta/canonical, four valid JSON-LD blocks
+(FAQPage 6, BreadcrumbList, HowTo 6, WebPage), `sync_faq_schema.py` reports 0
+mismatches, `xmllint` clean. Every one of the 60 footer edits is a single-line
+diff.
+
+**Sitemap resubmitted.** Before: last read Aug 27, **57 discovered** against 59
+live. After: read the same minute, **59 discovered**. Third run running that
+the read is immediate rather than queued — keep doing this on every run that
+ships a page. Indexing requested for both new URLs; "Indexing requested"
+confirmed on screen for each.
+
+**⚠️ Batch 16 shipped without a log entry.** `open-vcf-file.html` (commit
+`647237f`, 2026-08-28) is live and in the sitemap and llms.txt, but nothing was
+written here and nothing was recorded in memory. It was found this run only by
+reading `git log`. The gap is what let the missing footer link go unnoticed for
+three days. **Log the run even when the run is only a page.**
+
+**Off-site: STILL the binding constraint, unchanged 2026-08-31.** Capterra,
+Product Hunt, AlternativeTo and Trustpilot searched again — no CompanyCard
+profile on any of them. `Organization.sameAs` remains G2 (product + seller) plus
+the Chrome Web Store. Only the owner can clear this.
+
 ## 2026-08-27
 
 **Google Search Console (read 2026-08-27, 28d to 08-24)**
