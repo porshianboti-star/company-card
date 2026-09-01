@@ -2,6 +2,118 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-01
+
+**Google Search Console (read 2026-09-01; indexing data to 8/28, performance to 8/29)**
+
+| Metric | 2026-08-31 | 2026-09-01 | Change |
+|---|---|---|---|
+| Indexed pages | 37 | **51** | **+14** |
+| Not indexed | 40 | **29** | **-11** |
+| — Alternate page w/ proper canonical | 17 | 20 | +3 |
+| — Discovered - currently not indexed | 20 | **8** | **-12** |
+| — Page with redirect | 1 | 1 | flat |
+| — Duplicate, Google chose diff. canonical | 1 | **0** | -1 |
+| — Crawled - currently not indexed | 1 | **0** | -1 |
+| Impressions (28d) | 3,230 | **3,340** | +110 |
+| Clicks (28d) | 1 | 1 | flat |
+| Avg position (28d) | 60.6 | **60.7** | flat |
+| Query rows (28d) | — | **353** | — |
+| Sitemap URLs live | 59 | **59** | flat |
+
+**The best indexing reading of the programme.** Indexed 37 -> 51 while
+not-indexed fell 40 -> 29. The movement is almost entirely one bucket:
+"Discovered - currently not indexed" 20 -> 8. That bucket was created on 08-22
+and the 08-31 run added the missing pages to the SITEWIDE FOOTER on the theory
+that footer links are what get a page crawled. Twelve of those twenty pages have
+since been indexed. That is the footer hypothesis surviving its first real test.
+"Crawled - currently not indexed" is 0 and "Duplicate, Google chose different
+canonical" has cleared to 0 on its own, exactly as the 08-20 note predicted it
+might — it was never a defect to fix.
+
+**The query mix has changed shape.** The head commercial term is now the largest
+row on the property, ahead of the brand term for the first time:
+
+| Query | Impressions | Avg position |
+|---|---|---|
+| best digital business card | **210** | 46.3 |
+| best digital business cards | **201** | 41.4 |
+| company card (brand) | 178 | 43.3 |
+| qr code business card | 137 | 70.7 |
+| free digital business card | 126 | 73.9 |
+| best virtual business card | 72 | **34.9** |
+| virtual business cards | 59 | 44.6 |
+| us digital business card market | 54 | 79.5 |
+| hihello vs blinq | 44 | 50.2 |
+
+"best digital business card" + plural = **411 impressions**, versus 178 for the
+brand term. Through July and August the brand term was the biggest row. The two
+pages those queries resolve to (best-digital-business-card.html at pos 46.3 and
+best-virtual-business-card.html at pos 34.9) are both pages refreshed today.
+Position 35-46 is page 4-5: shown, never clicked (1 click, CTR 0%). Nothing here
+says we are winning; it says the demand is landing on the right pages and the
+gap is authority, not coverage or relevance. "hihello vs blinq" at 44
+impressions confirms the vendor-vs-vendor cluster identified on 08-27 is real.
+
+**Shipped: the monthly competitor re-verification (September 2026).**
+All eight vendors re-fetched from their own pricing pages today. Every PRICE and
+LIMIT asserted anywhere on the site still matches — Blinq (2 free cards,
+$9.99/$7.33, $6.99/$4.99), HiHello (4 free, 5 scans/mo, $6/$72, $5/user 5-100),
+Uniqode (first card free, $6/user, annual-only), Mobilo (Pro $3, Teams $4,
+Business $5 annual; NFC $19.99-$139), Wave (free, Pro $7, Teams $5 w/ 3-seat
+minimum), V1CE (no free plan, GBP49.99/mo, card from GBP75), Popl (no published
+pricing), Linq (exited the category). Our own rates re-read off pricing.html and
+unchanged.
+
+**Two ATTRIBUTED WORDINGS had gone stale. Both were right on the number and
+wrong in the vendor's mouth — re-verifying prices alone would not have caught
+either.**
+
+1. `linq-alternative.html` quoted Linq's headline as *"APIs for iMessage, RCS,
+   SMS, and Voice built for Agents"* in three places (visible prose, visible FAQ
+   answer, FAQPage JSON-LD). **That string no longer exists on linqapp.com.**
+   Today the title is "Communication APIs for Messaging and Voice | Linq" and the
+   h1 is "Build robust messaging capabilities in minutes". The page's argument
+   got STRONGER, not weaker: the phrase "business card" now appears nowhere on
+   linqapp.com's homepage, which is a cleaner proof of the exit than the old
+   quote was. Replaced in all three copies plus `seo/pages_data2.py`.
+
+2. Five places said Blinq's pricing page "states that a minimum payment equal to
+   5 Team Cards is required" — two of them as DIRECT QUOTATIONS, on
+   `small-business-toolkit-2027.html`, `digital-business-card-cost.html` (x4) and
+   `hihello-vs-blinq.html`. **"Team Cards" and "minimum payment" are both gone
+   from blinq.me/pricing.** Blinq rewrote the copy; the five-card floor is still
+   real and now lives in their billing FAQ: "Blinq Business is billed per card,
+   per month ... you choose how many cards to start with (minimum of five)".
+   Rewritten to quote what the page says today. Generators
+   `seo/pages_data14.py` and `seo/pages_data15.py` patched in the same commit so
+   the next build cannot reintroduce either claim.
+
+This is the fifth instance of the stale-competitor-claim family and the first
+two where the FIGURE was correct and only the QUOTATION was wrong. **Rule for
+next run: re-read quoted strings, not just numbers.** A price is easy to diff; a
+quotation silently becomes a fabrication when the vendor rewrites their page.
+
+**Date stamps** bumped to September 2026 on the 14 card-vendor pages plus
+llms.txt (109 August-2026 tokens across 16 files). Deliberately NOT bumped:
+`vcard-qr-code.html` (its sources are RFC 6350/2426 and Denso Wave, not vendor
+pricing, and were not re-fetched today) and `small-business-toolkit-2027.html`
+(it also cites Zoho Invoice, Calendly, Wave Accounting and Trello, which were
+not re-verified today — its corrected Blinq sentence carries its own inline
+"checked 1 September 2026" instead). **Next run: re-verify the toolkit page's
+four non-card vendors and then restamp it.**
+
+Validation: 59 sitemap URLs, `xmllint` clean; all 66 content pages have exactly
+one h1, one title, one canonical, one meta description and valid JSON-LD;
+`sync_faq_schema.py` reports 0 mismatches (visible FAQ text byte-matches the
+FAQPage schema); the refresh script is idempotent (second run = 0 changes).
+
+**Off-site: STILL the binding constraint, unchanged 2026-09-01.** Capterra,
+Product Hunt, AlternativeTo and Trustpilot searched again — none exist.
+`sameAs` = G2 (product + seller) + Chrome Web Store. Only the owner can clear
+this, and at position 35-46 on the money terms with 0% CTR, authority is now
+demonstrably the binding constraint rather than coverage.
+
 ## 2026-08-31
 
 **Google Search Console (read 2026-08-31)**

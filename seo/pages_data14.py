@@ -35,7 +35,7 @@ earlier run.
   * blinq.me/pricing — Free "$0 / Free forever", "Two free digital business
     cards". Premium "$9.99 / month", "$7.33 / month" billed annually, "up to
     five cards". Business "$6.99 / month" per user billed monthly, "$4.99 /
-    month" billed annually, "A minimum payment equal to 5 Team Cards is
+    month" billed annually, "you choose how many cards to start with (minimum of five)" is
     required", "charged per card, per month". Enterprise "Custom".
   * hihello.com/pricing — Personal "$Free Forever", 4 cards, "5 card & badge
     scans/month". Professional "$6 per month" / "$72 billed yearly", 1 user,
@@ -144,7 +144,7 @@ COST = {
        "Yes — two free digital business cards",
        "Premium $9.99/mo, or $7.33/mo billed annually",
        "Business $6.99 per card/mo, or $4.99 billed annually",
-       "“A minimum payment equal to 5 Team Cards is required”, and billing is per card rather than per person"],
+       "“You choose how many cards to start with (minimum of five)”, and billing is per card rather than per person"],
       ["<b>HiHello</b>",
        "Yes — 4 cards, capped at 5 card &amp; badge scans a month",
        "Professional $6/mo, or $72 billed yearly",
@@ -190,7 +190,7 @@ COST = {
      "commitment, not a subscription — and it is the single most common thing people miss when "
      "they compare these products on price alone."),
     ("Seat minimums",
-     "Blinq's Business plan requires “a minimum payment equal to 5 Team Cards”. Wave Connect's "
+     "Blinq's Business plan is billed per card and you “choose how many cards to start with (minimum of five)”. Wave Connect's "
      "Teams plan has “3 minimum seats”. HiHello sells its Business plan for 5–100 users. If you "
      "and one colleague want team features, the per-user price on the page is not the price you "
      "pay; the minimum is."),
@@ -263,7 +263,7 @@ COST = {
 
   ("How much does a digital business card cost for a small team?",
    "Between about $4 and $12 per person a month, but check the minimum before the rate. Blinq "
-   "requires a minimum payment equal to five Team Cards, Wave Connect's Teams plan has a three-seat "
+   "bills Business per card and starts you at a minimum of five cards, Wave Connect's Teams plan has a three-seat "
    "minimum, and HiHello sells its Business plan for 5–100 users, so a two-person team may not be "
    "able to buy the per-user price it sees. CompanyCard's Business plan is $12 per user a month "
    "with no seat minimum, which is the most expensive per-user rate here and the only one a "

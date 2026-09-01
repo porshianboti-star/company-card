@@ -275,7 +275,7 @@ VS = {
   prose("The one thing we do differently", [
     "There is exactly one axis on this page where CompanyCard is not simply the more expensive "
     "option, and it is the seat floor. HiHello sells its Business plan for five to a hundred users. "
-    "Blinq requires a minimum payment equal to five Team Cards. CompanyCard's Business plan has no "
+    "Blinq bills Business per card and starts you at a minimum of five cards. CompanyCard's Business plan has no "
     "seat minimum, so a two-person or three-person business can buy team features at the listed "
     "per-user rate instead of being told the smallest bill is five.",
 

@@ -3,7 +3,7 @@
 
 VERIFIED BY DIRECT FETCH 2026-07-26:
   linqapp.com   — pivoted out of the category entirely. Headline is now
-                  "APIs for iMessage, RCS, SMS, and Voice built for Agents".
+                  "Build robust messaging capabilities in minutes".
                   Linq no longer sells digital business cards, which strands
                   its former card users. This is the highest-intent, lowest-
                   competition alternative query in the niche.
@@ -53,7 +53,7 @@ LINQ = {
  "faqs": [
    ("Is Linq still doing digital business cards?",
     "As of " + VERIFIED + ", linqapp.com presents itself as a developer messaging platform — its "
-    "headline is \"APIs for iMessage, RCS, SMS, and Voice built for Agents\" — not a digital "
+    "headline is \"Build robust messaging capabilities in minutes\" — not a digital "
     "business card product. If you rely on a Linq card, it is worth having somewhere else to go. "
     "Check Linq's own site for the current status of any card product you hold."),
    ("What is the best Linq alternative?",
@@ -134,7 +134,7 @@ HIHELLO = {
 LINQ["sections"] = [
   prose("What happened to Linq", [
     "If you are searching for a Linq alternative, you probably already found the reason: "
-    "linqapp.com now leads with \"APIs for iMessage, RCS, SMS, and Voice built for Agents\". It "
+    "linqapp.com now leads with \"Build robust messaging capabilities in minutes\". It "
     "is a developer messaging company. The digital business card is no longer the product on the "
     "front door.",
     "That leaves anyone holding a Linq card in an uncomfortable position — your card is the link "
