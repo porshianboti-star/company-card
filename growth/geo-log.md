@@ -2,6 +2,122 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-03
+
+**Google Search Console (read 2026-09-03; indexing to ~8/29, performance to 8/31)**
+
+| Metric | 2026-09-01 | 2026-09-03 | Change |
+|---|---|---|---|
+| Indexed pages | 51 | **51** | flat |
+| Not indexed | 29 | **29** | flat |
+| — Alternate page w/ proper canonical | 20 | 20 | flat |
+| — Discovered - currently not indexed | 8 | 8 | flat |
+| — Page with redirect | 1 | 1 | flat |
+| — Crawled - currently not indexed | 0 | 0 | flat |
+| — Duplicate, Google chose diff. canonical | 0 | 0 | flat |
+| Impressions (28d) | 3,340 | **3,580** | **+240** |
+| Clicks (28d) | 1 | 1 | flat |
+| Avg position (28d) | 60.7 | **60.7** | flat |
+| Query rows (28d) | 353 | **367** | +14 |
+| Query rows (3mo) | — | **444** | — |
+| Sitemap URLs live | 59 | **59** | flat |
+
+Every indexing bucket is byte-identical to 09-01 and **no new "why pages aren't
+indexed" reason appeared** — the report has not been recomputed in two days.
+Impressions keep climbing (+240 in 48h, third consecutive rise) at a flat
+position 60.7 and a flat 1 click. The 3-month view records **5 total clicks**,
+so four of the five landed in July; the 28-day window has produced exactly one,
+on the brand term "companycard" (11 impressions, 1 click — the only row on the
+property with a non-zero CTR).
+
+Top 28d queries: best digital business card 218 (was 210), company card 198
+(was 178), best digital business cards 194 (was 201), qr code business card 146
+(was 137), free digital business card 117 (was 126), best virtual business card
+75 (was 72), virtual business cards 67 (was 59), us digital business card market
+54 (flat), hihello vs blinq 46 (was 44). GSC's own anomaly panel flags
+`digital-business-card-maker.html` **+461% impressions** and
+`best-digital-business-card` **-51%** — worth watching, not yet acting on.
+
+**Shipped: the non-card-vendor re-verification the 09-01 run queued, plus a
+quotation defect that sweep found.**
+
+The 09-01 run re-verified the eight card vendors but explicitly deferred the
+other vendors cited on `small-business-toolkit-2027.html`, leaving that page on
+an August stamp. All **seven** were re-fetched today (the queued note said four;
+the page actually cites seven) against their own live pricing pages:
+
+- **Calendly** — Free "One event type"; Standard $10/seat/mo. Unchanged.
+- **Wave Accounting** — Starter $0; auto-import bank transactions is Pro-only;
+  Pro $19/mo. Unchanged.
+- **Zoho Invoice** — free, 500 invoices/yr, "Add up to two users"; the 180-day
+  deletion sentence still byte-matches; still no paid tier inside the product.
+- **Trello** — "Free for up to 10 collaborators per Workspace", "Up to 10 boards
+  per Workspace"; Standard $5/user/mo annual. Unchanged.
+- **Bitwarden** — "Always free"; free sharing with one other user; Premium
+  $1.65/mo annual. Unchanged.
+- **Canva** — "Canva Free is available to anyone"; Pro US$120/yr; the footnote
+  confirming Free covers "Standard and Premium AI only" is still there.
+  (canva.com 403s to curl — read in a real browser.)
+- **HubSpot** — "Free for up to 2 users. No credit card required.", 1,000
+  contacts, no time limit; Starter list $20/mo/seat. **The only thing that
+  moved:** the promo is now an explicit $7/mo/seat headline ("Save up to 65% on
+  Starter"). The page previously just gestured at "a discounted promotional
+  rate"; it now names the number and says why we still budget against list.
+
+Blinq was re-read as well (same table): 2 free cards, "Free forever", Premium
+$9.99/$7.33, Business $6.99/$4.99, "you choose how many cards to start with
+(minimum of five)" — all unchanged; inline stamp moved 1 Sept -> 3 Sept. Its
+free-plan card does list **"Add to Google or Apple Wallet"**, confirming our
+claim; a summarising fetch asserted Apple-only, and reading the page directly
+is what caught that. Page restamped August -> September 2026 in all 11 places
+(3 meta tags, WebPage JSON-LD, method note, table header, HubSpot cell, both
+copies of the closing FAQ answer) via idempotent
+`seo/refresh_toolkit_sep2026.py`, which records what was checked.
+
+**The quotation sweep the 09-01 run mandated found one real defect.** Standing
+rule since 09-01: re-read quoted STRINGS, not just numbers. Sweeping every
+vendor-attributed quotation on the site (31 distinct strings) re-verified Popl
+("Your AI GTM platform for in-person events" — still the exact h1), Linq (both
+strings the 09-01 fix introduced are correct), Uniqode ("We do not offer monthly
+plans"), Wave Connect ("3 minimum seats", "Remove Wave branding"), V1CE ("From
+£75 one-time"), HiHello ("Free Forever", $6/$72/$5/$60) and Blinq — all exact.
+
+One was not. We printed **“5 card & badge scans/month”** in quotation marks;
+HiHello writes **"5 card & badge scans /mo"** (space, abbreviated). The number
+and meaning were right, so no price diff could ever have caught it — but it was
+presented as a direct quotation in 4 places on `hihello-vs-blinq.html`,
+including inside the FAQPage JSON-LD, i.e. exactly the string an AI engine would
+lift and attribute to HiHello. Corrected to the vendor's literal string in the
+page and in its generator `seo/pages_data15.py` (3 copies) in the same commit.
+The eight other occurrences sitewide are unquoted paraphrase ("capped at 5 card
+& badge scans per month") and were deliberately left alone — the defect is the
+quotation marks, not the fact. Note `seo/refresh_verified_aug2026.py` had
+recorded the correct string all along; the page copy had drifted from the
+verification notes.
+
+**Seventh instance of the stale-claim family, third of the quotation subtype.**
+The subtype now has its own signature: the figure is right, the wording is not,
+and only a string-level re-read finds it.
+
+`add_freshness.py` was deliberately NOT run: its `DATE` constant is still
+`2026-08-02`, so running it would have rolled dateModified BACKWARD across the
+whole site and undone the September stamps. Only the two pages that genuinely
+changed had dateModified and sitemap lastmod moved to 2026-09-03.
+
+Validation: 59 sitemap URLs, `xmllint` clean; 61 content pages each with exactly
+one h1/title/canonical/meta description and valid JSON-LD (the 62nd file is
+Google's bare verification stub); `sync_faq_schema.py` 0 mismatches; the refresh
+script is idempotent (second run = 0 changes); all 13 outbound vendor pricing
+links return 200 (canva.com returns 403 to curl but loads in a browser).
+
+**Off-site: STILL the binding constraint, re-checked 2026-09-03 and unchanged.**
+Product Hunt `/products/companycard` -> 404. Trustpilot
+`/review/company-card.com` -> "The page you're looking for could not be found".
+AlternativeTo search for "companycard" returns Pleo and CompanyCam, not us.
+Capterra: nothing. `sameAs` remains G2 (product + seller) + Chrome Web Store.
+At position 60.7 with one click in 28 days on 3,580 impressions, coverage and
+relevance are demonstrably not the limiter. Only the owner can create these.
+
 ## 2026-09-01
 
 **Google Search Console (read 2026-09-01; indexing data to 8/28, performance to 8/29)**

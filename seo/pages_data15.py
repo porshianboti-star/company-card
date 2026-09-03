@@ -158,7 +158,7 @@ VS = {
        "“Free Forever” — 4 digital business cards, 1 user",
        "“Free forever” — “Two free digital business cards”, unlimited sharing"],
       ["<b>Free-plan catch</b>",
-       "Capped at “5 card &amp; badge scans/month”",
+       "Capped at “5 card &amp; badge scans /mo”",
        "No monthly scan count published; the contact scanner is a Premium feature"],
       ["<b>Included free on both</b>",
        "Personal email signature, virtual backgrounds, Apple &amp; Google wallet, QR/widget/email/SMS sharing",
@@ -228,7 +228,7 @@ VS = {
     "entirely on what you do.",
 
     "HiHello's free plan is generous about <b>having</b> cards and stingy about <b>scanning</b> "
-    "them: four cards, but “5 card &amp; badge scans/month”. That limit is on HiHello's scanner — "
+    "them: four cards, but “5 card &amp; badge scans /mo”. That limit is on HiHello's scanner — "
     "the feature that reads someone else's paper card or event badge into your contacts. Five a "
     "month is enough for ordinary week-to-week networking and runs out in the first hour of a "
     "trade show.",
@@ -306,7 +306,7 @@ VS = {
 
   ("Which has the better free plan, HiHello or Blinq?",
    "It depends on what you do. HiHello's free plan gives 4 digital business cards but caps you at "
-   "“5 card & badge scans/month”. Blinq's gives 2 cards with unlimited sharing and no published "
+   "“5 card & badge scans /mo”. Blinq's gives 2 cards with unlimited sharing and no published "
    "monthly cap, but keeps its contact scanner in the paid Premium tier. If you hand cards out, "
    "HiHello gives you more. If you collect other people's cards, Blinq does not meter you."),
 
