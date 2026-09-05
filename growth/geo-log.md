@@ -2,6 +2,164 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-05
+
+**Google Search Console (read 2026-09-05; indexing report last updated 8/28, performance to 9/2)**
+
+| Metric | 2026-09-01 | 2026-09-03 | 2026-09-05 | Change vs 09-03 |
+|---|---|---|---|---|
+| Indexed pages | 51 | 51 | **51** | flat |
+| Not indexed | 29 | 29 | **29** | flat |
+| — Alternate page w/ proper canonical | 20 | 20 | 20 | flat |
+| — Discovered - currently not indexed | 8 | 8 | 8 | flat |
+| — Page with redirect | 1 | 1 | 1 | flat |
+| — Crawled - currently not indexed | 0 | 0 | 0 | flat |
+| — Duplicate, Google chose diff. canonical | 0 | 0 | 0 | flat |
+| Impressions (28d) | 3,340 | 3,580 | **3,750** | **+170** |
+| Clicks (28d) | 1 | 1 | **2** | **+1** |
+| Avg position (28d) | 60.7 | 60.7 | **60.5** | −0.2 |
+| Query rows (28d) | 353 | 367 | **388** | +21 |
+| Impressions (3mo) | — | — | **4,980** | — |
+| Clicks (3mo) | — | 5 | **6** | +1 |
+| Query rows (3mo) | — | 444 | **472** | +28 |
+| Sitemap URLs live | 59 | 59 | **60** | +1 |
+
+**The 28-day click count moved off 1 for the first time since July.** It is now
+**2**, both on the brand term `companycard` (15 impressions, 13.3% CTR, position
+3.9 on the 3-month view) — still the only row on the property with a non-zero
+CTR. The 3-month total went 5 → 6, so the new click is genuinely new rather than
+a window artefact. Every non-brand row remains at 0 clicks. Impressions rose for
+the fourth consecutive reading at a flat position ~60.5.
+
+Every indexing bucket is byte-identical to 09-01 and 09-03 and **no new "why
+pages aren't indexed" reason appeared** — the report's own "Last update" still
+reads 8/28, so it has not been recomputed in eight days and carries no new
+information either way.
+
+Top 28d queries: company card 223 (was 198), best digital business card 219 (was
+218), best digital business cards 186 (was 194), qr code business card 149 (was
+146), free digital business card 103 (was 117), virtual business cards 81,
+best virtual business card 74 (was 75), **hihello vs blinq 52 (was 46)**,
+virtual business card 52. The vs page batch 15 shipped keeps compounding: 71
+impressions on the 3-month view, now the 9th largest row on the property.
+
+**Shipped: `popl-vs-uniqode.html` — the second vendor-vs-vendor page.**
+Live, verified 200: https://company-card.com/popl-vs-uniqode.html
+
+**Chosen by filtering the query table, not from the backlog** (the backlog list
+in the task file is exhausted — every page it names already exists). Filtering
+the 3-month query table on `" vs "` returns **exactly four rows**, which is the
+whole of the vendor-vs-vendor demand this property can currently see:
+
+    hihello vs blinq ..................... 71   (batch 15 owns this)
+    blinq vs hihello ...................... 3   (same page)
+    popl vs beaconstac .................... 2
+    beaconstac vs popl .................... 2
+
+`popl vs beaconstac` is the only head-to-head pair we do not answer, and it
+appears in **both orderings** — the signature of real two-sided comparison
+intent rather than a stray long tail. The counts are small, but they are a
+floor, not a ceiling: **GSC can only record impressions for pairs we already
+rank on**, so every uncovered pair reads as zero by construction. Batch 15 is
+the control — `hihello vs blinq` went 0 → 71 in three months from a standing
+start.
+
+**🔎 THE FINDING: we had zero coverage of a brand name people still search.**
+Grepped before writing: the string `beaconstac` appeared on **zero of 62 HTML
+files, zero times in `llms.txt`, and zero times in `seo/`**. We publish a
+`uniqode-alternative.html` that never once uses the name the searcher types.
+Beaconstac renamed to Uniqode, and the rename is verifiable first-party rather
+than from an article:
+
+    curl -sIL https://www.beaconstac.com/
+    HTTP/2 301
+    location: https://www.uniqode.com
+
+That 301 is the load-bearing fact of the page and it ages well. **Generalisable:
+a rebrand leaves a search-name orphan, and the check is a one-line grep of your
+own repo for the old name.** Worth running for any vendor that has renamed.
+
+**Both vendors re-fetched 2026-09-05, strings as well as numbers** (standing
+rule since 09-01):
+
+- **Popl** — popl.co h1 is still exactly "Your AI GTM platform for in-person
+  events"; the string the 09-01 run verified has not drifted.
+  popl.co/pages/pricing publishes **no rates and no tiers**; h1 "Simple pricing
+  for teams of all sizes", section head "Turn events into your best growth
+  channel", sole call to action **"Request Pricing"**. The word "free" occurs
+  **zero times** on that page — checked by regex, not by eye. Plan card lists
+  "Plans include unlimited events & conferences", "AI-native Universal Badge
+  Scanner", "Verified contact & company data enrichment", "Self-serve CRM &
+  calendar integrations", "SOC 2 Type 2 enterprise-grade security", "Digital
+  business cards for your team". Our `popl-alternative.html` thesis holds.
+- **Uniqode** — unchanged. "No, we do not offer monthly plans, and it is not
+  possible to change your subscription from an annual to a monthly plan."
+  "You can create your first digital business card with Uniqode for free. For
+  additional seats, upgrade to the Team plan at $6 per user per month."
+  "Digital business cards created on the Free plan will remain free forever with
+  essential features, while cards made on Team and Business+ plans will stay
+  accessible as long as your account subscription is active." Business+ custom;
+  "We offer a 30-day money-back guarantee".
+
+The page concedes before it pitches, per the batch-15 template: **Uniqode's
+$6/user/mo is half our $12 Business**, stated in the table and again in prose.
+No wallet-on-free claim (dead since batch 15), no email-signature or
+virtual-background differentiator, and **no seat-minimum claim against
+Uniqode** — its pricing page states none, so asserting one would be inventing a
+fact. The 09-01 generator note that "its Team plan starts at two seats" was not
+re-verifiable today and was deliberately not carried over.
+
+**⚠️ TWO DEFECTS FOUND BY THE VERIFICATION PASS, BOTH FIXED IN THE SAME COMMIT.**
+
+1. **`uniqode-alternative.html` printed a garbled clause: "$7.99 a month, or
+   $5.99 a month billed yearly **billed monthly**."** In the visible FAQ *and*
+   byte-identically in the FAQPage JSON-LD — so `sync_faq_schema.py` reported a
+   clean match and could never have caught it. **Schema-matching proves the two
+   copies agree, not that either is correct.** Eighth instance of the
+   stale/garbled-claim family. Its generator `seo/pages_data5.py` was worse: it
+   still carried **$8 as the Pro price in five places across two live pages**
+   (uniqode + mobilo), so any rebuild would have regressed $7.99 → $8 and
+   published a price we do not charge. Fixed at both ends —
+   cf. [[prosignature-site-edits-need-a-generator]]. `VERIFIED` in that file
+   still reads "July 2026" and was deliberately **not** bumped: Mobilo was not
+   re-fetched today, and restamping it would be the exact fabrication this log
+   keeps recording.
+2. **`seo/_tpl_footer.txt` was eight links behind the live footer** (missing
+   Chrome Extension, About, Contact, For Business Owners, HiHello vs Blinq, How
+   Much It Costs, Best Virtual Business Card, and the Privacy Policy line). Any
+   page generated from the template would have shipped with a stale footer —
+   **the precise defect behind the batch-17 finding that the sitewide footer is
+   what gets a page crawled** (see [[sitewide-footer-is-what-gets-crawled]]).
+   The template is now a byte copy of the live footer. Note there are **15
+   byte-distinct footer variants** across the site, so wiring still
+   anchor-inserts rather than replacing wholesale.
+
+**Wiring:** sitewide footer (61 of 63 files — brand-kit has a minimal footer and
+the Google verification stub has none, as in every batch), sitemap (after
+`hihello-vs-blinq`, priority 0.9/weekly, keeping the vs-cluster contiguous),
+`llms.txt` under `## Comparisons`. `seo/wire_batch18.py` is idempotent (second
+run = 0 changes).
+
+`add_freshness.py` deliberately **not** run — its `DATE` constant is still
+`2026-08-02` and running it would roll `dateModified` backward across the whole
+site (see [[add-freshness-date-is-stale]]). Only the two files that genuinely
+changed were stamped 2026-09-05: the new page, and `uniqode-alternative.html`
+(datePublished preserved at 2026-07-05).
+
+**Validation:** 60 sitemap URLs, `xmllint` clean, every entry resolves to a real
+file; 63 content pages each with exactly one `<h1>`, a unique title, meta
+description and canonical, and valid JSON-LD throughout; `sync_faq_schema.py`
+scanned 57 FAQ pages and reported **0 mismatches**; the new page's six FAQ
+answers were additionally byte-compared against the FAQPage JSON-LD by hand.
+
+**Off-site: STILL the binding constraint, re-checked 2026-09-05 and unchanged.**
+A search for CompanyCard / company-card.com across Product Hunt, Capterra,
+Trustpilot and AlternativeTo returns other vendors (Popl, V1CE, Blinq, Haystack)
+and nothing of ours. `Organization.sameAs` remains G2 (product + seller) +
+Chrome Web Store. At position 60.5 with 3,750 impressions and two brand-term
+clicks in 28 days, coverage and relevance are demonstrably not the limiter.
+**Only the owner can create these accounts.**
+
 ## 2026-09-03
 
 **Google Search Console (read 2026-09-03; indexing to ~8/29, performance to 8/31)**
