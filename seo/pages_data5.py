@@ -58,12 +58,14 @@ UNIQODE = {
     "uniqode.com/pricing for current terms."),
    ("How is CompanyCard different?",
     "CompanyCard bills monthly, has no seat minimum, and publishes flat rates: free for one card, "
-    "$8 a month for Pro, $12 per user a month for Business. You can add one colleague and pay for "
+    "$7.99 a month for Pro ($5.99 billed yearly), $12 per user a month for Business. You can add one "
+    "colleague and pay for "
     "one colleague, without an annual commitment."),
    ("Is CompanyCard cheaper than Uniqode?",
     "Not on the headline number for a team: Uniqode's Team plan is $6 per user per month against "
     "our $12 Business, though theirs is annual-only and ours is not. For a single person our Pro is "
-    "$8 a month billed monthly. Which is cheaper depends entirely on whether you want to commit for "
+    "$7.99 a month, or $5.99 a month billed yearly. Which is cheaper depends entirely on whether you "
+    "want to commit for "
     "a year — compare on your own headcount and billing preference."),
    ("What do I get free with CompanyCard?",
     "The free plan includes " + FREE_SPEC),
@@ -86,7 +88,7 @@ UNIQODE["sections"] = [
     [["<b>Billing terms</b>", "Annual subscriptions only", "Monthly or annual"],
      ["<b>Team seat minimum</b>", "2 seats on Team", "None"],
      ["<b>Free plan</b>", "1 card, single user, free forever", "1 card, wallet pass, unlimited edits"],
-     ["<b>Published paid rate</b>", "$6/user/mo (annual) Team", "$8/mo Pro · $12/user/mo Business"],
+     ["<b>Published paid rate</b>", "$6/user/mo (annual) Team", "$7.99/mo Pro · $12/user/mo Business"],
      ["<b>Money-back</b>", "30-day guarantee on paid plans", "Free plan — try before paying at all"]],
     note='Read from <a href="https://www.uniqode.com/pricing" target="_blank" rel="noopener nofollow">uniqode.com/pricing</a> in '
          + VERIFIED + '. Terms change — check before deciding.')),
@@ -111,7 +113,7 @@ MOBILO = {
  "faqs": [
    ("Is CompanyCard cheaper than Mobilo?",
     "No, and we would rather say so. As of " + VERIFIED + " Mobilo lists Pro at $3 a month and Teams "
-    "at $4 a month billed annually, against CompanyCard's $8 Pro and $12 per user Business. If the "
+    "at $4 a month billed annually, against CompanyCard's $7.99 Pro and $12 per user Business. If the "
     "monthly number is your deciding factor, Mobilo wins it. The difference is what the products "
     "are: Mobilo is built around NFC cards it sells separately, CompanyCard is software only."),
    ("Do I need to buy an NFC card with Mobilo?",
@@ -132,7 +134,7 @@ MOBILO = {
 MOBILO["sections"] = [
   prose("The honest comparison", [
     "Mobilo makes a good product, offers a free digital card, and its paid plans are cheaper than "
-    "ours — Pro at $3 a month and Teams at $4 billed annually as of " + VERIFIED + ", against our $8 "
+    "ours — Pro at $3 a month and Teams at $4 billed annually as of " + VERIFIED + ", against our $7.99 "
     "and $12. If price is the deciding factor, that is your answer and you should take it.",
     "What you are choosing between is really two shapes of product. Mobilo is built around NFC cards "
     "it sells separately; the tap is the experience. CompanyCard has no hardware at all — sharing is "
