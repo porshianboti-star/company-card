@@ -2,6 +2,131 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-08
+
+**Google Search Console (read 2026-09-08; indexing report last updated 9/4 —
+it recomputed for the first time since 8/28. Performance last updated 5h ago.)**
+
+| Metric | 2026-09-03 | 2026-09-05 | 2026-09-08 | Change vs 09-05 |
+|---|---|---|---|---|
+| Indexed pages | 51 | 51 | **61** | **+10** |
+| Not indexed | 29 | 29 | **22** | **−7** |
+| — Alternate page w/ proper canonical | 20 | 20 | 21 | +1 |
+| — Discovered - currently not indexed | 8 | 8 | **0** | **−8** |
+| — Page with redirect | 1 | 1 | 1 | flat |
+| — Crawled - currently not indexed | 0 | 0 | 0 | flat |
+| — Duplicate without user-selected canonical | 0 | 0 | 0 | flat |
+| — Duplicate, Google chose diff. canonical | 0 | 0 | 0 | flat |
+| Impressions (28d) | 3,580 | 3,750 | **3,880** | **+130** |
+| Clicks (28d) | 1 | 2 | **3** | **+1** |
+| Avg position (28d) | 60.7 | 60.5 | **59.8** | **−0.7** |
+| Query rows (28d) | 367 | 388 | **386** | −2 |
+| Sitemap URLs live | 59 | 60 | **60** | flat |
+
+*(Query-row counts here are the rendered table's data rows. The 387 the DOM
+returns includes the header row — record it the same way each run.)*
+
+**THE INDEXING BACKLOG IS GONE. "Discovered – currently not indexed" 8 → 0.**
+Every "why pages aren't indexed" bucket that represents a *judgement* by Google
+now reads zero: discovered-not-indexed 0, crawled-not-indexed 0, both duplicate
+buckets 0. The 22 remaining exclusions are 21 `/foo` vs `/foo.html` canonical
+alternates (Google consolidating correctly, by design) and 1 redirect. Indexed
+went 51 → 61, which is close to the whole crawlable set.
+
+This closes the thread opened on 08-31 and confirmed on 09-01: the sitewide
+footer is what gets a page crawled (see the memory note of that name). There is
+no longer a coverage problem to solve on this property.
+
+**Avg position went under 60 for the first time (59.8), and clicks moved 2 → 3**
+— all three clicks still on the brand term `companycard` (15 impressions, **20%
+CTR, position 4.6**), still the only row on the property with a non-zero CTR.
+Impressions rose for the fifth consecutive reading.
+
+Top 28d queries: company card 244 (was 223), best digital business card 212
+(was 219), best digital business cards 185 (was 186), qr code business card 155,
+virtual business cards 102, free digital business card 86, best virtual business
+card 77, virtual business card 69, **hihello vs blinq 54 (was 52)**, us digital
+business card market 54, company cards 45, e name card 40, digital business card
+reviews 37, qr code for business card 34, **hihello alternative 33 at position
+31.1** — the best non-brand position on the property.
+
+**The shape is unchanged and now unambiguous: 386 query rows, 3,880
+impressions, and 0 clicks on every non-brand row.** Coverage is finished,
+relevance is landing (the head terms rank 35–47, not 90), and nothing on-site
+moves a page from position 40 to page one. The constraint is authority. See the
+memory note `prosignature-seo-ceiling` for the identical shape on the other
+property.
+
+**Shipped: a correction, not a page.** No new URL this run — the two live
+third-party claims below were wrong, and fixing a wrong competitor price
+outranks adding a 61st page.
+
+Live, verified 200: https://company-card.com/small-business-toolkit-2027.html
+
+**🔎 THE FINDING: a re-verification can confirm the NUMBER and still record the
+wrong CLAIM.** `seo/refresh_toolkit_sep2026.py` re-fetched all eight vendors on
+2026-09-03 and logged every one "UNCHANGED". Two of those readings were wrong,
+and both survived because the figure on our page really does appear on the
+vendor's page:
+
+1. **Calendly.** Our page said Standard is "$10 per seat per month billed
+   monthly". calendly.com/pricing defaults to its **"Billed yearly" toggle**, so
+   the $10 that renders is the *annual* rate. The page's own embedded price data
+   is unambiguous — for the plan whose lead-in is "Everything in Free, and:"
+   (Standard): `USD {"monthly":"$12","annual":"$10","annualSavingsPercentage":17}`,
+   and 12 × (1 − 0.17) = 9.96 ≈ 10. We understated the monthly price by $2 and
+   attached the wrong qualifier. The 09-03 script compounded it by deriving a
+   phantom "annual ~$8.40" — a second discount applied to an already-discounted
+   number.
+2. **Bitwarden.** Our page put "share with one other user" in the **free**
+   column. bitwarden.com/pricing/ lists "Share vault items with one other user"
+   inside the **Premium** feature list; the free tier is described only as
+   "basic password management … Always free". Their sharing comparison agrees:
+   "Premium — Share items with one other existing Bitwarden user".
+
+**Generalisable: price-diffing cannot catch this class of error.** The number is
+still on the vendor's page, so a diff reports "unchanged". Read the *billing
+toggle* and the *tier a feature sits under*, not just the figure. This is the
+seventh and eighth member of the stale-claim family, and the first two where the
+error was in a qualifier rather than in a value or a quotation.
+
+**Re-verified 2026-09-08 and genuinely unchanged** (no edit needed): Trello
+("Free for up to 10 collaborators per Workspace", "Up to 10 boards per
+Workspace", Standard "$5 USD Per user/month if billed annually ($6 billed
+monthly)"); Wave ("STARTER Plan … $0", auto-import bank transactions is Pro-only,
+Pro "$19 USD/month Billed monthly", $190/yr — a $9.50-for-3-months promo is
+running and we deliberately quote the list price that renews); Zoho Invoice
+("Add up to two users. Create a maximum of three projects. Send up to 500
+invoices per year.", "if a user is inactive for over 180 days, their associated
+data will be deleted in the subsequent 20 days", no paid tier inside the product
+— "Explore Zoho Billing").
+
+**NOT re-fetched: Canva and HubSpot** (both 403/JS-gate to curl, and the browser
+extension dropped repeatedly this session). Those two rows are untouched and
+keep their 2026-09-03 reading; the table's "verified Sep 2026" stamp stays
+literally true for every row. **Next run: read those two in a browser.**
+
+**⚠️ `seo/add_freshness.py` still hardcodes `DATE = "2026-08-02"`.** Running it,
+as the task file says to, would roll `dateModified` **backward** from September
+to 2 August across the whole site. Not run. The one changed page had its
+`dateModified` and its `sitemap.xml` `lastmod` set to 2026-09-08 directly.
+
+**Integrity note:** the wrong readings are recorded in
+`seo/refresh_toolkit_sep2026.py`, which future runs will read as a verification
+record. Its docstring now carries a "SUPERSEDED IN PART" header naming both
+errors, so the file cannot quietly re-teach them.
+
+**Off-site: STILL the binding constraint, 2026-09-08.** Product Hunt returns 404
+for a CompanyCard product; Capterra / AlternativeTo / Trustpilot all 403 to curl
+(bot-block, not evidence of absence) and the browser dropped before they could be
+read, so treat those three as **unresolved this run**, not as confirmed absent.
+`Organization.sameAs` is unchanged: G2 seller + G2 product + Chrome Web Store.
+The Chrome Web Store URL resolves 200; **the two G2 URLs could not be confirmed
+this run** (403 to curl, browser unavailable) — worth confirming next run that
+what we assert in `sameAs` actually resolves. Only the owner can create the
+missing profiles.
+
+
 ## 2026-09-05
 
 **Google Search Console (read 2026-09-05; indexing report last updated 8/28, performance to 9/2)**

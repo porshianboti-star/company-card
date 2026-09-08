@@ -1,5 +1,25 @@
 #!/usr/bin/env python3
 """
+!! SUPERSEDED IN PART -- see seo/fix_toolkit_prices_2026_09_08.py !!
+
+Two of the readings recorded below were WRONG and were corrected on 2026-09-08:
+
+  * Calendly: this file records "Standard $10/seat/mo (annual ~$8.40)".
+    The $10 shown on calendly.com/pricing is the ANNUAL rate -- the table
+    defaults to its "Billed yearly" toggle. The page's own embedded price data
+    reads USD monthly "$12" / annual "$10" / annualSavingsPercentage 17.
+    The "~$8.40" was a phantom: a second discount applied to an already-
+    discounted number.
+  * Bitwarden: this file records the free tier as including "sharing with one
+    other user". bitwarden.com/pricing/ lists "Share vault items with one other
+    user" under PREMIUM; the free tier is "basic password management ...
+    Always free".
+
+Both were logged here as "UNCHANGED", which was true of the numbers and false
+of the qualifiers attached to them. A price-diff cannot catch that class of
+error -- the number on our page still appears on the vendor's page. Read the
+billing toggle and the tier a feature sits under, not just the figure.
+
 Re-verification of the NON-CARD vendors cited on small-business-toolkit-2027.html,
 and the September 2026 date restamp for that page.
 
