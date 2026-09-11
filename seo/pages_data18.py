@@ -52,6 +52,10 @@ their numbers stay right.
     section head "Turn events into your best growth channel". NO rates and NO
     tiers are published; the call to action is "Request Pricing". The word
     "Free" occurs ZERO times in the page text (checked by regex, not by eye).
+    [SUPERSEDED 2026-09-11: re-fetched, and "free" occurs ONCE, in the footer
+    link "Get the free mobile app". Whether it was added after 09-05 or was
+    stripped by the 09-05 extraction cannot be told now; the page copy no
+    longer says "does not appear at all". A free PLAN is still not listed.]
     The single plan card lists: "Plans include unlimited events & conferences",
     "AI-native Universal Badge Scanner", "Verified contact & company data
     enrichment", "Event campaigns & qualifying questions", "Self-serve CRM &
@@ -145,8 +149,9 @@ PAGE = {
    ("How much does Popl cost?",
     "Popl does not say. As of " + VERIFIED + " its pricing page publishes no rates and no tiers "
     "— the page is headed \"Simple pricing for teams of all sizes\" and the only call to "
-    "action is \"Request Pricing\". The word \"free\" does not appear on it at all, so there is "
-    "no free plan to compare against. You will find out the number on a call."),
+    "action is \"Request Pricing\". No free plan is listed on it — the only use of the word "
+    "\"free\" on the page is the footer link \"Get the free mobile app\" (re-read 11 September "
+    "2026) — so there is no free plan to compare against. You will find out the number on a call."),
    ("How much does Uniqode cost, and does it bill monthly?",
     "As of " + VERIFIED + " Uniqode's first digital business card is free, additional seats are "
     "on the Team plan at $6 per user per month, and Business+ is custom-priced. Billing is annual "
@@ -207,7 +212,7 @@ PAGE["sections"] = [
        "Yes — Team <b>$6 per user per month</b>; Business+ custom",
        "Yes — Free, Pro $7.99/mo, Business $12/user/mo"],
       ["<b>Free plan</b>",
-       "None published — the word “free” does not appear on the pricing page",
+       "None published — the pricing page lists no free plan; the only “free” on it is the footer's “Get the free mobile app”",
        "First card free, and free-plan cards “remain free forever with essential features”",
        "1 card, QR &amp; link sharing, Apple and Google Wallet — carries a small CompanyCard credit"],
       ["<b>Monthly billing</b>",
