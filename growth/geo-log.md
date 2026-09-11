@@ -2,6 +2,154 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-11
+
+**Google Search Console (read 2026-09-11 from the in-app browser; indexing
+report "Last update: 9/4/26" — NOT recomputed since the 09-08 read, so the
+indexing row is a repeat, not a reading. Performance window 8/12–9/8.)**
+
+| Metric | 2026-09-05 | 2026-09-08 | 2026-09-11 | Change vs 09-08 |
+|---|---|---|---|---|
+| Indexed pages | 51 | 61 | 61 | flat (report not recomputed) |
+| Not indexed | 29 | 22 | 22 | flat (21 alternate-canonical + 1 redirect) |
+| — Discovered / Crawled – not indexed | 8 / 0 | 0 / 0 | 0 / 0 | flat |
+| Impressions (28d) | 3,750 | 3,880 | **4,090** | **+210** |
+| Clicks (28d) | 2 | 3 | 3 | flat |
+| Avg position (28d) | 60.5 | 59.8 | **59.3** | **−0.5** |
+| Query rows (28d) | 388 | 386 | **388** | +2 |
+| Sitemap URLs live | 60 | 60 | **61** | **+1** |
+| Sitemap — GSC discovered / last read | 60 / Sep 5 | 60 / — | 60 / **Sep 9** | Google re-read on its own |
+
+*(Query rows = DOM table data rows; the 389 the table returns includes the
+header. Recorded the same way as 09-08.)*
+
+Impressions rose for the **sixth consecutive reading** and average position
+improved again (59.8 → 59.3). Clicks are flat at 3, all on the brand term
+`companycard` (17 impr, 17.6% CTR, position 4.3) — still the only non-zero-CTR
+row on the property. Sitemap resubmission was NOT done this run (GSC re-read
+the file on Sep 9 unprompted; it will pick up the 61st URL the same way).
+
+Top 28d queries: company card 265 (was 244), best digital business card 207
+(was 212), best digital business cards 179, qr code business card 159,
+virtual business cards 115 (was 102, pos 34.0), free digital business card 85,
+virtual business card 80, best virtual business card 79 (pos 35.1), us digital
+business card market 54, **hihello vs blinq 53 (pos 51.2)**, company cards 45,
+e name card 40, **hihello alternative 39 at position 29.7** (was 33 @ 31.1 —
+best non-brand position on the property, still improving), **popl alternative
+38 at 39.3** (first time in the top 15), qr code for business card 37.
+
+**The Popl cluster is now visible as a cluster:** popl alternative 38, popl
+alternatives 10, popl competitors 9 = 57 impressions, plus best popl
+alternatives 2026 (1). The Blinq cluster is long-tail only: blinq alternative
+6, is blinq free 2, and six one-impression pricing queries (blinq pricing,
+blinq cost, how much does blinq cost, how much is blinq business card, blinq
+premium, blinq digital business card pricing 2026). **"popl vs blinq" /
+"blinq vs popl" read 0** — by construction, since we had no page until today.
+That is the control: hihello vs blinq read 0 before batch 15 and is 53 now.
+
+**Shipped: batch 21 — `blinq-vs-popl.html`, the third vendor-vs-vendor page.**
+Live, verified 200 (both forms): https://company-card.com/blinq-vs-popl.html
+Sitemap 60 → 61. Footer link on 62 pages, llms.txt line under Comparisons.
+
+**How the page was picked.** The Chrome extension reported no connected
+browser for the entire session, so the pick was made from first-party
+evidence before GSC could be read (the GSC read above came later, from the
+in-app browser — see the tooling note). blinq.me/pricing's own footer links a
+"Blinq vs Popl" page and popl.co publishes /pages/popl-vs-blinq; when both
+vendors in a pair spend a page on the comparison, the pair has demand. A
+repo-wide grep for blinq-vs-popl / popl-vs-blinq found zero hits. The GSC
+read afterwards agreed: the Popl cluster is the largest competitor cluster
+on the property after HiHello, and neither vendor pair page existed.
+
+**Both vendors re-fetched 2026-09-11.** Blinq — unchanged numbers (Free $0 /
+two cards; Premium $9.99 / $7.33 annual, up to five cards; Business $6.99 /
+$4.99 annual; minimum of five; "Admins and team members who don't have a card
+assigned aren't billed"). **One wording moved:** the Business plan card now
+reads "$6.99 / month Billed monthly, **per user**" while the billing FAQ on
+the same page still says "billed **per card**, per month". Both strings are
+on the page today; the new page reproduces both instead of picking one.
+Existing pages that say "per card" cite the FAQ, which still holds — left
+alone. Popl — h1 and pricing-page h1 still exact; no rates, no tiers;
+homepage FAQ offers "free trials and personalized demos" (a trial, not a
+plan). **New since 09-05:** a "Popl for Individuals" block on the pricing
+page whose link (poplco.app.link/pricing) answers HTTP 307 to
+popl.co/pages/download-popl — so the individual price is not on the web
+either; the path to it is an app install. Recorded on the page as a fact,
+with the redirect as evidence.
+
+**🔎 Correction carried in the same commit — ninth member of the stale-claim
+family.** `popl-vs-uniqode.html` (batch 19, 09-05) stated that the word
+"free" "does not appear on [Popl's pricing page] at all" — in the visible
+FAQ, the FAQPage JSON-LD and a table cell. Re-fetched today it appears
+**once**, in the footer link "Get the free mobile app". Whether the footer
+changed after 09-05 or the 09-05 extraction stripped it cannot be told now.
+Corrected at both ends (page + `seo/pages_data18.py`, whose docstring now
+carries a SUPERSEDED note on the original reading). The substantive claim —
+no free *plan* — still holds. **Lesson: an absolute ("does not appear at
+all") is the most fragile kind of claim; prefer "lists no free plan".**
+
+**`seo/_tpl_footer.txt` was one link behind the live footer again** (missing
+Popl vs Uniqode, added by the previous batch's wiring but not to the
+template). Brought level BEFORE rendering; the new page's footer is
+link-for-link equal to about.html's. This is the second run in a row the
+template was behind — **the wiring script should update the template too.**
+
+**Toolkit page: Canva and HubSpot re-verified, both unchanged** (the 09-08
+carry-over). Read in the in-app browser, JS-rendered. HubSpot: "$0/mo Free
+for up to 2 users. No credit card required", "You can add 1,000 contacts, and
+your free access has no time limit", Starter "Starts at $7/mo/seat" with
+"$20/mo/seat" struck through — the promo is still "Save up to 65% on
+Starter … New customers only". Canva: Pro "US$ 120 /year for one person";
+Free "AI usage: Up to 20 Standard or Premium AI uses"; Pro "10x more AI than
+Canva Free (Premium or Ultra AI)". Every row on
+`small-business-toolkit-2027.html` has now been re-read in September; no
+edit needed and its stamp stays.
+
+**✅ The two G2 `sameAs` URLs resolve** (the other 09-08 carry-over; first
+confirmation from a session since 08-02):
+- https://www.g2.com/products/companycard/reviews → 200, title "CompanyCard
+  Reviews 2026: Details, Pricing, & Features | G2", listed under Digital
+  Business Card, 0 reviews, "Pricing details for this product isn't
+  currently available".
+- https://www.g2.com/sellers/companycard → 200, "CompanyCard Products | Read
+  0 Reviews on G2", 1 product, 1 category.
+- **⚠️ The product profile shows "Unclaimed Profile — Claim Now" and "Work at
+  CompanyCard? Claim this profile to respond to reviews, update product info,
+  and reach in-market buyers."** The listing exists and is ours, but G2 does
+  not consider it claimed. Claiming it and filling in pricing is a free,
+  owner-only action (account login) — the cheapest off-site improvement
+  available.
+
+**Off-site, checked 2026-09-11 from the in-app browser (not curl):**
+Trustpilot /review/company-card.com → "The page you're looking for could not
+be found" (no profile). Product Hunt search "companycard" → other products
+only (Pleo, Friday Finance …). AlternativeTo search → Pleo and CompanyCam
+only. Capterra's search page ignored the query parameter both ways
+(`?search=` and `?q=` both rendered "Search results for ''") — unresolved,
+not absent. **STILL the binding constraint.** `Organization.sameAs` unchanged:
+G2 seller + G2 product + Chrome Web Store.
+
+**Tooling notes for the next run.** (1) The Chrome extension
+(`claude-in-chrome`) returned "not connected" / `list_connected_browsers: []`
+for the whole session — retries and confirming Chrome was running did not
+help. (2) **The in-app Browser pane (`Claude_Browser`) reached Search Console
+signed in, and read G2, Canva, HubSpot, Trustpilot, Product Hunt and
+AlternativeTo — all of which 403 or JS-gate to curl.** Use it first; it does
+not depend on the extension. `document.querySelectorAll('table tr')` on the
+GSC performance page returns all 388 query rows in one call. (3)
+`seo/add_freshness.py` still hardcodes `DATE = "2026-08-02"`; not run. The
+two changed pages were stamped directly by `seo/wire_batch19.py`. (4)
+Netlify rewrites `.html` hrefs to extensionless paths at build time, so
+`grep blinq-vs-popl.html` against a live page returns 0 while the link is
+present as `/blinq-vs-popl` — grep the slug, not the filename.
+
+**Validation:** one `<h1>`, title, meta description, canonical, three JSON-LD
+blocks parse (FAQPage, BreadcrumbList, WebPage); the six visible FAQ answers
+byte-match the FAQPage schema; `sync_faq_schema.py` → 0 mismatches across 58
+FAQ pages; `xmllint --noout sitemap.xml` clean; no `$8`; wallet, email
+signature and virtual background appear only attributed to Blinq's free plan.
+
+
 ## 2026-09-08
 
 **Google Search Console (read 2026-09-08; indexing report last updated 9/4 —
