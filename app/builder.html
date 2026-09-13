@@ -237,6 +237,14 @@
   var qs = new URLSearchParams(location.search);
   var existing = qs.get("id") ? CC.get(qs.get("id")) : null;
   var card = existing || CC.blank();
+  // Round 69: the mini-builder on the marketing pages hands its six fields over
+  // as ?prefill=1&name=...&phone=... so the visitor does not retype them.
+  if (!existing && qs.get("prefill")) {
+    ["name", "title", "company"].forEach(function (k) { if (qs.get(k)) card[k] = qs.get(k); });
+    var pre = { phone: qs.get("phone"), email: qs.get("email"), website: qs.get("website") };
+    card.fields = [{ type: "phone", value: pre.phone || "", label: "" }, { type: "whatsapp", value: "", label: "" }, { type: "email", value: pre.email || "", label: "" }, { type: "website", value: pre.website || "", label: "" }, { type: "instagram", value: "", label: "" }];
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  }
   if (!card.fields.length && !existing) {
     card.fields = [{ type: "phone", value: "", label: "" }, { type: "whatsapp", value: "", label: "" }, { type: "email", value: "", label: "" }, { type: "website", value: "", label: "" }, { type: "instagram", value: "", label: "" }];
   }
