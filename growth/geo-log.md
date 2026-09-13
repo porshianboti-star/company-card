@@ -2,6 +2,167 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-13
+
+**Google Search Console (read 2026-09-13 from the in-app browser; performance
+"Last update: 5.5 hours ago"; indexing report STILL "Last update: 9/4/26" —
+the indexing row is a repeat for the third read running, not a reading.)**
+
+| Metric | 2026-09-08 | 2026-09-11 | 2026-09-13 | Change vs 09-11 |
+|---|---|---|---|---|
+| Indexed pages | 61 | 61 | 61 | flat (report not recomputed since 9/4) |
+| Not indexed | 22 | 22 | 22 | flat (2 reasons) |
+| Impressions (28d) | 3,880 | 4,090 | **4,190** | **+100** |
+| Clicks (28d) | 3 | 3 | 3 | flat |
+| Avg position (28d) | 59.8 | 59.3 | **58.7** | **−0.6** |
+| Query rows (28d) | 386 | 388 | **394** | +6 |
+| Sitemap URLs live | 60 | 61 | **62** | **+1** |
+| Sitemap — GSC discovered / last read | 60 / — | 60 / Sep 9 | **62 / Sep 13** | resubmitted; re-read same minute |
+
+*(Query rows = DOM table data rows; the table returned 395 rows including
+the header. Same method as 09-08 and 09-11.)*
+
+Impressions rose for the **seventh consecutive reading** and average position
+improved for the third (59.8 → 59.3 → 58.7). Clicks flat at 3, all on the
+brand term `companycard` (15 impr, 20% CTR, position 4.6) — still the only
+non-zero-CTR row. Sum of impressions across the 394 query rows = 3,381; the
+header's 4.19K includes rows below the table's anonymised threshold.
+
+Top 28d queries: company card 266, best digital business card 210 (pos
+46.2), best digital business cards 173 (40.6), qr code business card 155,
+virtual business cards 122 (**32.4**, was 34.0), virtual business card 84,
+free digital business card 80, best virtual business card 76 (35.2),
+**hihello vs blinq 52 (51.6)**, us digital business card market 51, **popl
+alternative 47 at 40.2** (was 38 @ 39.3), company cards 45, **hihello
+alternative 40 at 28.4** (was 39 @ 29.7 — still the best non-brand position
+and still improving), e name card 38, qr code for business card 36, digital
+business card reviews 33 (59.7), digital business cards for realtors 33 +
+digital business card for realtors 33 (72–77). New in the top 40: **uniqode
+annual plan discount 5 impressions at position 10.0** — the highest position
+any non-brand row has ever held on this property; it lands on
+uniqode-alternative.html's "annual only" section.
+
+**Competitor clusters, 28d:** HiHello 100 (vs blinq 52 + alternative 40 +
+pricing 5 + alternatives 3) · Popl 71 (alternative 47 + alternatives 12 +
+competitors 11 + best … 2026 1) · Blinq 17 · Uniqode 7 · Wave 3 · V1CE 3.
+The only " vs " rows are hihello vs blinq 52 and popl/beaconstac 2+2 —
+every other pair reads 0 by construction, as before.
+
+**Shipped: batch 22 — `hihello-vs-popl.html`, the fourth vendor-vs-vendor
+page.** Live, verified 200 (both forms): https://company-card.com/hihello-vs-popl.html
+Sitemap 61 → 62. Footer link on 64 files (63 pages + `seo/_tpl_footer.txt`),
+llms.txt line under Comparisons. Commit `e40027d`.
+
+**How the page was picked.** The two largest competitor clusters on the
+property, paired: HiHello (100) and Popl (71) are the vendors searchers
+already reach this site for, and no page put them side by side. First-party
+evidence the same day: popl.co/pages/popl-vs-hihello (200, "Teams choose
+Popl over HiHello for better team functionality") and hihello.com/vs/popl
+(200) — both vendors spend a page on the pair. Repo grep for
+hihello-vs-popl / popl-vs-hihello: zero hits. Concession-first template
+(batch 15/19/21): CompanyCard appears after the question is answered, and
+the page names where it loses.
+
+**🔎 TENTH STALE-CLAIM: HiHello's $6 / $5 are the YEARLY-billed rates.**
+Re-verifying HiHello for the new page: hihello.com/pricing opens with a
+"Billed yearly up to 25% off" switch turned ON, so curl and every earlier
+read saw "Professional … $6 per month $72 billed yearly" and "Business … $5
+per user/month $60 per user/year". The page's own JavaScript carries
+`MONTHLY = {Professional: '$8', Business: '$6'}` with note 'billed monthly';
+clicking the switch off in the in-app browser rendered **"$8 per month
+billed monthly"** and **"$6 per user/month billed monthly"**. Every page on
+this site quoted $6 and $5 as HiHello's monthly prices, and
+`hihello-vs-blinq.html` (52 impressions — our biggest vs page) compared them
+to Blinq's MONTHLY-billed $9.99 / $6.99 and concluded "HiHello wins on
+price, at every tier". Like for like:
+
+| | monthly | yearly |
+|---|---|---|
+| Individual: HiHello Professional vs Blinq Premium | $8 vs $9.99 | $6 vs $7.33 |
+| Team: HiHello Business vs Blinq Business | $6 vs $6.99 /user | $5 vs $4.99 |
+
+HiHello is cheaper for one person on either term; the team tier is a near
+tie that the billing term decides (a cent in Blinq's favour yearly). Two
+further sentences fell with it: "HiHello and Blinq are both cheaper than
+CompanyCard at every paid tier" (HiHello Professional $8/$6 and CompanyCard
+Pro $7.99/$5.99 are within a cent on either term — HiHello's includes 16
+cards to our 1) and the seat-floor arithmetic "$24 against a five-user
+HiHello floor of $25" (mixed our monthly with their yearly; it is $24 vs $30
+monthly or $20 vs $25 yearly). **Same shape as the Calendly finding of
+09-08 — the number is on the vendor's page, the billing term under it was
+not read — and the second time in five days. Rule: READ THE BILLING TOGGLE,
+on every vendor, every run.**
+
+Corrected in the same commit by `seo/fix_hihello_billing_2026_09_13.py`
+(every replacement asserts its exact count; idempotent; 34 replacements):
+hihello-vs-blinq (12 targets, FAQ visible + JSON-LD), digital-business-card-
+cost (3), best-digital-business-card, free-digital-business-card-comparison,
+hihello-alternative, blinq-alternative (2), llms.txt (2), and generators
+pages_data15 / 14 / 4 / 2 + add_vendor_matrix. `pages_data15.py` carries a
+SUPERSEDED note: its remaining $6/$5 strings would regress the live page on
+rebuild unless the fix script is run again. hihello-vs-blinq's visible
+stamps moved 1 → 13 September 2026 (both its vendors and our pricing page
+were re-fetched today); the other five corrected pages keep their stamps —
+only their HiHello cells changed, and those now carry the billing term.
+dateModified + sitemap lastmod moved on all seven changed pages.
+
+**Also corrected: a misleading edge in llms.txt.** It said our free plan
+"has no monthly scan cap" against HiHello's 5 — our free plan has no card
+scanner at all (lead capture is a Pro feature, as hihello-alternative.html
+states). Zero scans is not an edge over five. The new page was drafted with
+the same claim and it was removed before render; llms.txt now says "no card
+scanner — lead capture is a Pro feature".
+
+**Both vendors re-fetched 2026-09-13.** HiHello: Personal free forever, 4
+cards, 5 card & badge scans/mo, wallet, signature, backgrounds; Professional
+$8/mo monthly or $72/yr ($6/mo) yearly, 1 user, 16 cards, 20 scans;
+Business $6/user/mo monthly or $60/user/yr ($5) yearly, 5–100 users;
+Enterprise 101+ custom. HiHello's own JSON-LD still says "Subscriptions
+start at $3.00/month" — a stale string on their side, not quoted. Popl:
+homepage and pricing h1s exact vs 09-11; no rates, no tiers; "Request
+Pricing" ×2, "Book a Demo"; "free" once (footer app link); Individuals link
+still 307 → download-popl. **New first-party string recorded:** pricing FAQ
+"Does Popl charge per seat or per license? No. Popl's pricing is
+all-inclusive — you won't be charged extra per user, per seat, or per
+license." — a structural difference from HiHello's per-user billing, quoted
+on the page. Blinq re-fetched too (unchanged: $9.99/$7.33, $6.99/$4.99 per
+user, two free cards, up to five, minimum of five, per card FAQ).
+
+**⚠️ Latent rebuild regression, NOT fixed today:** `seo/pages_data.py`, `2`,
+`4`, `6`, `7`, `9`, `10` and `add_vendor_matrix.py` still carry the "$8 Pro"
+shorthand (the live pages say $7.99 — patched by refresh scripts, never in
+the generators). Only the one `pages_data2.py` cell touched today was
+corrected. Never rebuild those pages without a `$8 → $7.99` pass.
+
+**`seo/_tpl_footer.txt` was one link behind the live footer for the THIRD
+run running** (missing Blinq vs Popl). Levelled before rendering, and
+`wire_batch20.py` now patches the template as one more target, so from this
+batch the wiring script cannot leave it behind.
+
+**Off-site, checked 2026-09-13 (G2 in the in-app browser):** G2 product
+profile unchanged — "0/5 (0) Unclaimed Profile Claim Now", "Pricing details
+for this product isn't currently available". Trustpilot / Product Hunt /
+AlternativeTo / Capterra not re-checked today (last read 09-11: none / none
+/ none / unresolved). **STILL the binding constraint.** `Organization.sameAs`
+unchanged: G2 seller + G2 product + Chrome Web Store. Claiming the G2
+profile is the cheapest owner-only action available.
+
+**Tooling notes.** (1) `gh repo clone` and a plain `git clone --depth 50`
+each took >2 minutes and were backgrounded; the plain clone completed. (2)
+The in-app Browser pane reached GSC signed in again, first try; the auto-mode
+classifier timed out once on `navigate` and worked on retry. (3) The Sitemaps
+"SUBMIT" button is at (727,187) after a coordinate-click into the field at
+(570,187); GSC re-read the sitemap the same minute (60 → 62 discovered).
+(4) Reading a G2 count with a loose regex matched "G2 reviews are authentic"
+as "2 reviews" — read the "(0)" next to the star rating instead.
+
+**Validation:** one `<h1>`, title, meta description, canonical, three JSON-LD
+blocks parse (FAQPage, BreadcrumbList, WebPage) on all seven changed pages;
+`sync_faq_schema.py` → 0 mismatches across 59 FAQ pages; `xmllint --noout
+sitemap.xml` clean; no `$8 Pro` and no scan-cap claim on the new page;
+wallet, email signature and virtual background appear only attributed to
+HiHello's free plan (plus our own Wallet row).
+
 ## 2026-09-11
 
 **Google Search Console (read 2026-09-11 from the in-app browser; indexing
