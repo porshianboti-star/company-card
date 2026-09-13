@@ -32,8 +32,8 @@
   .builder input:focus { outline:none; border-color:var(--indigo-500); background:#fff; }
   .builder input.full { grid-column: span 2; }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://company-card.com/#organization", "name": "CompanyCard", "disambiguatingDescription": "A digital business card app for sharing your contact details by QR code, link or wallet pass. Not a corporate credit card, company expense card or spend-management service.", "url": "https://company-card.com", "logo": "https://company-card.com/assets/png/logo-icon.png", "description": "CompanyCard is a digital business card for small business owners, self-employed professionals and teams — share your details by QR code, link, Apple or Google Wallet with no app for the person receiving it. A free plan is available.", "sameAs": ["https://www.g2.com/sellers/companycard", "https://www.g2.com/products/companycard/reviews", "https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa"]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://company-card.com/#website", "name": "CompanyCard", "url": "https://company-card.com/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://company-card.com/#organization", "name": "CompanyCard", "alternateName": "CompanyCard digital business card", "disambiguatingDescription": "A digital business card app for sharing your contact details by QR code, link or wallet pass. Not a corporate credit card, company expense card or spend-management service.", "url": "https://company-card.com", "logo": "https://company-card.com/assets/png/logo-icon.png", "description": "CompanyCard is a digital business card for small business owners, self-employed professionals and teams — share your details by QR code, link, Apple or Google Wallet with no app for the person receiving it. A free plan is available.", "sameAs": ["https://www.g2.com/sellers/companycard", "https://www.g2.com/products/companycard/reviews", "https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://company-card.com/#website", "name": "CompanyCard", "alternateName": "CompanyCard digital business card", "url": "https://company-card.com/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://company-card.com/#software", "name": "CompanyCard", "disambiguatingDescription": "A digital business card app for sharing your contact details by QR code, link or wallet pass. Not a corporate credit card, company expense card or spend-management service.", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "url": "https://company-card.com/", "description": "Digital business card builder for small business owners, self-employed professionals and teams: QR code, sharing link, Apple and Google Wallet pass, email signature and virtual background — no app required for the person receiving the card. Free plan available; no seat minimum on team plans.", "sameAs": ["https://www.g2.com/sellers/companycard", "https://www.g2.com/products/companycard/reviews", "https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free plan: full digital business card with QR code, link and unlimited updates."}}</script>
 
 
@@ -48,7 +48,7 @@
 
 
 <!-- FRESH:BEGIN -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Free Digital Business Card for Small Business & Self-Employed | CompanyCard","url":"https://company-card.com/","datePublished":"2026-07-05","dateModified":"2026-08-02","isPartOf":{"@type":"WebSite","name":"CompanyCard","url":"https://company-card.com/"},"publisher":{"@type":"Organization","name":"CompanyCard","disambiguatingDescription":"A digital business card app for sharing your contact details by QR code, link or wallet pass. Not a corporate credit card, company expense card or spend-management service.","url":"https://company-card.com/"},"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Free Digital Business Card for Small Business & Self-Employed | CompanyCard","url":"https://company-card.com/","datePublished":"2026-07-05","dateModified":"2026-08-02","isPartOf":{"@type":"WebSite","name":"CompanyCard","alternateName":"CompanyCard digital business card","url":"https://company-card.com/"},"publisher":{"@type":"Organization","name":"CompanyCard","alternateName":"CompanyCard digital business card","disambiguatingDescription":"A digital business card app for sharing your contact details by QR code, link or wallet pass. Not a corporate credit card, company expense card or spend-management service.","url":"https://company-card.com/"},"inLanguage":"en"}</script>
 <!-- FRESH:END -->
 </head>
 <body>
@@ -182,10 +182,7 @@
         <div class="reel-glow"></div>
         <div class="clip-square">
           <span class="reel-tag"><span class="pd"></span> LIVE DEMO</span>
-          <video autoplay loop muted playsinline poster="assets/video/card-edit-poster.jpg" aria-label="Customising a CompanyCard digital business card">
-            <source src="assets/video/card-edit.webm" type="video/webm">
-            <source src="assets/video/card-edit.mp4" type="video/mp4">
-          </video>
+          <video class="lazyvid" autoplay loop muted playsinline preload="none" poster="assets/video/card-edit-poster.jpg" aria-label="Customising a CompanyCard digital business card" data-src-webm="assets/video/card-edit.webm" data-src-mp4="assets/video/card-edit.mp4"></video>
         </div>
       </div>
     </div>
@@ -194,9 +191,7 @@
 
 <!-- CINEMATIC BRAND FILM -->
 <section class="film-band">
-  <video class="bgvid" autoplay loop muted playsinline poster="assets/video/brand-film-poster.jpg" aria-label="People connecting at an event with CompanyCard">
-    <source src="assets/video/brand-film.mp4" type="video/mp4">
-  </video>
+  <video class="bgvid lazyvid" autoplay loop muted playsinline preload="none" poster="assets/video/brand-film-poster.jpg" aria-label="People connecting at an event with CompanyCard" data-src-webm="assets/video/brand-film.webm" data-src-mp4="assets/video/brand-film.mp4" data-min-width="768"></video>
   <div class="scrim"></div>
   <div class="container">
     <span class="badge-film reveal"><span class="pd"></span> Real connections, in the wild</span>
@@ -514,6 +509,27 @@ document.addEventListener('click',function(e){
     gtag('event','signup_click',{page_location:location.pathname});
   }
 });
+</script>
+<script>
+// Round 69 (2026-09-13): the homepage shipped 5.66 MB to a phone, 4.7 MB of it a
+// background film behind a scrim. Sources are attached only when the video is
+// about to scroll into view, never on Save-Data, and the film never on phones.
+(function(){
+  var vids=document.querySelectorAll('video.lazyvid'); if(!vids.length) return;
+  var conn=navigator.connection||{}; var saveData=!!conn.saveData;
+  function attach(v){
+    if(v.dataset.done) return; v.dataset.done='1';
+    var minW=parseInt(v.dataset.minWidth||'0',10);
+    if(saveData || (minW && window.innerWidth<minW)) return;   // poster only
+    ['webm','mp4'].forEach(function(t){ var src=v.dataset['src'+t.charAt(0).toUpperCase()+t.slice(1)]; if(!src) return;
+      var s=document.createElement('source'); s.src=src; s.type='video/'+t; v.appendChild(s); });
+    v.load(); var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ attach(e.target); io.unobserve(e.target);} }); },{rootMargin:'200px 0px'});
+    vids.forEach(function(v){ io.observe(v); });
+  } else { vids.forEach(attach); }
+})();
 </script>
 </body>
 </html>

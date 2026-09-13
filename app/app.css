@@ -100,6 +100,9 @@ body { background: var(--slate-50); }
 
 /* ---------- Builder ---------- */
 .build { max-width: 1120px; margin: 0 auto; padding: 28px 20px 90px; display: grid; grid-template-columns: 1fr 384px; gap: 34px; align-items: start; }
+.build-head { grid-column: 1 / -1; max-width: 72ch; margin-bottom: 4px; }
+.build-head h1 { font-size: 1.55rem; line-height: 1.2; margin: 0 0 8px; }
+.build-head p { color: var(--slate-500); font-size: .95rem; margin: 0; }
 .panel { background: #fff; border: 1px solid var(--slate-100); border-radius: 20px; box-shadow: var(--shadow-sm); padding: 22px; margin-bottom: 18px; }
 .panel h3 { font-size: 1.06rem; margin-bottom: 2px; }
 .panel .hint { color: var(--slate-500); font-size: .85rem; margin-bottom: 16px; }
