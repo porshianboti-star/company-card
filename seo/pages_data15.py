@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Batch 15: hihello-vs-blinq.html — the first vendor-vs-vendor page on the site.
+"""SUPERSEDED IN PART, 2026-09-13. Every HiHello "$6" and "$5" in this file is the
+YEARLY-billed rate; hihello.com/pricing renders "$8 per month billed monthly" and
+"$6 per user/month billed monthly" with its default-on "Billed yearly" switch turned
+off. The live page was corrected by seo/fix_hihello_billing_2026_09_13.py (which
+also patched the two "short answer" strings below). If you rebuild from this file,
+RUN THAT SCRIPT AGAIN afterwards, or the stale comparison ("HiHello wins on price,
+at every tier", "$24 against $25") comes back.
+
+Batch 15: hihello-vs-blinq.html — the first vendor-vs-vendor page on the site.
 
 WHY THIS PAGE, AND WHY NOW (demand-verified, not guessed).
 Google Search Console, 28d to 2026-08-24, read at the start of this run
@@ -130,11 +138,11 @@ VS = {
  "sections": [
   prose("The short answer", [
     "<b>Pick HiHello if you want more for less money.</b> Its free plan gives you four cards "
-    "against Blinq's two, and its first paid tier is $6 a month for sixteen cards against Blinq's "
-    "$9.99 for five. On published price alone HiHello wins at every tier.",
+    "against Blinq's two, and its first paid tier is $8 a month billed monthly — $6 a month if you pay $72 for the year — "
+    "for sixteen cards, against Blinq's $9.99 (or $7.33 yearly) for five. On published price HiHello is cheaper for one person on either billing term; the team tiers are within a dollar of each other and the billing term decides it.",
 
     "<b>Pick Blinq if you scan a lot of paper cards, or if your team has people who don't need a "
-    "card.</b> HiHello's free plan caps you at five card and badge scans a month and its $6 tier "
+    "card.</b> HiHello's free plan caps you at five card and badge scans a month and its Professional tier "
     "at twenty; Blinq puts its universal contact scanner and AI notetaker in Premium with no "
     "monthly count on the page. And Blinq bills per card rather than per person — its page states "
     "that “Admins and team members who don't have a card assigned aren't billed”, which HiHello's "

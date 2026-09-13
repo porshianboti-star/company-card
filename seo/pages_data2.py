@@ -178,7 +178,7 @@ HIHELLO["sections"] = [
     [["<b>Free plan card count</b>", "4 cards", "1 card"],
      ["<b>Scan cap on free</b>", "5 card &amp; badge scans per month", "No monthly scan cap"],
      ["<b>Team plan minimum</b>", "Business sold for 5-100 users", "No seat minimum"],
-     ["<b>Published pricing</b>", "$6 Professional · $5 per user Business", "$8 Pro · $12 per user Business"],
+     ["<b>Published pricing</b>", "$6 Professional · $5 per user Business, billed yearly ($8 · $6 billed monthly)", "$7.99 Pro ($5.99/mo billed yearly) · $12 per user Business ($10 billed yearly)"],
      ["<b>Branding on free card</b>", "No HiHello credit", "Carries a small CompanyCard credit"]],
     note='Read from <a href="https://www.hihello.com/pricing" target="_blank" rel="noopener nofollow">hihello.com/pricing</a> in '
          + VERIFIED + '. Plans change — check before deciding. CompanyCard figures are our published rates.')),

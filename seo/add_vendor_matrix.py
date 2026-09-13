@@ -54,7 +54,7 @@ ROWS = [
  ("<b>HiHello</b>",
   "4 cards, email signature, virtual background, wallet — capped at 5 card &amp; badge scans per month",
   "5 users",
-  "$6 Professional · $5 per user Business",
+  "$6 Professional · $5 per user Business, billed yearly ($8 · $6 billed monthly)",
   "Someone who wants several free cards and low scan volume"),
  ("<b>Popl</b>",
   "No free plan",

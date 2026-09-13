@@ -123,7 +123,7 @@ COST = {
     "capture and analytics.",
 
     "<b>About $4–$7 per user a month for a team</b>, before minimums. Team tiers cluster tightly: "
-    "$4 (Mobilo), $5 per user (HiHello, Wave Connect), $6 per user (Uniqode), $4.99–$6.99 per card "
+    "$4 (Mobilo), $5 per user (Wave Connect), $5–$6 per user (HiHello, yearly or monthly billing), $6 per user (Uniqode), $4.99–$6.99 per card "
     "(Blinq). CompanyCard's Business plan is $12 per user and is the most expensive team plan on "
     "this page — that is stated here rather than left out.",
 
@@ -147,8 +147,8 @@ COST = {
        "“You choose how many cards to start with (minimum of five)”, and billing is per card rather than per person"],
       ["<b>HiHello</b>",
        "Yes — 4 cards, capped at 5 card &amp; badge scans a month",
-       "Professional $6/mo, or $72 billed yearly",
-       "Business $5 per user/mo, or $60 per user/year",
+       "Professional $8/mo billed monthly, or $72 a year ($6/mo) billed yearly",
+       "Business $6 per user/mo billed monthly, or $60 per user/year ($5/mo) billed yearly",
        "The Business plan is sold for 5–100 users; below five people you are on Professional"],
       ["<b>Mobilo</b>",
        "Yes",

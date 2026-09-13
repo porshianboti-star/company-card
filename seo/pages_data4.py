@@ -102,7 +102,7 @@ FREEPLANS["sections"] = [
     ["Tool", "Free cards", "Wallet pass on free", "Scan cap on free", "Vendor branding on free", "Team seat minimum", "Cheapest paid plan"],
     [["<b>CompanyCard</b>", "1", "Apple &amp; Google", "None", "Small CompanyCard credit", "None", "$8/mo Pro"],
      ["<b>Blinq</b>", "2", "Apple Wallet", NS, "None listed", "5 team cards", "$9.99/mo Premium"],
-     ["<b>HiHello</b>", "4", "Apple &amp; Google", "5 card &amp; badge scans / month", "None listed", "5 users (Business)", "$6/mo Professional"],
+     ["<b>HiHello</b>", "4", "Apple &amp; Google", "5 card &amp; badge scans / month", "None listed", "5 users (Business)", "$6/mo Professional billed yearly ($8/mo billed monthly)"],
      ["<b>Uniqode</b>", "1 (single user)", NS, NS, NS, "2 seats, annual only", "$6/user/mo (annual)"],
      ["<b>Mobilo</b>", "Free card offered; count " + NS, NS, NS, NS, "None stated", "$3/mo Pro"],
      ["<b>Popl</b>", "No free plan", "—", "—", "—", NS, "Not published"]],
