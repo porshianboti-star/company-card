@@ -2,6 +2,103 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-15
+
+**Google Search Console (read 2026-09-15 from the in-app browser; performance
+window 8/16–9/12; indexing report STILL "Last update: 9/4/26" — the fourth
+read running without a recompute, so the indexing row is a repeat.)**
+
+| Metric | 2026-09-11 | 2026-09-13 | 2026-09-15 | Change vs 09-13 |
+|---|---|---|---|---|
+| Indexed pages | 61 | 61 | 61 | flat (report not recomputed since 9/4) |
+| Not indexed | 22 | 22 | 22 | flat (21 alternate-canonical + 1 redirect; Discovered/Crawled-not-indexed 0/0) |
+| Impressions (28d) | 4,090 | 4,190 | **4,230** | **+40** |
+| Clicks (28d) | 3 | 3 | **2** | −1 (one brand click aged out of the window) |
+| Avg position (28d) | 59.3 | 58.7 | **58.3** | **−0.4** |
+| Query rows (28d) | 388 | 394 | 394 | flat |
+| Sitemap URLs live | 61 | 62 | **63** | +1 (the 09-13 evening commits, logged below) |
+
+Impressions rose for the **eighth consecutive reading** and average position
+improved for the fourth (59.8 → 59.3 → 58.7 → 58.3). Sum of impressions
+across the 394 rows = 3,461. Both clicks on `companycard` (15 impr, 13.3%,
+position 4.9) — still the only non-zero-CTR row.
+
+Top 28d queries: company card 267 (42.0), best digital business card 209
+(46.6), best digital business cards 176 (41.6), qr code business card 160
+(70.9), virtual business cards 135 (**31.0**, was 32.4), virtual business
+card 93, best virtual business card 73 (36.2), free digital business card 73,
+**popl alternative 52 at 40.6**, us digital business card market 52,
+**hihello vs blinq 50 (52.2)**, company cards 45, **hihello alternative 42 at
+28.0** (was 40 @ 28.4 — best non-brand position, still improving), qr code
+for business card 38, e name card 37. Uniqode: "uniqode annual plan discount"
+5 @ 10.0 holds, and **"uniqode alternative" 2 @ 11.0** is new — the
+alternative page itself is one place off page 1.
+
+**Competitor clusters, 28d:** HiHello 100 · Popl 94 (alternative 52 +
+alternatives 17 + competitors 14 + prompt expansion 9 + …) · Blinq 17 ·
+Uniqode 7 · Wave 3 · V1CE 3 · Mobilo 2.
+
+**Pages, 28d (first read of the Pages tab this log):** homepage 388 impr @
+43.9 (2 clicks) · best-digital-business-card.html 596 @ 49.7 (+ the bare
+form 504 @ 55.8, still split until Google consolidates the 09-13 redirects)
+· **digital-business-card-maker.html 579 @ 78.0** · qr-code-business-card
+490 @ 70.0 · best-virtual-business-card 395 @ 47.6 · free-digital-business-
+card 255 @ 72.6 · /app/login 122 @ 60.0 (noindexed 09-13; still in the
+window) · electronic-business-card 111 @ 77.0 · realtors 99 @ 74.3 ·
+popl-alternative 94 @ 47.1 (+25 bare) · teams 82 · e-name-card 81 ·
+virtual-background 77 @ 46.9 · hihello-alternative 75 @ 41.5 · free-
+comparison 65 @ 55.0 · blinq-alternative 42 @ 32.6 · wave-connect 36 @ 35.5
+· v1ce 22 @ 34.0 · business.html 16 @ **3.9**.
+
+**Shipped: the maker page gets its maker.** The task's listed backlog is
+exhausted (every alternative, profession and intent page exists; the two
+comparison pages were re-verified 09-01 and 09-13), so the item was picked
+from the Pages table: `digital-business-card-maker.html` is the third-
+largest page on the property (579 impressions) at the **worst position of
+any top-10 page (78.0)**, titled "Design Your Card Online Free", shipping
+**0 inputs** — the third "generator page with no generator" on this site;
+the 09-13 evening commit fixed the QR and virtual-card pages and left this
+one. Mounted the same shared `assets/mini-builder.js` in a `#make` section
+under the hero (six fields, live preview, scannable vCard QR, PNG/.vcf
+download, prefilled handoff into /app/builder.html), hero CTA → #make, meta
+description no longer promises templates on this page (the mini-builder
+has none; the full-builder link below still does). Verified locally at
+1024 and 375 (6 inputs, QR renders, preview updates on input, no console
+errors, no horizontal scroll) and live after ~30 s: **200 at
+https://company-card.com/digital-business-card-maker.html** with the
+builder mounted; bare form 301 → .html. dateModified + sitemap lastmod →
+2026-09-15 by hand (add_freshness.py would roll them back to 08-02). Commit
+`198acba`; script `seo/add_mini_builder_maker_2026_09_15.py` (idempotent,
+exact-count assertions). Sitemap 63 unchanged; sync_faq_schema 0
+mismatches; xmllint clean.
+
+**Not previously logged here (shipped by other sessions 09-13/09-14):**
+`ff3a477` one URL per page + login noindexed + homepage mobile weight;
+`35023ba` forced bare→.html redirects (the 21 "alternate canonical" rows
+should drain as Google recrawls); `0a8c894` mini-builder on qr-code-
+business-card and virtual-business-card with precise titles; `aa95ee2` the
+21 profession pages rewritten out of the shared-template shape (0.027 max
+pairwise shingle Jaccard, was 0.13–0.26). These are the 09-13 → 63 sitemap
+change and the reason the 09-13 indexing/impression movement cannot yet be
+attributed to any single change.
+
+**Off-site, checked 2026-09-15:** G2 product profile unchanged — "hasn't
+been reviewed yet", "Claim this profile", pricing "isn't currently
+available". Trustpilot 403 / Product Hunt 404 / AlternativeTo 403 /
+Capterra 403 to curl (unchanged: none exist). `Organization.sameAs`
+unchanged (G2 seller + G2 product + Chrome Web Store). **STILL the binding
+constraint**; claiming the G2 profile remains the cheapest owner-only action.
+
+**Tooling notes.** (1) `gh repo clone --depth 50` completed in seconds this
+run. (2) GSC Position column toggles by clicking the "Average position"
+tile; rows-per-page 500 via the listbox then the last "500" ref. (3)
+`preview_start` is refused in unattended (scheduled) sessions — serve the
+scratch checkout with `python3 -m http.server` in Bash and `navigate` the
+pane to 127.0.0.1 instead; a `companycard-scratch` launch.json entry was
+added anyway for attended runs. (4) The mini-builder debounces input by
+120 ms; read the preview after a wait or a synthetic-input test reads the
+placeholder and looks like a failure.
+
 ## 2026-09-13
 
 **Google Search Console (read 2026-09-13 from the in-app browser; performance
