@@ -101,3 +101,29 @@ fully rendered live card on company-card.com (checked in Chrome).
     cleared after handler).
   - Same session: ProSignature 0.1.1 (icon fix) uploaded + submitted, also
     pending review; published 0.1.0 stays live meanwhile.
+
+## ⚠️ Rejection 2026-09-04 — "Yellow Argon" (Keyword Spam) — what NOT to put back
+
+Google rejected a listing UPDATE (the published v1.0.1 stayed live and installable).
+Violating content, quoted from the rejection mail:
+
+    LinkedIn / X / Instagram / Facebook / YouTube / WhatsApp
+
+Policy: "no misleading, improperly formatted, non-descriptive, irrelevant, excessive or
+inappropriate metadata … including the extension's description". A bare slash-separated
+list of platform brand names reads as keyword stuffing even when the feature is real.
+
+**Never list the networks by name in the description.** Describe the capability instead —
+this is the approved wording and it is what the live listing says today:
+
+    …they scan it and get your full card: photo, phone, email, socials, and a
+    Save-contact button that adds you straight to their phone.
+
+If the social networks must be mentioned at all, put them in a sentence that describes
+behaviour, e.g. "your card shows whichever social profiles you add to it" — never a
+delimiter-separated brand list.
+
+**To clear the rejection:** Dashboard → CompanyCard → Store listing → delete the
+slash-separated platform list from the Description → Save draft → Submit for review.
+The description field is NOT reachable through the Chrome Web Store API (that API only
+uploads packages and publishes), so this one edit has to happen in the dashboard.
