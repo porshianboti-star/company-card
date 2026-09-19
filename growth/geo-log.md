@@ -2,6 +2,105 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-19
+
+**Google Search Console (read 2026-09-19 from the in-app browser; performance
+window 8/20–9/16; indexing report "Last update: 9/14/26" — recomputed at last,
+after four reads stuck on 9/4.)**
+
+| Metric | 2026-09-13 | 2026-09-15 | 2026-09-19 | Change vs 09-15 |
+|---|---|---|---|---|
+| Indexed pages | 61 | 61 | **63** | **+2** (first recompute since 9/4) |
+| Not indexed | 22 | 22 | **25** | +3 (19 alternate-canonical, 4 redirect, **2 crawled-not-indexed**) |
+| Impressions (28d) | 4,190 | 4,230 | **4,340** | **+110** |
+| Clicks (28d) | 3 | 2 | **5** | **+3** |
+| Avg position (28d) | 58.7 | 58.3 | **56.9** | **−1.4** |
+| Query rows (28d) | 394 | 394 | **427** | +33 |
+| Sitemap URLs live | 62 | 63 | 63 | flat (this run rewrote a page, added none) |
+
+Impressions rose for the **ninth consecutive reading**, average position
+improved for the fifth (59.8 → 59.3 → 58.7 → 58.3 → 56.9), and clicks
+finally moved: `companycard` 3 @ 5.8, `company card` 1 @ 40.5, **`the
+company card` 1 @ 11.8** — the first click on a non-exact-brand query. Five
+clicks in the window is the most this log has recorded.
+
+Top 28d queries, position in brackets: company card 272 (40.5), best digital
+business card 210 (46.7), best digital business cards 169 (42.8), qr code
+business card 160 (70.7), **virtual business cards 152 (27.3, was 31.0 — the
+best-volume query on page 3 now)**, virtual business card 105 (61.6), best
+virtual business card 70 (37.5), popl alternative 68 (44.0), free digital
+business card 63 (72.1), hihello vs blinq 58 (55.2), us digital business
+card market 52, **hihello alternative 39 (25.6, was 28.0 — still the best
+non-brand position)**, blinq alternative 4 (23.2), uniqode alternative 2
+(11.0, holds one place off page 1), popl vs blinq 1 (**8.0**). A large
+"business card maker online / create business card online / free online
+business card maker" cluster (~25 rows, 39+31+30+28+26+26+25+23+23 …) sits
+at 75–85 — print-design intent landing on the maker page; the 09-15 builder
+is four days old, no movement expected yet.
+
+**Competitor clusters, 28d:** HiHello 108 (vs blinq 58 + alternative 39 +
+pricing 6 + alternatives 3 + vs popl 1 + hello-hello pricing 2 …) · Popl 128
+(alternative 68 + alternatives 20 + competitors 18 + prompt expansion 13 +
+beaconstac vs popl 6 + vs beaconstac 5 + …) · Blinq 12 · V1CE 6 · Uniqode 7
+· Wave 3 · Mobilo 2. Popl overtook HiHello as the largest cluster.
+
+**Overview-card signals, first time seen:** "A page recently got fewer
+impressions than usual: /best-digital-business-card −100%" (the bare form —
+expected, the 09-13 forced redirect is consolidating it into the .html URL)
+and "**free-digital-business-card.html +304%**". Image Metadata enhancement:
+**9 valid** items — the 09-16 image-SEO commit (`e264e15`) registered.
+
+**Shipped: `hihello-vs-popl.html` rewritten as an original document.**
+Trigger: the recomputed report listed it under "Crawled – currently not
+indexed" (with the bare `/digital-business-card-vs-paper`, which is now a
+301 and will drain). Measured cause: 8-word-shingle Jaccard **0.214**
+against `blinq-vs-popl.html`, with 1,044 of 2,075 words in runs shared with
+that page — the Popl facts, all three Popl FAQ answers and the CompanyCard
+table column had been reused verbatim on 09-13. That is the 0.13–0.26 band
+the 21 profession pages were in before the 09-14 rewrite. Rewrote it as a
+bill-by-headcount comparison (1 free / 1 paid / 3 / 5 / 25 / events team)
+computed from the published rates, different section structure, six new
+FAQ questions, checklist verdicts. Every vendor figure **re-fetched today**:
+HiHello unchanged ($8/$6 billed monthly, $6/$5 yearly, MONTHLY JS object
+still carries both; 4 free cards; 5 scans/mo; Business "5-100 users"); Popl
+unchanged (no rate; "Request Pricing" / "Book a Demo"; not-per-seat FAQ;
+"Popl for Individuals" still 307 → download-popl; two sentences new to our
+record: "Talk to our sales team and we'll provide you with a quote", "book
+a demo with us for a custom quote"); our pricing.html unchanged. Visible
+stamp → 19 September 2026 (7 places). **After: Jaccard 0.009** vs
+blinq-vs-popl, ≤0.006 vs every other vs/alternative page. FRESH block
+re-added with datePublished 2026-09-13 preserved, dateModified 2026-09-19;
+sitemap lastmod moved; sync_faq_schema 0 mismatches; xmllint clean; one
+h1/title/description/canonical; no console errors at 1024. Commit
+`9ea0270`; live **200 in ~20 s** at
+https://company-card.com/hihello-vs-popl.html with the new table.
+
+**🔎 The trigger was stale.** URL Inspection on the live page, run after the
+push, reads "URL is on Google — Page is indexed", last crawl **Sep 15, 2026
+8:35 PM**, discovery via sitemap. The 9/14 report caught the page between
+its first crawl and its acceptance; by 9/15 Google had taken the old version.
+So the rewrite did not rescue an excluded page — it removed a duplication
+risk on an indexed one. Logged as such; the 0.214 → 0.009 measurement is
+the real deliverable. "Request indexing" clicked → "Indexing requested" so
+the new content is crawled next, not the 09-13 copy. Next read should show
+the crawled-not-indexed count at 0–1 (the bare vs-paper URL only).
+
+**Off-site, checked 2026-09-19:** unchanged. G2 403 / Trustpilot 403 /
+Product Hunt 404 / AlternativeTo 403 / Capterra 403 to curl; `Organization.
+sameAs` still G2 seller + G2 product + Chrome Web Store. Popl's pricing page
+shows "G2 (5,292 Reviews)" beside its demo button — the corroboration gap in
+one number. **STILL the binding constraint.**
+
+**Tooling notes.** (1) Only the FRESH block separates a `write_pages` render
+from the shipped file — a re-render is safe if you re-stamp
+(`seo/restamp_hihello_vs_popl_2026_09_19.py`, idempotent, preserves
+datePublished). (2) In the GSC pane the URL-inspection box ignores a typed
+Return; dispatching keydown/keypress/keyup Enter via javascript_tool submits
+it. (3) The Pages report's "Last update" can lag the live URL Inspection by
+days — inspect before treating a reason row as current. (4) 8-word shingle
+Jaccard against sibling pages is now a pre-push check worth running on any
+page that shares a vendor with an existing one.
+
 ## 2026-09-15
 
 **Google Search Console (read 2026-09-15 from the in-app browser; performance
