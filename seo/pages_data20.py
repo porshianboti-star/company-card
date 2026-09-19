@@ -99,10 +99,33 @@ HiHello's free plan caps its scanner at 5 a month, but our free plan has no
 scanner at all (lead capture is a Pro feature, as hihello-alternative.html
 already states), so five is more than zero. Wallet, signatures and
 backgrounds are NOT claimed either — HiHello's free plan lists all three.
-"""
-from build_pages import prose, table, block, faq_html, cta  # noqa: F401
 
-VERIFIED = "13 September 2026"
+REWRITTEN 2026-09-19 — WHY. Google Search Console, read 2026-09-19 (indexing
+report dated 9/14/26), listed this page under "Crawled - currently not
+indexed" — the first page on the property ever to be crawled and declined.
+An 8-word-shingle comparison against blinq-vs-popl.html measured Jaccard
+0.214, and 1,044 of the page's 2,075 words sat in runs also present on that
+page: the Popl facts, the three Popl FAQ answers and the CompanyCard column
+had been reused verbatim. That is the same 0.13-0.26 band the 21 profession
+pages were in before Google's decline forced the 2026-09-14 rewrite
+(aa95ee2). Every vendor figure below was RE-FETCHED 2026-09-19 (hihello.com
+/pricing: same plans and rates, MONTHLY JS object still Professional '$8'
+and Business '$6' 'billed monthly'; popl.co and popl.co/pages/pricing: still
+no rate, "Request Pricing" / "Book a Demo", the per-seat FAQ unchanged, the
+"Popl for Individuals" link still HTTP 307 to popl.co/pages/download-popl;
+two sentences new to our record on the pricing page: "Talk to our sales
+team and we'll provide you with a quote" and "To learn more about pricing,
+book a demo with us for a custom quote"). Our pricing.html re-read the same
+day: unchanged. The page is now organised by buyer (one person free / one
+person paid / two to four / five and up / an events team) rather than by
+the vendor-then-vendor template, the table is a bill-by-headcount table
+computed from the published rates, and the FAQ asks different questions.
+Target after the rewrite: shingle Jaccard against every other vs page under
+0.03, measured in the same session.
+"""
+from build_pages import prose, table, block, faq_html, cta, checklist  # noqa: F401
+
+VERIFIED = "19 September 2026"
 
 REL = [
   ("HiHello alternative", "hihello-alternative.html"),
@@ -116,177 +139,176 @@ PAGE = {
  "slug": "hihello-vs-popl.html",
  "crumb": "HiHello vs Popl",
  "title": "HiHello vs Popl: Which Digital Business Card in 2026? | CompanyCard",
- "meta": ("HiHello vs Popl on what each vendor publishes: HiHello lists a free plan and every "
-          "price (with a yearly toggle that hides the monthly rate); Popl lists no price at all. "
-          "Which fits one person, a small team or an events team. Both re-checked " + VERIFIED + "."),
- "og": ("HiHello publishes every price; Popl publishes none. A head-to-head on free plans, "
-        "billing terms and what each product is really built for."),
+ "meta": ("HiHello vs Popl by headcount: what one person, a team of three, a team of five and an "
+          "events team would actually pay, from the rates each vendor publishes (HiHello all of "
+          "them, Popl none). Re-read " + VERIFIED + "."),
+ "og": ("What you would pay HiHello or Popl at every team size, worked out from their own "
+        "pricing pages — one publishes every rate, the other quotes by phone."),
  "h1": "HiHello vs Popl",
- "lead": ("The two digital business card vendors people compare most often on this site, put side "
-          "by side on what each one publishes and what each is built for — not on marketing. One "
-          "lists a free plan and every price; the other lists none. Both were re-read on "
-          + VERIFIED + "."),
+ "lead": ("Instead of a feature grid, this page works out what each vendor would bill you at "
+          "your headcount, from the numbers on their own pricing pages as read on " + VERIFIED
+          + ". HiHello prints every rate. Popl prints none, so its column says what you get "
+          "before the quote."),
  "cta_btn": "Create your free card",
  "cta2": ("See our pricing", "pricing.html"),
- "cta_h": "If you want a published price and no seat minimum",
- "cta_p": ("One card, priced in public, free to start, no five-user floor. "
-           "That is the narrow gap CompanyCard fills between these two."),
+ "cta_h": "A price you can read, from one user up",
+ "cta_p": ("CompanyCard sells one card, priced on the page, free to start, with team plans "
+           "that begin at a single seat. That is the whole pitch against this pair."),
  "related": REL,
  "faqs": [
-   ("HiHello or Popl — which should I pick?",
-    "For one person or a small business, HiHello: as of " + VERIFIED + " it publishes a free plan "
-    "with four cards, a Professional plan at $8 a month billed monthly or $6 a month billed yearly, "
-    "and a Business plan at $6 per user a month billed monthly or $5 billed yearly, all purchasable "
-    "online. For a team whose job is capturing leads at trade shows and conferences, Popl: its "
-    "pricing page sells unlimited events, an AI-native universal badge scanner, contact and company "
-    "data enrichment and CRM sync, and says its plan is not charged per user, per seat or per "
-    "license — and you get the price on a call, because it does not publish one."),
-   ("How much does HiHello cost?",
-    "As of " + VERIFIED + " HiHello publishes four plans. Personal is free forever with 4 cards, 1 "
-    "user and 5 card and badge scans a month. Professional is $8 a month billed monthly, or $72 a "
-    "year — $6 a month — billed yearly, for 1 user, 16 cards and 20 scans a month. Business is $6 "
-    "per user a month billed monthly, or $60 per user a year — $5 a month — billed yearly, with "
-    "unlimited cards and scans, and is sold for 5 to 100 users. Enterprise is custom for 101+ "
-    "users. The pricing page's \"Billed yearly\" switch is on by default, so the first numbers you "
-    "see are the yearly rates. Check hihello.com/pricing before deciding."),
-   ("How much does Popl cost?",
-    "Popl does not say. As of " + VERIFIED + " its pricing page publishes no rates and no tiers; "
-    "it is headed \"Simple pricing for teams of all sizes\" and the calls to action are \"Request "
-    "Pricing\" and \"Book a Demo\". The homepage FAQ says \"Popl offers flexible pricing for both "
-    "teams and individuals. Contact us for a custom quote\". The pricing FAQ does say how the price "
-    "is structured: \"you won't be charged extra per user, per seat, or per license\". The \"Popl "
-    "for Individuals\" link on the pricing page redirects to a page for downloading the Popl app, "
-    "so the individual price is not on the web either."),
-   ("Does Popl have a free plan?",
-    "Not a free plan. As of " + VERIFIED + " Popl's homepage FAQ says \"Popl offers free trials "
-    "and personalized demos\" and that the trials are \"designed for individuals to explore and "
-    "experience the benefits of Popl Teams before committing to setting up a team\". The pricing "
-    "page lists no free tier; the only use of the word \"free\" on it is the footer link \"Get the "
-    "free mobile app\". HiHello's Personal plan, by contrast, is \"Free Forever\" with four cards."),
-   ("Is HiHello's free plan really free?",
-    "Yes, with one published limit that matters. As of " + VERIFIED + " HiHello's Personal plan "
-    "is \"Free Forever\" and includes 4 digital business cards, a personal email signature, virtual "
-    "backgrounds, Apple and Google Wallet passes and sharing by QR code, widget, email and SMS — "
-    "but it caps you at \"5 card & badge scans /mo\". Handing your card out is unlimited; scanning "
-    "other people's paper cards into your phone is metered. Professional raises that to 20 a "
-    "month, and only Business, sold for 5 to 100 users, makes it unlimited."),
-   ("Where does CompanyCard fit, and where does it lose?",
-    "It loses to HiHello on the free plan (four cards against our one, which carries a small "
-    "CompanyCard credit), on the team rate ($6 per user billed monthly against our $12), and on "
-    "cards per paid plan — HiHello Professional and our Pro are within a cent of each other on "
-    "either billing term, $8 against $7.99 monthly and $6 against $5.99 yearly, and HiHello's "
-    "includes sixteen cards to our one. It loses to Popl on event lead capture outright. What it "
-    "has against this pair is narrow and checkable: we publish a price where Popl publishes none; "
-    "we have no seat minimum where HiHello Business is sold for 5 to 100 users, which only matters "
-    "for a team of two to four. HiHello's free plan caps its card scanner at five a month, but "
-    "that is not an edge for us: our free plan has no scanner at all — lead capture is a Pro "
-    "feature. Our pricing page also states that billing is not live yet — paid plans are "
-    "currently a preview, so nothing is charged."),
+   ("Is Popl cheaper than HiHello?",
+    "Nobody outside Popl can tell you, because Popl does not publish a rate. As of " + VERIFIED
+    + " popl.co/pages/pricing shows plan contents and two buttons, \"Request Pricing\" and "
+    "\"Book a Demo\", and its FAQ says \"Talk to our sales team and we'll provide you with a "
+    "quote\". HiHello prints every figure: Professional $8 a month billed monthly, Business $6 "
+    "per user a month billed monthly, $6 and $5 respectively if you pay for the year. The only "
+    "way to compare the two bills is to ask Popl for yours."),
+   ("Which one suits a team of three?",
+    "HiHello's team plan is labelled for \"5-100 users\", so as of " + VERIFIED + " three people "
+    "are either on three separate Professional plans at $24 a month billed monthly, with no "
+    "shared admin or template lock, or buying Business at its five-user floor for $30. Popl "
+    "gives you a quote. CompanyCard Business has no seat minimum, so three people are $36 a "
+    "month billed monthly or $30 billed yearly, with the admin dashboard and brand lock "
+    "included; our pricing page adds that billing is not live yet and paid plans are a "
+    "preview. Three users is the one headcount where our published team rate is competitive; "
+    "at five HiHello is cheaper."),
+   ("Why does HiHello show $6 in one place and $8 in another?",
+    "Because its pricing page opens with the \"Billed yearly up to 25% off\" switch already "
+    "on. As of " + VERIFIED + " the first Professional price you see is $6 a month, which is "
+    "the yearly plan, $72 charged once. Turn the switch off and the same plan reads \"$8 per "
+    "month billed monthly\". Business does the same thing: $5 per user a month with the switch "
+    "on, $6 with it off. Both numbers are correct; they describe different billing terms."),
+   ("Can one person buy Popl?",
+    "Not from the website, as of " + VERIFIED + ". The pricing page has a \"Popl for "
+    "Individuals\" panel for \"solo entrepreneurs and professionals\", but its link sends you "
+    "to the page for downloading the Popl app rather than to a plan or a price, and the "
+    "homepage FAQ describes the free trial as a way for individuals to \"experience the "
+    "benefits of Popl Teams before committing to setting up a team\". An individual price for "
+    "Popl is not published anywhere we could find."),
+   ("How many cards come with each free option?",
+    "HiHello: four, on a plan it labels \"Free Forever\", with Apple and Google Wallet, an "
+    "email signature and virtual backgrounds included and card and badge scanning capped at "
+    "five a month. Popl: none as a plan; what it offers is a free trial and a demo, and the "
+    "only \"free\" on its pricing page is the footer's \"Get the free mobile app\". CompanyCard: "
+    "one card with QR code, link and wallet pass, no scanner, and a small CompanyCard credit on "
+    "it that the Pro plan removes. All three read on " + VERIFIED + "."),
+   ("What would an events team actually get from Popl that HiHello lacks?",
+    "As of " + VERIFIED + " Popl's plan card lists unlimited events and conferences, an "
+    "AI-native universal badge scanner, verified contact and company data enrichment, event "
+    "campaigns with qualifying questions, self-serve CRM and calendar integrations, SOC 2 Type 2 "
+    "security and a dedicated customer success manager, with digital business cards as one line "
+    "on that list. HiHello's Business plan lists event lead capture, unlimited scans and "
+    "unlimited contact enrichment too, but the product is built around the card; Popl's is "
+    "built around the booth. If badge scanning at conferences is the job, that is Popl's home "
+    "ground, and CompanyCard does not compete there at all."),
  ],
 }
 
 PAGE["sections"] = [
-  prose("The short answer", [
-    "These are the two vendors people arrive at this site comparing, and they have ended up "
-    "selling to different buyers. That settles most of the choice before you look at a feature.",
-    "<b>Choose HiHello if you are one person or a small business.</b> As of " + VERIFIED + " "
-    "hihello.com/pricing lists a Personal plan that is \"Free Forever\" with four cards, "
-    "Professional at $8 a month billed monthly or $6 a month billed yearly, and Business at $6 per "
-    "user a month billed monthly or $5 billed yearly, every one of them purchasable online. It is "
-    "the vendor in this pair that still sells a card to an individual with a price on the page.",
-    "<b>Choose Popl if your job is events.</b> popl.co leads with \"Your AI GTM platform for "
-    "in-person events\", and its pricing page sells unlimited events and conferences, an AI-native "
-    "universal badge scanner, verified contact and company data enrichment, event campaigns with "
-    "qualifying questions and CRM sync. Digital business cards are on the list — \"Digital business "
-    "cards for your team\" — as one line item in an event-marketing platform. You will book a call "
-    "to find out the price.",
-    "<b>Read HiHello's price with the toggle in mind.</b> Its pricing page opens with a \"Billed "
-    "yearly up to 25% off\" switch turned on, so the numbers you see first — $6 and $5 — are the "
-    "yearly rates. Switch it off and Professional reads \"$8 per month billed monthly\" and Business "
-    "\"$6 per user/month billed monthly\". Most comparisons, including earlier versions of ours, "
-    "quote the yearly figure as if it were the monthly price.",
+  prose("Start from your headcount, not from the feature list", [
+    "HiHello and Popl no longer sell to the same person. HiHello's pricing page still opens with "
+    "a plan for \"1 user\" that costs nothing; Popl's opens with \"Simple pricing for teams of all "
+    "sizes\" and no number under it. So the useful question is not which product is better but "
+    "which of them will quote you at all, and for how much, at the size you are.",
+    "<b>One person who wants a free card.</b> HiHello, without much argument. Its Personal plan "
+    "is labelled \"Free Forever\" and includes four cards, wallet passes for Apple and Google, an "
+    "email signature and virtual backgrounds. Popl offers a trial, not a plan. CompanyCard's free "
+    "tier is one card with a small credit on it — honest, but fewer cards.",
+    "<b>One person who will pay.</b> HiHello Professional: $8 a month billed monthly, $72 a "
+    "year if you pay up front, sixteen cards, contact enrichment and analytics. CompanyCard Pro "
+    "is $7.99 a month or $5.99 billed yearly for one card with unlimited links, custom branding, "
+    "lead capture and the credit removed. Popl does not sell to an individual from its website "
+    "at all — see the FAQ below.",
+    "<b>Two, three or four people who want shared branding.</b> This is the awkward size. "
+    "HiHello Business is sold for \"5-100 users\". Popl quotes. CompanyCard Business starts at "
+    "one seat, $12 a month each, and it is the only one of the three that prints a team price a "
+    "business of three can pay without a call or a fifth person.",
+    "<b>Five people or more.</b> HiHello Business at $6 per user billed monthly, or $5 yearly, "
+    "is half our $12 and it is self-serve. From five up, HiHello is the better-priced card "
+    "platform of the three and we say so.",
+    "<b>A team whose job is trade shows.</b> Popl, and the price is whatever the call produces. "
+    "The plan card sells unlimited events, a universal badge scanner, data enrichment and CRM "
+    "sync; the card is a line item. Neither HiHello nor CompanyCard is built around a booth.",
   ]),
-  block("Side by side", table(
-    ["What to check", "HiHello", "Popl", "CompanyCard"],
+  block("What each vendor would bill you, by team size", table(
+    ["Headcount", "HiHello", "Popl", "CompanyCard"],
     [
-      ["<b>Published price</b>",
-       "Yes — Personal free, Professional <b>$8/mo</b> monthly or <b>$6/mo</b> yearly, Business <b>$6/user/mo</b> monthly or <b>$5</b> yearly, Enterprise custom",
-       "None. Calls to action are “Request Pricing” and “Book a Demo”",
-       "Yes — Free, Pro $7.99/mo or $5.99 yearly, Business $12/user/mo or $10 yearly"],
-      ["<b>Free plan</b>",
-       "Yes — “Free Forever”, 4 cards, email signature, virtual backgrounds, Apple and Google Wallet — capped at “5 card &amp; badge scans /mo”",
-       "No free plan listed. Homepage FAQ: “Popl offers free trials and personalized demos”",
-       "1 card, QR &amp; link sharing, Apple and Google Wallet, no card scanner (lead capture is a Pro feature) — carries a small CompanyCard credit"],
-      ["<b>Cards on the individual paid plan</b>",
-       "Professional: 16 cards, 20 scans a month",
-       "Not published",
-       "Pro builds on the one free card: unlimited links and files, custom branding, lead capture and analytics"],
-      ["<b>Smallest team bill</b>",
-       "Business is sold for “5-100 users” — five users, so <b>$30/mo</b> billed monthly or $25/mo billed yearly",
-       "Not published",
-       "No seat minimum: one user is $12/mo, two are $24/mo"],
-      ["<b>How team billing works</b>",
-       "Per user, monthly or yearly",
-       "Not per user: “you won't be charged extra per user, per seat, or per license”; the rate itself is not published",
-       "Per user, monthly or yearly; the Business plan is “Talk to us about teams”"],
-      ["<b>What it is built around</b>",
-       "A card for individuals, with lead capture and directory sync for teams",
-       "Event lead capture and badge scanning at conferences",
-       "One card for a small business or self-employed person"],
-      ["<b>How you start</b>",
-       "Sign up free; upgrade online",
-       "Request pricing, then a call; individuals are sent to the app download",
-       "Sign up free; teams talk to us"],
+      ["<b>1 person, free</b>",
+       "$0 — Personal, 4 cards, 5 scans a month",
+       "No free plan; a free trial and a demo",
+       "$0 — 1 card, wallet pass, small CompanyCard credit"],
+      ["<b>1 person, paid</b>",
+       "<b>$8/mo</b> billed monthly · $72/yr billed yearly (Professional, 16 cards)",
+       "Not sold online to individuals; the link goes to the app download",
+       "<b>$7.99/mo</b> · $5.99/mo billed yearly ($71.88/yr) (Pro, 1 card)"],
+      ["<b>3 people</b>",
+       "3 × Professional = <b>$24/mo</b> with no shared admin, or Business at its 5-user floor, $30/mo",
+       "Quote",
+       "3 × Business = <b>$36/mo</b> · $30/mo billed yearly, admin dashboard and brand lock included"],
+      ["<b>5 people</b>",
+       "Business <b>$30/mo</b> billed monthly · $300/yr billed yearly",
+       "Quote — “you won't be charged extra per user, per seat, or per license”",
+       "<b>$60/mo</b> · $50/mo billed yearly"],
+      ["<b>25 people</b>",
+       "Business <b>$150/mo</b> · $1,500/yr",
+       "Quote, same all-inclusive structure",
+       "<b>$300/mo</b> · $250/mo billed yearly"],
+      ["<b>Events team at a conference</b>",
+       "Business includes event lead capture and unlimited badge scans",
+       "The product: unlimited events, universal badge scanner, enrichment, CRM sync, SOC 2 Type 2, a dedicated CSM",
+       "Not built for this; lead capture on Pro is a card feature, not a badge scanner"],
     ],
-    note=("Read from hihello.com/pricing (with the “Billed yearly” switch on and off), popl.co and "
-          "popl.co/pages/pricing on " + VERIFIED + "; the “Popl for Individuals” link was followed "
-          "the same day and redirected to popl.co/pages/download-popl. Vendor terms change — check "
-          "both before deciding. CompanyCard figures are our own published rates on our "
-          "<a href=\"pricing.html\">pricing page</a>, where yearly billing is labelled "
-          "“Save up to 25%”."),
+    note=("Arithmetic from hihello.com/pricing (switch on and off), popl.co/pages/pricing, popl.co "
+          "and our own <a href=\"pricing.html\">pricing page</a>, all read on " + VERIFIED + ". "
+          "HiHello's five-user figure assumes Business is bought at the bottom of its "
+          "“5-100 users” range. CompanyCard's paid plans are a preview: the pricing page says "
+          "billing is not live yet and nothing is charged. Rates move — reread both vendors "
+          "before you buy."),
   ), tint=True),
-  prose("Where each one genuinely wins", [
-    "<b>HiHello wins on the free plan and on price transparency.</b> Four free cards, forever, with "
-    "Apple and Google Wallet, a personal email signature and virtual backgrounds all on the $0 tier, "
-    "and every paid price on the page. If you want to know what you will pay before you sign up, "
-    "HiHello tells you and Popl does not.",
-    "<b>HiHello's Professional is a lot of card for the money.</b> Sixteen cards, contact "
-    "enrichment, card analytics and full customisation for $8 a month, or $6 if you pay for the "
-    "year. If you run more than one role, side business or language and want a separate card for "
-    "each, no plan on this page comes close.",
-    "<b>Popl wins on events, and it is not close.</b> If you staff a booth, what decides your "
-    "quarter is how fast a scanned badge becomes an enriched, deduplicated record in your CRM. That "
-    "is the product Popl now builds, with a dedicated CSM and SOC 2 Type 2 on the plan card. And its "
-    "pricing FAQ makes one structural promise HiHello's per-user model cannot: the plan is not "
-    "charged per seat. A digital business card is not a substitute for any of that, and we would "
-    "rather say so than win the click.",
-    "<b>The thing neither publishes is a team price for two people.</b> Popl publishes no price at "
-    "all. HiHello publishes one, but sells Business for 5 to 100 users, so a two-person business "
-    "is on two Professional plans without shared branding or admin control. That is the gap a "
-    "third option has to fit into, and it is a small one.",
+  prose("The switch on HiHello's pricing page", [
+    "Most comparisons of HiHello, ours included until September 2026, quoted $6 and $5 as its "
+    "monthly prices. They are its yearly prices. The page loads with a control labelled \"Billed "
+    "yearly up to 25% off\" already on, and the plan cards under it read \"$6 per month, $72 "
+    "billed yearly\" and \"$5 per user/month, $60 per user/year\".",
+    "Click the switch off and the cards re-render: Professional becomes \"$8 per month billed "
+    "monthly\" and Business \"$6 per user/month billed monthly\". The page's own script carries "
+    "both sets of figures, and we clicked it in a browser on " + VERIFIED + " to confirm the "
+    "render matches. If you intend to pay month to month, the numbers that matter are $8 and $6.",
+    "This is not a criticism of HiHello — a yearly default is common — but it is why some pages "
+    "will tell you HiHello Business is $5 and others $6, and why our own earlier pages had to be "
+    "corrected.",
   ]),
-  prose("Where CompanyCard fits — and where it does not", [
-    "We are the third option in that last paragraph, and it is worth being precise about how "
-    "small the advantage is.",
-    "<b>Where we lose.</b> HiHello's free plan is four cards; ours is one, and it carries a small "
-    "CompanyCard credit that Pro removes. HiHello Business is $6 per user billed monthly against "
-    "our $12, and at five people or more it is simply cheaper. HiHello Professional and our Pro are "
-    "within a cent of each other on either billing term — $8 against $7.99 monthly, $6 against "
-    "$5.99 yearly — and HiHello's includes sixteen cards, contact enrichment and card analytics "
-    "where ours includes one card. Popl is the better product for trade shows, full stop. Our "
-    "Business plan is not self-serve either — the pricing page says “Talk to us about teams” — and "
-    "it states plainly that billing is not live yet: paid plans are currently a preview, so nothing "
-    "is charged.",
-    "<b>Where we hold up.</b> Two things, both checkable on the pricing pages linked above. We "
-    "publish a price, where Popl publishes none. We have no seat minimum, where HiHello Business "
-    "starts at five users — which matters for a business of two to four that wants team features "
-    "($24 for two against a $30 five-user floor on monthly billing) and stops mattering at five. "
-    "HiHello's five-scans-a-month cap on its free plan is not a point for us: our free plan has no "
-    "card scanner at all, because lead capture is a Pro feature.",
-    "If you are a sole trader or a business of two who wants one good card this afternoon, with the "
-    "price on the page and no five-user floor, that is the case. If you want four free cards or "
-    "sixteen paid ones, take HiHello. If you are staffing booths, go and book the Popl demo.",
+  prose("What Popl publishes instead of a price", [
+    "Popl's pricing page is a real page with real content; it just contains no rate. As of "
+    + VERIFIED + " it is headed \"Simple pricing for teams of all sizes\" and every button on "
+    "it is \"Request Pricing\" or \"Book a Demo\". The dollar figures on the page belong to "
+    "customer case studies — pipeline generated, revenue closed — not to plans.",
+    "What it does tell you is the shape of the deal. Its FAQ answers \"Does Popl charge per "
+    "seat or per license?\" with \"No. Popl's pricing is all-inclusive — you won't be charged "
+    "extra per user, per seat, or per license. Your plan covers your whole team, no matter how "
+    "much it grows over time.\" It also says \"Talk to our sales team and we'll provide you "
+    "with a quote\" and \"To learn more about pricing, book a demo with us for a custom quote\". "
+    "So the bill is a single negotiated number rather than a per-head one, which is genuinely "
+    "different from HiHello and from us.",
+    "The homepage frames the whole company as \"Your AI GTM platform for in-person events\" "
+    "and answers \"Can I try Popl for free?\" with \"Yes, Popl offers free trials and "
+    "personalized demos\". The trial is described as a way for individuals to try Popl Teams "
+    "before setting one up — a path into a team purchase, not a free card.",
   ]),
+  block("What we would tell a friend", checklist([
+    ("You want a free card today:",
+     "take HiHello's four free cards, or ours if one card with a wallet pass is enough and you "
+     "do not mind the credit."),
+    ("You are two to four people and want one brand on every card:",
+     "CompanyCard is the only one of the three with a printed price at that size; HiHello needs "
+     "five, Popl needs a call."),
+    ("You are five or more:",
+     "HiHello Business, $6 a user billed monthly, is half our rate and self-serve. Buy it."),
+    ("You run a booth:",
+     "book the Popl demo. Ask for the all-inclusive number and how it changes as the team grows."),
+    ("You want to know the price before you sign up:",
+     "HiHello or CompanyCard. Popl will not tell you on the page."),
+  ]), tint=False),
 ]
 
 PAGES = [PAGE]
