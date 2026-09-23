@@ -2,6 +2,67 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-23
+
+**Google Search Console (read 2026-09-23 from the in-app browser; performance
+window last 28 days; indexing report "Last update: 9/18/26" — a fresh
+recompute, the first since 9/14.)**
+
+| Metric | 2026-09-15 | 2026-09-19 | 2026-09-23 | Change vs 09-19 |
+|---|---|---|---|---|
+| Indexed pages | 61 | 63 | **64** | **+1** |
+| Not indexed | 22 | 25 | 25 | flat (19 alternate-canonical, 5 redirect, **1 discovered**, **0 crawled-not-indexed**) |
+| Impressions (28d) | 4,230 | 4,340 | **4,260** | **−80** (first fall after nine rises) |
+| Clicks (28d) | 2 | 5 | **6** | +1 |
+| Avg position (28d) | 58.3 | 56.9 | **54.6** | **−2.3** (sixth consecutive improvement) |
+| Query rows (28d) | 394 | 427 | 427 | flat |
+| Sitemap URLs live | 63 | 63 | 63 → **64** | +1 (this run) |
+
+Crawled-not-indexed went **2 → 0**: hihello-vs-popl (inspected indexed on
+09-19) and the bare vs-paper redirect both drained, as predicted. The one
+"Discovered – currently not indexed" URL is `/app/builder.html` — an app
+screen, not a sitemap page; not acted on. Clicks: `companycard` 3 @ 6.4,
+`company card` 1 @ 38.4, `the company card` 1 @ 10.5 (+1 unlisted). The
+impression dip is small against a window that has slid four days; position
+keeps improving, so this reads as noise until a second reading confirms it.
+
+Top 28d: company card 277 (38.4), best digital business card 201 (46.8),
+best digital business cards 162 (41.8), **virtual business cards 156
+(26.3 — was 27.3, best high-volume position)**, qr code business card 146
+(70.8), virtual business card 108, popl alternative 71 (44.7), free digital
+business card 70 (66.0), best virtual business card 66 (37.1), hihello vs
+blinq 57 (54.2), **hihello alternative 39 (25.6, flat — best non-brand)**.
+Newly visible: "most secure digital business card" 16 @ 52.9, "digital
+business card reviews" 27 @ 58.6, "bookkeeping business card" 12 @ 39.4 +
+"bookkeeper business card" 5 @ 36.2 — candidate pages for later runs.
+
+**Shipped: `hihello-pricing.html`** (batch 23; `seo/pages_data21.py`,
+`seo/build_pages21.py`, `seo/wire_batch23.py`). Picked from the query table:
+"hihello pricing" 6 @ 67.3 + "hi hello pricing" 3 @ 54.3, and zero pages on
+the site targeted the phrase. It is a pricing explainer, not another
+comparison: both billing terms, the annual bill at 1/2/3/5/12/50/100 users,
+and the finding that HiHello's "up to 25%" is 25% on Professional but ~17%
+on Business. **HiHello re-verified today** by curl of hihello.com/pricing
+(200): unchanged — Professional $6 yearly ($72) / $8 monthly, Business $5
+yearly ($60/user) / $6 monthly (page JS `MONTHLY` object), "5-100 users",
+4 free cards, 5/20 scans, Enterprise custom. New to our record: FAQ "Base
+pricing covers your first five seats", Professional "is an individual plan",
+the unlimited-scans add-on has no printed price. Our side from pricing.html
+today (7.99/5.99, 12/10, billing is a preview). One draft claim was caught
+before shipping: "we come out ahead for a team of two to four" is false —
+three CompanyCard seats yearly ($360) cost more than HiHello's five-seat
+floor ($300); only one or two users are cheaper. The page says so.
+8-word-shingle Jaccard ≤ 0.002 against every HiHello/cost/comparison page.
+sync_faq_schema 0 mismatches; one h1/title/description/canonical on every
+page; all JSON-LD parses; xmllint clean. Wired: footer on 64 pages + the
+`_tpl_footer.txt` template, sitemap (lastmod 2026-09-23), llms.txt.
+add_freshness.py NOT run (still hardcodes 2026-08-02); FRESH block written
+directly.
+
+**Off-site:** unchanged — `Organization.sameAs` still G2 seller + G2 product
++ Chrome Web Store; no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+social profiles. Still the binding constraint.
+
 ## 2026-09-19
 
 **Google Search Console (read 2026-09-19 from the in-app browser; performance
