@@ -70,3 +70,7 @@
 /virtual-background-for-video-calls  /virtual-background-for-video-calls.html  301!
 /virtual-business-card  /virtual-business-card.html  301!
 /wave-connect-alternative  /wave-connect-alternative.html  301!
+# 2026-09-23: hihello-pricing removed at the owner's direction (no pages about a
+# competitor's pricing); send the URL to our own pricing page.
+/hihello-pricing  /pricing.html  301!
+/hihello-pricing.html  /pricing.html  301!

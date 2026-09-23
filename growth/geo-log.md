@@ -59,6 +59,14 @@ page; all JSON-LD parses; xmllint clean. Wired: footer on 64 pages + the
 add_freshness.py NOT run (still hardcodes 2026-08-02); FRESH block written
 directly.
 
+**⚠️ REMOVED the same day (2026-09-23) at the owner's direction.** The owner
+does not want pages that go hard at competitors; new work is positive pages
+about CompanyCard only. `hihello-pricing.html`, its generator
+(`pages_data21.py`, `build_pages21.py`, `wire_batch23.py`), the footer link,
+the sitemap entry and the llms.txt entry are gone; `/hihello-pricing(.html)`
+301s to `/pricing.html` (indexing had already been requested). Sitemap back
+to 63. The GSC numbers above stand.
+
 **Off-site:** unchanged — `Organization.sameAs` still G2 seller + G2 product
 + Chrome Web Store; no Capterra / Product Hunt / AlternativeTo / Trustpilot /
 social profiles. Still the binding constraint.
