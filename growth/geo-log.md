@@ -2,6 +2,60 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-25
+
+**Google Search Console (read 2026-09-25 from the in-app browser; performance
+window 8/26–9/22; indexing report "Last update: 9/21/26" — a fresh recompute.)**
+
+| Metric | 2026-09-19 | 2026-09-23 | 2026-09-25 | Change vs 09-23 |
+|---|---|---|---|---|
+| Indexed pages | 63 | 64 | **64** | flat |
+| Not indexed | 25 | 25 | 25 | flat (13 alternate-canonical, **11 redirect**, 1 discovered, **0 crawled-not-indexed**) |
+| Impressions (28d) | 4,340 | 4,260 | **4,120** | **−140** (second fall in a row) |
+| Clicks (28d) | 5 | 6 | **6** | flat |
+| Avg position (28d) | 56.9 | 54.6 | **52.9** | **−1.7** (seventh consecutive improvement) |
+| Query rows (28d) | 427 | 427 | **410** | −17 |
+| Sitemap URLs live | 63 | 63 | 63 → **64** | +1 (this run) |
+
+Not-indexed mix shifted: alternate-canonical 19 → 13, redirect 5 → 11 — the
+bare `/foo` forms are now reported as redirects (consistent with the 09-13
+forced redirects), not as new exclusions. No new reasons. Impressions fell a
+second time while position improved again; two readings now, so the dip is
+real, but it is small and the window has slid, so no action taken on it.
+
+Top 28d: company card 286 (36.7), best digital business card 185 (47.7),
+best digital business cards 158 (41.1), **virtual business cards 146
+(25.3 — best high-volume position yet)**, qr code business card 134 (70.4),
+virtual business card 111 (61.5), popl alternative 77 (45.6), free digital
+business card 69 (66.0), hihello vs blinq 57, hihello alternative 36,
+digital business card(s) for realtors 35 + 34 + 15 (real estate agents),
+digital business card reviews 27, most secure digital business card 16.
+Clicks: companycard 3 @ 6.9, company card 1, the company card 1 @ 10.0.
+New in the UI: a "Generative AI report" link on the Performance page — not
+yet opened; read it next run.
+
+**Shipped: `digital-business-card-for-bookkeepers.html`** (batch 24;
+`seo/pages_data22.py`, `seo/build_pages22.py`, `seo/wire_batch24.py`).
+Picked from the query table: "bookkeeping business card" 10 + "bookkeeper
+business card" 5 = 15 impressions @ 38.1, all served by the accountants page.
+A positive profession page — no competitor named (owner directive
+2026-09-23). Built on what differs for bookkeepers: monthly recurring work,
+mostly remote clients, the accounting software as the deciding credential,
+accountants as the referral source; a "where your card gets opened" table;
+licensing left to "check the rules that apply to you". Product claims only
+from pricing.html today. 8-word-shingle Jaccard 0.017 vs the accountants
+page. Wired: long Solutions footer (20 files), sitemap (after accountants,
+lastmod 2026-09-25), llms.txt, and a "For bookkeepers" link in the
+accountants page's Related row (its generator pages_data3 REL_CORE is shared,
+so a rebuild would drop that link). sync_faq_schema 0 mismatches; one
+h1/title/description/canonical per page; all JSON-LD parses; xmllint clean.
+add_freshness.py NOT run (still hardcodes 2026-08-02). Live 200 verified;
+GSC "Indexing requested" (priority crawl queue); IndexNow 200.
+
+**Off-site:** unchanged — `Organization.sameAs` still G2 seller + G2 product
++ Chrome Web Store; no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+social profiles. Still the binding constraint.
+
 ## 2026-09-23
 
 **Google Search Console (read 2026-09-23 from the in-app browser; performance
