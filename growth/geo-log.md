@@ -2,6 +2,59 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-27
+
+**Google Search Console (read 2026-09-27 from the in-app browser; performance
+window 8/28–9/24; indexing report "Last update: 9/21/26" — no recompute since
+the last run.)**
+
+| Metric | 2026-09-23 | 2026-09-25 | 2026-09-27 | Change vs 09-25 |
+|---|---|---|---|---|
+| Indexed pages | 64 | 64 | **64** | flat (same 9/21 report) |
+| Not indexed | 25 | 25 | 25 | flat (13 alternate-canonical, 11 redirect, 1 discovered, 0 crawled-not-indexed) |
+| Impressions (28d) | 4,260 | 4,120 | **4,002** | **−118** (third fall in a row) |
+| Clicks (28d) | 6 | 6 | **6** | flat |
+| Avg position (28d) | 54.6 | 52.9 | **50.9** | **−2.0** (eighth consecutive improvement) |
+| Query rows (28d) | 427 | 410 | **403** | −7 |
+| Sitemap URLs live | 63 | 64 | 64 → **65** | +1 (this run) |
+
+No new not-indexed reasons. Impressions have now fallen three readings in a
+row while position keeps improving — fewer, better-ranked appearances. Not
+acted on yet; if a fourth reading falls, check whether a dropped query cluster
+(the removed hihello-pricing page still earns rows) explains it.
+
+**First read of the "Generative AI features" report** (Performance →
+Generative AI, beta; 28 days): **36 impressions**, essentially zero until
+~9/17 and rising since. By page: home 23, business-card-for-business-owners 4,
+email-signature-generator 3, free-digital-business-card 2, and 1 each for
+best-digital-business-card, electronic-business-card, pricing and the deleted
+hihello-pricing. This is the first direct measure of Google's AI surfaces
+showing the site; it is the GEO baseline to track from here.
+
+**Shipped: `digital-business-card-for-lawyers.html`** (batch 25;
+`seo/pages_data23.py`, `seo/build_pages23.py`, `seo/wire_batch25.py`;
+commit `c82b23e`). A positive profession page for solo lawyers and small firms
+— no competitor named. Picked because a law-firm query appeared ("best digital
+business cards for law firms 2025") with no page on the site written for
+lawyers; "business card for employees" (9 @ 51.6) was considered and dropped
+because the teams page already serves it and already covers employees. Built on
+what differs for lawyers: referral-led, read second-hand; practice areas and
+jurisdictions decide fit; a "don't send case details until we've spoken" line
+(conflict check) and contact-only lead capture; regulator wording left to the
+reader's own bar or law society — no conduct rules asserted. Product claims only
+from pricing.html today. 8-word-shingle Jaccard: bookkeepers 0.083 (shared
+template text), accountants 0.016, notaries 0.006. Wired: long Solutions
+footer (20 files, after "For Bookkeepers"), sitemap (after bookkeepers,
+lastmod 2026-09-27), llms.txt. Only the new page is date-stamped.
+sync_faq_schema 0 mismatches; one h1/title/description/canonical on every page;
+all JSON-LD parses; xmllint clean. add_freshness.py NOT run (still hardcodes
+2026-08-02). Live 200 verified (sitemap 65 live, footer link live on /);
+GSC "Indexing requested"; IndexNow 200.
+
+**Off-site:** unchanged — `Organization.sameAs` still G2 seller + G2 product
++ Chrome Web Store; no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+social profiles. Still the binding constraint.
+
 ## 2026-09-25
 
 **Google Search Console (read 2026-09-25 from the in-app browser; performance
