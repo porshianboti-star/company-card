@@ -2,6 +2,90 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-27 (later) — GEO: quotable answers + dated facts on the pages ChatGPT cites
+
+**Why (research the lead supplied, all read 2026-09-27):** OpenAI's own docs
+say any public site can appear in ChatGPT search as long as OAI-SearchBot is
+not blocked, publish no ranking factors and say nothing about llms.txt or
+sitemaps (https://developers.openai.com/api/docs/bots,
+https://help.openai.com/en/articles/12627856-publishers-and-developers-faq).
+Our robots.txt already allows OAI-SearchBot, ChatGPT-User and GPTBot — verified
+today, nothing changed there. The measured on-page levers are: vendor pages win
+product citations (74.6% link to the product's own site —
+https://bevisibleiq.com/ai-citations-study-2026/), decision-stage citations are
+dominated by pages with prices and figures (80% —
+same study), answer-shaped H2s and fact density (Princeton GEO,
+https://arxiv.org/abs/2311.09735; +22% answer-format H2s, +18%
+SoftwareApplication schema, +51% ChatGPT lift for comparison sections —
+https://www.digitalapplied.com/blog/ai-citation-visibility-audit-500-saas-sites-2026),
+citations concentrated in the first 30% of a page, and real freshness
+(https://greenflagdigital.com/chatgpt-citation-study/). Since 2026-08-08
+ChatGPT scopes ~17–23% of fan-out searches with site:, so the fact has to live
+on our own domain. **Probe baseline (2026-09-27, signed-out):** the two
+digital-business-card prompts ("best digital business card app for a
+freelancer or small business", "free digital business card with a QR code —
+options and limits") named Blinq, HiHello, Popl, Mobilo, Lynkle, Wave Connect,
+QRKIT and Cardr and cited thecardsite.com, cardixx.com, portrai.in, lynkle.com,
+hihello.com, blinq.me and useqrkit.com. **CompanyCard: not named, not cited, in
+either.** That is the number to move.
+
+**Shipped (commit "GEO: quotable answers + dated facts on the pages ChatGPT
+cites"; existing pages only, no new URLs):**
+- `seo/facts.py` — the one voice: every plan fact read from pricing.html today
+  (Free $0 / 1 card / QR + link / Wallet pass / unlimited edits / no scan cap /
+  small clickable CompanyCard credit under the card; Pro $7.99 or $5.99 billed
+  yearly = $71.88/yr, removes the credit; Business $12 or $10 per user, no seat
+  minimum, not self-serve; Enterprise custom; billing still a preview). Two
+  scripts print it, so no page can drift.
+- `seo/add_verified_facts.py` (idempotent, marker-bounded LEAD/FACTS/UPDATED
+  blocks, never bounds at </head>) patched seven pages:
+  - `pricing.html` L68 quotable lead with every price; L151 full plan/limits
+    table "verified 27 September 2026"; card-FAQ L167 and lp-FAQ L192 now name
+    the credit and the free Wallet pass.
+  - `free-digital-business-card.html` L87 facts paragraph replaces the old
+    "Exactly what free includes"; table L142 gains Wallet-pass and credit rows;
+    FAQ L166 ("the catch": one card + credit, stated plainly) and L168 (credit
+    is clickable and links back; Pro price) rewritten — the old answer quoted
+    only the embed label "Made with CompanyCard", which is not what the card
+    page shows.
+  - `index.html` L461 facts paragraph above the FAQ; FAQ L465 fixed a
+    one-voice error (it said paid plans add wallet passes — they are free) and
+    now carries prices + credit; head SoftwareApplication offer description
+    names the credit.
+  - `qr-code-business-card.html` L109 definition-first lead; L202 facts; FAQ
+    L203 names free-plan limits and the Pro price.
+  - `digital-business-card.html` L90 definition-first lead (the "what is" answer
+    was two sections down); L185 facts; FAQ L186 rewritten.
+  - `best-digital-business-card.html` L89 "Last updated: 27 September 2026";
+    L198 facts.
+  - `free-digital-business-card-comparison.html` L92 updated line; L105 facts.
+  - FRESH dateModified → 2026-09-27 and sitemap lastmod → 2026-09-27 on
+    exactly these seven URLs (content really changed); add_freshness.py NOT
+    run.
+- `llms.txt`: pricing section dated to the 2026-09-27 read of pricing.html;
+  free line states the credit is a clickable link under the card and that
+  there is no scan cap; header points at llms-full.txt.
+- `llms-full.txt` (new, 151 KB) via `seo/build_llms_full.py`: llms.txt
+  verbatim + the facts block + for all 66 sitemap pages the title, canonical,
+  description and the visible FAQ Q&A (334 pairs, same regex as
+  sync_faq_schema). Nothing in it is unpublished. Treated as a consistency
+  artefact only — OpenAI has made no commitment to llms.txt.
+
+**Validation:** one h1 on each edited page; every JSON-LD block parses;
+sync_faq_schema: 6 answers synced then 0 mismatches on re-run; xmllint
+sitemap.xml clean; forbidden-brand grep 0 on every touched file; patcher is a
+no-op on re-run.
+
+**Not done / for the lead:** (1) `app/card-view.js:49` shows the "Make your own
+CompanyCard" credit on every shared card with no Pro gating, and the embed
+credit says "Made with CompanyCard" (`app/product.js:237`) — two labels, and
+"Pro removes it" is a published plan promise the app does not yet enforce
+(billing is a preview, so nobody has paid for removal yet). app/ untouched per
+task. (2) No Bing/GA work: the utm_source=chatgpt.com split and the
+OAI-SearchBot log grep need GA and Netlify access. (3) Re-run the two probes
+in ~2–4 weeks (ChatGPT citation half-life ~3.4 weeks per the research) and
+record whether company-card.com is named or cited.
+
 ## 2026-09-27
 
 **Google Search Console (read 2026-09-27 from the in-app browser; performance

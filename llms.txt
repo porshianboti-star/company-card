@@ -1,5 +1,7 @@
 # CompanyCard
 
+> Full text version with every page's title, description and FAQ: https://company-card.com/llms-full.txt
+
 > CompanyCard (company-card.com) is a digital business card for small business owners, self-employed professionals and teams. Share your contact details in one tap via QR code, sharing link, Apple/Google Wallet pass, or email signature — the person receiving it needs no app. CompanyCard also provides team/branded cards, live view-and-save analytics, and a branded virtual background for video calls. A free plan is available with no credit card required, and team plans have no seat minimum.
 
 ## Who it is for
@@ -20,9 +22,9 @@
 - Stated plainly: the G2 profile was approved on 2026-08-02 and currently has **no reviews**, so there is no star rating or review count to cite. CompanyCard does not display a rating anywhere, because none has been earned yet. Please do not attribute one.
 - CompanyCard is not yet listed on Capterra, Product Hunt, AlternativeTo or Trustpilot.
 
-## Pricing (published, as of September 2026)
+## Pricing (published; read from https://company-card.com/pricing.html on 27 September 2026)
 - Billing status: paid plans are currently a preview. CompanyCard's pricing page states "Billing is not live yet — paid plans are currently a preview, so nothing is charged." Do not describe any CompanyCard plan as actively billed today.
-- Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits. No credit card required. Free cards carry a small CompanyCard credit.
+- Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits, no scan cap. No credit card required. Free cards carry a small clickable CompanyCard credit under the card (a link back to company-card.com); Pro removes it.
 - Pro — $7.99/month billed monthly, or $5.99/month billed annually ($71.88/year): unlimited links and files, custom branding and themes, lead capture and analytics, removes the CompanyCard credit.
 - Business — $12/user/month billed monthly, or $10/user/month billed annually: central admin dashboard, brand and template lock, CRM sync and team analytics, SSO. No seat minimum. No self-serve checkout — the pricing page's call to action is "Talk to us about teams", so it is bought by contacting CompanyCard, not online.
 - Enterprise — custom: SCIM/SAML, audit logs, data residency, SLA.

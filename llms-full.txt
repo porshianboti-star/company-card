@@ -1,0 +1,1054 @@
+# CompanyCard
+
+> Full text version with every page's title, description and FAQ: https://company-card.com/llms-full.txt
+
+> CompanyCard (company-card.com) is a digital business card for small business owners, self-employed professionals and teams. Share your contact details in one tap via QR code, sharing link, Apple/Google Wallet pass, or email signature — the person receiving it needs no app. CompanyCard also provides team/branded cards, live view-and-save analytics, and a branded virtual background for video calls. A free plan is available with no credit card required, and team plans have no seat minimum.
+
+## Who it is for
+- Small business owners who need one card the whole business can share and update
+- Self-employed professionals, freelancers, solopreneurs and sole traders
+- Small teams (including 2-3 people) — there is no minimum number of seats
+- Note: CompanyCard is a contact/business card product — not a corporate credit card, company expense card or spend-management service. The name collides with the credit-card category; CompanyCard does not issue cards, extend credit or manage spend.
+
+## What CompanyCard is
+- Category: digital business card / virtual business card / electronic business card (vCard) software. Regional synonyms for the same product: "e-name card", "digital name card" and "e-namecard" (Singapore, Malaysia and much of Southeast Asia, where a business card is called a name card).
+- Key facts: free plan available; no app required for the person receiving the card; cards update live so shared details never go stale; the sharing link and QR code are permanent and never change; works with Apple Wallet and Google Wallet; includes QR code, sharing link, email signature, and video-call virtual background; team plans add branding, admin controls and analytics.
+- Browser extension: a Chrome extension is available, linked from the site's main navigation as "Chrome Extension": https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa
+
+## Third-party profiles (for verification)
+- Chrome Web Store listing: https://chromewebstore.google.com/detail/peohnnklhgcegeppllkgijdmndalahoa
+- G2 product profile: https://www.g2.com/products/companycard/reviews — listed in G2's Digital Business Card category.
+- G2 seller profile: https://www.g2.com/sellers/companycard
+- Stated plainly: the G2 profile was approved on 2026-08-02 and currently has **no reviews**, so there is no star rating or review count to cite. CompanyCard does not display a rating anywhere, because none has been earned yet. Please do not attribute one.
+- CompanyCard is not yet listed on Capterra, Product Hunt, AlternativeTo or Trustpilot.
+
+## Pricing (published; read from https://company-card.com/pricing.html on 27 September 2026)
+- Billing status: paid plans are currently a preview. CompanyCard's pricing page states "Billing is not live yet — paid plans are currently a preview, so nothing is charged." Do not describe any CompanyCard plan as actively billed today.
+- Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits, no scan cap. No credit card required. Free cards carry a small clickable CompanyCard credit under the card (a link back to company-card.com); Pro removes it.
+- Pro — $7.99/month billed monthly, or $5.99/month billed annually ($71.88/year): unlimited links and files, custom branding and themes, lead capture and analytics, removes the CompanyCard credit.
+- Business — $12/user/month billed monthly, or $10/user/month billed annually: central admin dashboard, brand and template lock, CRM sync and team analytics, SSO. No seat minimum. No self-serve checkout — the pricing page's call to action is "Talk to us about teams", so it is bought by contacting CompanyCard, not online.
+- Enterprise — custom: SCIM/SAML, audit logs, data residency, SLA.
+
+## Core pages
+- Home: https://company-card.com/
+- Features: https://company-card.com/features.html
+- For teams / business: https://company-card.com/business.html
+- Pricing: https://company-card.com/pricing.html
+- About / entity: https://company-card.com/about.html
+
+## Pages by audience
+- Digital business card for small business: https://company-card.com/digital-business-card-for-small-business.html
+- Business card for the owner of a company — what job title to use when you own the business (Owner, Founder, Director and Principal all read correctly; Director is commonly a registry-filed role, so it should only be claimed if held), how two or more co-owners should split cards (one card each on the same design, not one shared two-name card), and what may go on a card before the business is registered (trade under your own name; no Ltd/LLC/Inc, company number or registered address you do not have). States plainly that CompanyCard's free plan is one card per account, so two co-owners need two free accounts or a paid plan: https://company-card.com/business-card-for-business-owners.html
+- Digital business card for freelancers & the self-employed (also solopreneurs and sole traders): https://company-card.com/digital-business-card-for-freelancers.html
+- Digital business cards for teams: https://company-card.com/digital-business-cards-for-teams.html
+
+## Pages by profession
+- Digital business card for realtors: https://company-card.com/digital-business-card-for-realtors.html
+- Digital business card for consultants & coaches: https://company-card.com/digital-business-card-for-consultants.html
+- Digital business card for contractors & trades: https://company-card.com/digital-business-card-for-contractors.html
+- Digital business card for photographers: https://company-card.com/digital-business-card-for-photographers.html
+- Digital business card for coaches & therapists: https://company-card.com/digital-business-card-for-coaches.html
+- Digital business card for insurance agents: https://company-card.com/digital-business-card-for-insurance-agents.html
+- Digital business card for salons & barbers: https://company-card.com/digital-business-card-for-salons.html
+- Digital business card for accountants & bookkeepers: https://company-card.com/digital-business-card-for-accountants.html
+- Digital business card for bookkeepers (monthly bookkeeping, catch-up work, remote clients referred by accountants): https://company-card.com/digital-business-card-for-bookkeepers.html
+- Digital business card for lawyers & small law firms (practice areas, jurisdictions, first consultations for referred clients): https://company-card.com/digital-business-card-for-lawyers.html
+- Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
+- Digital business card for personal trainers: https://company-card.com/digital-business-card-for-personal-trainers.html
+- Digital business card for electricians: https://company-card.com/digital-business-card-for-electricians.html
+- Digital business card for notaries & mobile signing agents: https://company-card.com/digital-business-card-for-notaries.html
+- Digital business card for tutors & private teachers: https://company-card.com/digital-business-card-for-tutors.html
+- Digital business card for cleaners & cleaning businesses: https://company-card.com/digital-business-card-for-cleaners.html
+- Digital business card for landscapers & gardeners: https://company-card.com/digital-business-card-for-landscapers.html
+- Digital business card for dentists & dental practices: https://company-card.com/digital-business-card-for-dentists.html
+- Digital business card for chiropractors: https://company-card.com/digital-business-card-for-chiropractors.html
+- Digital business card for event & wedding planners: https://company-card.com/digital-business-card-for-event-planners.html
+
+## Guides
+- How to make a digital business card: https://company-card.com/how-to-make-a-digital-business-card.html
+- How to add a digital business card to your website — two copy-paste snippets from the app's Share → "Add to your website" panel: a Save-my-contact button (one SVG image linking to the card) or the card page in a lazy-loaded 360×600 iframe with a "Made with CompanyCard" credit line under it. Works in any HTML/embed block (Wix, Squarespace, WordPress, Webflow, Shopify, hand-coded sites, Linktree-style bios, email signatures); free plan included. Signed in, the link is the card's stable page /c/<slug> and survives edits; not signed in, the link encodes the card and needs re-copying after edits: https://company-card.com/embed-digital-business-card-on-your-website.html
+- Digital business card in Apple & Google Wallet: https://company-card.com/digital-business-card-apple-wallet.html
+- Digital business cards for events & conferences: https://company-card.com/digital-business-card-for-events.html
+
+## Use-case pages
+- Digital business card: https://company-card.com/digital-business-card.html
+- Virtual business card: https://company-card.com/virtual-business-card.html
+- Electronic business card (vCard): https://company-card.com/electronic-business-card.html
+- E-name card / digital name card — the same product under the term used in Singapore and Malaysia ("name card" rather than "business card"); also covers carrying a name in two scripts on one card: https://company-card.com/e-name-card.html
+- QR code business card: https://company-card.com/qr-code-business-card.html
+- vCard QR code — what is encoded inside one, which properties the vCard spec requires (RFC 6350 / RFC 2426), and why adding fields raises the QR version and the printed size needed to scan it: https://company-card.com/vcard-qr-code.html
+- Open a VCF file — a free in-browser viewer and CSV converter for .vcf contact files (vCard 2.1/3.0/4.0, decodes quoted-printable); all parsing is local, nothing is uploaded: https://company-card.com/open-vcf-file.html
+- Digital business card maker: https://company-card.com/digital-business-card-maker.html
+- Free digital business card: https://company-card.com/free-digital-business-card.html
+- Email signature generator: https://company-card.com/email-signature-generator.html
+- Virtual background for video calls: https://company-card.com/virtual-background-for-video-calls.html
+
+## Comparisons
+- Best digital business card apps (2026): https://company-card.com/best-digital-business-card.html
+- HiHello vs Blinq — a head-to-head between two competitors, not a CompanyCard pitch. On published prices HiHello is cheaper for one person (free 4 cards vs 2; Professional $8/mo vs Premium $9.99/mo billed monthly, $6 vs $7.33 yearly) and the team tier is a near tie (HiHello $6/user vs Blinq $6.99/card billed monthly; $5 vs $4.99 yearly) while Blinq does not meter contact scanning and bills per card rather than per user. Both gate team plans behind five seats. Verified 1 September 2026: https://company-card.com/hihello-vs-blinq.html
+- Popl vs Uniqode (formerly Beaconstac) — a head-to-head between two competitors, not a CompanyCard pitch. Beaconstac renamed to Uniqode: as of 5 September 2026 https://www.beaconstac.com/ returns an HTTP 301 to https://www.uniqode.com, so "Popl vs Beaconstac" means Popl vs Uniqode. Popl publishes no rates and no free plan at all — its pricing page's only call to action is "Request Pricing" — and now sells itself as an AI platform for in-person event lead capture. Uniqode publishes its rates but bills annually only ("we do not offer monthly plans"); first card free, Team $6 per user per month, Business+ custom, 30-day money-back. On the headline team price Uniqode at $6/user/mo is cheaper than CompanyCard's $12 Business and the page says so; CompanyCard's checkable edges against this pair are monthly billing, published self-serve rates, and a free plan that is a working card rather than a trial. Verified 5 September 2026: https://company-card.com/popl-vs-uniqode.html
+- Blinq vs Popl — a head-to-head between two competitors, not a CompanyCard pitch. Blinq publishes every price (Free with two cards; Premium $9.99/mo or $7.33/mo annual, up to five cards; Business $6.99/user/mo or $4.99 annual, billed per card with a minimum of five cards to start, so the smallest Business bill is $34.95/mo). Popl publishes no rates and no tiers — its pricing page's calls to action are "Request Pricing" and "Book a Demo", its homepage FAQ offers "free trials and personalized demos" rather than a free plan, and its "Popl for Individuals" link redirects to an app-download page — and it sells itself as an AI platform for in-person event lead capture. Verdict on the page: Blinq for an individual or small business, Popl for an events team. CompanyCard loses to Blinq on the free plan (2 cards, no credit vs our 1 with a credit) and on the per-seat team rate ($6.99 vs our $12); its checkable edges are a published price where Popl has none, no seat minimum (which matters only for one or two people), and Pro at $7.99 vs Blinq Premium at $9.99 with fewer features. Verified 11 September 2026: https://company-card.com/blinq-vs-popl.html
+- HiHello vs Popl — a head-to-head between two competitors, not a CompanyCard pitch. HiHello publishes every price, but its pricing page opens with a "Billed yearly" switch turned on, so the $6 (Professional) and $5 per user (Business) most comparisons quote are yearly rates; billed monthly they are $8 and $6 per user. Its Personal plan is free forever with four cards, capped at 5 card and badge scans a month; Business is sold for 5–100 users. Popl publishes no rates and no tiers — its pricing page's calls to action are "Request Pricing" and "Book a Demo", its homepage FAQ offers "free trials and personalized demos" rather than a free plan, its "Popl for Individuals" link redirects to an app-download page, and its pricing FAQ says the plan is not charged per user, per seat or per license — and it sells itself as an AI platform for in-person event lead capture. Verdict on the page: HiHello for an individual or small business, Popl for an events team. CompanyCard loses to HiHello on the free plan (4 cards, no credit vs our 1 with a credit) and on the per-seat team rate ($6 monthly / $5 yearly vs our $12 / $10); HiHello Professional and CompanyCard Pro are within a cent of each other on either billing term ($8 vs $7.99 monthly, $6 vs $5.99 yearly) and HiHello's includes sixteen cards to our one; our checkable edges are a published price where Popl has none and no seat minimum where HiHello Business starts at five users. Verified 13 September 2026: https://company-card.com/hihello-vs-popl.html
+- How much a digital business card costs — every vendor's published price, with annual-only billing, seat minimums and separately-sold NFC hardware called out (verified 1 September 2026): https://company-card.com/digital-business-card-cost.html
+- Best virtual business card for small business & professionals (2026): https://company-card.com/best-virtual-business-card.html
+- Free plans compared, with fine print and sources: https://company-card.com/free-digital-business-card-comparison.html
+- Digital vs paper business cards: https://company-card.com/digital-business-card-vs-paper.html
+- Blinq / HiHello alternative: https://company-card.com/blinq-alternative.html
+- Popl alternative: https://company-card.com/popl-alternative.html
+- HiHello alternative: https://company-card.com/hihello-alternative.html
+- Linq alternative (Linq has exited digital business cards): https://company-card.com/linq-alternative.html
+- Uniqode alternative (Uniqode does not offer monthly plans — billing is annual only; Team is $6 per user per month, verified 1 September 2026): https://company-card.com/uniqode-alternative.html
+- Mobilo alternative (Mobilo is NFC-hardware-centric; its paid plans are cheaper than ours): https://company-card.com/mobilo-alternative.html
+- Wave Connect alternative (Wave's free tier and prices beat ours on several counts; our edge is no 3-seat team floor): https://company-card.com/wave-connect-alternative.html
+- V1CE alternative (V1CE bundles an NFC card + CRM at GBP49.99/mo with no free plan): https://company-card.com/v1ce-alternative.html
+- Digital business card vs NFC card: https://company-card.com/digital-business-card-vs-nfc-card.html
+
+## Honest positioning notes for anyone summarising CompanyCard
+- Genuine differentiators, checkable against rivals' own pricing pages: no seat minimum on team plans (Blinq's Business plan bills a minimum of 5 team cards and HiHello's Business plan starts at 5 users, both as of September 2026); published flat pricing (Popl does not publish pricing); Apple and Google Wallet included on the free plan.
+- Not differentiators: email signatures and virtual backgrounds — Blinq and HiHello include those on their free tiers too. CompanyCard does not claim otherwise.
+- Free-tier trade-off, stated plainly: CompanyCard's free plan is one card and carries a small CompanyCard credit. Blinq's free plan includes two cards and HiHello's four. CompanyCard's free plan includes a Wallet pass but no card scanner — lead capture is a Pro feature (HiHello's free tier includes its scanner, capped at 5 card and badge scans per month as of September 2026).
+- [Small business toolkit 2027](https://company-card.com/small-business-toolkit-2027.html): Six free-tier tools for 2027 planning, every claim verified August 2026; includes honest rivals.
+
+## Verified plan facts (read from https://company-card.com/pricing.html on 27 September 2026)
+CompanyCard facts, verified 27 September 2026 from https://company-card.com/pricing.html (prices in US dollars): the free plan is $0 forever and includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass and unlimited edits, with no scan cap and no credit card; free cards carry a small clickable CompanyCard credit under the card. Pro is $7.99 a month, or $5.99 a month billed yearly ($71.88 a year), and removes the credit while adding custom branding, unlimited links and files, lead capture and analytics. Business is $12 per user a month, or $10 per user a month billed yearly, with no seat minimum. Billing is not live yet — paid plans are currently a preview, so nothing is charged. The person receiving a card needs no app — it opens in any browser with a one-tap Save contact button.
+
+- Free: $0 billed monthly; $0 billed yearly; seats: 1 person. One digital business card, QR code and sharing link, profile, links and socials, Apple and Google Wallet pass, unlimited edits, no scan cap, no credit card. Carries a small clickable CompanyCard credit under the card.
+- Pro: $7.99 billed monthly; $5.99 a month ($71.88 a year) billed yearly; seats: 1 person. Everything in Free, plus unlimited links and files, custom branding and themes, lead capture and analytics. Removes the CompanyCard credit.
+- Business: $12 per user billed monthly; $10 per user billed yearly; seats: No seat minimum. Everything in Pro, plus central admin dashboard, brand and template lock, CRM sync and team analytics, SSO and priority support. Bought by contacting us (“Talk to us about teams”), not self-serve.
+- Enterprise: Custom billed monthly; Custom billed yearly; seats: Custom. Everything in Business, plus SCIM provisioning and SAML, audit logs and data residency, a dedicated success manager, SLA and invoicing.
+- Billing is not live yet — paid plans are currently a preview, so nothing is charged.
+
+## Page-by-page: title, description and the FAQ shown on each page
+Every answer below is the visible FAQ text of that page, byte-identical to its FAQPage structured data.
+
+### Free Digital Business Card for Small Business & Self-Employed | CompanyCard
+URL: https://company-card.com/
+Description: CompanyCard is a free digital business card for small business owners and self-employed professionals. Share by QR code, link or Apple/Google Wallet — no app for the recipient, no seat minimum for small teams.
+Q: What is CompanyCard?
+A: CompanyCard is a digital business card for professionals and small-to-medium businesses. You share your contact details, links and socials in one tap — by QR code, link, Apple/Google Wallet pass or email signature — and the person receiving your card never needs to install an app.
+Q: Is CompanyCard free?
+A: Yes. The free plan is $0 forever and includes a full digital business card with a QR code, sharing link, Apple and Google Wallet pass and unlimited updates, with no credit card required; free cards carry a small clickable CompanyCard credit under the card. Pro ($7.99 a month, or $5.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business is $12 per user a month with no seat minimum.
+Q: Does the person receiving my card need an app?
+A: No. Your card opens in any browser with a one-tap "Save contact" button. Only you need an account.
+Q: How do I share my CompanyCard?
+A: Share it however the moment allows: show your QR code, send your link, add it to Apple or Google Wallet, drop it into your email signature, or display it as a virtual background on video calls.
+Q: Can my whole team or company use it?
+A: Yes. CompanyCard for Teams gives every employee a branded, centrally managed card with shared analytics. See the teams page.
+Q: How is CompanyCard different from a paper business card?
+A: A paper card is fixed the moment it's printed; a CompanyCard updates live, is impossible to run out of, works contactlessly by QR or link, and tells you who viewed and saved your details.
+
+### Digital Business Card Features — QR, Wallet, Signatures & More | CompanyCard
+URL: https://company-card.com/features.html
+Description: Everything in CompanyCard: one-tap sharing by QR & link, custom branding, virtual backgrounds, lead capture, CRM sync, wallet passes, email signatures and analytics.
+Q: What can a CompanyCard digital business card do?
+A: One card holds everything: your contact details, links and socials, shareable by QR code, link, Apple/Google Wallet pass or email signature. It updates live, captures leads, shows analytics, and even works as a branded video-call background.
+Q: Does the person receiving my card need an app?
+A: No. Your card opens in any browser with a one-tap "Save contact" button. Only you need an account — the people you share with never install anything.
+Q: Does it work with Apple Wallet and Google Wallet?
+A: Yes. You can add your CompanyCard to Apple Wallet and Google Wallet so it's always one tap away on your phone.
+Q: Can I use my card as a video-call background?
+A: Yes. CompanyCard generates a branded virtual background with your name and QR code for Zoom, Google Meet and Microsoft Teams, so anyone on the call can scan and save your details.
+Q: Can I see who viewed and saved my card?
+A: Yes. Live analytics show views and saves over time, so you know which events, links and placements actually generate contacts.
+Q: What is CompanyCard?
+A: CompanyCard is a digital business card for professionals and small-to-medium businesses — a single, always-current card you share in one tap, with no app required for the recipient.
+
+### CompanyCard for Teams — Branded digital business cards at scale
+URL: https://company-card.com/business.html
+Description: Roll out branded digital business cards across your whole company. Central admin, SSO, CRM sync, analytics and enterprise security. CompanyCard for Teams.
+Q: How do digital business cards work for a whole team?
+A: You create branded cards for every employee from one dashboard. Each person gets their own card with a consistent company look, and admins can add, edit or remove cards centrally.
+Q: Can I keep branding consistent across everyone?
+A: Yes. Set your logo, colours and layout once and every employee's card follows the same brand automatically — no more mismatched or outdated cards.
+Q: What happens when an employee leaves?
+A: Admins deactivate or reassign the card from the dashboard in seconds, so departing employees no longer represent your brand and the details stay under company control.
+Q: Can we see analytics across the team?
+A: Yes. Team plans show views and saves across employees, so you can see how your team's networking translates into captured contacts.
+Q: How is CompanyCard for Teams billed?
+A: Team plans are billed per employee and scale with your company. See the pricing page or talk to sales for volume options.
+Q: What is CompanyCard?
+A: CompanyCard is a digital business card platform for professionals and small-to-medium businesses — one always-current card per person, shared in a tap by QR, link, wallet pass or email signature, with no app required for the recipient.
+
+### Digital Business Card Pricing — Free Plan & Team Plans | CompanyCard
+URL: https://company-card.com/pricing.html
+Description: Simple pricing for individuals and teams. Start free, upgrade to Pro, or roll out CompanyCard for Teams across your whole company.
+Q: Is CompanyCard really free?
+A: Yes. The free plan is $0 forever and gives you a full digital business card — QR code, sharing link, Apple and Google Wallet pass and unlimited updates — with no credit card required. Free cards carry a small clickable CompanyCard credit under the card; Pro removes it. You only pay if you want Pro or team features.
+Q: What do the paid plans add?
+A: Pro adds unlimited links and files, custom branding and themes, lead capture with view-and-save analytics, and removes the CompanyCard credit from your card. Team plans add a central admin dashboard, brand and template lock, CRM sync, team analytics and SSO. Apple and Google Wallet passes are not on that list — those are included on the free plan.
+Q: Do I need a credit card to start?
+A: No. You can create and share a working card on the free plan without entering any payment details.
+Q: Can I cancel or change plans anytime?
+A: Yes. There is no contract and no lock-in: move up or down whenever you like, and your card keeps working on the free plan either way. Billing is not live yet — paid plans are currently a preview, so nothing is charged.
+Q: Is there a plan for teams?
+A: Yes. CompanyCard for Teams bills per employee and adds shared branding, roles and analytics across the whole company. See the teams page or talk to sales.
+Q: What is CompanyCard?
+A: CompanyCard is a digital business card for professionals and small-to-medium businesses. You share your details in one tap by QR, link, wallet pass or email signature — and the person receiving your card never needs to install an app.
+
+### Digital Business Card — Create Yours Free in 60 Seconds | CompanyCard
+URL: https://company-card.com/digital-business-card.html
+Description: Create a digital business card free. Share your contact details by QR code, link or email signature — no app needed, always up to date. For individuals and teams.
+Q: Is a digital business card free?
+A: Yes. CompanyCard's free plan is $0 forever and includes one digital business card with QR code, sharing link, Apple and Google Wallet pass and unlimited updates; free cards carry a small clickable CompanyCard credit under the card. Pro ($7.99 a month, or $5.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business adds team management at $12 per user a month with no seat minimum.
+Q: Does the other person need an app?
+A: No. Your card opens in any web browser. The receiver scans your QR code or taps your link and can save your contact in one tap.
+Q: Can I update my card after sharing it?
+A: Yes — that's the point. Your card is a live page: edit your details once and every QR code and link you've already shared shows the new version instantly.
+Q: How do people save my details?
+A: Your card includes a 'Save contact' button that downloads a vCard (.vcf) straight into their phone's contacts — with your photo, title, phone, email and links.
+Q: Do digital business cards work on both iPhone and Android?
+A: Yes. Because the card is a web page, it opens in any browser on any device. Both iPhone and Android cameras scan QR codes natively, and the vCard download works on both platforms.
+Q: How do I create a digital business card?
+A: Open the CompanyCard builder, add your name, title, company, photo and links, pick a template and brand colours — and you instantly get a QR code, a personal link and a wallet pass to share. It takes about a minute and no design skills.
+Q: Are digital business cards professional?
+A: Increasingly they're the professional choice: your details are always current, the receiver never types anything, and a branded card with a matching email signature and video-call background presents more consistently than paper ever did.
+Q: What happens if I change jobs or get promoted?
+A: Edit your card once. Every QR code, link, wallet pass and email signature you've ever shared now shows the new details — no reprints, no outdated cards in circulation.
+
+### Virtual Business Card Maker — Free, Live Preview, No App Needed | CompanyCard
+URL: https://company-card.com/virtual-business-card.html
+Description: Make a virtual business card free. One link and QR code with all your details — share it anywhere, update it anytime, track every view. No app required.
+Q: What is a virtual business card?
+A: It's a business card that lives online at a personal link, instead of on paper. It holds your contact details, photo and links, and can be shared by QR code, link, wallet pass or email signature.
+Q: How do I make a virtual business card for free?
+A: Open the CompanyCard builder, type your details, pick a design and you're done — the free plan includes your card, QR code and link with unlimited edits.
+Q: Can I use a virtual business card on iPhone and Android?
+A: Yes. Your card is a web page, so it works on every phone. You can also add it to Apple Wallet or Google Wallet for one-tap sharing.
+Q: Is a virtual business card professional?
+A: Increasingly it's the more professional choice: it shows you're current, it's always accurate, and it lets the other person save your details instantly instead of retyping them.
+Q: What is the difference between a virtual and a digital business card?
+A: In practice they're the same thing — an online card shared by link or QR code. "Virtual" emphasises that it works in remote settings like video calls and chat, while "digital" is the broader umbrella term.
+Q: Can I share a virtual business card on Zoom or Teams?
+A: Yes — two ways: paste your card link in the meeting chat, or use a branded virtual background that shows your name, role and QR code on screen for the whole call.
+Q: Does a virtual business card work without internet?
+A: Your wallet pass and QR code display offline on your phone; the receiver needs a connection to open the card — which they nearly always have, since they just scanned it with a smartphone.
+Q: Can my whole team use virtual business cards?
+A: Yes. Admins invite employees from one dashboard, lock the brand template, and every team member gets a matching card, email signature and video-call background.
+
+### Electronic Business Card — Modern vCard for Professionals | CompanyCard
+URL: https://company-card.com/electronic-business-card.html
+Description: Create an electronic business card that saves straight to any phone's contacts. QR, link and vCard included — free to start, built for individuals and teams.
+Q: What is an electronic business card?
+A: A business card in digital form — usually a web page plus a vCard (.vcf) file — that can be shared by link or QR code and saved directly to a phone's contacts.
+Q: How do I create an electronic business card on iPhone?
+A: Build your card in CompanyCard's web builder (no app needed), then add it to Apple Wallet. Sharing is one tap or one QR scan from your lock screen.
+Q: What's the difference between a digital and an electronic business card?
+A: Nothing meaningful — they're two names for the same idea. 'Electronic' often emphasises the vCard file that saves to contacts, while 'digital' emphasises the online profile.
+Q: Can I send an electronic business card by email?
+A: Yes — link it from your email signature or attach the vCard. CompanyCard builds a signature block for you automatically.
+
+### QR Code Business Card Generator — Free, Live QR, No Signup | CompanyCard
+URL: https://company-card.com/qr-code-business-card.html
+Description: Generate a QR code business card free. One scan shares your full contact details — no app for the receiver. Branded QR, wallet passes and tracking included.
+Q: How do I create a QR code business card for free?
+A: Build your card in the CompanyCard builder — your QR code is generated automatically on the free plan ($0 forever, one card), along with a short link and an Apple and Google Wallet pass. Free cards carry a small clickable CompanyCard credit under the card; branded QR codes and credit removal are part of Pro at $7.99 a month, or $5.99 a month billed yearly.
+Q: Does the QR code expire?
+A: No. Your QR points to your permanent card link, and it keeps working — and staying current — for as long as your card exists.
+Q: Can I put the QR code on my printed business cards?
+A: Yes, that's a popular combo: keep printing minimal paper cards with just your name and the QR — the code carries everything else and never goes stale.
+Q: Can I brand the QR code?
+A: On Pro plans you can set the QR's colour and embed your logo, so the code itself matches your brand.
+Q: What is the difference between a vCard QR code and a dynamic QR code?
+A: A vCard QR encodes your details directly into the code — dense, and impossible to update after printing. A dynamic QR points to a live card page: it stays visually simple, scans faster, and always shows your current details. CompanyCard uses the dynamic approach.
+Q: How do people scan my QR code?
+A: They point their phone camera at it — both iPhone and Android recognise QR codes natively, no scanner app needed. Your card opens in their browser with a one-tap "Save contact" button.
+Q: Can I track how many people scanned my QR code?
+A: Yes. Because your QR opens your live card, CompanyCard shows you views and saves — so you know which events and placements actually generate contacts.
+Q: What size should a printed QR code be?
+A: At least 2×2 cm (0.8 inch) for business-card distance, and roughly 1:10 of the expected scanning distance for posters and banners. Always print a test and scan it before a full run.
+
+### Free Digital Business Card — No Credit Card, No Catch | CompanyCard
+URL: https://company-card.com/free-digital-business-card.html
+Description: Get a free digital business card with QR code, sharing link and unlimited updates. No credit card, no trial clock. Upgrade only when your team grows.
+Q: Is the free digital business card really free forever?
+A: Yes. The free plan has no time limit and no credit card requirement. Your card and QR code stay live for as long as you use them.
+Q: What's the catch with free digital business cards?
+A: With some providers, expiring trials or locked exports. CompanyCard's free plan is a working card with two limits, stated plainly: it is one card per account, and it carries a small clickable CompanyCard credit under the card. The paid plans sell branding, analytics and team features, not your basic card back to you.
+Q: Can I upgrade later without changing my link?
+A: Yes. Your link and QR stay the same when you upgrade — everything you've shared keeps working.
+Q: Do free cards show CompanyCard branding?
+A: Yes. Free cards carry a small clickable CompanyCard credit under the card that links back to company-card.com. Pro — $7.99 a month, or $5.99 a month billed yearly — removes it and adds your own branding.
+Q: How do I create a free digital business card?
+A: Sign up with an email and password, type your details into the builder, pick a design — your card, QR code and short link are live in about a minute. No credit card at any step.
+Q: Does the person receiving my free card need an app?
+A: No. Your card opens in any web browser. They scan your QR or tap your link, then save your contact in one tap — free plan included.
+Q: Can I make free digital business cards for my whole team?
+A: Each employee can start with a free personal card. When you want one locked brand template, central administration and analytics across everyone, that's the team plan.
+Q: Is a free digital business card better than free business card templates?
+A: Templates give you a static image or PDF you still have to print and re-do on every change. A free digital card is live: one permanent link and QR that update instantly and save straight into phones.
+
+### Best Digital Business Cards for Small Business (2026) — Compared | CompanyCard
+URL: https://company-card.com/best-digital-business-card.html
+Description: The best digital business cards for small businesses and self-employed professionals in 2026, compared on free plan, team seat minimums and published price — with each competitor's own pricing page cited and verified September 2026.
+Q: What is the best digital business card app?
+A: The one that saves your contact into the other person's phone fastest, keeps every employee on brand automatically, and prices fairly at your team size. Run a 10-minute hands-on test rather than trusting any vendor's comparison table — including ours.
+Q: Do I need an NFC card or is QR enough?
+A: QR and link sharing cover virtually every situation and work on every phone. NFC hardware is a nice-to-have that costs money per employee and can be lost — CompanyCard deliberately works without it.
+Q: What should teams look for specifically?
+A: Locked brand templates, central admin with invite links, per-employee email signatures and virtual backgrounds, analytics, and role separation between admins and employees.
+Q: Is CompanyCard free to try?
+A: Yes — the free plan is a full working card with QR and link, no credit card required.
+Q: Are free digital business cards good enough?
+A: For an individual, often yes — a good free plan covers a full card, QR code and unlimited updates. Teams usually outgrow free tiers because they need locked brand templates, central administration and analytics.
+Q: What do digital business card apps cost?
+A: Most platforms run freemium: a free personal card, then per-seat monthly pricing for teams, and some also sell physical accessories per employee. Compare the total for your actual headcount including any hardware — that's where quotes diverge most.
+Q: How do I switch from another digital business card app?
+A: Create your new card, then update the link in the places you control: email signature, LinkedIn, printed QR codes. Because CompanyCard links never expire, you only ever have to do this migration once.
+Q: What makes a digital business card good for the receiver?
+A: No app to install, a page that loads fast on any phone, and a one-tap "Save contact" button that downloads a complete vCard. If the receiver has to work, the card has failed.
+
+### Blinq & HiHello Alternative for Teams | CompanyCard
+URL: https://company-card.com/blinq-alternative.html
+Description: Looking for a Blinq, HiHello or Popl alternative? CompanyCard is the digital business card for people and teams — no hardware to buy, no team seat minimum, flat published pricing, and a free plan to start.
+Q: Is CompanyCard a good Blinq alternative?
+A: It depends on what you need. Blinq has a strong free tier — as of September 2026 it includes two cards, an email signature, a virtual background and Apple and Google Wallet — so those are not reasons to switch. The clearest reason to choose CompanyCard is team size and price: Blinq's Business plan bills a minimum of five team cards, while CompanyCard has no seat minimum and publishes flat pricing, so a two- or three-person business can run locked, branded cards without paying for empty seats.
+Q: What is the best HiHello alternative for teams?
+A: For teams, look for locked brand templates, central administration with invite links, directory import, and per-employee signatures and video backgrounds. CompanyCard bundles all of those and lets an admin roll out on-brand cards across the whole company from one dashboard.
+Q: How is CompanyCard different from Popl?
+A: Popl has moved upmarket. As of September 2026 it presents itself as an AI platform for in-person event lead capture, with digital business cards a secondary offering, and it does not publish pricing — you book a demo to get a quote. CompanyCard is a self-serve digital business card with published rates and a free plan, so you can start without a sales call.
+Q: Do I have to pay to switch to CompanyCard?
+A: No. You can create a full digital business card free — QR and link included, unlimited edits, no credit card. Teams upgrade only when they need brand locking, admin controls and analytics.
+Q: How do I switch from Blinq or HiHello?
+A: Create your CompanyCard, then update the link in the places you control — your email signature, LinkedIn and any printed QR codes. Because CompanyCard links never expire, this migration is a one-time job.
+Q: Does the person I share with need an app?
+A: No. Your card opens in any phone browser from a QR scan or link, and one tap saves a complete contact (vCard). The receiver installs nothing.
+
+### Linq Alternative for Digital Business Cards (2026) | CompanyCard
+URL: https://company-card.com/linq-alternative.html
+Description: Looking for a Linq alternative? Linq has moved on to messaging APIs. CompanyCard is a digital business card you can move to today — free plan, QR, link and wallet sharing, no app for the recipient.
+Q: Is Linq still doing digital business cards?
+A: As of September 2026, linqapp.com presents itself as a developer messaging platform — its homepage headline is "Build robust messaging capabilities in minutes" and the phrase "business card" does not appear on it — not a digital business card product. If you rely on a Linq card, it is worth having somewhere else to go. Check Linq's own site for the current status of any card product you hold.
+Q: What is the best Linq alternative?
+A: For an individual or a small business, look for three things: a free plan you can genuinely use with clients, no app required for the person receiving the card, and a permanent link and QR code so you never repeat this migration. CompanyCard's free plan covers all three — it includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: Can I keep my NFC tag if I switch?
+A: Usually yes. If your tag or card lets you write a custom URL, you can point it at your CompanyCard link and a tap will open your new card. Everyone else can reach you by QR code or link with no hardware at all.
+Q: How do I move my details across?
+A: Copy your details, links and photo from your existing card, paste them into the CompanyCard builder, then update your link in the places you control — email signature, social bios and any printed QR. It takes about five minutes.
+Q: Will I have to migrate again later?
+A: Nobody can promise what another company does next, so the honest answer is: choose on portability. With CompanyCard your link and QR code are permanent, and you can export the contacts you capture, so you are never locked to us by your own data.
+
+### Digital Business Card Maker — Design Your Card Online Free | CompanyCard
+URL: https://company-card.com/digital-business-card-maker.html
+Description: Make a digital business card online, free: type your details, watch the live preview and QR code update, download it or save it as a real card with a permanent link. No signup to try.
+Q: Is the digital business card maker free?
+A: Yes — designing and publishing your card, including the QR code and link, is part of the free plan. Premium templates and custom branding come with Pro.
+Q: Can I match my company's brand?
+A: Yes. Set brand colours, logo and cover in the maker. On team plans, admins lock the template so every employee's card stays on brand.
+Q: Can I make cards for my whole team?
+A: Yes — the team onboarding flow imports employees from CSV, Google Workspace or Microsoft 365 and issues everyone a card from one locked template.
+Q: Do I need design skills?
+A: No. Templates handle the design; you only fill in your details and pick colours with a live preview.
+
+### Free Email Signature Generator — With a Live Business Card | CompanyCard
+URL: https://company-card.com/email-signature-generator.html
+Description: Generate a professional email signature free — clickable, branded and linked to your live digital business card. Works with Gmail, Outlook and Apple Mail.
+Q: Is the email signature generator free?
+A: Yes — generating and using your personal signature is included free with your card. Team-wide managed signatures are part of the team plan.
+Q: Does it work with Gmail and Outlook?
+A: Yes. The generated signature is standard HTML that pastes cleanly into Gmail, Outlook (desktop and web) and Apple Mail settings.
+Q: What should a professional email signature include?
+A: Name, role, company, one phone number, and a link to more — ideally your live business card rather than a pile of icons. Less is more; the card carries the rest.
+Q: Will the signature update when my details change?
+A: The linked card updates instantly everywhere. The pasted block itself updates the next time you copy it — one click in the app.
+Q: How do I add a signature in Gmail?
+A: Open Settings (gear icon) → See all settings → General → scroll to Signature → Create new, paste the signature copied from CompanyCard, set it as default for new emails and replies, and click Save Changes.
+Q: How do I add a signature in Outlook?
+A: On the web: Settings → Mail → Compose and reply → paste under Email signature. Desktop app: File → Options → Mail → Signatures → New, then paste and set defaults.
+Q: How do I add a signature in Apple Mail?
+A: Mail → Settings → Signatures, select your account, click +, then paste. Untick "Always match my default message font" to keep the formatting.
+Q: Should my email signature have an image?
+A: A small headshot or logo builds recognition and trust — keep it lightweight and hosted (not attached) so it displays reliably. CompanyCard handles hosting and sizing automatically.
+
+### Branded Virtual Backgrounds for Zoom, Meet & Teams | CompanyCard
+URL: https://company-card.com/virtual-background-for-video-calls.html
+Description: Put your business card on every video call. Generate branded virtual backgrounds for Zoom, Google Meet and Microsoft Teams — with your name, role and QR code.
+Q: How do I add a virtual background in Zoom?
+A: Zoom → Settings → Background & effects → add image, and upload the background you generated. Google Meet and Microsoft Teams have the same option in their video settings.
+Q: What size should a virtual background be?
+A: 1920×1080 (16:9). CompanyCard generates your background at exactly this size so it looks sharp on every platform.
+Q: Can people really scan a QR from a video call?
+A: Yes — modern phone cameras read QR codes off screens easily. Keep the code in a corner at the generated size and it scans from a typical laptop video tile.
+Q: Can my whole team get matching backgrounds?
+A: Yes. On team plans every employee's background is generated from the same locked template — names change, brand doesn't.
+
+### Digital Business Cards for Teams — One Brand, Every Employee | CompanyCard
+URL: https://company-card.com/digital-business-cards-for-teams.html
+Description: Roll out digital business cards across your company: locked brand templates, central admin, invite links, plus email signatures and virtual backgrounds per employee.
+Q: How do employees get their cards?
+A: Admins send an invite link (or import from CSV / Google Workspace / Microsoft 365). Each employee creates their own login and receives a card generated from the company template.
+Q: Can employees see each other's cards?
+A: No. Employees see and edit only their own card. Admins see every card in the company. Different companies are completely isolated from each other.
+Q: What happens when someone leaves?
+A: Remove them in the dashboard — their card, signature and access are revoked immediately.
+Q: Do all employees get the email signature and virtual background?
+A: Yes, both are generated per employee from the same brand template on team plans.
+
+### Popl Alternative for Small Business (2026) — Published Pricing | CompanyCard
+URL: https://company-card.com/popl-alternative.html
+Description: Looking for a Popl alternative? Popl now positions itself as an AI event lead-capture platform and doesn't publish pricing. CompanyCard is a self-serve digital business card with a free plan and published rates.
+Q: What is the best Popl alternative?
+A: It depends what you were using Popl for. If you need event lead capture with badge scanning and CRM enrichment, that is now Popl's core product and a digital business card tool is not a replacement. If what you actually want is a professional digital business card you can set up yourself, CompanyCard is self-serve with published pricing and a free plan that includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: Does Popl have a free plan?
+A: Popl doesn't say. As of September 2026 its pricing page publishes no prices and no free tier — it says plans exist for both individuals and teams, with pricing quoted in a meeting rather than listed on the site. CompanyCard's free plan is available immediately with no credit card and no call.
+Q: Why doesn't Popl publish its pricing?
+A: Popl says it prefers to quote pricing over a meeting to make sure the product fits. That is a reasonable enterprise sales model, but it does mean you cannot compare costs on a Tuesday evening without talking to someone — which is usually the point at which a small business starts looking elsewhere.
+Q: Is Popl still a digital business card?
+A: It still offers digital business cards, but as of September 2026 they are a secondary offering: popl.co leads with "Your AI GTM platform for in-person events" and its headline products are event lead capture, badge scanning, list enrichment and event intelligence. If your need is one card for yourself or a small team, you are no longer the main audience.
+Q: Do I need to buy NFC hardware?
+A: Not with CompanyCard — sharing is QR code, link, Apple or Google Wallet pass and email signature, so there is nothing to buy, ship or replace. If you already own an NFC tag that accepts a custom URL, you can point it at your CompanyCard link and a tap will open your card.
+Q: What does CompanyCard cost?
+A: Free for one card. Pro is $7.99 a month, or $5.99 a month billed yearly and removes the CompanyCard credit while adding custom branding, unlimited links, lead capture and analytics. Business is $12 per user per month for admin controls, brand lock, CRM sync and SSO, with no seat minimum. All of it is on the pricing page.
+
+### Digital vs Paper Business Cards: Which Is Better in 2026? | CompanyCard
+URL: https://company-card.com/digital-business-card-vs-paper.html
+Description: Digital vs paper business cards compared: cost, updates, tracking, sustainability and etiquette. See why a digital business card wins for most people — and make one free with CompanyCard.
+Q: Are digital business cards better than paper?
+A: For most people, yes. A digital business card is always up to date, can't run out, is saved with one tap, and lets you see who viewed it. Paper cards still help as a physical keepsake at some events, but they're static, easily lost and costly to reprint whenever a detail changes. Many people carry a few paper cards and share a digital card as the primary.
+Q: Do digital business cards replace paper cards completely?
+A: They can, and increasingly do. A digital card shares by QR code, link, wallet and email signature, so anyone can receive it with no app. Some people keep a small stack of paper cards for occasions where handing something over is expected, but update the digital card as the single source of truth.
+Q: How much do digital business cards cost compared to paper?
+A: A digital business card can be free — CompanyCard's free plan includes a shareable QR code and link with unlimited edits. Paper cards cost money to design and print, and again every time your title, number or logo changes. Over a year, digital is usually cheaper and never goes out of date.
+Q: Are digital business cards more sustainable than paper?
+A: Yes. Billions of paper business cards are printed each year and most are discarded within a week. A digital card produces no printing waste and never needs reprinting when your details change, so switching removes a recurring source of paper waste.
+Q: Is it unprofessional to use a digital business card?
+A: Not at all — sharing a clean digital card by QR or link now reads as modern and prepared. What matters is that the card looks professional and works instantly. A well-designed digital card with your logo and one-tap save often makes a stronger impression than a paper card that gets filed away.
+
+### Digital Business Card for Small Business (Free Plan) | CompanyCard
+URL: https://company-card.com/digital-business-card-for-small-business.html
+Description: CompanyCard is a free digital business card for small business owners — share by QR code, link or Apple/Google Wallet, no app for your customer, and no seat minimum when you add your first employee.
+Q: What should a small business owner put on a digital business card?
+A: Your own name and the trading name, what you sell in the words customers ask for it, the shop address or the area your van covers, hours or market days, a phone that takes texts and WhatsApp, a link to order, book or get a quote, how you take payment, a trade contact if other businesses buy from you, and any registered name or licence number your trade expects on advertising.
+Q: I already printed the QR code on my van, shop window and flyers. Can I still change what it opens?
+A: Yes. Both the QR code and the link open your live card, not a copy made on the day you printed. Change your winter hours or swap your ordering page, and the van livery, window vinyl, flyers and invoice footers you paid for last year all open the new version.
+Q: What happens to my card when I hire my first employee?
+A: They get their own card with the same trading name, logo and business details plus their own name, role and number, so a customer who dealt with your apprentice can still find the business. Team plans are priced per person with no seat minimum, so a two-person business pays for two.
+Q: Can a small business use the card instead of a website?
+A: Many do, particularly a market stall or a one-van trade that never needed more than a phone number. The card carries your hours, address or service area, ordering link, payment methods, reviews link and socials on one page you edit yourself, and the same link goes on the van, the flyer and the invoice. Add a website later and the printed QR codes carry on working.
+
+### What to Put on a Business Card When You Own the Company | CompanyCard
+URL: https://company-card.com/business-card-for-business-owners.html
+Description: What job title to use when you own the business, how two co-owners should handle cards, and what to put on a card when the business isn't registered yet. A practical guide for small business owners and the self-employed.
+Q: What job title should I put on my business card if I own the business?
+A: Owner, Founder, Director and Principal all read correctly on an owner's card, and none of them is wrong. Pick Owner if you want the plainest option, Founder if the business is a brand you intend to outlast you, Principal for a professional practice, and Director only if you actually hold that role — in many countries it is filed with the companies registry, so check yours. If you are self-employed and hired for a skill, the trade itself — Plumber, Bookkeeper, Photographer — is usually stronger than any ownership title. Whichever you choose, put one title on the card, not three.
+Q: Can two co-owners share one business card?
+A: You can, but it usually costs you leads. Whoever scans a two-name card does not remember which of you they met, so they write to a shared address and wait, or they guess. The better pattern is one card each on the same design, with each person's own direct number and email. On paper that doubles the print run. On a digital card each owner needs their own card — CompanyCard's free plan is one card per account, so two co-owners means either two free accounts or a paid plan that manages both in one place.
+Q: What do I put on a business card if my business isn't registered yet?
+A: Trade under your own name: put your name where the business name would go and the work you do underneath it. Leave off anything that asserts a legal status you do not have — Ltd, LLC, Inc, a company number or a registered office address. If you are still choosing a trading name, check it against your own companies registry and your local trading-name rules before committing it to print, and consider a card you can edit after handing it out rather than one you have already printed.
+Q: Should the owner's card look different from the employees' cards?
+A: No. The design, logo and colours should be identical across everyone in the business, including you — that is what makes the card look like it belongs to a company rather than a person. The only things that should differ are the name, the role and the direct contact details. A visually distinct owner's card reads as a hierarchy nobody asked about.
+Q: Is CEO the right title for a one-person business?
+A: It is accurate in the narrow sense and it can still work against you. CEO signals that there are layers of management underneath, so on a business with no employees it can read as inflated to the person holding the card — particularly if they meet you doing the work yourself an hour later. Owner or Founder carries the same authority without the mismatch. If you deal mostly with large organisations where CEO is the expected counterpart title, that is a reasonable argument for using it.
+Q: Can I change the title on a digital business card after I've shared it?
+A: Yes. On CompanyCard the QR code and the sharing link are permanent and the details behind them are editable, so changing your title, phone number or business name updates the card everyone already has. Unlimited edits are included on the free plan. This is the practical difference from paper, where changing a title means reprinting and every card already in circulation stays wrong.
+
+### Digital Business Card for Freelancers & Self-Employed | CompanyCard
+URL: https://company-card.com/digital-business-card-for-freelancers.html
+Description: A free digital business card for freelancers, self-employed professionals and solopreneurs. Share by QR code or link, update it any time, and look established without a design budget.
+Q: Is this a freelancer's business card or a business credit card?
+A: A business card: the contact card you send a client or an agency producer, not a credit card or financing product. Searches for self-employed business card return both; CompanyCard replaces the paper card in your wallet, not the payment card.
+Q: What should a freelancer's digital business card include?
+A: Your discipline and who it is for, your trading name next to your own, a link to finished work, when you are next free, and a discovery-call link or enquiry email. Check your professional body's rule before adding a title such as certified or chartered.
+Q: Can I change my rates, niche or availability after the QR code is printed on invoices and stickers?
+A: Yes. The QR code and link point to the card, not to a snapshot of it. Change the positioning line, mark yourself booked until a given month or swap the portfolio link, and every proposal, invoice, sticker and closing slide already out there shows the current version. Edits are unlimited.
+Q: Can a sole trader put a trading name on the card instead of their own name?
+A: Put the trading name as the company and your own name as the name, so a client searching an inbox for either finds you. Some registrars and tax offices expect the legal name or a registration number on business correspondence, so check their rules. If you incorporate later, edit the card once and every printed QR code shows the new name.
+
+### HiHello Alternative for Small Business & Teams (2026) | CompanyCard
+URL: https://company-card.com/hihello-alternative.html
+Description: A HiHello alternative for small businesses: no 5-user minimum on team plans and published flat pricing. HiHello's four-card free tier wins for individuals — compared honestly, verified September 2026.
+Q: Is CompanyCard a good HiHello alternative?
+A: It depends which limit is bothering you. HiHello's free plan is generous on card count — four cards as of September 2026, including an email signature and virtual background. But its Business plan starts at five users, and the free tier caps HiHello's paper-card and badge scanner — the feature that captures other people's cards into your contacts — at five scans a month. CompanyCard has no seat minimum on team plans, which is what matters when your team is two people. If you are an individual optimising for free cards, HiHello is the better pick.
+Q: Does HiHello have a free plan?
+A: Yes — as of September 2026 HiHello's Personal plan is free and includes four cards, a personal email signature, virtual backgrounds and wallet support. Its paper-card and badge scanner — the feature that saves other people's cards and event badges as contacts — is capped at five scans per month on the free plan. We would rather point you at their pricing page than characterise it second-hand: check hihello.com/pricing for the current terms.
+Q: What does CompanyCard cost?
+A: Free forever for one card. Pro is $7.99 per month (or $5.99 a month billed yearly) and removes the CompanyCard credit while adding unlimited links, custom branding, lead capture and analytics. Business is $12 per user per month for admin controls, brand lock, CRM sync and SSO — with no minimum number of seats.
+Q: Can a two-person business get a team plan?
+A: With CompanyCard, yes — there is no seat minimum. This is the specific gap worth checking elsewhere: as of September 2026 HiHello's Business plan is sold for 5-100 users and Blinq's Business plan bills a minimum of five team cards, so very small teams are structurally excluded from both.
+Q: Do I lose anything by switching?
+A: Be aware of the trade-off rather than surprised by it: CompanyCard's free plan is one card and carries a small CompanyCard credit, where HiHello's free plan gives you four cards. If free card count is what you optimise for, HiHello wins that column and we will not pretend otherwise.
+
+### Digital Business Card for Realtors & Real Estate Agents | CompanyCard
+URL: https://company-card.com/digital-business-card-for-realtors.html
+Description: A digital business card for realtors and real estate agents — share by QR at viewings and open houses, link straight to your listings, and update your details without reprinting anything.
+Q: What should a realtor's digital business card include?
+A: Your headshot, the brokerage you hang your licence with, a mobile number for calls and texts, a link to your current listings, a booking link for showings, and the areas you work. Add your licence number and brokerage phone if your state's commission requires them on advertising.
+Q: How do I use a digital business card at an open house?
+A: Put the QR code on the sign-in table, on a yard-sign rider and on your phone's lock screen. Visitors scan it, the card opens in their browser and they save your number and listings link in one tap, so you are in their phone before they leave.
+Q: What happens to the card when I change brokerage?
+A: You edit the company, logo, office address and licence details once. Every QR code on a rider, postcard or open-house sign, and the link in your email signature, opens the updated card, so nothing you already printed shows the old brokerage.
+Q: Should a realtor link to a specific listing or to a listings page?
+A: Link to your listings page or brokerage profile, not to one property. A single listing sells or expires and the link goes dead; a listings page stays current. A property-specific link belongs on that house's open-house sign, swapped when the sale closes.
+Q: Do I have to show my licence number and brokerage name on the card?
+A: It depends on your state or province. Many real estate commissions require the brokerage name on all advertising, and some also require the brokerage phone number or your licence number. Check your commission's advertising rule and your association's guidance, then add the required fields so they appear on every share.
+
+### Digital Business Card for Consultants & Coaches | CompanyCard
+URL: https://company-card.com/digital-business-card-for-consultants.html
+Description: A digital business card for consultants and coaches — lead with your positioning, link to your work and let prospects book you from the same page. Free plan, no app for the recipient.
+Q: What should a consultant's digital business card include?
+A: Your name and trading entity, a one-line statement of who you help and with what, links to two or three case studies, a booking link for an intro call, your LinkedIn profile and a note on when you are next available. If you show a credential such as CMC, PMP or an ICF mark, check that body's display rules, and if you advise on financial, tax or insurance matters, check your regulator's rules on marketing material too.
+Q: Can a prospect book a discovery call straight from a consultant's card?
+A: Yes. Add your scheduling page as the Book a call link and a prospect who has just been forwarded your details can hold a slot without an email exchange. That matters most in the hour after a referral, while the interest is fresh.
+Q: I change my niche and rates often. Does the card keep up?
+A: Yes. The QR code and link open the card itself, not a copy of it, so when you narrow your positioning, change your trading name, raise your rate or close to new engagements for six months, every deck slide, proposal footer and email signature that already carries the card shows the current version. Edits are unlimited on the free plan.
+Q: I coach as well as consult. Should I split them on the card?
+A: Usually not. One card with a positioning line that covers both, separate links to your consulting case studies and your coaching page, and one booking link for either kind of intro call is easier for a referrer to forward than two cards they may mix up.
+Q: Is the free plan enough for a solo consultant?
+A: For most solo practices, yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro, which matters if your card sits in proposals to enterprise buyers.
+
+### Digital Business Card for Contractors & Tradespeople | CompanyCard
+URL: https://company-card.com/digital-business-card-for-contractors.html
+Description: A digital business card for contractors, builders and tradespeople — a QR code for your van and quotes, a tap to call, and details you can change without reprinting a thing.
+Q: What should a contractor's digital business card include?
+A: Your business name, your trade in plain words, your licence number and classification, an insured-and-bonded line, your service area, an office number and a 24-hour line, and links to finished work, reviews and a quote request. Check your state or local licensing board's rule on what must appear in contractor advertising.
+Q: Where do contractors put the QR code?
+A: On the van doors and rear panel, on the yard sign outside a job, in the footer of quotes and invoices, and on flyers at the supplier's counter or a home show booth. The code points at the card, not at a copy of it, so each keeps working after your number or service area changes.
+Q: My phone number, service area or licence expiry changed. Do I reprint the van?
+A: No, you edit the card, and every QR code already on the van, the signs and the paperwork opens the new version. That is the point of printing a code instead of the details: the vinyl stays right while the card behind it moves.
+Q: Do homeowners need an app to open a contractor's digital business card?
+A: No, they point the phone camera at the code on your van or quote, or tap the link in your text, and the card opens as a web page with your number one tap from saved. There is nothing to install, which matters when the person scanning has a leaking pipe behind them.
+Q: Can I show my licence and insurance on the card?
+A: Yes, add the licence number and classification as text and an insured-and-bonded line, so a homeowner or general contractor sees them before asking. Some state boards regulate how a contractor's licence number appears in advertising, so check yours and follow it. Keep the certificate of insurance ready to send: the card states it, the certificate proves it.
+
+### Digital Business Card for Photographers | CompanyCard
+URL: https://company-card.com/digital-business-card-for-photographers.html
+Description: A digital business card for photographers — link straight to your portfolio and Instagram, take enquiries, and share it by QR at shoots and weddings. Free plan available.
+Q: What should a photographer's digital business card include?
+A: The genres you shoot and the ones you do not, a link to the gallery for that genre rather than your homepage, your Instagram handle, an enquiry form, your base city and travel radius, your booking window, and a line saying you are insured for venues that ask.
+Q: How do I share my card at a wedding without handing out paper?
+A: Put the QR code on a small table sign by the guest book or the bar. Guests scan it with their camera app, land on your wedding gallery and can enquire before the evening ends; the couple can forward the link to a newly engaged friend.
+Q: Can I change my booking window after the QR code is printed on my packaging?
+A: Yes. The QR code and link open the live card, not a snapshot. Move from this year's weddings to next, add elopements or take a new studio, and the print-box inserts, album backs, thank-you cards and wedding-fair sign all show the current version.
+Q: What do wedding planners and venues need to see on a photographer's card?
+A: A planner wants the styles you shoot, your booking window and whether you deliver a vendor gallery she can use in her own marketing. A venue coordinator wants to know you carry liability insurance and how to request the certificate. Both want a direct email that skips your client enquiry form.
+
+### Digital Business Card in Apple Wallet & Google Wallet (Free) | CompanyCard
+URL: https://company-card.com/digital-business-card-apple-wallet.html
+Description: Add your digital business card to Apple Wallet and Google Wallet — included on CompanyCard's free plan. Open it without unlocking an app, and share it by QR even with no signal.
+Q: Can I add a digital business card to Apple Wallet?
+A: Yes. Open your CompanyCard on your iPhone and tap Add to Apple Wallet. The pass is saved alongside your boarding passes and tickets, so you can bring up your QR code by double-tapping the side button without unlocking into an app.
+Q: Does it work with Google Wallet on Android?
+A: Yes. The same card offers Add to Google Wallet on Android, and the pass behaves the same way — open Wallet and your QR code is there.
+Q: Is the wallet pass included on the free plan?
+A: Yes. CompanyCard's free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: Does the wallet pass work without internet?
+A: The pass itself lives on your phone, so you can display your QR code with no signal. The person scanning it needs a connection to load your card page — so at a venue with poor reception, it helps that they can still save the scan and open it later.
+Q: Does the pass update when I change my details?
+A: Your card page updates immediately, so anyone who scans the QR always sees current details. If a pass on your own phone looks out of date, remove and re-add it to refresh the stored copy.
+Q: Do I need an app for any of this?
+A: No. Apple Wallet and Google Wallet are already on the phone, and the person receiving your card just opens a browser page — there is no CompanyCard app to install on either side.
+
+### How to Make a Digital Business Card (Free, iPhone & Android) | CompanyCard
+URL: https://company-card.com/how-to-make-a-digital-business-card.html
+Description: How to make a digital business card for free in about five minutes — what to put on it, how to share it by QR, link or wallet, and how to set it up on iPhone and Android.
+Q: How do I make a digital business card for free?
+A: Create it on a platform that gives you a permanent link and QR code, add your details, photo or logo and links, then share it by QR, link or wallet pass. With CompanyCard the free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: How do I make a digital business card on iPhone?
+A: Build the card in your browser, then open it on your iPhone and tap Add to Apple Wallet. You can then display your QR code by double-tapping the side button, without unlocking into an app.
+Q: How do I make one on Android?
+A: The process is the same in any mobile browser, and on Android you can tap Add to Google Wallet to keep the pass on your phone for instant access.
+Q: What should I put on a digital business card?
+A: Your name, role and business, a photo or logo, one or two contact routes you actually answer, the links that prove your work, and one clear next step such as a booking link. Resist adding everything — the card is a door, not a website.
+Q: Do I need a website first?
+A: No. Many freelancers and small businesses use their card link as their web presence, holding services, contact details, socials and a booking link in one page they can edit themselves.
+Q: How do people save my card?
+A: They scan your QR code or open your link in any phone browser, then tap once to save you as a contact. There is nothing for them to install.
+
+### How to Add a Digital Business Card to Your Website | CompanyCard
+URL: https://company-card.com/embed-digital-business-card-on-your-website.html
+Description: Put a Save-my-contact button or your whole digital business card on your website with two copy-paste snippets. Any HTML or embed block, free plan included.
+Q: Does the Save-my-contact button work on the free plan?
+A: Yes. The free plan includes one digital business card with a QR code and a share link, and both snippets are built from that link, so nothing on this page needs a paid plan. A card's page carries a small Make your own CompanyCard link under the card, and the embed snippet adds a Made with CompanyCard line under the frame. Those two credits are what keep the free plan free.
+Q: Do my visitors need an app or an account?
+A: No. The button opens your card as an ordinary web page in whatever browser the visitor is using. Tapping Save contact downloads a standard .vcf contact file, which iPhones and Android phones open straight into Contacts. Only you, the card's owner, have a CompanyCard account.
+Q: What happens to the button when I change my card?
+A: It depends on whether you were signed in when you copied it. Signed in: your link stays the same when you edit the card, because the card is saved to your account and the link points at its page on company-card.com, so nothing on your website needs touching. Not signed in: the link encodes the card itself, so re-copy it after edits by opening Share, then Add to your website again, and pasting the fresh snippet over the old one. The panel tells you which kind of link you have.
+Q: Will the embed slow my website down?
+A: The button is a single SVG image of under 2 KB plus a link, with no script to load. The card embed is an iframe with lazy loading, so the browser fetches the card page only when a visitor scrolls near it, and its max-width rule lets it shrink to fit a phone screen.
+
+### Digital Business Card for Coaches & Therapists | CompanyCard
+URL: https://company-card.com/digital-business-card-for-coaches.html
+Description: A digital business card for coaches, therapists and practitioners — share your approach, link to booking, and keep your details private-but-reachable. Free plan available.
+Q: What should a coach's digital business card include?
+A: A one-line statement of who you coach and on what, your discovery-call or booking link, session format and city, your credential letters and the body that issued them, your current availability, and a practice email and business number. Lead with the niche; a referrer passes a coach's card on from that line alone.
+Q: Do therapists and counsellors need to show a licence number on a digital business card?
+A: That depends on the board you are registered with and where you practise. Some state boards expect a licence or registration number and the exact protected title on marketing material, and a card carrying your therapy services should be treated as marketing, so check your board's rule and add both in the form it specifies.
+Q: Can a prospective client book a discovery call straight from the card?
+A: Yes, add the link from whichever scheduling tool you use and the person a past client just referred can choose a discovery-call slot from the card without emailing to arrange one. If you change scheduling tools, update the discovery-call link once and every QR code on your slides and show notes opens the new one.
+Q: Can I keep my personal mobile number off a therapist's card?
+A: Yes, put only the routes you want therapy clients to use: a practice email, a business number and your booking link. Clients in distress will call whatever number they have, so the card is where you set that boundary.
+Q: Can one card cover one-to-one coaching and a group programme?
+A: Yes, and it saves a referrer choosing between two cards. Keep the niche line about the one-to-one work, add the group programme as a second link labelled with its cohort start date, and remove it when the cohort is full; the QR code on your workshop slide never changes.
+
+### Digital Business Card for Insurance Agents & Brokers | CompanyCard
+URL: https://company-card.com/digital-business-card-for-insurance-agents.html
+Description: A digital business card for insurance agents and brokers — carry your licence details, make quoting one tap, and update your card without reprinting a thing.
+Q: What should an insurance agent's digital business card include?
+A: Your name and the agency's licensed name, your licence number and licensed states, the lines you write, the carriers you place with, a quote request link, your direct mobile and the claims number, and a certificate request route if you write commercial. Check your state regulator's advertising rules first.
+Q: How does an independent agent show which carriers they write for?
+A: Put the carriers you are appointed with in the tagline, and update it the week an appointment changes. The QR code and link open the live card, so last year's closing folders show the current list.
+Q: Can I change my details after the QR code is printed on closing folders?
+A: Yes. The QR code and link point to the card, not to a snapshot of it. Move agencies, change your mobile or swap your quote form, and every folder and dealership flyer already in circulation opens the current version. Edits are unlimited.
+Q: Can an insurance agent put a licence number and carrier logos on the card?
+A: Your licence number, usually yes; many states expect it on marketing, so add it as a field. Carrier logos generally need the carrier's permission and sometimes a line saying you are an agent, not the insurer. Titles such as broker or adviser may be reserved for licence holders, so check your state department of insurance.
+
+### Digital Business Card for Salons, Barbers & Stylists | CompanyCard
+URL: https://company-card.com/digital-business-card-for-salons.html
+Description: A digital business card for salons, barbers and stylists — a QR at the chair for rebooking, a link to your work, and prices you can change without reprinting.
+Q: What should a hairstylist's or barber's digital business card include?
+A: Your name and the salon you work from, a booking link, your Instagram or a gallery of your work, a price guide, hours, whether you take new clients or walk-ins, and your deposit, cancellation and patch-test policy. Add your licence number if your state board requires it on advertising.
+Q: How do I get a client to rebook from the chair with a digital card?
+A: Put the QR code in the corner of the mirror or on the aftercare card that goes home with them. The client scans it while the cut is fresh, books the next visit from your booking link before they pay, and keeps the card in their phone for next time.
+Q: I rent a chair and might move salons or change my prices. Does the card still work?
+A: Yes. The card belongs to you, not the salon, and the QR code opens the live card rather than a copy of it. Change the shop name and address when you move, raise your colour prices or close your books to new clients, and every mirror card and aftercare leaflet you handed out at the old place shows the new details. Your booking link and number stay the same, so clients follow you.
+Q: Do I need to put my cosmetology or barber licence number on the card?
+A: It depends on your state board or licensing council. Many boards require the licence at your station and some also want the number on advertising, which a card listing prices may count as. Check your board's rule; if it asks for the number, add it once and every printed QR code follows.
+
+### Digital Business Card for Accountants & Bookkeepers | CompanyCard
+URL: https://company-card.com/digital-business-card-for-accountants.html
+Description: A digital business card for accountants and bookkeepers — carry your qualifications, make the first consultation easy to book, and keep details current through every filing season.
+Q: What should an accountant's digital business card include?
+A: Your name with the designation you hold (CPA, EA, ACCA, CA or equivalent), your firm and licence or registration number where your board expects it, your services by task, the clients you take, whether you are accepting new clients this season, a consultation booking link, a secure document link, and your filing-season phone number and hours.
+Q: How do accountants use a digital business card for referrals?
+A: Most new accounting clients arrive because an existing client or a referral partner such as a solicitor, mortgage broker or lender passed your details on. Share the card link once with each partner so they can forward it while the client is still in the room; because it opens your current card, a solicitor who saved you two years ago still forwards the right number and new-client status.
+Q: Can I show my CPA, EA or chartered designation and my licence number on the card?
+A: You can, and for a referred client or a lender vetting an accountant they are the first thing worth seeing. What you may call yourself, and whether a permit or registration number must appear on marketing material, is set by your state board, tax-practitioner register or professional body and differs by jurisdiction, so check your own body's rule before the card goes live.
+Q: Can I change my new-client status during filing season after the QR code is printed?
+A: Yes: the QR code and link point to the card, not to a copy of it, so an edit shows everywhere the code already exists: letterhead, engagement letters, your email signature and the card a referral partner saved last year. Close to new tax clients in February, reopen in May or change your portal link, and every scan opens the current accountant's card; edits are unlimited.
+Q: Is there a free plan for a sole practitioner or bookkeeper?
+A: Yes: a sole practitioner's or bookkeeper's free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### Digital Business Card for Bookkeepers | CompanyCard
+URL: https://company-card.com/digital-business-card-for-bookkeepers.html
+Description: A digital business card for bookkeepers — show the software you work in, your monthly services and catch-up work, and let referred clients book a discovery call. Free to start.
+Q: What should a bookkeeper put on a digital business card?
+A: Your name and business, the accounting software you work in and any certification you hold for it, the monthly services you provide, whether you take catch-up work, the client types you specialise in, how you price, a link to book a discovery call and a link to the secure portal clients use to send documents.
+Q: How is a bookkeeper's card different from an accountant's?
+A: An accountant's card is organised around qualifications and the filing calendar. A bookkeeper's is organised around ongoing monthly work: which software you use, what you reconcile and run each month, and where your work hands over to the client's accountant. Our accountants page covers the accountant's side.
+Q: Can I share it with clients I never meet in person?
+A: Yes. The card is a link, so it goes in an email introduction, a message, your email signature or the chat of a video call. The person who receives it opens it in their browser and saves your details with one tap — they do not need an app or an account.
+Q: Should I list my prices on the card?
+A: That is your decision. Showing a starting monthly price, or saying that fees are fixed after a free review, filters out enquiries that were never going to fit. Because the card is editable, a price change reaches every copy you have shared.
+Q: Do I need to show a registration or licence number?
+A: It depends where you work. Some countries and states regulate bookkeeping services or require registration for certain work, such as payroll or tax filings; many do not. Check the rules that apply to you, and if you hold a registration, adding it to the card is quick.
+Q: Is it free?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### Digital Business Card for Lawyers & Small Law Firms | CompanyCard
+URL: https://company-card.com/digital-business-card-for-lawyers.html
+Description: A digital business card for lawyers and small law firms — show your practice areas and where you practise, let referred clients book a first consultation, and edit it any time. Free to start.
+Q: What should a lawyer put on a digital business card?
+A: Your name and firm, your practice areas in plain words, the jurisdictions where you are admitted, your office address and hours, how a first consultation works, a direct way to reach you or your intake team, and any wording your regulator requires on lawyer marketing.
+Q: Is a digital business card allowed for lawyers?
+A: A card is a way of sharing your contact details, and lawyers use them the same way other professionals do. What you say on it may count as lawyer advertising where you practise, and rules on disclaimers, on calling yourself a specialist and on client testimonials differ between bars and law societies. Check the rules that apply to you before you publish, and edit the card's text to match them.
+Q: Should prospective clients send me case details through the card?
+A: It is safer not to invite that. Use the card to book a first call or reach your intake team, and ask people not to send details of their matter until you have spoken. If you use lead capture, collect contact details only.
+Q: Can a small firm give every lawyer a card?
+A: Yes. Each person can have their own card with their own practice areas and direct line. For a firm that wants one locked design across everyone, see digital business cards for teams.
+Q: Do the people I share it with need an app?
+A: No. The card opens in any browser from a link or a QR code, and the reader saves your details to their contacts with one tap.
+Q: Is it free?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### Free Digital Business Card Plans Compared (2026) | CompanyCard
+URL: https://company-card.com/free-digital-business-card-comparison.html
+Description: What each digital business card free plan actually gives you in 2026 — cards, wallet passes, scan caps, branding and seat minimums — compared from each vendor's own pricing page and verified September 2026.
+Q: Which digital business card has the best free plan?
+A: It depends what you need. On free card count, HiHello leads with four and Blinq gives two, both without a listed branding line — as of September 2026. CompanyCard's free plan is one card and carries a small CompanyCard credit, but includes an Apple and Google Wallet pass with no monthly cap on how often it is scanned, where HiHello's free tier caps card and badge scans at five per month. Popl has no free plan at all.
+Q: Are digital business card free plans really free, or trials?
+A: Most of the ones compared here are genuinely free rather than timed trials, but the limits differ and they are what matter: how many cards, whether a wallet pass is included, whether scans are capped monthly, and whether the free card carries the vendor's branding. Check those four before you commit.
+Q: What is the catch with CompanyCard's free plan?
+A: Two things, stated plainly. It is one card, where Blinq gives two and HiHello four. And free cards carry a small CompanyCard credit — removing it is part of Pro at $7.99 a month, or $5.99 a month billed yearly. What you get in exchange is an Apple and Google Wallet pass, unlimited edits, no monthly scan cap and no credit card required.
+Q: Which is cheapest if I do need to pay?
+A: On published rates as of September 2026, Mobilo is the cheapest of the tools here at $3 a month for Pro, though it is built around NFC cards it sells separately. Wave Connect's Pro is $7 a month. Uniqode's Team plan is $6 per user per month but is annual-only — it states plainly that it does not offer monthly plans. CompanyCard is $7.99 for Pro ($5.99/mo billed yearly) and $12 per user for Business with no seat minimum. Popl does not publish pricing.
+Q: Which free plans limit how many people can be on a team?
+A: Team limits usually bite at the paid tier rather than the free one. As of September 2026 Blinq's Business plan bills a minimum of five team cards, HiHello's Business plan is sold for five to one hundred users, and Wave Connect's Teams plan starts at three seats. Uniqode publishes no seat minimum but sells annual subscriptions only. CompanyCard and Mobilo do not state a seat minimum.
+Q: How current is this comparison?
+A: Every figure was read from the vendor's own pricing page in September 2026. Pricing and plan contents in this category change often, so treat this as a starting point and check the linked source before you decide.
+
+### How Much Does a Digital Business Card Cost? (2026 Prices) | CompanyCard
+URL: https://company-card.com/digital-business-card-cost.html
+Description: Most digital business cards have a free plan. Paid personal plans run about $3–$10 a month and team plans about $4–$7 per user. Every vendor's published price, compared and dated.
+Q: How much does a digital business card cost?
+A: For one person, usually nothing — CompanyCard, Blinq, HiHello, Mobilo, Uniqode and Wave Connect all publish a free plan. Paid personal plans run from $3 a month (Mobilo Pro) to $9.99 a month (Blinq Premium), and team plans from about $4 to $7 per user a month. Prices verified 1 September 2026 on each vendor's own pricing page.
+Q: Is there a genuinely free digital business card?
+A: Yes. Six of the eight products compared here publish a free plan that does not expire. The differences are in the limits: CompanyCard's free plan is one card and carries a small CompanyCard credit, Blinq's is two cards, and HiHello's is four cards but caps you at five card and badge scans a month. V1CE offers a 30-day trial rather than a free plan, and Popl publishes no pricing at all.
+Q: What is the cheapest digital business card?
+A: The cheapest paid personal plan on this page is Mobilo Pro at $3 a month, which is less than half what CompanyCard charges for Pro. For teams, Mobilo's Teams plan at $4 a month billed annually and Wave Connect's $5 per user a month and HiHello's $5 per user a month billed yearly ($6 monthly) are the lowest published rates. The cheapest option overall is a free plan, which is enough for most self-employed people.
+Q: Why are some digital business cards annual-only?
+A: Annual billing locks in revenue for the vendor and is usually presented as a discount. Uniqode states that it does not offer monthly plans and that an annual subscription cannot be switched to monthly. Mobilo prices its Teams and Business plans as billed annually. It matters when you compare: a plan advertised at $6 a month that can only be bought for a year costs $72 up front, not $6.
+Q: Do I have to buy an NFC card?
+A: No. A digital business card works through a QR code and a link, and the person receiving it needs no app and no special hardware. NFC cards are an optional physical accessory sold on top of a subscription — Mobilo lists them at $19.99 to $139 and V1CE lists its Smart Card from £75 one-time. Neither replaces the subscription.
+Q: How much does a digital business card cost for a small team?
+A: Between about $4 and $12 per person a month, but check the minimum before the rate. Blinq bills Business per card and starts you at a minimum of five cards, Wave Connect's Teams plan has a three-seat minimum, and HiHello sells its Business plan for 5–100 users, so a two-person team may not be able to buy the per-user price it sees. CompanyCard's Business plan is $12 per user a month with no seat minimum, which is the most expensive per-user rate here and the only one a two-person team can buy at face value.
+Q: Is a paid plan worth it if I am self-employed?
+A: Often not. The free plans cover the whole job — one card, a QR code, a sharing link, and details you can update after you have shared them. Paying gets you custom branding, removal of the vendor's credit from your card, extra cards, and lead capture with analytics. Those are worth money if you hand out your card at events and want to follow up; they are not worth money if you just need people to have your phone number.
+
+### HiHello vs Blinq (2026): Free Plans, Prices and Seat Minimums Compared | CompanyCard
+URL: https://company-card.com/hihello-vs-blinq.html
+Description: HiHello vs Blinq compared on published prices, verified 13 September 2026. HiHello's free plan gives 4 cards but caps scans; Blinq's gives 2 with unlimited sharing. HiHello is cheaper on both paid tiers.
+Q: Is HiHello or Blinq better?
+A: On published prices HiHello is cheaper for one person and gives more cards: 4 free against Blinq's 2, and 16 cards at $8 a month ($6 billed yearly) against 5 at $9.99 ($7.33 billed yearly). The team tier is a near tie — $6 per user against $6.99 billed monthly, $5 against $4.99 billed yearly. Blinq is the better choice if you scan a lot of paper cards and badges, because HiHello caps free users at 5 card and badge scans a month and Professional users at 20, while Blinq publishes no monthly scan count. Verified 13 September 2026 on each vendor's own pricing page.
+Q: Which has the better free plan, HiHello or Blinq?
+A: It depends on what you do. HiHello's free plan gives 4 digital business cards but caps you at “5 card & badge scans /mo”. Blinq's gives 2 cards with unlimited sharing and no published monthly cap, but keeps its contact scanner in the paid Premium tier. If you hand cards out, HiHello gives you more. If you collect other people's cards, Blinq does not meter you.
+Q: How much does HiHello cost?
+A: HiHello's Personal plan is free forever with 4 cards, 1 user and 5 card and badge scans a month. Professional is $8 a month billed monthly, or $72 a year ($6 a month) billed yearly, for 16 cards and 20 scans a month. Business is $6 per user a month billed monthly, or $60 per user a year ($5 a month) billed yearly, with unlimited cards and scans, and is sold for 5 to 100 users. Enterprise is custom pricing for 101+ users. Verified 13 September 2026 on hihello.com/pricing.
+Q: How much does Blinq cost?
+A: Blinq's Free plan is free forever with two digital business cards. Premium is $9.99 a month, or $7.33 a month billed annually, for up to 5 cards. Business is $6.99 per month, or $4.99 billed annually, with a minimum of five cards and billing per card rather than per user. Enterprise is custom. Verified 13 September 2026 on blinq.me/pricing.
+Q: Do HiHello and Blinq have a minimum number of users?
+A: Yes, both effectively require five. HiHello sells its Business plan for “5-100 users”. Blinq's Business plan requires a “minimum of five” cards. A team of two, three or four cannot buy the team tier on either product at the per-user price shown, and would be on single-user plans without shared branding, team analytics or admin control.
+Q: Does Blinq bill per user or per card?
+A: Per card. Blinq's pricing page states that Business is “Billed per card, per month” and that “Admins and team members who don't have a card assigned aren't billed”. HiHello bills per user. The difference matters if some people in your organisation administer the account or need access but do not need a card of their own — on Blinq those people are free.
+Q: Do HiHello and Blinq both include an email signature and virtual backgrounds free?
+A: Yes. Both vendors list a personal email signature and virtual backgrounds on their free plans, along with Apple and Google wallet passes and sharing by QR code, widget, email and SMS. These are table stakes in this category rather than points of difference between the two products — or between them and CompanyCard, which is why this page does not present them as a reason to choose any of the three.
+Q: How does CompanyCard compare to HiHello and Blinq?
+A: CompanyCard is more expensive than both and has a smaller free plan: 1 card carrying a small CompanyCard credit against HiHello's 4 and Blinq's 2, Pro at $7.99 a month against HiHello's $8 billed monthly ($6 yearly) for one card instead of sixteen, and Business at $12 per user against HiHello's $6 ($5 yearly) and Blinq's $6.99. The one axis where CompanyCard differs is the seat floor — it has no seat minimum on team plans, so a two-person or three-person business can buy team features that HiHello and Blinq both gate behind five seats. CompanyCard's team plans are not self-serve, though; the pricing page directs you to talk to us.
+
+### Popl vs Uniqode (formerly Beaconstac): Which One in 2026? | CompanyCard
+URL: https://company-card.com/popl-vs-uniqode.html
+Description: Popl vs Uniqode, the company that used to be Beaconstac. What each one publishes, what each is actually built for, and which fits a small business. Both vendors re-checked 5 September 2026.
+Q: Is Beaconstac the same company as Uniqode?
+A: Yes. Beaconstac rebranded to Uniqode, and the old domain now points at the new one: as of 5 September 2026, https://www.beaconstac.com/ returns an HTTP 301 redirect to https://www.uniqode.com. So a search for "Popl vs Beaconstac" is a search for Popl vs Uniqode, and any Beaconstac review or price you find from before the rename describes the same product under its old name.
+Q: Popl or Uniqode — which should I pick?
+A: It depends on the job, and for most small businesses neither is aimed at you. Pick Popl if your work is capturing leads at trade shows and conferences: as of 5 September 2026 its own pricing page sells unlimited events, an AI-native universal badge scanner, contact and company data enrichment, and native Salesforce, HubSpot and Marketo sync. Pick Uniqode if you want a digital business card you can price and buy yourself today, especially alongside a QR-code programme, and you are willing to commit for a year.
+Q: How much does Popl cost?
+A: Popl does not say. As of 5 September 2026 its pricing page publishes no rates and no tiers — the page is headed "Simple pricing for teams of all sizes" and the only call to action is "Request Pricing". No free plan is listed on it — the only use of the word "free" on the page is the footer link "Get the free mobile app" (re-read 11 September 2026) — so there is no free plan to compare against. You will find out the number on a call.
+Q: How much does Uniqode cost, and does it bill monthly?
+A: As of 5 September 2026 Uniqode's first digital business card is free, additional seats are on the Team plan at $6 per user per month, and Business+ is custom-priced. Billing is annual only: Uniqode states "No, we do not offer monthly plans, and it is not possible to change your subscription from an annual to a monthly plan." It offers a 30-day money-back guarantee. Check uniqode.com/pricing before deciding — terms change.
+Q: What happens to a Uniqode card if I stop paying?
+A: Uniqode draws the line at the free plan. Its pricing page states that "Digital business cards created on the Free plan will remain free forever with essential features, while cards made on Team and Business+ plans will stay accessible as long as your account subscription is active" (read 5 September 2026). In other words the free card survives; a paid card is tied to an active subscription.
+Q: Where does CompanyCard fit, and where does it lose?
+A: It loses on the headline team price: Uniqode's Team plan is $6 per user per month against our $12 Business, so for a team that is happy to pay annually Uniqode is cheaper and we will not pretend otherwise. What we have against this pair is narrow and checkable — we bill monthly where Uniqode states it does not offer monthly plans, we publish our rates where Popl publishes none, and our free plan is one working card rather than a trial. Note our free card carries a small CompanyCard credit, and our pricing page states that billing is not live yet — paid plans are currently a preview, so nothing is charged.
+
+### Blinq vs Popl: Which Digital Business Card in 2026? | CompanyCard
+URL: https://company-card.com/blinq-vs-popl.html
+Description: Blinq vs Popl compared on what each vendor actually publishes: Blinq lists every price, Popl lists none. Which one fits a freelancer, a small team, or an events team. Both re-checked 11 September 2026.
+Q: Blinq or Popl — which should I pick?
+A: For one person or a small business, Blinq: as of 11 September 2026 it publishes a free plan with two cards, a Premium plan at $9.99 a month, and a Business plan at $6.99 per user a month, and you can buy any of them online without talking to anyone. For a team whose job is capturing leads at trade shows and conferences, Popl: its pricing page sells unlimited events, an AI-native universal badge scanner, contact and company data enrichment, and Salesforce, HubSpot and Marketo sync — and you get the price on a call, because it does not publish one.
+Q: How much does Popl cost?
+A: Popl does not say. As of 11 September 2026 its pricing page publishes no rates and no tiers; it is headed "Simple pricing for teams of all sizes" and the calls to action are "Request Pricing" and "Book a Demo". The homepage FAQ says "Popl offers flexible pricing for both teams and individuals. Contact us for a custom quote". The "Popl for Individuals" link on the pricing page redirects to a page for downloading the Popl app, so the individual price is not on the web either. If a comparison you are reading quotes a Popl monthly price, check its date.
+Q: How much does Blinq cost?
+A: As of 11 September 2026 Blinq publishes four plans. Free is $0 forever with two digital business cards. Premium is $9.99 a month billed monthly or $7.33 a month billed annually, with up to five cards. Business is $6.99 a month billed monthly or $4.99 a month billed annually, per user, and Blinq's billing FAQ says it is billed per card with a minimum of five cards to start. Enterprise is custom. Check blinq.me/pricing before deciding — prices change.
+Q: Does Popl have a free plan?
+A: Not a free plan. As of 11 September 2026 Popl's homepage FAQ says "Popl offers free trials and personalized demos" and that the trials are "designed for individuals to explore and experience the benefits of Popl Teams before committing to setting up a team". The pricing page lists no free tier, and the only use of the word "free" on it is the footer link "Get the free mobile app". Blinq's free plan, by contrast, is a permanent plan with two cards.
+Q: Is Blinq's team plan really $6.99 a month?
+A: Per user, yes — but not from one user. As of 11 September 2026 Blinq's Business plan card says "$6.99 / month Billed monthly, per user", and the billing FAQ on the same page says "When you sign up you choose how many cards to start with (minimum of five)". So the smallest Business bill is five cards, $34.95 a month on monthly billing. The same FAQ says "Admins and team members who don't have a card assigned aren't billed", so you pay for people who have a card, not for every login.
+Q: Where does CompanyCard fit, and where does it lose?
+A: It loses to Blinq on the free plan (two cards and no vendor credit, against our one card with a small CompanyCard credit) and on the per-seat team rate ($6.99 against our $12), and it loses to Popl on event lead capture outright. What it has against this pair is narrow and checkable: we publish a price where Popl publishes none; we have no seat minimum where Blinq Business starts at five cards, which only matters for a team of one or two; and our Pro plan is $7.99 a month against Blinq Premium at $9.99, though Blinq Premium lists a contact scanner, AI notetaker and contact enrichment that Pro does not. Our pricing page also states that billing is not live yet — paid plans are currently a preview, so nothing is charged.
+
+### HiHello vs Popl: Which Digital Business Card in 2026? | CompanyCard
+URL: https://company-card.com/hihello-vs-popl.html
+Description: HiHello vs Popl by headcount: what one person, a team of three, a team of five and an events team would actually pay, from the rates each vendor publishes (HiHello all of them, Popl none). Re-read 19 September 2026.
+Q: Is Popl cheaper than HiHello?
+A: Nobody outside Popl can tell you, because Popl does not publish a rate. As of 19 September 2026 popl.co/pages/pricing shows plan contents and two buttons, "Request Pricing" and "Book a Demo", and its FAQ says "Talk to our sales team and we'll provide you with a quote". HiHello prints every figure: Professional $8 a month billed monthly, Business $6 per user a month billed monthly, $6 and $5 respectively if you pay for the year. The only way to compare the two bills is to ask Popl for yours.
+Q: Which one suits a team of three?
+A: HiHello's team plan is labelled for "5-100 users", so as of 19 September 2026 three people are either on three separate Professional plans at $24 a month billed monthly, with no shared admin or template lock, or buying Business at its five-user floor for $30. Popl gives you a quote. CompanyCard Business has no seat minimum, so three people are $36 a month billed monthly or $30 billed yearly, with the admin dashboard and brand lock included; our pricing page adds that billing is not live yet and paid plans are a preview. Three users is the one headcount where our published team rate is competitive; at five HiHello is cheaper.
+Q: Why does HiHello show $6 in one place and $8 in another?
+A: Because its pricing page opens with the "Billed yearly up to 25% off" switch already on. As of 19 September 2026 the first Professional price you see is $6 a month, which is the yearly plan, $72 charged once. Turn the switch off and the same plan reads "$8 per month billed monthly". Business does the same thing: $5 per user a month with the switch on, $6 with it off. Both numbers are correct; they describe different billing terms.
+Q: Can one person buy Popl?
+A: Not from the website, as of 19 September 2026. The pricing page has a "Popl for Individuals" panel for "solo entrepreneurs and professionals", but its link sends you to the page for downloading the Popl app rather than to a plan or a price, and the homepage FAQ describes the free trial as a way for individuals to "experience the benefits of Popl Teams before committing to setting up a team". An individual price for Popl is not published anywhere we could find.
+Q: How many cards come with each free option?
+A: HiHello: four, on a plan it labels "Free Forever", with Apple and Google Wallet, an email signature and virtual backgrounds included and card and badge scanning capped at five a month. Popl: none as a plan; what it offers is a free trial and a demo, and the only "free" on its pricing page is the footer's "Get the free mobile app". CompanyCard: one card with QR code, link and wallet pass, no scanner, and a small CompanyCard credit on it that the Pro plan removes. All three read on 19 September 2026.
+Q: What would an events team actually get from Popl that HiHello lacks?
+A: As of 19 September 2026 Popl's plan card lists unlimited events and conferences, an AI-native universal badge scanner, verified contact and company data enrichment, event campaigns with qualifying questions, self-serve CRM and calendar integrations, SOC 2 Type 2 security and a dedicated customer success manager, with digital business cards as one line on that list. HiHello's Business plan lists event lead capture, unlimited scans and unlimited contact enrichment too, but the product is built around the card; Popl's is built around the booth. If badge scanning at conferences is the job, that is Popl's home ground, and CompanyCard does not compete there at all.
+
+### About CompanyCard — Digital Business Cards for Small Business | CompanyCard
+URL: https://company-card.com/about.html
+Description: CompanyCard is a digital business card for small business owners, self-employed professionals and small teams. What we make, who it is for, how we make money, and what we will not claim.
+Q: What is CompanyCard?
+A: CompanyCard is a digital business card platform. You build a card with your details, links and branding, and share it by QR code, sharing link, Apple or Google Wallet pass or email signature. The person receiving it needs no app — the card opens in any phone browser and saves as a contact in one tap.
+Q: Who is CompanyCard for?
+A: Small business owners, self-employed professionals, freelancers, solopreneurs and small teams. It is aimed particularly at businesses too small for the enterprise tools in this category — there is no minimum number of seats, so a two- or three-person business can run branded cards.
+Q: How does CompanyCard make money?
+A: From paid plans, not from data. The free plan is supported by a small CompanyCard credit on free cards; Pro at $7.99 a month, or $5.99 a month billed yearly removes it and adds custom branding, unlimited links, lead capture and analytics; Business at $12 per user a month adds admin controls, brand lock, CRM sync and SSO.
+Q: Is CompanyCard a business credit card?
+A: No. CompanyCard is a contact card — the digital replacement for the paper business card you hand to a client. It is not a credit card, a payment card or a financing product.
+Q: What does CompanyCard not claim?
+A: We do not claim email signatures or virtual backgrounds as points of difference, because competitors include those on their free tiers too. We do not publish ratings or customer counts we cannot evidence. And where a rival's free plan beats ours — HiHello and Blinq both offer more free cards — our comparison pages say so.
+
+### Uniqode Alternative — Monthly Billing, No Annual Lock-In | CompanyCard
+URL: https://company-card.com/uniqode-alternative.html
+Description: A Uniqode alternative for small teams: monthly billing rather than Uniqode's annual-only subscriptions, and no seat minimum on our side. Compared from Uniqode's own pricing page, verified September 2026.
+Q: Why look for a Uniqode alternative?
+A: Billing terms. As of September 2026 Uniqode states it does not offer monthly plans — paid subscriptions are annual only — and a second card means upgrading to its Team plan at $6 per user per month. For a solo professional or a business that wants to pay month to month, that is a commitment decision before it is a product decision.
+Q: Does Uniqode have a free plan?
+A: Yes. As of September 2026 Uniqode lets you create your first digital business card free, and states cards created on the free plan remain free forever with essential features. Check uniqode.com/pricing for current terms.
+Q: How is CompanyCard different?
+A: CompanyCard bills monthly, has no seat minimum, and publishes flat rates: free for one card, $7.99 a month for Pro ($5.99 billed yearly), $12 per user a month for Business. You can add one colleague and pay for one colleague, without an annual commitment.
+Q: Is CompanyCard cheaper than Uniqode?
+A: Not on the headline number for a team: Uniqode's Team plan is $6 per user per month against our $12 Business, though theirs is annual-only and ours is not. For a single person our Pro is $7.99 a month, or $5.99 a month billed yearly. Which is cheaper depends entirely on whether you want to commit for a year — compare on your own headcount and billing preference.
+Q: What do I get free with CompanyCard?
+A: The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### Mobilo Alternative — Software-Only, No NFC Card to Buy | CompanyCard
+URL: https://company-card.com/mobilo-alternative.html
+Description: A Mobilo alternative with no NFC hardware: share by QR, link and Apple/Google Wallet. An honest comparison — Mobilo's paid plans are cheaper, and we say so.
+Q: Is CompanyCard cheaper than Mobilo?
+A: No, and we would rather say so. As of 1 September 2026 Mobilo lists Pro at $3 a month, with Teams at $4 and Business at $5 a month billed annually — against CompanyCard's $5.99 Pro and $10 per user Business billed annually ($7.99 and $12 billed monthly). Whichever way you bill it, Mobilo wins on price. The difference is what the products are: Mobilo sells physical NFC cards alongside its free digital card, CompanyCard is software only.
+Q: Do I need to buy an NFC card with Mobilo?
+A: Mobilo offers a free digital card and sells physical NFC cards separately — as of 1 September 2026 its site listed a branded NFC card at $19.99, a custom design at $39 and a metal card at $139, with discounts running at the time we checked. The hardware is optional, but it is central to the product. Check mobilocard.com for current pricing.
+Q: Why choose software-only?
+A: Because there is nothing to order for a new hire, nothing to reship when someone loses one, and nothing that stops working if you change the design. Sharing by QR code, link and wallet pass reaches every phone with no tap and no accessory. If you like the physical object, that is a genuine reason to prefer a hardware product instead.
+Q: What does CompanyCard include free?
+A: The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### Digital Business Card vs NFC Card: Which Do You Actually Need? (2026) | CompanyCard
+URL: https://company-card.com/digital-business-card-vs-nfc-card.html
+Description: Digital business card vs NFC card compared — how each is shared, what they cost, who they reach, and when the hardware is genuinely worth buying.
+Q: What is the difference between a digital business card and an NFC card?
+A: A digital business card is software — a page with your details that you share by QR code, link or wallet pass. An NFC card is a physical card or tag containing a chip that opens a link when tapped against a phone. The NFC card is a way of delivering a digital card, not a different kind of card: most NFC products open exactly the same sort of page.
+Q: Do I need an NFC card, or is the app enough?
+A: For most people the software is enough, because QR codes and links reach every phone and work at a distance. NFC is worth buying if you want something physical to hand over, or you share your card constantly in person and like the tap. It is not required to have a digital card.
+Q: Does NFC work on every phone?
+A: Not reliably. An NFC tap needs the other person's phone to support it, have it enabled and be unlocked and held close. A QR code or link works on any phone with a camera or a browser, which is why most digital card platforms use those as the primary sharing method regardless of whether they also sell hardware.
+Q: Can I use an NFC card with CompanyCard?
+A: CompanyCard does not sell hardware, but if you own an NFC tag or card that lets you write a custom URL, you can point it at your CompanyCard link. A tap then opens your card, while everyone else reaches you by QR code or link with no hardware at all.
+Q: Which is cheaper?
+A: Software is generally cheaper because there is nothing to buy per person and nothing to replace. NFC cards are typically bought individually — vendors in this category list branded cards from around $20 up to well over $100 for metal versions — and each new employee needs their own.
+
+### Best Virtual Business Card for Small Business & Professionals (2026) | CompanyCard
+URL: https://company-card.com/best-virtual-business-card.html
+Description: The best virtual business card for small business owners and self-employed professionals in 2026 — what makes one look professional, which to pick for your situation, and an honest look at the free plans. Verified September 2026.
+Q: What is the best virtual business card?
+A: For small business owners and self-employed professionals, the best virtual business card is the one with a free plan you can genuinely use with clients, no app required for the person receiving it, a permanent link and QR code, and no seat minimum if you later add someone. CompanyCard is built for exactly that case; its free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: What is the best free virtual business card?
+A: On free card count, HiHello leads with four and Blinq gives two — we won't pretend otherwise. CompanyCard's free plan is one card carrying a small CompanyCard credit, but it includes an Apple and Google Wallet pass and has no monthly cap on scans, where HiHello's free tier caps card and badge scans at five per month. See our full free-plan comparison for the fine print.
+Q: What makes a virtual business card look professional?
+A: Four things, in order: your own logo and brand colour rather than a stock template; a photo that looks deliberate; only the contact routes you actually answer; and one clear next step such as a booking link. A cluttered card with six social icons and three phone numbers reads as less professional, not more.
+Q: Is a virtual business card better than a paper one for a small business?
+A: For most small businesses, yes — mainly because it never goes out of date. You change your number, prices or logo once and every QR code you've already printed on a van, a window or an invoice shows the new details. Some people still carry a few paper cards for occasions that call for handing something over.
+Q: Do I need to pay to look professional?
+A: Not to start. A free card with your own logo, brand colour and a booking link already looks established. Paying mainly buys removing the vendor's credit line, custom branding and analytics — worth it once the card is earning you work, not before.
+Q: Is 'virtual business card' the same as 'digital business card'?
+A: Yes — virtual, digital and electronic business card all describe the same thing: a shareable card that lives on a link rather than on paper. Vendors use the terms interchangeably, so search whichever phrase you like and compare the same way.
+
+### Digital Business Card for Mortgage Brokers & Loan Officers | CompanyCard
+URL: https://company-card.com/digital-business-card-for-mortgage-brokers.html
+Description: A digital business card for mortgage brokers and loan officers — carry your licence details, make applications one tap away, and stay in the phone of every agent who refers you.
+Q: What should a mortgage broker's digital business card include?
+A: Your name and firm, your licence or registration number and the firm's, the borrowers you help, a direct mobile with the hours you answer, your fee position, and a link to start an application or book a first call. Check your regulator's rules on required disclosures first.
+Q: How do estate agents use a mortgage broker's digital business card?
+A: An agent with an unqualified buyer texts them your link from the viewing so the buyer can book a call before they get home. It opens the current card, so the agent's saved copy stays right when your firm or mobile changes.
+Q: Should a mortgage broker put rates on the card?
+A: Usually not. Rates change daily, so a saved rate is stale within days, and in most markets quoting one triggers disclosures such as an APR or representative example. A line saying rates on request, next to a booking link, does the job. Check your regulator's rules before adding a number.
+Q: What happens to my card when I move firms or change networks?
+A: Edit the firm name, licence details and status line once. The QR code and link point to the live card, not a snapshot, so leaflets in estate agents' offices and decision-in-principle letters already printed show the new firm.
+
+### Digital Business Card for Personal Trainers & Coaches | CompanyCard
+URL: https://company-card.com/digital-business-card-for-personal-trainers.html
+Description: A digital business card for personal trainers — share it on the gym floor by QR, link to your results and packages, and let people book a session without an awkward exchange.
+Q: What should a personal trainer's digital business card include?
+A: Where you train, your specialisms in the client's words, which slots are open, a booking or consultation link, your packages, a link to results or client stories, and your certification, insurance and first aid status. Check your gym's rules on approaching members before you show it on the floor.
+Q: How do personal trainers share a digital business card on the gym floor?
+A: Keep the QR code on your phone's lock screen or on a sticker on your water bottle and show it when a member asks what you charge. They scan it, see your specialisms, open slots and booking link, and save your number before they reach the changing room.
+Q: What happens when I change gyms or my availability fills up?
+A: Edit the card. The QR code on your water bottle, the noticeboard flyer, the car magnet and the poster at the physio's reception all point at the live card, so the new gym and the open slots appear everywhere the moment you save, with nothing reprinted.
+Q: Can I put my certification, before-and-after photos and nutrition coaching on the card?
+A: Use the exact title your certifying body grants and check whether you may show its logo. Before-and-after photos and testimonials fall under advertising rules that differ by country, and some US states restrict individualised nutrition advice to licensed dietitians, so check your state or national rule before describing nutrition coaching. If a claim has to come off, edit the card once and every QR code follows.
+
+### Digital Business Card for Electricians & Sparkies | CompanyCard
+URL: https://company-card.com/digital-business-card-for-electricians.html
+Description: A digital business card for electricians — show your certifications before you're asked, take callouts with one tap, and change your number without re-signwriting the van.
+Q: What should an electrician's digital business card include?
+A: Your name and company, a tap-to-call number and a separate emergency line if you take callouts, your license or scheme registration number as it appears on the license, whether you are insured, the electrical work you take, your service area, and a link to your website or reviews. Check your state or scheme's rule on what must appear in advertising before you publish.
+Q: Can I show my electrical license or registration number on the card?
+A: Yes. Put it in the tagline or a custom field so it sits near your name, typed exactly as it appears on your license so a homeowner or letting agent can look it up on the public register. Check your own board's rule on advertising, and update the card when the license renews.
+Q: Where should an electrician put the QR code?
+A: On the van, the board outside a job, your quotes and invoices, and the test certificate you leave behind. A homeowner scans it with the phone camera, the card opens in the browser with nothing to install, and saving your number is one tap.
+Q: What happens when I change my number, move areas or add a second van?
+A: You edit the card and every QR code already on the van or on a certificate keeps opening the new details. The van, the certificates in customers' drawers and last year's quotes all point at the same card, so nothing needs reprinting. Edit the service area or number and it is live at the next scan.
+Q: Do homeowners and builders need an app to open an electrician's card?
+A: No. They scan the QR code with the normal camera app or tap the link in a text or email, and the card opens as a web page. The save-contact button adds your number, email and company to their phone, which is where an electrician needs to be when the power goes off.
+
+### Digital Business Cards for Events, Conferences & Networking | CompanyCard
+URL: https://company-card.com/digital-business-card-for-events.html
+Description: Use a digital business card at events and conferences — share by QR from a lanyard or phone, get saved instantly, and follow up with people who actually remember you.
+Q: What should an exhibitor's or event planner's digital business card include?
+A: What you do in one line, the company, the stand and hall or session where people met you at this show, a portfolio or gallery link, a booking or quote link, the mobile and email you answer during show week, and the regions you cover.
+Q: How do I share a digital business card on a busy trade show stand?
+A: Print the QR code on the stand banner, a table card, your lanyard insert and the last slide of your talk. A visitor scans while you finish with the person in front of them; the card opens as a web page with nothing to install and they save you in a tap.
+Q: Can I change the stand number and show offer after the QR code is printed on my banner?
+A: Yes. The QR code and link open the card itself, not a copy, so an edit shows everywhere the code is already printed. Change the stand line, show offer, title or booking link between shows and the banner, lanyard insert and brochure all show the current version. Edits are unlimited.
+Q: Can I put a CMP or CSEP designation, or a licence number, on my event card?
+A: Only in the form the issuing body or licensing authority allows. Event-industry designations usually have display rules and lapse if you do not recertify, and venues may want registration, licence or insurance details shown a particular way. Check the guidance first; if it changes, edit the card once and every printed QR code shows the corrected wording.
+
+### Wave Connect Alternative — Honest Comparison (2026) | CompanyCard
+URL: https://company-card.com/wave-connect-alternative.html
+Description: A genuinely honest Wave Connect comparison: Wave's free tier and paid prices beat ours on several counts. The one place CompanyCard wins is the team seat floor. Verified September 2026.
+Q: Is CompanyCard better than Wave Connect?
+A: Not across the board, and it would be dishonest to claim so. As of September 2026 Wave Connect's free plan includes a lead capture form and a personal email signature, and its paid plans are cheaper on the published monthly prices — $7 a month against our $7.99, and $5 per user against our $12 (billed annually, ours are $5.99 and $10 per user; Wave's yearly prices sit behind a toggle on its site). The one published place CompanyCard wins is the team floor: Wave's Teams plan requires three seats, and we have no seat minimum. If your team is one or two people, that difference is the whole decision.
+Q: What does Wave Connect's free plan include?
+A: As of September 2026, Wave's free tier lists a digital business card, a personal email signature, unlimited sharing, unlimited contacts, Apple and Google Wallet, QR, email and SMS sharing, and a lead capture form. Free cards carry Wave branding — its Pro plan advertises removing it. Check wavecnct.com for current terms.
+Q: Do both put branding on the free card?
+A: Yes. Wave's Pro plan lists "Remove Wave branding" as a paid feature, and CompanyCard's free cards carry a small CompanyCard credit that Pro removes. Neither free tier is unbranded, so that is not a reason to pick one over the other.
+Q: When is CompanyCard the better choice?
+A: When your team is smaller than three people and you want them on a proper team plan with locked branding and central admin. Wave's Teams plan starts at three seats; CompanyCard has no seat minimum, so a two-person business can buy exactly two.
+Q: When should I just use Wave Connect?
+A: If you are a single user who wants lead capture on a free plan, or price is your deciding factor at any team size of three or more. On the published numbers those are Wave's, and we would rather you chose correctly than churned in a month.
+Q: What does CompanyCard's free plan include?
+A: It includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### V1CE Alternative — Free Digital Business Card, No £49.99/mo | CompanyCard
+URL: https://company-card.com/v1ce-alternative.html
+Description: A V1CE alternative for people who want a digital business card, not a £49.99/month hardware-and-CRM subscription. Free plan, no card to receive, no trial countdown.
+Q: Does V1CE have a free plan?
+A: No. As of September 2026 V1CE offers a 30-day free trial and then a single tier at £49.99 per month. It is explicit that there are no other tiers or add-ons. CompanyCard has a free plan with no time limit and no credit card.
+Q: What is included in V1CE's £49.99 a month?
+A: A premium NFC smart business card with free shipping and lifetime replacements, plus its Client Capture OS — CRM, automated follow-ups, booking, agreements and payments — and a Scout AI networking assistant. It is a bundle, not just a card, which is why the price sits where it does. Check v1ce.co for current terms.
+Q: Is CompanyCard cheaper than V1CE?
+A: Substantially, but they are not the same purchase. CompanyCard is free for one card, $7.99 a month for Pro ($5.99 billed yearly) and $12 per user for Business — a digital business card product. V1CE at £49.99 a month bundles hardware and a full client-capture CRM. If you need the CRM and the physical card, compare it against what you would otherwise pay for those separately.
+Q: When is V1CE the better choice?
+A: If you want a premium physical NFC card and a CRM with follow-ups, booking and payments in one subscription, and £49.99 a month is proportionate to the deals you close. For a lot of consultants and salespeople it will be. A free digital business card is not a substitute for a CRM.
+Q: Can I use my V1CE card with CompanyCard?
+A: If your NFC card lets you write a custom URL, you can point it at your CompanyCard link and a tap will open your card. CompanyCard does not sell hardware, so anything you already own keeps working alongside QR and link sharing.
+
+### Digital Business Card for Notaries & Signing Agents | CompanyCard
+URL: https://company-card.com/digital-business-card-for-notaries.html
+Description: A digital business card for notaries and mobile signing agents — carry your commission details, take same-day signings with one tap, and stay in every title company's contacts.
+Q: What should a notary's digital business card include?
+A: Your commission state, number and expiry date, whether you do loan signings and hold a current background screening, your E&O amount, whether you offer remote online notarization, your service counties, hours, languages and a direct number or booking link. Check your state's notary advertising rules before you publish.
+Q: How does a mobile signing agent get title companies to save the card?
+A: Send the link to the escrow officers and vendor coordinators who book you, print the QR code on the folder that travels with each closing package, and add the link to your email signature on confirmation and scan-back emails. It opens in their phone with your commission and coverage visible.
+Q: What happens to the printed QR code when my commission renews?
+A: Nothing needs reprinting. The QR code and link open the live card, so you change the expiry date, commission number or E&O amount once and every card, folder sticker and flyer already out there shows the current details.
+Q: Should I show both mobile and remote online notarization on the card?
+A: Only what your state has authorised you for. If you hold a RON authorisation, name it and the platform so lenders who need remote closings can find you; if you are mobile only, say so, and no signing service books you for the wrong appointment type.
+
+### Digital Business Card for Tutors & Private Teachers | CompanyCard
+URL: https://company-card.com/digital-business-card-for-tutors.html
+Description: A digital business card for tutors — one link that forwards through parent group chats, shows your subjects and safeguarding checks, and lets a parent book a trial lesson.
+Q: What should a tutor's digital business card include?
+A: The subjects, levels and exam boards you teach, whether lessons are online or in person and the area you cover, your qualifications, the safeguarding check you hold and its year, this term's open slots, your rates, and a link to book a trial lesson. Word the check exactly as your certificate does.
+Q: Can I change my availability and rates after parents have saved the card?
+A: Yes. The link and QR code open the live card, not a copy. When September fills your Tuesdays, or you raise rates for the new academic year, edit the card once and every parent who saved it last term sees the current version.
+Q: What should a tutor say about background checks on the card?
+A: State the type and date of the check as they appear on your certificate. Which checks a self-employed tutor can hold, and what you may call them in marketing, differ by country and state, so check your region's rules before you publish and update the card when a renewal comes through.
+Q: Can a school teacher who tutors privately use a card like this?
+A: Many do, but schools and education authorities often restrict tutoring your own pupils or naming the school in your marketing. Check your contract and your school's policy first, then describe yourself on the card in the terms they allow.
+
+### Digital Business Card for Cleaners & Cleaning Businesses | CompanyCard
+URL: https://company-card.com/digital-business-card-for-cleaners.html
+Description: A digital business card for cleaners — a QR for the door hanger and van, insurance and services shown up front, and a quote link that turns a flyer into a booking.
+Q: What should a cleaner's digital business card include?
+A: Whether you are insured (and bonded or background-checked, if that applies), the cleans you take on such as weekly domestic, deep clean, end-of-tenancy or small office, the areas you cover by name, whether supplies are included, a quote route, and a link to reviews or before-and-after photos. Those are the questions a new client settles before letting you into their home.
+Q: How do I use it on the van, door hangers and flyers?
+A: Print the same QR code on all of them. Someone who sees the van outside a neighbour's house or finds a hanger on their door scans it, reads what you clean and whether you are insured, and taps to ask for a quote. They can save your number in the same visit, so your details are already in their phone when the street group chat next asks for a cleaner.
+Q: What if I change my number, my prices or the areas I cover?
+A: Edit the card and every QR code already printed keeps working. That is the reason to put the code on the van and the hangers rather than a bare number: a phone dies, you drop a village from the round or put prices up, and the hangers already on doorsteps still open the current version.
+Q: Can I put insured and bonded, or a business licence number, on the card?
+A: You can add any text line you like, but check your local rule first. Some cities and states require a business licence or registration number on advertising, and some restrict how insurance or bonding may be described. Say what is true for you in plain words and keep the certificate to hand for the client who asks to see it.
+
+### Digital Business Card for Landscapers & Gardeners | CompanyCard
+URL: https://company-card.com/digital-business-card-for-landscapers.html
+Description: A digital business card for landscapers and gardeners — a QR on the truck and yard sign, a photo portfolio that sells the work, and a quote link neighbours can tap while you're on site.
+Q: What should a landscaper's digital business card include?
+A: The company and owner's name, the landscaping work you take on, the towns you cover, whether you are booking this season, a quote request link, a link to photos of finished gardens, and your insurance and licence details.
+Q: How does a landscaper use the QR code on the truck and at job sites?
+A: Print it on the truck door magnets, the trailer gate and the yard signs you leave after a job. A neighbour who has watched the work go in scans it from the street and requests a quote while the crew is still there.
+Q: Can I change my services after the QR code is printed on yard signs and truck magnets?
+A: Yes. The QR code and link open the landscaping card itself, not a copy of it, so mark the mowing route full, add snow clearance or change the crew lead's number and every yard sign, truck magnet and estimate pad already out there shows the new version.
+Q: Do I need to show a licence number on a landscaping business card?
+A: It depends on the landscaping work and the state. Many states require a commercial pesticide applicator licence to spray lawns for hire and some want that number on advertising; a few require a contractor licence for hardscape or irrigation. Ask your state's licensing board or agriculture department, and if your number changes, edit the card once.
+
+### Digital Business Card for Dentists | CompanyCard
+URL: https://company-card.com/digital-business-card-for-dentists.html
+Description: A digital business card for dentists and dental practices: QR code, sharing link and Wallet pass, with your booking link and new-patient status always current.
+Q: What should a dentist's digital business card include?
+A: The practice name and address, whether you are accepting new patients, a booking link or direct number, the plans you accept, the treatments you provide, an emergency arrangement, and a referral route if other dentists send you cases. If you show a specialist title or qualifications, check your dental board's advertising rules first.
+Q: How do dental specialists use a digital business card for referrals?
+A: For an orthodontist, oral surgeon, periodontist or endodontist the audience is referring general dentists and their front desks. Email them the link so it lands in their phones, print the QR code on your referral pad, and add the link to your email signature. It always opens the current card, so the route stays right when your associates or waiting time change.
+Q: Can I change my details after the QR code is printed on referral slips and appointment cards?
+A: Yes. The QR code and link point to the card, not to a snapshot of it. Close the book to new patients, change your hours, add an associate or update your insurance list, and the referral slips, appointment cards, recall postcards and reception sign all show the current version.
+Q: Can a dentist put specialist titles and qualifications on the card?
+A: Only what your dental board or council allows. Many boards reserve titles such as orthodontist for dentists registered in that specialty, and some restrict degree letters or require a registration number on marketing. Check your board's guidance before you publish; if it changes, edit the card once and every printed QR code follows.
+
+### Digital Business Card for Chiropractors | CompanyCard
+URL: https://company-card.com/digital-business-card-for-chiropractors.html
+Description: A digital business card for chiropractors: QR code, link and wallet pass carrying your booking link, what you treat and fees — editable forever, no app needed.
+Q: What should a chiropractor put on a digital business card?
+A: Your name with the title your board permits, clinic name and address, licence or registration number, the conditions you treat, your techniques, how you charge, what a first visit involves, hours, whether you are taking new patients, and a first-visit booking link. Check your state or national chiropractic board's advertising rule before adding specialist titles or outcome claims.
+Q: How do chiropractors get more referrals from gyms, trainers and massage therapists?
+A: Give trainers and therapists a link or QR code that opens your card, so when a client mentions a bad back they forward it from the gym floor. Put your scope on it so they know what to send, and add a direct line for professional questions.
+Q: Do patients need an app to open a chiropractor's digital business card?
+A: No. The card opens as a normal web page when a patient scans the QR code at your reception desk or taps a link a friend forwarded. Nothing to install and no account to create, which matters when the person opening it is in pain.
+Q: Can a patient book a first chiropractic visit from the card?
+A: Yes, if you add your booking link. The card is not a scheduler; it links to the online booking your clinic already uses, so tapping the button opens your live diary.
+Q: Can I change fees, insurance panels or hours after the QR code is printed on my reception sign?
+A: Yes. The QR code and link open the card, not a snapshot of it, so edits appear on the reception sign, the gym noticeboard and the message a patient forwarded last year. Raise a fee, add Saturday hours, bring in an associate or switch booking systems, and every copy shows the current version.
+
+### Digital Business Card for Event & Wedding Planners | CompanyCard
+URL: https://company-card.com/digital-business-card-for-event-planners.html
+Description: A digital business card for event and wedding planners: portfolio link, enquiry link and a QR code built for bridal fairs. Every edit updates every shared card.
+Q: What should an event planner's digital business card include?
+A: Your name and business, the event types you plan (weddings, corporate events, private parties, launches), a portfolio link showing events you actually ran, the region you cover and whether you travel, a direct phone or WhatsApp route, your Instagram and Pinterest, and a check-my-date or consultation link. If you mention insurance or a certification, keep it current and check that body's rules on how it may be worded in marketing.
+Q: How do wedding planners use a QR code at bridal fairs?
+A: Print the code on your stand banner, brochure and price sheet so couples scan instead of typing. The scan opens your live card in their browser with your portfolio and enquiry link; there is nothing to install. Because the code points at the current version of your card, you can change packages and photos after the fair, and everyone who scanned you sees this season's details when they decide months later.
+Q: How do event planners get more referrals from venues and vendors?
+A: Make your card easy for a venue to forward. Venue coordinators, florists, caterers and photographers recommend planners in text messages and emails, so give them a link that opens cleanly, says what you plan and where, and shows a real portfolio to someone who has never heard of you. A venue that saved your card years ago still forwards working details rather than an old number.
+Q: Can I update my card after the QR code is printed on my fair banner?
+A: Yes: the QR code and link point at the card, not at a snapshot of it, so edits appear on every banner and brochure the code is already printed on. Close your books for peak Saturdays, add an associate planner or move your enquiry form, and the banner, the brochures and every card a venue saved show the new version. Edits are unlimited, and the link the venue saved never changes.
+Q: Is it free for a small planning business to start?
+A: Yes: the free plan gives a one-person planning business one digital business card, a QR code and sharing link, your profile, links and socials, and unlimited edits, free forever with no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### vCard QR Code: What's Encoded Inside | CompanyCard
+URL: https://company-card.com/vcard-qr-code.html
+Description: What a vCard QR code actually encodes: the .vcf payload, why extra fields make the code denser and harder to scan, and when a link works better.
+Q: What is a vCard QR code?
+A: It is a QR code with a contact record encoded directly inside it, in the vCard format — the same .vcf format your phone uses when you share a contact. Because the details are in the code itself rather than behind a link, it works with no internet connection.
+Q: What does a vCard QR code contain?
+A: At minimum, the four things the specification requires: BEGIN:VCARD, a VERSION line, an FN property with your formatted name, and END:VCARD. Everything else — telephone, email, organisation, job title, website — is optional, and each addition makes the encoded payload longer.
+Q: Should I use vCard 3.0 or 4.0?
+A: vCard 4.0 is the current specification, defined in RFC 6350, which replaced the 3.0 specification in RFC 2426. Both are still in use, and the VERSION property in every card declares which one it follows, so check what your generator writes if compatibility with an older system matters to you.
+Q: Why will my vCard QR code not scan?
+A: Usually because there is too much in it for the size you printed. More encoded characters push the code up to a higher version, and a version 40 code packs 177 modules across the same width where a version 1 code packs 21. Remove optional fields, or print the code larger, then test it at the distance people will actually scan from.
+Q: Can I change the details in a vCard QR code after printing it?
+A: No. In a static vCard QR code the details are encoded in the pattern itself, so changing them means generating a new code and reprinting everything that carried the old one. To keep one code and edit the details behind it, encode a link to a card you control instead.
+Q: Is it free to make one?
+A: Yes. The CompanyCard free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### E-Name Card: Make a Digital Name Card Free | CompanyCard
+URL: https://company-card.com/e-name-card.html
+Description: An e-name card is a digital name card — the same thing as a digital business card, under the name used across Singapore and Malaysia. Make one free in a minute.
+Q: What is an e-name card?
+A: An e-name card is a digital name card — your contact details published as a web page with a permanent link and QR code, instead of printed on card. You share the link or let someone scan the code, and they save your details straight into their phone.
+Q: Is an e-name card the same as a digital business card?
+A: Yes. They are the same product under different regional words: “name card” is the ordinary term for a business card in Singapore and Malaysia, while “business card” is more usual in British and American English. “Digital name card”, “e-name card”, “virtual business card” and “electronic business card” all describe the same thing.
+Q: How do I make an e-name card for free?
+A: Create a card, enter your name, role, company and the ways you want to be reached, then save it and share the link or QR code. The CompanyCard free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: Can my e-name card show my name in two languages?
+A: Yes. A digital card has no front and back to divide, so you can put both forms of your name on the same card rather than giving each one a side. They are ordinary text fields, so whichever scripts your device can type, the card can carry.
+Q: Does the person I send it to need an app?
+A: No. The card opens as a web page in whatever browser is already on their phone. Scanning the QR code or tapping the link is all they do, and saving your details is a couple of taps after that.
+Q: Can I change my details after I have shared my e-name card?
+A: Yes, and this is the main practical difference from a printed name card. The link and QR code stay the same while the details behind them change, so a new number or a new job title reaches everyone you have already shared the card with. Unlimited edits are included on the free plan.
+
+### Contact CompanyCard — Sales, Support & Privacy
+URL: https://company-card.com/contact.html
+Description: Get in touch with CompanyCard about team pricing, support or a privacy request. We reply to every message.
+
+### Privacy Policy | CompanyCard
+URL: https://company-card.com/privacy-policy.html
+Description: How CompanyCard collects, uses and protects your data across the CompanyCard website and mobile app.
+
+### The Practical Small Business Toolkit for 2027 | CompanyCard
+URL: https://company-card.com/small-business-toolkit-2027.html
+Description: Six tools with genuinely free tiers — digital business card, scheduling, invoicing, boards, passwords, design — every claim verified against the vendor’s live pricing page, September 2026.
+
+### Open a VCF File Online — Free vCard Viewer & CSV Converter | CompanyCard
+URL: https://company-card.com/open-vcf-file.html
+Description: Open any .vcf (vCard) file in your browser: see every contact, decode old vCard 2.1 exports, and download the lot as a CSV. Nothing is uploaded — it all runs locally.
+Q: How do I open a VCF file?
+A: A VCF file is plain text, so any contacts app can import it — or you can open it here without installing anything: choose the file above and every contact in it appears in a table. On a phone, tapping a .vcf usually offers to add the contacts to your address book directly.
+Q: Can I open a VCF file without installing an app?
+A: Yes. This page reads the file with your browser's own file reader and parses it in JavaScript on your device. There is no upload, no account and nothing to install.
+Q: How do I convert a VCF file to CSV or Excel?
+A: Open the file above and press Download CSV. The export puts each contact on a row with name, phones, emails, organisation, title, website, address, birthday and notes, and includes a byte-order mark so Excel opens it with the right characters.
+Q: Why does my VCF file show codes like =D7=A9 instead of names?
+A: That is quoted-printable encoding, used by the old vCard 2.1 format that many phones and Outlook versions exported. Each =XX pair is one byte of the real text. This page decodes quoted-printable automatically, so names in Hebrew, Arabic or accented Latin come out readable.
+Q: Are my contacts uploaded when I open a file here?
+A: No. The parsing runs entirely in your browser and the page makes no network request with your data. Close the tab and nothing of the file remains.
+Q: What is a VCF file?
+A: A VCF (virtual contact file) holds one or more contacts in the vCard format — the standard your phone uses when it shares or backs up contacts. Version 4.0 is defined in RFC 6350, version 3.0 in RFC 2426, and the older 2.1 spec still appears in exports from legacy phones and mail clients.
+
+### Free Digital Business Card Maker — Live Preview | CompanyCard
+URL: https://company-card.com/app/builder.html
+Description: Make your free digital business card in the browser: type your details, pick a design, see the live card and QR code update as you go, then share by link, QR or wallet — no app for the recipient.
