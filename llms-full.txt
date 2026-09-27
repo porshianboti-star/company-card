@@ -188,6 +188,8 @@ A: CompanyCard is a digital business card for professionals and small-to-medium 
 ### Digital Business Card — Create Yours Free in 60 Seconds | CompanyCard
 URL: https://company-card.com/digital-business-card.html
 Description: Create a digital business card free. Share your contact details by QR code, link or email signature — no app needed, always up to date. For individuals and teams.
+Q: What is a digital business card?
+A: A digital business card is an online profile that replaces a paper card. You share it by QR code, link, wallet pass or email signature, and the receiver saves your full contact details — name, title, phone, email, photo and links — straight to their phone in one tap.
 Q: Is a digital business card free?
 A: Yes. CompanyCard's free plan is $0 forever and includes one digital business card with QR code, sharing link, Apple and Google Wallet pass and unlimited updates; free cards carry a small clickable CompanyCard credit under the card. Pro ($7.99 a month, or $5.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business adds team management at $12 per user a month with no seat minimum.
 Q: Does the other person need an app?

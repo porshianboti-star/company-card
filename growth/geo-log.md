@@ -2,6 +2,25 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-27 (fix round 1) — verifier fixes: sister-product credit sentence + FAQ twin rule
+
+- email-signature-generator.html:138 — "its free plan carries no watermark" (hand-built,
+  carried by no seo/ script) replaced by: free plan is free forever, the signature carries
+  one small clickable 'Created with ProSignature' line, Pro removes it. Source: ProSignature
+  repo commits e838c58 + 13824dd (2026-09-27). Phrase linked to
+  https://prosignature.co/email-signature-no-watermark (HTTP 200, 2026-09-27).
+  dateModified + sitemap lastmod 2026-08-02 → 2026-09-27. Now carried by
+  seo/fix_faq_twin_and_ps_credit_2026_09_27.py.
+- digital-business-card.html:186 — FAQPage Question "What is a digital business card?" had
+  no visible twin (pre-existing; sync_faq_schema.py only read lp-faq blocks and reported
+  "synced 0"). Visible <details class="lp-faq"> twin added as first FAQ item, byte-identical
+  to the JSON-LD answer.
+- seo/sync_faq_schema.py now exits 1 on any FAQPage Question with no visible twin (twin =
+  lp-faq block, or question+answer verbatim in visible text for <h3>/<p> pages). Baseline on
+  the unmodified pages: 63 FAQ pages, 1 orphan (digital-business-card.html), 3 verbatim
+  matches (small-business-toolkit-2027.html). After fix: 0 orphans, exit 0.
+- llms-full.txt regenerated: 66 pages, 335 Q&A (was 334). xmllint sitemap: well-formed.
+
 ## 2026-09-27 (later) — GEO: quotable answers + dated facts on the pages ChatGPT cites
 
 **Why (research the lead supplied, all read 2026-09-27):** OpenAI's own docs
