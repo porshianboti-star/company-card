@@ -194,6 +194,63 @@
     return location.origin + location.pathname.replace(/[^/]*$/, "") + "card.html#c=" + CC.encode(card, lite);
   };
 
+  /* ---------- "Add to your website" ----------
+     Two copy-paste snippets built from the LITE share link: a Save-my-contact
+     badge that links to the card, and an iframe of the card page with a
+     "Made with CompanyCard" credit under it. That credit is a crawlable link
+     back to company-card.com from a customer's own site — the one inbound-link
+     channel that owes nothing to domain authority. Lite encoding keeps the URL
+     short enough for a CMS "embed code" field (photos are dropped, contact
+     fields are not). The card's details travel inside the link, so an edited
+     card needs the snippet copied again — the how-to page says so. */
+  var BADGE_SRC = "https://company-card.com/assets/badge-save-contact.svg";
+  var CREDIT_HREF = "https://company-card.com/?utm_source=embed&utm_medium=web&utm_campaign=card_embed";
+  function attr(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  CC.embedSnippets = function (card) {
+    var url = CC.shareUrl(card, true);
+    var title = attr((card.name || "My") + " \u2014 digital business card");
+    return {
+      badge: '<a href="' + url + '" rel="noopener" title="' + title + '"><img src="' + BADGE_SRC +
+             '" alt="Save my contact \u2014 digital business card by CompanyCard" width="220" height="52" style="border:0"></a>',
+      iframe: '<iframe src="' + url + '" width="360" height="600" loading="lazy" title="' + title +
+              '" style="border:0;border-radius:16px;max-width:100%"></iframe>\n' +
+              '<p style="font:13px system-ui;margin:6px 0 0"><a href="' + CREDIT_HREF +
+              '" rel="noopener">Made with CompanyCard</a></p>'
+    };
+  };
+  /* The share modals in dashboard.html and builder.html use the same ids, so
+     the panel logic lives here once. fill() runs each time a modal opens with a
+     card; wire() binds the toggle and the two Copy buttons once per page. */
+  CC.fillEmbedPanel = function (card) {
+    var s = CC.embedSnippets(card), $ = function (id) { return document.getElementById(id); };
+    if ($("embed-badge")) $("embed-badge").value = s.badge;
+    if ($("embed-iframe")) $("embed-iframe").value = s.iframe;
+    if ($("embed-panel")) $("embed-panel").hidden = true;
+    if ($("embed-toggle")) $("embed-toggle").setAttribute("aria-expanded", "false");
+  };
+  CC.wireEmbedPanel = function (toast, page) {
+    var t = document.getElementById("embed-toggle"), p = document.getElementById("embed-panel");
+    if (!t || !p) return;
+    t.addEventListener("click", function () {
+      p.hidden = !p.hidden;
+      t.setAttribute("aria-expanded", p.hidden ? "false" : "true");
+      if (!p.hidden && p.scrollIntoView) p.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
+    p.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-embed-copy]"); if (!b) return;
+      var type = b.getAttribute("data-embed-copy"), ta = document.getElementById("embed-" + type);
+      if (!ta) return;
+      ta.focus(); ta.select();
+      function done() {
+        if (toast) toast(type === "badge" ? "Button code copied" : "Embed code copied");
+        /* Same shape as signup_click on card.html: analytics never blocks the copy. */
+        try { if (typeof gtag === "function") gtag("event", "embed_copied", { type: type, page_location: page }); } catch (err) {}
+      }
+      if (navigator.clipboard) { navigator.clipboard.writeText(ta.value).then(done, function () { document.execCommand("copy"); done(); }); }
+      else { document.execCommand("copy"); done(); }
+    });
+  };
+
   /* ---------- Storage ---------- */
   var KEY = "cc_cards_v1";
   CC.all = function () { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } };

@@ -72,7 +72,11 @@
     view.innerHTML =
       '<div class="cc-shell" id="cc">' + CC.renderCard(card) + '</div>' +
       qrCard +
-      '<div class="made"><a class="btn btn-ghost" href="builder.html">' +
+      /* Absolute + tagged so the credit is the same crawlable link whether the
+         card is opened from a share or embedded on someone else's site; _top so
+         a click inside the 360x600 embed iframe opens the builder full-page
+         rather than inside the frame. GA4 signup_click below is unchanged. */
+      '<div class="made"><a class="btn btn-ghost" href="https://company-card.com/app/builder.html?utm_source=shared_card" target="_top">' +
       '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Make your own CompanyCard</a></div>';
 
     var ccEl = document.getElementById("cc");

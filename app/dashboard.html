@@ -60,6 +60,24 @@
       <input class="inp" id="share-url" type="text" readonly>
       <button class="btn btn-primary" id="copy-link" type="button">Copy</button>
     </div>
+    <button class="btn btn-ghost btn-block embed-toggle" id="embed-toggle" type="button" aria-expanded="false" aria-controls="embed-panel">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+      Add to your website
+    </button>
+    <div class="embed-panel" id="embed-panel" hidden>
+      <p class="sub">Paste either snippet into an HTML or embed block on your site.</p>
+      <div class="embed-snip">
+        <div class="embed-head"><b>Save-my-contact button</b><button class="btn btn-ghost embed-copy" type="button" data-embed-copy="badge">Copy</button></div>
+        <img class="embed-preview" src="../assets/badge-save-contact.svg" alt="Preview of the Save my contact button" width="220" height="52">
+        <textarea class="inp embed-code" id="embed-badge" rows="2" readonly spellcheck="false" aria-label="Button HTML"></textarea>
+      </div>
+      <div class="embed-snip">
+        <div class="embed-head"><b>Your card on the page (iframe)</b><button class="btn btn-ghost embed-copy" type="button" data-embed-copy="iframe">Copy</button></div>
+        <textarea class="inp embed-code" id="embed-iframe" rows="3" readonly spellcheck="false" aria-label="Embed HTML"></textarea>
+        <p class="sub embed-note">The small &ldquo;Made with CompanyCard&rdquo; line under the card is what keeps the free plan free &mdash; please leave it in.</p>
+      </div>
+      <p class="sub"><a href="../embed-digital-business-card-on-your-website.html" target="_blank" rel="noopener">Where to paste it on Wix, Squarespace, WordPress, Webflow or Shopify &rarr;</a></p>
+    </div>
   </div>
 </div>
 
@@ -122,6 +140,7 @@
       var note = $("qr-note"), ok = CC.qr($("share-qr"), full, 192);
       if (!ok) { CC.qr($("share-qr"), CC.shareUrl(c, true), 192); if (note) note.hidden = false; }
       else if (note) { note.hidden = true; }
+      CC.fillEmbedPanel(c);
       $("share-modal").hidden = false;
     } else if (d) {
       var id = d.getAttribute("data-del"); var c2 = CC.get(id);
@@ -137,6 +156,7 @@
     if (navigator.clipboard) { navigator.clipboard.writeText(inp.value).then(done, function () { document.execCommand("copy"); done(); }); }
     else { document.execCommand("copy"); done(); }
   });
+  CC.wireEmbedPanel(toast, "/app/dashboard");
 
   /* account chip + upgrade */
   function renderAcct() {

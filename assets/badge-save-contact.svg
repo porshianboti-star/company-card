@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="52" viewBox="0 0 220 52" role="img" aria-labelledby="bt bd">
+<title id="bt">Save my contact — digital business card by CompanyCard</title>
+<desc id="bd">A button that opens a CompanyCard digital business card so the contact can be saved in one tap.</desc>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366F1"/><stop offset=".5" stop-color="#8B5CF6"/><stop offset="1" stop-color="#A855F7"/></linearGradient>
+</defs>
+<rect x=".5" y=".5" width="219" height="51" rx="14" fill="#0B0A1F" stroke="#34325A"/>
+<rect x="10" y="10" width="32" height="32" rx="9" fill="url(#g)"/>
+<rect x="17" y="18" width="18" height="16" rx="3" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+<rect x="20" y="21" width="3.5" height="3.5" rx=".8" fill="#FFFFFF"/>
+<rect x="28.5" y="21" width="3.5" height="3.5" rx=".8" fill="#FFFFFF"/>
+<rect x="20" y="29.5" width="3.5" height="3.5" rx=".8" fill="#FFFFFF"/>
+<rect x="28.5" y="29.5" width="1.6" height="1.6" fill="#FFFFFF"/>
+<rect x="30.4" y="31.4" width="1.6" height="1.6" fill="#FFFFFF"/>
+<text x="52" y="24.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Save my contact</text>
+<text x="52" y="40" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="500" letter-spacing=".2" fill="#A5B4FC">Powered by CompanyCard</text>
+<path d="M199 20l6 6-6 6" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
