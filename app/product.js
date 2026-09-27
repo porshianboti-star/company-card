@@ -190,7 +190,25 @@
      QR, the copy field, the SMS/mailto/WhatsApp bodies and the .vcf back-link for
      every share started from the installed app on a phone. origin + pathname cannot
      see the fragment or the query at all. */
+  /* Stable public page. A card that lives in Supabase (the user is signed in;
+     auth.js pushes every save as an upsert on slug = card.id) is served at
+     /c/<slug> by a Netlify rewrite to app/c.html, so a link someone put on
+     their website or bio keeps working after the card is edited. The #c= link
+     below encodes the card itself and stays the fallback for local-only cards.
+     auth.js records each push's result via CC.markSynced so a failed upsert
+     never hands out a /c/ link to a row that does not exist. */
+  CC.PUBLIC_BASE = "https://company-card.com/c/";
+  var SYNCED = {};                                  /* slug -> true | false (push failed) */
+  CC.markSynced = function (slug, ok) { if (slug) SYNCED[slug] = ok !== false; };
+  CC.isSynced = function (card) {
+    if (!card || !card.id || card.isPublic === false) return false;
+    if (SYNCED[card.id] === true) return true;
+    if (SYNCED[card.id] === false) return false;
+    return !!(window.CCAuth && CCAuth.mode === "supabase" && CCAuth.session);
+  };
+  CC.publicUrl = function (card) { return CC.PUBLIC_BASE + encodeURIComponent(card.id); };
   CC.shareUrl = function (card, lite) {
+    if (CC.isSynced(card)) return CC.publicUrl(card);
     return location.origin + location.pathname.replace(/[^/]*$/, "") + "card.html#c=" + CC.encode(card, lite);
   };
 
@@ -201,8 +219,9 @@
      back to company-card.com from a customer's own site — the one inbound-link
      channel that owes nothing to domain authority. Lite encoding keeps the URL
      short enough for a CMS "embed code" field (photos are dropped, contact
-     fields are not). The card's details travel inside the link, so an edited
-     card needs the snippet copied again — the how-to page says so. */
+     fields are not). For a synced card CC.shareUrl is the stable /c/<slug>
+     page instead; for a local-only card the details travel inside the link and
+     the snippet needs re-copying after edits — the panel says which applies. */
   var BADGE_SRC = "https://company-card.com/assets/badge-save-contact.svg";
   var CREDIT_HREF = "https://company-card.com/?utm_source=embed&utm_medium=web&utm_campaign=card_embed";
   function attr(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -225,6 +244,9 @@
     var s = CC.embedSnippets(card), $ = function (id) { return document.getElementById(id); };
     if ($("embed-badge")) $("embed-badge").value = s.badge;
     if ($("embed-iframe")) $("embed-iframe").value = s.iframe;
+    if ($("embed-link-note")) $("embed-link-note").textContent = CC.isSynced(card)
+      ? "Signed in: this link stays the same when you edit the card."
+      : "Not signed in: this link encodes the card \u2014 copy the snippet again after you edit it.";
     if ($("embed-panel")) $("embed-panel").hidden = true;
     if ($("embed-toggle")) $("embed-toggle").setAttribute("aria-expanded", "false");
   };

@@ -45,6 +45,9 @@
      Function declaration, not a var — the click listener below is registered
      before this point in source order and must still be able to call it. */
   function _viewingSharedCard() {
+    /* /c/<slug> (app/c.html via the Netlify rewrite) only ever shows someone
+       else's published card, so it is a recipient view by construction. */
+    if (/^\/c\/[^/]+\/?$/.test(location.pathname)) return true;
     if (!/\/app\/(card|mobile)(\.html)?$/.test(location.pathname)) return false;
     try {
       return (location.hash && location.hash.length > 1) ||

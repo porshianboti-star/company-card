@@ -5,6 +5,10 @@
 # to the canonical. "!" forces the rule: Netlify resolves /slug to slug.html itself, and
 # an unforced rule is shadowed by that resolution (measured live: 200, no redirect).
 # App pages are left alone (shared card links carry a hash).
+# 2026-09-27: stable public card pages. A REWRITE (200, not 301): /c/<slug> serves
+# app/c.html, which reads the slug from the path and fetches the published card.
+# Netlify takes the first matching rule, so this sits above every forced 301.
+/c/:slug  /app/c.html  200
 /index.html  /  301!
 /about  /about.html  301!
 /best-digital-business-card  /best-digital-business-card.html  301!

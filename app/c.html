@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-33HCVG9DKG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-33HCVG9DKG');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital business card | CompanyCard</title>
+<!-- Served at /c/<slug> by a Netlify rewrite (_redirects: "/c/:slug  /app/c.html  200"),
+     so every URL in this file is root-absolute — a relative "app.css" would resolve
+     to /c/app.css. The card is fetched from Supabase by slug (anonymous read of
+     published cards only, RLS cards_public_read) and drawn by the same code as
+     card.html (product.js CC.renderCard + card-view.js). The canonical below is a
+     safe default that the script replaces with /c/<slug> once the card is found;
+     an unknown or private slug flips robots to noindex instead. -->
+<link rel="canonical" href="https://company-card.com/c/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="A CompanyCard digital business card. Tap to save the contact — no app needed.">
+<meta property="og:title" content="Digital business card | CompanyCard">
+<meta property="og:description" content="Someone shared their CompanyCard with you. Tap to see their details and save the contact — no app needed.">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="CompanyCard">
+<meta property="og:url" content="https://company-card.com/c/">
+<meta property="og:image" content="https://company-card.com/assets/png/favicon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Digital business card | CompanyCard">
+<meta name="twitter:description" content="Someone shared their CompanyCard with you. Tap to see their details and save the contact — no app needed.">
+<meta name="twitter:image" content="https://company-card.com/assets/png/favicon-512.png">
+<link rel="icon" href="/assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/app/app.css">
+</head>
+<body class="viewer">
+  <div class="wrap">
+    <div id="view"><div class="cc-shell" style="padding:40px 28px;text-align:center;color:var(--slate-400)">Loading card…</div></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="/app/config.js"></script>
+<script src="/app/product.js"></script>
+<script src="/app/card-view.js"></script>
+  <script>
+  (function () {
+    var view = document.getElementById("view");
+    var cfg = window.CC_CONFIG || {};
+    var DEFAULT_IMG = "https://company-card.com/assets/png/favicon-512.png";
+
+    /* /c/<slug> in production; ?slug=<slug> is the alternate input for a plain
+       static server that has no rewrite (local testing). */
+    var slug = (location.pathname.match(/^\/c\/([^\/]+)\/?$/) || [])[1] || new URLSearchParams(location.search).get("slug") || "";
+    try { slug = decodeURIComponent(slug); } catch (e) {}
+
+    function setMeta(sel, attr, val) { var el = document.head.querySelector(sel); if (el) el.setAttribute(attr, val); }
+
+    function notPublic(text) {
+      /* This state only: the shell says index,follow, and a missing or private
+         card must not be indexed under /c/<slug>. Still HTTP 200 (static). */
+      setMeta('meta[name="robots"]', "content", "noindex");
+      document.title = "This card isn't public | CompanyCard";
+      CCView.empty(view, {
+        title: "This card isn't public",
+        text: text || "The owner may have unpublished it, or the link is not quite right. You can make your own in a minute — it's free."
+      });
+    }
+
+    if (!slug || !cfg.supabaseUrl || !cfg.supabaseAnonKey) { notPublic(); return; }
+
+    fetch(cfg.supabaseUrl + "/rest/v1/cards?slug=eq." + encodeURIComponent(slug) + "&select=data,updated_at&limit=1", {
+      headers: { apikey: cfg.supabaseAnonKey, Authorization: "Bearer " + cfg.supabaseAnonKey, Accept: "application/json" }
+    })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (rows) {
+        var row = rows && rows[0];
+        if (!row || !row.data || !row.data.name) { notPublic(); return; }
+
+        /* Rows may predate fields the renderer expects; fill them from a blank
+           card. The id is forced to the slug so every link built from this card
+           (vCard back-link, in-card QR) is the stable /c/<slug> URL. */
+        var card = Object.assign(CC.blank(), row.data, { id: slug });
+        var url = CC.PUBLIC_BASE + encodeURIComponent(slug);
+        CC.markSynced(slug, true);
+
+        var name = card.name, co = card.company || "", job = card.title || "";
+        var title = name + (co ? " — " + co : "") + " | Digital business card";
+        var desc = name + (job ? ", " + job : "") + (co ? " at " + co : "") + ". Save the contact in one tap — no app needed.";
+        var img = /^https:\/\//.test(card.photo || "") ? card.photo : DEFAULT_IMG;
+        document.title = title;
+        setMeta('link[rel="canonical"]', "href", url);
+        setMeta('meta[property="og:url"]', "content", url);
+        setMeta('meta[name="description"]', "content", desc);
+        setMeta('meta[property="og:title"]', "content", title);
+        setMeta('meta[property="og:description"]', "content", desc);
+        setMeta('meta[property="og:image"]', "content", img);
+        setMeta('meta[name="twitter:title"]', "content", title);
+        setMeta('meta[name="twitter:description"]', "content", desc);
+        setMeta('meta[name="twitter:image"]', "content", img);
+
+        var ld = { "@context": "https://schema.org", "@type": "Person", "name": name, "url": url };
+        if (job) ld.jobTitle = job;
+        if (co) ld.worksFor = { "@type": "Organization", "name": co };
+        if (img !== DEFAULT_IMG) ld.image = img;
+        var s = document.createElement("script"); s.type = "application/ld+json";
+        s.textContent = JSON.stringify(ld); document.head.appendChild(s);
+
+        CCView.show(view, card, { qrUrl: url, source: "public_card", pageLocation: "/c" });
+      })
+      .catch(function () { notPublic("We couldn't load this card right now. Please try again in a moment."); });
+  })();
+  </script>
+<script src="/assets/analytics.js"></script>
+</body>
+</html>

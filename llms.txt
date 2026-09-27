@@ -64,7 +64,7 @@
 
 ## Guides
 - How to make a digital business card: https://company-card.com/how-to-make-a-digital-business-card.html
-- How to add a digital business card to your website — two copy-paste snippets from the app's Share → "Add to your website" panel: a Save-my-contact button (one SVG image linking to the card) or the card page in a lazy-loaded 360×600 iframe with a "Made with CompanyCard" credit line under it. Works in any HTML/embed block (Wix, Squarespace, WordPress, Webflow, Shopify, hand-coded sites, Linktree-style bios, email signatures); free plan included. The card's details travel inside the share link, so an edited card needs the snippet copied again: https://company-card.com/embed-digital-business-card-on-your-website.html
+- How to add a digital business card to your website — two copy-paste snippets from the app's Share → "Add to your website" panel: a Save-my-contact button (one SVG image linking to the card) or the card page in a lazy-loaded 360×600 iframe with a "Made with CompanyCard" credit line under it. Works in any HTML/embed block (Wix, Squarespace, WordPress, Webflow, Shopify, hand-coded sites, Linktree-style bios, email signatures); free plan included. Signed in, the link is the card's stable page /c/<slug> and survives edits; not signed in, the link encodes the card and needs re-copying after edits: https://company-card.com/embed-digital-business-card-on-your-website.html
 - Digital business card in Apple & Google Wallet: https://company-card.com/digital-business-card-apple-wallet.html
 - Digital business cards for events & conferences: https://company-card.com/digital-business-card-for-events.html
 

@@ -75,8 +75,8 @@ LINE = ("- How to add a digital business card to your website — two copy-paste
         "to the card) or the card page in a lazy-loaded 360×600 iframe with a \"Made with "
         "CompanyCard\" credit line under it. Works in any HTML/embed block (Wix, Squarespace, "
         "WordPress, Webflow, Shopify, hand-coded sites, Linktree-style bios, email signatures); free "
-        "plan included. The card's details travel inside the share link, so an edited card needs the "
-        "snippet copied again: " + BASE + SLUG)
+        "plan included. Signed in, the link is the card's stable page /c/<slug> and survives edits; not "
+        "signed in, the link encodes the card and needs re-copying after edits: " + BASE + SLUG)
 if LINE not in ll:
     anchor_start = "- How to make a digital business card: "
     i = ll.find(anchor_start)

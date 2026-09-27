@@ -43,65 +43,20 @@
 <script src="config.js"></script>
 <script src="auth.js"></script>
 <script src="product.js"></script>
+<script src="card-view.js"></script>
   <script>
   (function () {
     var view = document.getElementById("view");
-    function toast(m) { var t = document.getElementById("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("show"); }, 2200); }
-
     var card = null;
     var h = location.hash || "";
     var m = h.match(/c=([^&]+)/);
     if (m) card = CC.decode(m[1]);
     if (!card) { var id = new URLSearchParams(location.search).get("id"); if (id) card = CC.get(id); }
-
-    if (!card || !card.name) {
-      view.innerHTML =
-        '<div class="cc-shell" style="padding:40px 28px;text-align:center">' +
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup" style="height:30px;margin:0 auto 18px"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg>' +
-        '<h2 style="margin-bottom:8px">No card to show</h2>' +
-        '<p style="color:var(--slate-500);margin-bottom:22px">This link doesn\'t contain a card yet.</p>' +
-        '<a class="btn btn-primary btn-lg" href="builder.html">Create your free card</a></div>';
-      return;
-    }
-
+    if (!card || !card.name) { CCView.empty(view); return; }
     document.title = card.name + " — CompanyCard";
-
-    var qrCard = card.showQR ? "" :
-      '<div class="qr-card"><h3>Scan to open</h3><p>Point a camera here to share this card.</p>' +
-      '<div class="qrbox" id="qr" style="margin-top:14px"></div></div>';
-    view.innerHTML =
-      '<div class="cc-shell" id="cc">' + CC.renderCard(card) + '</div>' +
-      qrCard +
-      /* Absolute + tagged so the credit is the same crawlable link whether the
-         card is opened from a share or embedded on someone else's site; _top so
-         a click inside the 360x600 embed iframe opens the builder full-page
-         rather than inside the frame. GA4 signup_click below is unchanged. */
-      '<div class="made"><a class="btn btn-ghost" href="https://company-card.com/app/builder.html?utm_source=shared_card" target="_top">' +
-      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Make your own CompanyCard</a></div>';
-
-    var ccEl = document.getElementById("cc");
-    ccEl.addEventListener("click", function (e) {
-      if (e.target.closest("[data-save]")) { e.preventDefault(); CC.downloadVcard(card); toast("Contact downloaded"); }
-    });
-
-    /* A shared card is the one place we reach someone who is not looking for
-       us — the product's only growth channel that owes nothing to domain
-       authority. It was the last unmeasured step on that path. Reported as
-       signup_click so it lands in the same funnel as the site's CTAs, with a
-       source so the viral loop can be told apart from them. */
-    var madeEl = document.querySelector(".made a");
-    if (madeEl) {
-      madeEl.addEventListener("click", function () {
-        try {
-          if (typeof gtag === "function") {
-            gtag("event", "signup_click", { source: "shared_card", page_location: "/app/card" });
-          }
-        } catch (e) { /* never block the navigation on analytics */ }
-      });
-    }
-
-    if (card.showQR) { CC.fillQR(ccEl, card); }
-    else { var qel = document.getElementById("qr"); if (!CC.qr(qel, location.href, 168)) CC.qr(qel, CC.shareUrl(card, true), 168); }
+    /* Everything around the card (QR panel, credit link, Save handler, GA4) is
+       CCView — shared with c.html so the two public pages cannot drift. */
+    CCView.show(view, card, { qrUrl: location.href, qrFallback: CC.shareUrl(card, true), source: "shared_card", pageLocation: "/app/card" });
   })();
   </script>
 <script src="../assets/analytics.js"></script>

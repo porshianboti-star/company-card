@@ -173,7 +173,12 @@
     return sb.from("cards").upsert({
       company_id: A.profile.company_id, owner_id: A.session.user.id,
       slug: card.id, is_public: card.isPublic !== false, data: card
-    }, { onConflict: "slug" });
+    }, { onConflict: "slug" }).then(function (r) {
+      /* CC.shareUrl hands out the stable /c/<slug> link only while this push
+         is not known to have failed (product.js CC.isSynced). */
+      if (window.CC && CC.markSynced) CC.markSynced(card.id, !(r && r.error));
+      return r;
+    });
   };
 
   A.deleteCard = function (cardId) {
@@ -230,7 +235,9 @@
     if (!A.enabled || !A.session || !window.CC) return Promise.resolve();
     return A.myCards().then(function (r) {
       if (r.error || !r.data) return;
-      r.data.forEach(function (row) { if (row.data && row.data.id) window.CC.save(row.data); });
+      r.data.forEach(function (row) {
+        if (row.data && row.data.id) { window.CC.save(row.data); if (window.CC.markSynced) window.CC.markSynced(row.slug || row.data.id, true); }
+      });
     });
   };
 

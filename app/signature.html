@@ -118,10 +118,11 @@
        loop already worked; it just arrived in GA4 as Direct, indistinguishable
        from everything else, so we could not tell how much it was worth.
        The params go before the hash — GA4 never sees anything after "#". */
-    var url = CC.shareUrl(card).replace(
-      "card.html#",
-      "card.html?utm_source=email_signature&utm_medium=email&utm_campaign=card_share#"
-    );
+    var UTM = "utm_source=email_signature&utm_medium=email&utm_campaign=card_share";
+    var url = CC.shareUrl(card);
+    url = url.indexOf("#") === -1
+      ? url + (url.indexOf("?") === -1 ? "?" : "&") + UTM        /* stable /c/<slug> link */
+      : url.replace("card.html#", "card.html?" + UTM + "#");     /* encoded #c= link */
     var phone = field(card, "phone"), email = field(card, "email"), site = field(card, "website");
     var initials = (card.name || "?").trim().split(/\s+/).map(function (w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
     var photoCell = /^https?:/.test(card.photo || "")

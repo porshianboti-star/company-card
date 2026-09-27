@@ -13,11 +13,13 @@ two snippets from the card's lite share link; this page documents them, shows
 the badge on a light and a dark background, and says where an "HTML / embed
 block" lives without describing any vendor's UI beyond that.
 
-HONESTY. The card's details are encoded INSIDE the share link
-(product.js CC.shareUrl = card.html#c=<encoded card>) — there is no server
-lookup — so an edited card has a new link and the snippet must be copied
-again. The page says so twice (prose + FAQ) rather than claiming "update once,
-everywhere". The free plan is one card; the card page carries a "Make your own
+HONESTY (revised 2026-09-27, same day). Signed in, a card is pushed to
+Supabase on every save and served at the stable /c/<slug> page (Netlify
+rewrite to app/c.html), so the link survives edits. Not signed in, the card's
+details are encoded INSIDE the share link (card.html#c=<encoded card>) with no
+server lookup, so an edited card has a new link and the snippet must be
+copied again. The page states both cases (prose + FAQ) rather than claiming
+"update once, everywhere" for everyone. The free plan is one card; the card page carries a "Make your own
 CompanyCard" link (app/card.html .made) and the embed adds a "Made with
 CompanyCard" line — both named as the credits that keep the free plan free.
 No conversion rates, customer counts or vendor UI claims. Badge size is the
@@ -106,10 +108,12 @@ PAGE = {
     "using. Tapping Save contact downloads a standard .vcf contact file, which iPhones and Android "
     "phones open straight into Contacts. Only you, the card's owner, have a CompanyCard account."),
    ("What happens to the button when I change my card?",
-    "Your card's details travel inside the share link itself rather than being looked up from an "
-    "account, which is why the snippet works with nothing else installed on your site. It also "
-    "means an edited card has a new link: after you change your title, number or links, open "
-    "Share, then Add to your website again, and paste the fresh snippet over the old one."),
+    "It depends on whether you were signed in when you copied it. Signed in: your link stays the "
+    "same when you edit the card, because the card is saved to your account and the link points "
+    "at its page on company-card.com, so nothing on your website needs touching. Not signed in: "
+    "the link encodes the card itself, so re-copy it after edits by opening Share, then Add to "
+    "your website again, and pasting the fresh snippet over the old one. The panel tells you "
+    "which kind of link you have."),
    ("Will the embed slow my website down?",
     "The button is a single SVG image of under 2 KB plus a link, with no script to load. The card "
     "embed is an iframe with lazy loading, so the browser fetches the card page only when a "
@@ -177,11 +181,16 @@ PAGE["sections"] = [
     '<ol class="lp-steps">' + "".join("<li>" + s + "</li>" for s in STEPS) + "</ol>"),
 
   prose("One thing to know before you paste", [
-    "Your card's details are carried inside the share link itself — that is why a card opens with "
-    "nothing installed on the visitor's side and nothing added to your site. It also means that when "
-    "you edit the card, the link changes. After you update a title, a number or a link, open "
-    "<b>Share</b> → <b>Add to your website</b> again and paste the new snippet over the old one. The "
-    "old button keeps working in the meantime; it simply shows the card as it was when you copied it.",
+    "<b>Signed in:</b> your link stays the same when you edit the card. Every save goes to your "
+    "account and the link points at your card's own page on company-card.com, so the button on your "
+    "website, your bio and your email signature all show the current card without being touched.",
+
+    "<b>Not signed in:</b> the link encodes the card itself — that is why it opens with nothing "
+    "installed on the visitor's side and nothing added to your site — so re-copy it after edits. "
+    "Open <b>Share</b> → <b>Add to your website</b> again and paste the new snippet over the old one; "
+    "the old button keeps working in the meantime and simply shows the card as it was. The panel "
+    "says which kind of link you are holding, and signing in before you copy is the way to get the "
+    "stable one.",
   ]),
 ]
 
