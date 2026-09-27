@@ -8,6 +8,8 @@
 # 2026-09-27: stable public card pages. A REWRITE (200, not 301): /c/<slug> serves
 # app/c.html, which reads the slug from the path and fetches the published card.
 # Netlify takes the first matching rule, so this sits above every forced 301.
+# Template backgrounds are referenced relatively by the card renderer (product.js:69-75); under /c/<slug> they resolve to /c/tpl-bg/*.
+/c/tpl-bg/*  /app/tpl-bg/:splat  200
 /c/:slug  /app/c.html  200
 /index.html  /  301!
 /about  /about.html  301!
