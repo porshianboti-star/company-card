@@ -117,7 +117,12 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var qs = new URLSearchParams(location.search);
-  var ret = qs.get("return") || "dashboard.html";
+  /* ?return= is attacker-controllable: accept only a same-directory app page
+     (builder.html?id=…, dashboard.html, mobile.html#/settings). Anything else —
+     javascript:, //host, https://…, ../ — falls back to the dashboard. It feeds
+     three sinks (Back, Continue, Maybe later), so it is checked once, here. */
+  var ret = qs.get("return") || "";
+  if (!/^[a-z0-9_-]+\.html(?:[?#][^\s]*)?$/i.test(ret)) ret = "dashboard.html";
   $("co-back").href = ret; $("ok-go").href = ret;
   /* Preselect the billing period chosen on /pricing.html. Without this the
      pricing toggle was decorative — every click landed on annual. */
@@ -134,11 +139,19 @@
   var u = CC.user(); if (u && u.email) $("pay-email").value = u.email;
 
   /* show which features triggered the upgrade (from ?id= card, or ?feat=) */
+  /* ?feat= is attacker-controllable: keep only known Pro feature keys (own
+     properties, so "constructor"/"__proto__" are dropped too) and build the
+     sentence with text nodes — never innerHTML. */
   var reason = $("co-reason"), feats = (qs.get("feat") || "").split(",").filter(Boolean);
   if (qs.get("id")) { var c = CC.get(qs.get("id")); if (c) feats = CC.cardProFeatures(c); }
+  feats = feats.filter(function (k) { return Object.prototype.hasOwnProperty.call(CC.PRO_FEATURES, k); });
   if (feats.length) {
-    var names = feats.map(function (k) { return (CC.PRO_FEATURES[k] || {}).label || k; });
-    reason.innerHTML = "Your card uses <b>" + names.join("</b>, <b>") + "</b> — included in Pro.";
+    reason.textContent = "Your card uses ";
+    feats.forEach(function (k, i) {
+      if (i) reason.appendChild(document.createTextNode(", "));
+      var b = document.createElement("b"); b.textContent = CC.PRO_FEATURES[k].label; reason.appendChild(b);
+    });
+    reason.appendChild(document.createTextNode(" — included in Pro."));
   }
 
   /* full Pro feature list */
