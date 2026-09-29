@@ -42,15 +42,15 @@ Share your details in one tap — by QR code, sharing link, Apple or Google Wall
 
 Your link and QR code are permanent. Change your number, role, prices or logo and every code you've already printed on a van, a window, an invoice or a business card keeps working and shows the new details — nothing to reprint.
 
-The free plan is a full working card: one digital business card, QR code and sharing link, profile, links and socials, an Apple and Google Wallet pass, and unlimited edits. Free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro ($8/month).
+The free plan is a full working card: one digital business card, QR code and sharing link, profile, links and socials, an Apple and Google Wallet pass, and unlimited edits. Free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro ($5.99/month, or $4.99/month billed yearly).
 
-For teams, Business ($12/user/month) adds a central admin dashboard, brand and template lock, CRM sync, team analytics and SSO — with no minimum number of seats, so a two-person business can run branded cards without paying for five.
+For teams, Business ($4.99/user/month, or $3.99 billed yearly) adds a central admin dashboard, brand and template lock, CRM sync, team analytics and SSO — with no minimum number of seats, so a two-person business can run branded cards without paying for five.
 ```
 
 **Categories:** Digital Business Card · Business Card Software · Contact
 Management · Sales Enablement
 **Website:** https://company-card.com
-**Pricing:** Free · Pro $8/mo · Business $12/user/mo · Enterprise custom
+**Pricing:** Free · Pro $5.99/mo ($4.99/mo billed yearly) · Business $4.99/user/mo ($3.99 billed yearly) · Enterprise custom
 
 ---
 

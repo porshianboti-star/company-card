@@ -1,6 +1,6 @@
 /* CompanyCard PWA service worker — cache the app shell for offline + installability.
    (Active only when the app is served over http(s)/localhost or wrapped natively.) */
-const CACHE = "companycard-v7"; /* v7: checkout copy changed — purge cache-first copies */
+const CACHE = "companycard-v8"; /* v8 (2026-09-29): new prices + CC.coupon in product.js, welcome-offer CSS in app.css — purge cache-first copies */
 const SHELL = [
   "mobile.html", "mobile.css", "product.js", "app.css", "config.js", "auth.js",
   "../assets/styles.css", "../assets/logo-primary.svg", "../assets/logo-white.svg", "../assets/logo-icon.svg",

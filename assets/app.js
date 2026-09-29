@@ -56,8 +56,16 @@
         el.textContent = annual ? base + " · billed yearly" : base;
       });
       // Carry the period into checkout, otherwise the toggle is decorative.
+      // Only ?plan= changes; anything else on the link (a ?coupon= carried from
+      // this page's own URL) is kept.
       document.querySelectorAll('a[href*="checkout"]').forEach(function (a) {
-        a.href = a.href.split("?")[0] + "?plan=" + (annual ? "annual" : "monthly");
+        try {
+          var u = new URL(a.href, location.href);
+          u.searchParams.set("plan", annual ? "annual" : "monthly");
+          a.href = u.href;
+        } catch (e) {
+          a.href = a.href.split("?")[0] + "?plan=" + (annual ? "annual" : "monthly");
+        }
       });
     });
   }

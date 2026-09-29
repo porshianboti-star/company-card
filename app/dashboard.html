@@ -35,6 +35,13 @@
 </header>
 
 <main class="wrap-app">
+  <!-- Welcome offer for signed-in free users (2026-09-29). Dismissible; the
+       dismissal is a per-browser convenience in localStorage. -->
+  <div class="offer-banner" id="welcome-offer" role="region" aria-label="Welcome offer" hidden>
+    <p><b>Welcome offer:</b> 30% off your first year of Pro — code <b class="offer-code">WELCOME30</b></p>
+    <a class="btn btn-primary" id="welcome-offer-go" href="checkout.html?plan=annual&amp;coupon=WELCOME30&amp;return=dashboard.html">Use the code</a>
+    <button class="offer-x" id="welcome-offer-x" type="button" aria-label="Dismiss the welcome offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
   <div class="dash-head">
     <div>
       <h1>My cards</h1>
@@ -179,7 +186,24 @@
   var qs = new URLSearchParams(location.search);
   if (qs.get("upgraded") && CC.isPro()) toast("Welcome to Pro 🎉");
 
+  /* welcome offer: signed-in free users only, until dismissed */
+  var OFFER_KEY = "cc_welcome30_dismissed";
+  function offerDismissed() { try { return localStorage.getItem(OFFER_KEY) === "1"; } catch (e) { return false; } }
+  function renderOffer() {
+    var el = $("welcome-offer"); if (!el) return;
+    el.hidden = !(CC.isAuthed() && !CC.isPro() && !offerDismissed());
+  }
+  $("welcome-offer-x").addEventListener("click", function () {
+    try { localStorage.setItem(OFFER_KEY, "1"); } catch (e) {}
+    $("welcome-offer").hidden = true;
+    try { if (typeof gtag === "function") gtag("event", "welcome_offer_dismiss", { coupon: "WELCOME30" }); } catch (e) {}
+  });
+  $("welcome-offer-go").addEventListener("click", function () {
+    try { if (typeof gtag === "function") gtag("event", "welcome_offer_click", { coupon: "WELCOME30" }); } catch (e) {}
+  });
+
   renderAcct();
+  renderOffer();
   render();
 })();
 </script>

@@ -44,25 +44,25 @@ from facts import PLANS
 
 DATE = "2026-09-29"
 HUMAN = "29 September 2026"
-PRICES_READ = "27 September 2026"   # facts.VERIFIED_HUMAN at the time of writing
+PRICES_READ = "29 September 2026"   # facts.VERIFIED_HUMAN (prices changed 2026-09-29, seo/reprice_2026_09_29.py)
 
 # ---------- prices, derived from the one-voice constants ----------
 _plan = {p[0]: p for p in PLANS}
 def _num(s):
     return float(re.search(r"\$([\d.]+)", s).group(1))
-BIZ_M = _num(_plan["Business"][1])     # 12
-BIZ_Y = _num(_plan["Business"][2])     # 10
-PRO_M = _num(_plan["Pro"][1])          # 7.99
-PRO_Y = _num(_plan["Pro"][2])          # 5.99
-PRO_YEAR = float(re.search(r"\(\$([\d.]+) a year\)", _plan["Pro"][2]).group(1))  # 71.88
-assert (BIZ_M, BIZ_Y, PRO_M, PRO_Y, PRO_YEAR) == (12, 10, 7.99, 5.99, 71.88), "facts.py changed — re-read the copy below"
+BIZ_M = _num(_plan["Business"][1])     # 4.99
+BIZ_Y = _num(_plan["Business"][2])     # 3.99
+PRO_M = _num(_plan["Pro"][1])          # 5.99
+PRO_Y = _num(_plan["Pro"][2])          # 4.99
+PRO_YEAR = float(re.search(r"\(\$([\d.]+) a year\)", _plan["Pro"][2]).group(1))  # 59.88
+assert (BIZ_M, BIZ_Y, PRO_M, PRO_Y, PRO_YEAR) == (4.99, 3.99, 5.99, 4.99, 59.88), "facts.py changed — re-read the copy below"
 assert "No seat minimum" in _plan["Business"][3]
 
 def usd(x):
     return f"${x:,.0f}" if float(x).is_integer() else f"${x:,.2f}"
 
 TEAM = 5
-T_Y, T_M, T_YEAR = TEAM * BIZ_Y, TEAM * BIZ_M, TEAM * BIZ_Y * 12   # 50, 60, 600
+T_Y, T_M, T_YEAR = TEAM * BIZ_Y, TEAM * BIZ_M, TEAM * BIZ_Y * 12   # 19.95, 24.95, 239.40
 ARITH_Y = f"{TEAM} × {usd(BIZ_Y)} = {usd(T_Y)} a month billed yearly ({usd(T_YEAR)} a year)"
 ARITH_M = f"{TEAM} × {usd(BIZ_M)} = {usd(T_M)} a month billed monthly"
 
@@ -120,11 +120,15 @@ h = h.replace(OLD_TITLE, NEW_TITLE)
 NEW_DESC = (f"CompanyCard gives a small business and each of its employees a branded digital "
             f"business card, with no seat minimum: {usd(BIZ_Y)} per user a month billed yearly, "
             f"so a 5-person team pays {usd(T_Y)} a month. One card is free.")
-h = replace_once(h, 'content="CompanyCard is a free digital business card for small business owners — share by QR code, link or Apple/Google Wallet, no app for your customer, and no seat minimum when you add your first employee."',
-                 f'content="{NEW_DESC}"', SB)
+if f'content="{NEW_DESC}"' not in h and 'content="CompanyCard gives a small business' not in h:
+    h = replace_once(h, 'content="CompanyCard is a free digital business card for small business owners — share by QR code, link or Apple/Google Wallet, no app for your customer, and no seat minimum when you add your first employee."',
+                     f'content="{NEW_DESC}"', SB)
 for old in ['content="A free digital business card built for small businesses: QR, link and wallet sharing, no app for the recipient, and no 5-seat minimum when you grow."']:
     if old in h:
         h = h.replace(old, f'content="{NEW_DESC}"')
+# A description printed by an earlier run at an earlier price is replaced in place.
+h = re.sub(r'content="CompanyCard gives a small business and each of its employees a branded digital business card, with no seat minimum: [^"]*"',
+           lambda m: f'content="{NEW_DESC}"', h)
 
 h = replace_once(h,
     '<h1 style="max-width:840px;margin:0 auto;">Digital business card for <span class="gradient-text">small business</span></h1>',

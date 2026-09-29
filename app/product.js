@@ -286,7 +286,33 @@
      ============================================================ */
   CC.FREE_FIELD_LIMIT = 5;
   CC.FREE_CARD_LIMIT = 1;
-  CC.PRICING = { currency: "$", monthly: 7.99, annual: 5.99, annualTotal: 71.88 }; /* annual = per-month, billed yearly */
+  CC.PRICING = { currency: "$", monthly: 5.99, annual: 4.99, annualTotal: 59.88 }; /* annual = per-month, billed yearly (2026-09-29) */
+  /* Business is per user and is not sold in checkout (pricing.html: "Talk to us about teams"). */
+  CC.BUSINESS_PRICING = { currency: "$", monthly: 4.99, annual: 3.99 };
+
+  /* ---------- Coupons ----------
+     A code is accepted only if, trimmed and upper-cased, it is an own key of
+     CC.COUPONS (so "__proto__"/"constructor" never match) and matches the strict
+     charset below. pct applies to the FIRST payment only: the first year on
+     annual billing, the first month on monthly. Callers show the code with
+     textContent only — never innerHTML. */
+  CC.COUPONS = {
+    WELCOME30: { pct: 30, plans: ["pro", "business"] }
+  };
+  CC.coupon = function (raw) {
+    var code = String(raw == null ? "" : raw).trim().toUpperCase();
+    if (!/^[A-Z0-9]{3,20}$/.test(code)) return null;
+    if (!Object.prototype.hasOwnProperty.call(CC.COUPONS, code)) return null;
+    var c = CC.COUPONS[code];
+    return { code: code, pct: c.pct, plans: c.plans.slice() };
+  };
+  /* Money in whole cents so 30% of $59.88 is exactly $17.96, never 17.964. */
+  CC.applyCoupon = function (amount, coupon, plan) {
+    var cents = Math.round(amount * 100);
+    if (!coupon || (plan && coupon.plans.indexOf(plan) < 0)) return { subtotal: cents / 100, discount: 0, total: cents / 100 };
+    var off = Math.round(cents * coupon.pct / 100);
+    return { subtotal: cents / 100, discount: off / 100, total: (cents - off) / 100 };
+  };
   CC.PRO_FEATURES = {
     cover:       { label: "Cover image",        hint: "Add a branded banner photo." },
     iconStyle:   { label: "Premium icon styles", hint: "Solid, outline & plain icon designs." },

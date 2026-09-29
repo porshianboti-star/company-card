@@ -25,6 +25,16 @@
    - the person is told after submitting that nothing was charged (#ok-note).
    Keep both properties if you edit this page. */
 .co-ok-note{margin:10px 0 0;font-size:14px;line-height:1.5;color:var(--slate-600,#475569)}
+/* Coupon (2026-09-29): "Have a coupon?" opens a field; a valid code adds a
+   discount line and lowers "Billed today" and the Pay button before paying. */
+.co-coupon{margin:0 0 16px}
+.co-coupon-toggle{background:none;border:0;padding:0;font:inherit;font-size:.9rem;font-weight:600;color:var(--indigo-700,#4338ca);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.co-coupon-row{display:flex;gap:8px;margin-top:10px}
+.co-coupon-row .inp{flex:1;text-transform:uppercase;letter-spacing:.04em}
+.co-coupon-msg{margin:6px 0 0;font-size:.85rem;min-height:1.2em}
+.co-coupon-msg.ok{color:#15803D}.co-coupon-msg.err{color:#B91C1C}
+.co-summary .row.disc b{color:#15803D}
+.co-summary .row.was b{color:var(--slate-500);font-weight:500;text-decoration:line-through}
 </style>
 </head>
 <body>
@@ -50,13 +60,13 @@
       </div>
 
       <div class="seg co-seg" id="co-seg" role="tablist" aria-label="Billing period">
-        <button class="on" type="button" data-plan="annual" role="tab">Annual <span class="save">Save 25%</span></button>
+        <button class="on" type="button" data-plan="annual" role="tab">Annual</button>
         <button type="button" data-plan="monthly" role="tab">Monthly</button>
       </div>
 
       <div class="co-price">
-        <div class="amt"><span class="cur" id="co-cur">$</span><span id="co-amt">5.99</span><span class="per">/ month</span></div>
-        <div class="co-bill" id="co-bill">Billed $71.88 per year</div>
+        <div class="amt"><span class="cur" id="co-cur">$</span><span id="co-amt">4.99</span><span class="per">/ month</span></div>
+        <div class="co-bill" id="co-bill">Billed $59.88 per year</div>
       </div>
 
       <ul class="co-feats" id="co-feats"></ul>
@@ -67,8 +77,22 @@
       <div class="co-card">
         <div class="co-summary">
           <div class="row"><span>CompanyCard Pro</span><b id="sum-plan">Annual</b></div>
-          <div class="row"><span>Billed today</span><b id="sum-total">$71.88</b></div>
+          <div class="row was" id="sum-sub-row" hidden><span>Price</span><b id="sum-sub">$59.88</b></div>
+          <div class="row disc" id="sum-disc-row" hidden><span id="sum-disc-lbl">Coupon</span><b id="sum-disc">&minus;$0.00</b></div>
+          <div class="row"><span>Billed today</span><b id="sum-total">$59.88</b></div>
           <div class="row muted"><span id="sum-renew">Billed yearly · cancel anytime</span></div>
+        </div>
+
+        <div class="co-coupon" id="co-coupon">
+          <button class="co-coupon-toggle" id="coupon-toggle" type="button" aria-expanded="false" aria-controls="coupon-box">Have a coupon?</button>
+          <div id="coupon-box" hidden>
+            <div class="co-coupon-row">
+              <label class="fl" for="coupon-inp" style="position:absolute;left:-9999px">Coupon code</label>
+              <input class="inp" id="coupon-inp" type="text" placeholder="Coupon code" maxlength="20" autocomplete="off" spellcheck="false" autocapitalize="characters">
+              <button class="btn btn-ghost" id="coupon-apply" type="button">Apply</button>
+            </div>
+            <p class="co-coupon-msg" id="coupon-msg" role="status" aria-live="polite"></p>
+          </div>
         </div>
 
         <form id="pay-form" novalidate autocomplete="off">
@@ -86,7 +110,7 @@
               <input class="inp" id="pay-cvc" type="text" inputmode="numeric" placeholder="CVC" maxlength="4" autocomplete="off" spellcheck="false" required></div>
           </div>
           <button class="btn btn-primary btn-lg btn-block co-pay" id="pay-btn" type="submit">
-            <span class="lbl">Pay <span id="pay-amt">$71.88</span> and upgrade</span>
+            <span class="lbl">Pay <span id="pay-amt">$59.88</span> and upgrade</span>
           </button>
         </form>
       </div>
@@ -166,13 +190,38 @@
   var plan = wantPlan === "monthly" ? "monthly" : "annual"; /* matches the preselected tab above */
   function priceFor() { return plan === "annual" ? P.annual : P.monthly; }
   function totalFor() { return plan === "annual" ? P.annualTotal : P.monthly; }
+
+  /* Coupon. ?coupon= is attacker-controllable like ?feat= and ?return=: it is
+     accepted only through CC.coupon (trimmed, upper-cased, [A-Z0-9]{3,20}, and
+     an own key of the CC.COUPONS whitelist). Anything else is dropped without
+     being echoed. The code reaches the DOM only via textContent / .value. */
+  var coupon = null;
+  /* A cache-first service worker can pair this page with an older product.js
+     for one visit; without the coupon helpers the page still works, minus the field. */
+  var couponsOn = typeof CC.coupon === "function" && typeof CC.applyCoupon === "function";
+  if (!couponsOn) $("co-coupon").hidden = true;
+  function charge() {
+    if (!couponsOn) { var t = totalFor(); return { subtotal: t, discount: 0, total: t }; }
+    return CC.applyCoupon(totalFor(), coupon, "pro"); /* first payment */
+  }
   function refresh() {
+    var c = charge();
     $("co-amt").textContent = priceFor().toFixed(2);
     $("co-bill").textContent = plan === "annual" ? ("Billed " + fmt(P.annualTotal) + " per year") : "Billed monthly";
     $("sum-plan").textContent = plan === "annual" ? "Annual" : "Monthly";
-    $("sum-total").textContent = fmt(totalFor());
-    $("sum-renew").textContent = plan === "annual" ? "Billed yearly · cancel anytime" : "Billed monthly · cancel anytime";
-    $("pay-amt").textContent = fmt(totalFor());
+    $("sum-sub").textContent = fmt(c.subtotal);
+    $("sum-sub-row").hidden = !c.discount;
+    $("sum-disc-row").hidden = !c.discount;
+    if (c.discount) {
+      $("sum-disc-lbl").textContent = coupon.code + " (" + coupon.pct + "% off your first " + (plan === "annual" ? "year" : "month") + ")";
+      $("sum-disc").textContent = "\u2212" + fmt(c.discount);
+    }
+    $("sum-total").textContent = fmt(c.total);
+    $("sum-renew").textContent = c.discount
+      ? (plan === "annual" ? "Then " + fmt(P.annualTotal) + " per year · cancel anytime" : "Then " + fmt(P.monthly) + " per month · cancel anytime")
+      : (plan === "annual" ? "Billed yearly · cancel anytime" : "Billed monthly · cancel anytime");
+    $("pay-amt").textContent = fmt(c.total);
+    if (coupon) couponMsg(coupon.pct + "% off your first " + (plan === "annual" ? "year" : "month") + " — you pay " + fmt(c.total) + " today.", true);
   }
   $("co-seg").addEventListener("click", function (e) {
     var b = e.target.closest("button"); if (!b) return;
@@ -180,6 +229,32 @@
     $("co-seg").querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
     refresh();
   });
+
+  function openCoupon() { $("coupon-box").hidden = false; $("coupon-toggle").setAttribute("aria-expanded", "true"); }
+  function couponMsg(text, ok) { var m = $("coupon-msg"); m.textContent = text; m.className = "co-coupon-msg " + (ok ? "ok" : "err"); }
+  function applyCoupon(raw, source) {
+    var c = CC.coupon(raw);
+    if (!c) { coupon = null; refresh(); couponMsg("That code isn't valid.", false); return false; }
+    coupon = c; $("coupon-inp").value = c.code; refresh();
+    var r = charge();
+    try {
+      if (typeof gtag === "function") gtag("event", "coupon_applied", {
+        coupon: c.code, plan: "pro", billing: plan, source: source, value: r.total, discount: r.discount, currency: "USD"
+      });
+    } catch (err) {}
+    /* analytics.js loads after this script, so a code applied from ?coupon=
+       on page load is counted once it has loaded. */
+    try {
+      if (window.CCTrack) CCTrack("coupon_applied");
+      else document.addEventListener("DOMContentLoaded", function () { if (window.CCTrack) CCTrack("coupon_applied"); });
+    } catch (err) {}
+    return true;
+  }
+  $("coupon-toggle").addEventListener("click", function () { openCoupon(); $("coupon-inp").focus(); });
+  $("coupon-apply").addEventListener("click", function () { applyCoupon($("coupon-inp").value, "typed"); });
+  $("coupon-inp").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); applyCoupon(this.value, "typed"); } });
+  var qCoupon = couponsOn ? CC.coupon(qs.get("coupon")) : null;
+  if (qCoupon) { openCoupon(); applyCoupon(qCoupon.code, "link"); }
   refresh();
 
   /* light input formatting */
@@ -190,7 +265,7 @@
   /* Submit = pay intent. Only EMPTINESS of the card fields is read — never their
      values — and they are cleared before anything else runs. The account gets Pro
      exactly as before (CC.setPro → local user + CCAuth.setPlan), and the
-     pay_submitted event carries plan and price only. */
+     pay_submitted event carries plan, price and the coupon code only. */
   var CARD_FIELDS = ["pay-name", "pay-num", "pay-exp", "pay-cvc"], submitted = false;
   $("pay-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -202,8 +277,10 @@
     CARD_FIELDS.forEach(function (id) { $(id).value = ""; });
     var btn = $("pay-btn"); btn.classList.add("loading"); btn.disabled = true;
     try {
+      var paid = charge();
       if (typeof gtag === "function") gtag("event", "pay_submitted", {
-        plan: "pro", billing: plan, value: totalFor(), currency: "USD", per_month: priceFor()
+        plan: "pro", billing: plan, value: paid.total, currency: "USD", per_month: priceFor(),
+        coupon: coupon ? coupon.code : "", discount: paid.discount
       });
     } catch (err) {}
     try { if (window.CCTrack) CCTrack("pay_submitted"); } catch (err) {}
