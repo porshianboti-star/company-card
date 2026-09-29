@@ -17,21 +17,14 @@
 <link rel="stylesheet" href="../assets/styles.css">
 <link rel="stylesheet" href="app.css">
 <style>
-/* Demo-checkout notice. Deliberately loud: this form asks for a card number,
-   and until it takes real money it must never look like it does. */
-.co-demo-notice{display:flex;gap:10px;align-items:flex-start;margin:0 0 18px;
-  padding:12px 14px;border-radius:10px;line-height:1.5;font-size:14px;
-  background:#FFF6E5;border:1px solid #F0C86B;color:#5A4416}
-.co-demo-notice svg{width:19px;height:19px;flex:0 0 auto;margin-top:1px;color:#B7791F}
-.co-demo-notice b{color:#3F2F0D}
-.fl-demo{margin-inline-start:6px;padding:1px 6px;border-radius:99px;font-size:10.5px;
-  font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-  background:#F0C86B;color:#3F2F0D;vertical-align:1px}
-@media (prefers-color-scheme:dark){
-  .co-demo-notice{background:#2E2408;border-color:#7A5E1C;color:#F2E3BE}
-  .co-demo-notice b{color:#FFF3D4}
-  .co-demo-notice svg{color:#E0B44E}
-}
+/* Pay-intent checkout (owner directive 2026-09-29). Billing is not connected, so
+   the card fields are a measurement of intent, not a payment:
+   - card number / expiry / CVC / cardholder name are never stored, logged or sent
+     anywhere — the inputs have no name attribute, the form never submits natively,
+     and the submit handler reads only whether they are empty, then clears them;
+   - the person is told after submitting that nothing was charged (#ok-note).
+   Keep both properties if you edit this page. */
+.co-ok-note{margin:10px 0 0;font-size:14px;line-height:1.5;color:var(--slate-600,#475569)}
 </style>
 </head>
 <body>
@@ -40,7 +33,7 @@
   <div class="inner">
     <a class="brand" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard" class="logo-lockup"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
     <span class="sp"></span>
-    <span class="co-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg> Demo checkout — no card is charged</span>
+    <span class="co-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg> Checkout</span>
   </div>
 </header>
 
@@ -75,34 +68,25 @@
         <div class="co-summary">
           <div class="row"><span>CompanyCard Pro</span><b id="sum-plan">Annual</b></div>
           <div class="row"><span>Billed today</span><b id="sum-total">$71.88</b></div>
-          <div class="row muted"><span id="sum-renew">Preview — nothing is charged</span></div>
+          <div class="row muted"><span id="sum-renew">Billed yearly · cancel anytime</span></div>
         </div>
-
-        <!-- The notice sits ABOVE the card fields on purpose. Below the pay button
-             it was the faintest text on a page headed "Secure checkout", next to
-             inputs whose autocomplete asked the browser for a real saved card. -->
-        <p class="co-demo-notice">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
-          <span><b>This is a demo checkout.</b> No card is charged and nothing is sent anywhere.
-          The test number below is already filled in — <b>please don't type a real card.</b></span>
-        </p>
 
         <form id="pay-form" novalidate autocomplete="off">
           <div class="field"><label class="fl" for="pay-email">Email</label>
             <input class="inp" id="pay-email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
           <div class="field"><label class="fl" for="pay-name">Name on card</label>
-            <input class="inp" id="pay-name" type="text" placeholder="Jordan Diaz" autocomplete="off" required></div>
-          <div class="field"><label class="fl" for="pay-num">Card number <span class="fl-demo">demo</span></label>
-            <div class="inp-icon"><input class="inp" id="pay-num" type="text" inputmode="numeric" value="4242 4242 4242 4242" placeholder="4242 4242 4242 4242" maxlength="19" autocomplete="off" required>
+            <input class="inp" id="pay-name" type="text" placeholder="Jordan Diaz" autocomplete="off" spellcheck="false" required></div>
+          <div class="field"><label class="fl" for="pay-num">Card number</label>
+            <div class="inp-icon"><input class="inp" id="pay-num" type="text" inputmode="numeric" placeholder="1234 1234 1234 1234" maxlength="23" autocomplete="off" spellcheck="false" required>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div></div>
           <div class="grid2">
             <div class="field"><label class="fl" for="pay-exp">Expiry</label>
-              <input class="inp" id="pay-exp" type="text" inputmode="numeric" value="12 / 34" placeholder="MM / YY" maxlength="7" autocomplete="off" required></div>
+              <input class="inp" id="pay-exp" type="text" inputmode="numeric" placeholder="MM / YY" maxlength="7" autocomplete="off" spellcheck="false" required></div>
             <div class="field"><label class="fl" for="pay-cvc">CVC</label>
-              <input class="inp" id="pay-cvc" type="text" inputmode="numeric" value="123" placeholder="123" maxlength="4" autocomplete="off" required></div>
+              <input class="inp" id="pay-cvc" type="text" inputmode="numeric" placeholder="CVC" maxlength="4" autocomplete="off" spellcheck="false" required></div>
           </div>
           <button class="btn btn-primary btn-lg btn-block co-pay" id="pay-btn" type="submit">
-            <span class="lbl">Activate Pro (demo) — <span id="pay-amt">$71.88</span> not charged</span>
+            <span class="lbl">Pay <span id="pay-amt">$71.88</span> and upgrade</span>
           </button>
         </form>
       </div>
@@ -115,8 +99,9 @@
 <div class="modal" id="ok-modal" role="dialog" aria-modal="true" hidden>
   <div class="modal-box">
     <div class="done-hero"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
-    <h3>You're Pro 🎉</h3>
-    <p class="sub" id="ok-sub">Every premium feature is unlocked. Taking you back to your card…</p>
+    <h3>Welcome to Pro 🎉</h3>
+    <p class="sub" id="ok-sub">Every premium feature is unlocked.</p>
+    <p class="co-ok-note" id="ok-note">Your card was not charged — as one of our first customers, Pro is free for you while we open billing.</p>
     <a class="btn btn-primary btn-block" id="ok-go" href="builder.html" style="margin-top:18px">Continue</a>
   </div>
 </div>
@@ -165,7 +150,7 @@
   }).join("") + '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Card analytics &amp; contact export</b>See who saved your card.</span></li>';
 
   /* plan toggle */
-  var plan = "annual";
+  var plan = wantPlan === "monthly" ? "monthly" : "annual"; /* matches the preselected tab above */
   function priceFor() { return plan === "annual" ? P.annual : P.monthly; }
   function totalFor() { return plan === "annual" ? P.annualTotal : P.monthly; }
   function refresh() {
@@ -173,7 +158,7 @@
     $("co-bill").textContent = plan === "annual" ? ("Billed " + fmt(P.annualTotal) + " per year") : "Billed monthly";
     $("sum-plan").textContent = plan === "annual" ? "Annual" : "Monthly";
     $("sum-total").textContent = fmt(totalFor());
-    $("sum-renew").textContent = "Preview — nothing is charged";
+    $("sum-renew").textContent = plan === "annual" ? "Billed yearly · cancel anytime" : "Billed monthly · cancel anytime";
     $("pay-amt").textContent = fmt(totalFor());
   }
   $("co-seg").addEventListener("click", function (e) {
@@ -185,23 +170,39 @@
   refresh();
 
   /* light input formatting */
-  $("pay-num").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim(); });
+  $("pay-num").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 19).replace(/(.{4})/g, "$1 ").trim(); });
   $("pay-exp").addEventListener("input", function () { var v = this.value.replace(/\D/g, "").slice(0, 4); this.value = v.length > 2 ? v.slice(0, 2) + " / " + v.slice(2) : v; });
   $("pay-cvc").addEventListener("input", function () { this.value = this.value.replace(/\D/g, "").slice(0, 4); });
 
-  /* simulated payment → set Pro → success */
+  /* Submit = pay intent. Only EMPTINESS of the card fields is read — never their
+     values — and they are cleared before anything else runs. The account gets Pro
+     exactly as before (CC.setPro → local user + CCAuth.setPlan), and the
+     pay_submitted event carries plan and price only. */
+  var CARD_FIELDS = ["pay-name", "pay-num", "pay-exp", "pay-cvc"], submitted = false;
   $("pay-form").addEventListener("submit", function (e) {
     e.preventDefault();
+    if (submitted) { CARD_FIELDS.forEach(function (id) { $(id).value = ""; }); return; }
     var email = $("pay-email").value.trim();
-    if (!email || !$("pay-name").value.trim() || $("pay-num").value.replace(/\s/g, "").length < 12 || !$("pay-exp").value || !$("pay-cvc").value) { toast("Add your payment details"); return; }
+    var missing = !email || CARD_FIELDS.some(function (id) { return !$(id).value.trim(); });
+    if (missing) { toast("Fill in your payment details"); return; }
+    submitted = true;
+    CARD_FIELDS.forEach(function (id) { $(id).value = ""; });
     var btn = $("pay-btn"); btn.classList.add("loading"); btn.disabled = true;
-    CC.signup(email, $("pay-name").value.trim(), u && u.via);
+    try {
+      if (typeof gtag === "function") gtag("event", "pay_submitted", {
+        plan: "pro", billing: plan, value: totalFor(), currency: "USD", per_month: priceFor()
+      });
+    } catch (err) {}
+    try { if (window.CCTrack) CCTrack("pay_submitted"); } catch (err) {}
+    /* The name on the card is NOT passed here — only the account's own name. */
+    CC.signup(email, (u && u.name) || "", u && u.via);
     setTimeout(function () {
       CC.setPro(plan);
-      $("ok-sub").textContent = "Every premium feature is unlocked. " + (ret.indexOf("builder") >= 0 ? "Taking you back to your card…" : "Taking you back…");
+      $("ok-go").href = ret + (ret.indexOf("?") >= 0 ? "&" : "?") + "upgraded=1";
+      $("ok-go").textContent = ret.indexOf("builder") >= 0 ? "Back to my card" : "Continue";
       $("ok-modal").hidden = false;
-      setTimeout(function () { location.href = ret + (ret.indexOf("?") >= 0 ? "&" : "?") + "upgraded=1"; }, 1400);
-    }, 1100);
+      $("ok-go").focus();
+    }, 900);
   });
 
   $("co-later").addEventListener("click", function () { location.href = ret; });
