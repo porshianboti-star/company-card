@@ -53,6 +53,7 @@
 - Digital business card for accountants & bookkeepers: https://company-card.com/digital-business-card-for-accountants.html
 - Digital business card for bookkeepers (monthly bookkeeping, catch-up work, remote clients referred by accountants): https://company-card.com/digital-business-card-for-bookkeepers.html
 - Digital business card for lawyers & small law firms (practice areas, jurisdictions, first consultations for referred clients): https://company-card.com/digital-business-card-for-lawyers.html
+- Digital business card for therapists in private practice (what you work with, where you are licensed, fees, openings, first calls from referrals): https://company-card.com/digital-business-card-for-therapists.html
 - Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
 - Digital business card for personal trainers: https://company-card.com/digital-business-card-for-personal-trainers.html
 - Digital business card for electricians: https://company-card.com/digital-business-card-for-electricians.html
@@ -646,6 +647,22 @@ Q: Should prospective clients send me case details through the card?
 A: It is safer not to invite that. Use the card to book a first call or reach your intake team, and ask people not to send details of their matter until you have spoken. If you use lead capture, collect contact details only.
 Q: Can a small firm give every lawyer a card?
 A: Yes. Each person can have their own card with their own practice areas and direct line. For a firm that wants one locked design across everyone, see digital business cards for teams.
+Q: Do the people I share it with need an app?
+A: No. The card opens in any browser from a link or a QR code, and the reader saves your details to their contacts with one tap.
+Q: Is it free?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+
+### Digital Business Card for Therapists in Private Practice | CompanyCard
+URL: https://company-card.com/digital-business-card-for-therapists.html
+Description: A digital business card for therapists, counsellors and psychologists in private practice — show what you work with, where you are licensed, fees and openings, and let referred clients book a first call. Free to start.
+Q: What should a therapist put on a digital business card?
+A: Your name, credentials and license type, where you are licensed to practise, what you work with in plain words, whether you see clients in person or online, your fees and insurance, whether you are taking new clients, how to book a first call, and a short line asking people not to share personal details on the card.
+Q: Can clients send me private information through the card?
+A: They should not. A digital business card is a public contact page, not a secure messaging or records system, and CompanyCard does not describe itself as one. Use the card to point people to how you want first contact to happen, and if you use lead capture, collect contact details only.
+Q: Are there rules about how therapists advertise?
+A: Often, yes. Licensing boards and professional bodies commonly set rules on how titles and credentials are shown, on testimonials and on advertising claims, and they differ by profession and location. Check the rules that apply to you, and edit the card's text to match them.
+Q: Can a group practice give every clinician a card?
+A: Yes. Each clinician can have their own card with their own specialties, license details and booking link. For a practice that wants one locked design across everyone, see digital business cards for teams.
 Q: Do the people I share it with need an app?
 A: No. The card opens in any browser from a link or a QR code, and the reader saves your details to their contacts with one tap.
 Q: Is it free?
