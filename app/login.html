@@ -82,9 +82,13 @@
       return CCAuth.init();
     }).then(function (p) {
       var next = new URLSearchParams(location.search).get("next");
+      /* ?next= is attacker-controllable (2026-09-29): only a same-folder page name,
+         optionally with a plain query string, is accepted. Anything else — another
+         origin, //host, javascript:, data:, a path with slashes — falls back to home. */
+      if (next && !/^[a-z0-9_-]+\.html(\?[A-Za-z0-9_.~%=&+-]{0,300})?$/i.test(next)) next = null;
       var home = CCAuth.homeFor(p ? p.role : "employee");
       /* employees can never be sent to admin pages via ?next= */
-      if (next && p && p.role !== "admin" && /^(dashboard|team|onboarding)\.html$/.test(next)) next = null;
+      if (next && p && p.role !== "admin" && /^(dashboard|team|onboarding)\.html(\?|$)/.test(next)) next = null;
       location.replace(next || home);
     }).catch(function (ex) {
       go.disabled = false; go.textContent = "Sign in";

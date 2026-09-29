@@ -82,7 +82,8 @@
     });
   };
 
-  function here() { return location.pathname.split("/").pop() || "dashboard.html"; }
+  /* keep the query (e.g. checkout.html?plan=pro&coupon=WELCOME30) so it survives the sign-in round trip; login.html validates it */
+  function here() { return (location.pathname.split("/").pop() || "dashboard.html") + location.search; }
   function goLogin() { location.replace("login.html?next=" + encodeURIComponent(here())); }
 
   /* guard("admin") — admins only. guard("any") — any signed-in user. */
