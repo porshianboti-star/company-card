@@ -2,6 +2,37 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-29 — /digital-business-card-for-therapists (batch 26)
+
+- Shipped `digital-business-card-for-therapists.html` (commit efe8bba), a positive
+  profession page for therapists, counsellors and psychologists in private practice.
+  No competitor or directory named. No compliance claims: the page says the card is a
+  public page, not a place for clinical information, and leaves title/advertising
+  rules to the reader's own licensing board. Plan facts re-read from pricing.html today.
+- Wired: Solutions footer (20 files, after "For Lawyers"), sitemap.xml, llms.txt,
+  llms-full.txt (67 pages, 341 Q&A). Only the new page is date-stamped
+  (seo/wire_batch26.py); seo/add_freshness.py NOT run (hardcoded 2026-08-02, rolls
+  dates backward).
+- Validation: 1 h1, title, meta, canonical, 3 valid JSON-LD (FAQPage, BreadcrumbList,
+  WebPage); sync_faq_schema exit 0, every FAQPage question has a visible twin;
+  xmllint sitemap OK.
+- Live: 200 with expected content, footer link live on /, live sitemap 67 URLs.
+  IndexNow 200. GSC URL Inspection → "Indexing requested".
+
+**Measured 2026-09-29**
+- Sitemap URLs: 66 (live, before push) → 67
+- GSC indexed: 64 flat; not indexed 25 = 13 alternate-with-canonical, 11 page with
+  redirect, 1 discovered-not-indexed. Crawled-not-indexed still 0. No new reasons.
+- GSC Performance, 28 days to 9/26: impressions 3,880 (4th consecutive fall, from
+  4,002), avg position 48.4 (9th consecutive improvement, from 50.9), clicks 6 flat.
+  396 queries. 3 months: 8,090 impressions, 11 clicks, pos 54.4.
+- GSC Insights: qr-code-business-card.html impressions -85% recently;
+  virtual-business-card.html +365%. "virtual business cards" now 153 impr @ 22.6.
+- Realtors cluster still the largest profession demand: ~75 impr @ 73-78 on the
+  existing realtors page — candidate for an improvement pass, not a new page.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot / social
+  profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-09-27 (fix round 1) — verifier fixes: sister-product credit sentence + FAQ twin rule
 
 - email-signature-generator.html:138 — "its free plan carries no watermark" (hand-built,
