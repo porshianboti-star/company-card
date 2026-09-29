@@ -26,6 +26,8 @@
   .auth-foot { margin-top: 18px; text-align: center; font-size: .9rem; color: var(--slate-500); }
   .auth-foot a { color: var(--indigo-600); font-weight: 600; }
   .invite-chip { display: none; align-items: center; gap: 9px; background: var(--violet-50); border: 1px solid var(--violet-100); color: var(--indigo-700); border-radius: 12px; padding: 10px 14px; font-size: .9rem; font-weight: 600; margin-bottom: 18px; }
+  .consent { display: flex; align-items: flex-start; gap: 10px; margin: 4px 0 18px; font-size: .88rem; line-height: 1.5; color: var(--slate-600); cursor: pointer; }
+  .consent input { width: 17px; height: 17px; margin-top: 2px; flex: none; accent-color: var(--indigo-600); cursor: pointer; }
   .demo-note { display: none; margin-top: 16px; background: var(--slate-50); border: 1px dashed var(--slate-200); border-radius: 12px; padding: 12px 14px; font-size: .84rem; color: var(--slate-500); }
 </style>
 </head>
@@ -57,6 +59,10 @@
       <input class="inp" id="email" type="email" autocomplete="username" required placeholder="you@company.com"></div>
     <div class="field"><label class="fl" for="pass">Password <span style="color:var(--slate-400);font-weight:500">(8+ characters)</span></label>
       <input class="inp" id="pass" type="password" autocomplete="new-password" minlength="8" required placeholder="••••••••"></div>
+    <!-- Marketing consent (2026-09-29): unchecked by default, optional, separate
+         from creating the account. Wording must match A.CONSENT_TEXT in auth.js
+         and version cc-2026-09-29 in public.marketing_consent_texts. -->
+    <label class="consent" for="mkt"><input type="checkbox" id="mkt"><span>Send me CompanyCard tips and occasional offers by email. Unsubscribe anytime.</span></label>
     <button class="btn btn-primary btn-block btn-lg" id="go" type="submit">Create account</button>
     <div class="auth-foot">Already have an account? <a href="login.html">Sign in</a></div>
     <div class="demo-note" id="demo">You opened the site as plain files, so accounts are off. Start the local server (double-click <b>start-companycard.command</b>) and open <b>http://localhost:8787</b>.</div>
@@ -103,8 +109,9 @@
     if (!name || !email || pass.length < 8 || (!token && !comp))
       return show(err, "Fill in every field — password needs 8+ characters.");
     go.disabled = true; go.textContent = "Creating account…";
-    var p = token ? CCAuth.signupInvited(name, email, pass, token)
-                  : CCAuth.signupAdmin(name, comp, email, pass);
+    var mkt = document.getElementById("mkt").checked === true;
+    var p = token ? CCAuth.signupInvited(name, email, pass, token, mkt)
+                  : CCAuth.signupAdmin(name, comp, email, pass, mkt);
     p.then(function (r) {
       if (r.error) throw r.error;
       /* If email confirmation is ON there is no session yet */

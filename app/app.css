@@ -677,3 +677,13 @@ body.is-pro .pro-pill, body.is-pro .pro-lock { display:none; }
 .offer-banner .offer-x { background:none; border:0; width:32px; height:32px; border-radius:10px; color:var(--slate-500,#64748B); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
 .offer-banner .offer-x:hover { background:var(--violet-100,#EDE9FE); }
 .offer-banner .offer-x svg { width:18px; height:18px; }
+
+/* Email preferences (Settings) — dashboard.html + employee.html, 2026-09-29 */
+.email-prefs { margin-top:32px; background:#fff; border:1px solid var(--slate-200,#E2E8F0); border-radius:16px; padding:18px 20px; max-width:640px; }
+.email-prefs[hidden] { display:none; }
+.email-prefs h2 { font-family:var(--font-display); font-size:1.05rem; color:var(--ink,#0F172A); margin:0 0 10px; }
+.email-prefs .ep-row { display:flex; align-items:flex-start; gap:10px; font-size:.92rem; line-height:1.5; color:var(--slate-600,#475569); cursor:pointer; }
+.email-prefs .ep-row input { width:17px; height:17px; margin-top:2px; flex:none; accent-color:var(--indigo-600,#4F46E5); cursor:pointer; }
+.email-prefs .ep-status { margin:8px 0 0 27px; min-height:1.2em; font-size:.84rem; color:var(--slate-500,#64748B); }
+.ep-wrap { padding-top:0; }
+.ep-wrap .email-prefs { margin-top:8px; }

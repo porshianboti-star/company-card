@@ -100,22 +100,50 @@
     if (!r || !r.error) { try { window.CCTrack && CCTrack("signup"); } catch (e) {} }
     return r;
   }
-  A.signupAdmin = function (fullName, companyName, email, password) {
+  /* Marketing-email consent (2026-09-29). The signup checkbox is unchecked by
+     default and optional; only when it is ticked does the signup metadata carry
+     marketing_opt_in + the wording version. The database trigger
+     on_auth_user_created_marketing records it (supabase/cc-001-marketing-consent.sql)
+     and accepts only a version listed in public.marketing_consent_texts. */
+  A.CONSENT_VERSION = "cc-2026-09-29";
+  A.CONSENT_TEXT = "Send me CompanyCard tips and occasional offers by email. Unsubscribe anytime.";
+  function withConsent(data, marketing) {
+    if (marketing === true) { data.marketing_opt_in = true; data.marketing_consent_version = A.CONSENT_VERSION; }
+    return data;
+  }
+
+  A.signupAdmin = function (fullName, companyName, email, password, marketing) {
     if (MODE === "local")
       return call("POST", "/api/signup",
         { fullName: fullName, companyName: companyName, email: email, password: password })
         .then(function (r) { return r.error ? r : { data: { session: true } }; }).then(trackSignup);
     return sb.auth.signUp({ email: email, password: password,
-      options: { data: { full_name: fullName, company_name: companyName } } }).then(trackSignup);
+      options: { data: withConsent({ full_name: fullName, company_name: companyName }, marketing) } }).then(trackSignup);
   };
 
-  A.signupInvited = function (fullName, email, password, token) {
+  A.signupInvited = function (fullName, email, password, token, marketing) {
     if (MODE === "local")
       return call("POST", "/api/signup-invite",
         { fullName: fullName, email: email, password: password, token: token })
         .then(function (r) { return r.error ? r : { data: { session: true } }; }).then(trackSignup);
     return sb.auth.signUp({ email: email, password: password,
-      options: { data: { full_name: fullName, invite_token: token } } }).then(trackSignup);
+      options: { data: withConsent({ full_name: fullName, invite_token: token }, marketing) } }).then(trackSignup);
+  };
+
+  /* Email preferences (Settings). Reads the signed-in user's own row; writes go
+     through the set_marketing_opt_in RPC only (a direct update of these columns
+     is refused by the database). Resolve to true/false, or null when unknown. */
+  A.marketingOptIn = function () {
+    if (MODE !== "supabase" || !A.session) return Promise.resolve(null);
+    return sb.from("profiles").select("marketing_opt_in").eq("id", A.session.user.id).single()
+      .then(function (r) { return (r.error || !r.data) ? null : r.data.marketing_opt_in === true; },
+            function () { return null; });
+  };
+  A.setMarketingOptIn = function (on) {
+    if (MODE !== "supabase" || !A.session) return Promise.resolve(null);
+    return sb.rpc("set_marketing_opt_in", { p_opt_in: on === true })
+      .then(function (r) { return (r.error || typeof r.data !== "boolean") ? null : r.data; },
+            function () { return null; });
   };
 
   A.login = function (email, password) {

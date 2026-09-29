@@ -10,6 +10,9 @@
 # Netlify takes the first matching rule, so this sits above every forced 301.
 # Template backgrounds are referenced relatively by the card renderer (product.js:69-75); under /c/<slug> they resolve to /c/tpl-bg/*.
 /c/tpl-bg/*  /app/tpl-bg/:splat  200
+# 2026-09-29: marketing-email unsubscribe link, https://company-card.com/unsubscribe?u=<id>&t=<hmac>.
+# A REWRITE (200) so the query string reaches the page; the page is noindex.
+/unsubscribe  /unsubscribe.html  200!
 /c/:slug  /app/c.html  200
 /index.html  /  301!
 /about  /about.html  301!

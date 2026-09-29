@@ -32,6 +32,13 @@
 </header>
 
 <main class="build" id="root"></main>
+<div class="wrap-app ep-wrap">
+<section class="email-prefs" data-email-prefs hidden aria-labelledby="ep-title">
+  <h2 id="ep-title">Email preferences</h2>
+  <label class="ep-row" for="ep-mkt"><input type="checkbox" id="ep-mkt"><span>Send me CompanyCard tips and occasional offers by email. Unsubscribe anytime.</span></label>
+  <p class="ep-status" data-email-prefs-status role="status"></p>
+</section>
+</div>
 
 <!-- SHARE MODAL -->
 <div class="modal" id="share-modal" role="dialog" aria-modal="true" aria-labelledby="sh-title" hidden>
@@ -51,6 +58,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script src="auth.js"></script>
+<script src="email-prefs.js"></script>
 <script>CCAuth.guard("any");</script>
 <script src="product.js"></script>
 <script>

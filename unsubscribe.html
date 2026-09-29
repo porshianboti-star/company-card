@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- No Google tag (G-33HCVG9DKG) on this page on purpose: the address carries a
+     personal unsubscribe token, and page_location would send it to analytics.
+     seo/add_ga4.py skips any file that already contains the id above. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<title>Unsubscribe — CompanyCard</title>
+<meta name="description" content="Stop CompanyCard tips and offers emails.">
+<link rel="icon" href="assets/logo-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  body { background: var(--slate-50); }
+  .u-bar { padding: 18px 16px; text-align: center; }
+  .u-bar svg { height: 34px; width: auto; }
+  .u-wrap { min-height: calc(100vh - 140px); display: grid; place-items: start center; padding: 24px 16px 60px; }
+  .u-card { width: 100%; max-width: 460px; background: #fff; border: 1px solid var(--slate-200); border-radius: 20px; box-shadow: var(--shadow); padding: 30px 26px; text-align: center; }
+  .u-card h1 { font-family: var(--font-display); font-size: 1.4rem; color: var(--ink); margin-bottom: 10px; }
+  .u-card p { color: var(--slate-600); line-height: 1.65; font-size: .98rem; margin-bottom: 12px; }
+  .u-card a { color: var(--indigo-600); font-weight: 600; }
+  .u-card .u-fine { font-size: .86rem; color: var(--slate-500); margin: 18px 0 0; }
+  .u-card .btn { margin-top: 8px; }
+  .u-spin { width: 28px; height: 28px; margin: 6px auto 14px; border-radius: 50%; border: 3px solid var(--slate-200); border-top-color: var(--indigo-600); animation: u-rot .8s linear infinite; }
+  @keyframes u-rot { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .u-spin { animation: none; } }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="u-bar">
+  <a href="index.html" aria-label="CompanyCard home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388 84" width="388" height="84" role="img" aria-label="CompanyCard"><rect x="9" y="18" width="74" height="48" rx="9" stroke="#1A1814" stroke-width="2" fill="none"/><path d="M 57.19,26.81 A 13,13 0 1 0 57.19,45.19" stroke="#1A1814" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/><path d="M 43.19,36.81 A 13,13 0 1 0 43.19,55.19" stroke="#1A1814" stroke-width="6" stroke-linecap="round" fill="none"/><text x="104" y="56.5" font-family="Marcellus, Georgia, serif" font-size="42" letter-spacing="1" fill="#1A1814">CompanyCard</text></svg></a>
+</header>
+
+<main class="u-wrap">
+  <section class="u-card" aria-live="polite">
+    <div id="s-working">
+      <div class="u-spin" aria-hidden="true"></div>
+      <h1>Unsubscribing…</h1>
+      <p>One moment.</p>
+    </div>
+
+    <div id="s-done" hidden>
+      <h1>You’re unsubscribed</h1>
+      <p>CompanyCard will not send you tips or offers by email any more. Emails about your account, such as sign-in and password messages, still arrive.</p>
+      <p class="u-fine">Changed your mind? Turn offers back on under <b>Email preferences</b> in <a href="app/dashboard.html">your account</a>.</p>
+    </div>
+
+    <div id="s-bad" hidden>
+      <h1>This link didn’t work</h1>
+      <p>The unsubscribe link is incomplete or has been changed. Open it again from the email, or <a href="contact.html">send us a message</a> with the address you want removed and we will remove it.</p>
+    </div>
+
+    <div id="s-error" hidden>
+      <h1>We couldn’t reach our server</h1>
+      <p>Nothing changed yet. Check your connection and try again.</p>
+      <button class="btn btn-primary" id="retry" type="button">Try again</button>
+      <p class="u-fine">Still stuck? <a href="contact.html">Send us a message</a> and we will remove your address.</p>
+    </div>
+  </section>
+</main>
+
+<script src="app/config.js"></script>
+<script>
+(function () {
+  "use strict";
+  /* Plain fetch with the public key only, never supabase-js: a signed-in
+     session in this browser would turn the call into role "authenticated",
+     and marketing_unsubscribe is granted to anon only. The token is an
+     HMAC of the user id; the server checks it and answers true/false. */
+  var cfg = window.CC_CONFIG || {};
+  var qs = new URLSearchParams(location.search);
+  var u = (qs.get("u") || "").trim().toLowerCase();
+  var t = (qs.get("t") || "").trim();
+  var UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+  var HEX64 = /^[0-9a-fA-F]{64}$/;
+
+  function show(id) {
+    ["s-working", "s-done", "s-bad", "s-error"].forEach(function (k) {
+      document.getElementById(k).hidden = (k !== id);
+    });
+  }
+  /* The token has done its job once the page has read it; keep it out of
+     the address bar, history and any link someone copies from here. */
+  function scrub() {
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  }
+
+  function run() {
+    show("s-working");
+    if (!UUID.test(u) || !HEX64.test(t) || !cfg.supabaseUrl || !cfg.supabaseAnonKey) {
+      scrub(); show("s-bad"); return;
+    }
+    fetch(cfg.supabaseUrl + "/rest/v1/rpc/marketing_unsubscribe", {
+      method: "POST",
+      headers: { "apikey": cfg.supabaseAnonKey, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_user: u, p_token: t }),
+      credentials: "omit",
+      cache: "no-store",
+      referrerPolicy: "no-referrer"
+    }).then(function (r) {
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.json();
+    }).then(function (ok) {
+      scrub();
+      show(ok === true ? "s-done" : "s-bad");
+    }).catch(function () {
+      show("s-error");
+    });
+  }
+
+  document.getElementById("retry").addEventListener("click", run);
+  run();
+})();
+</script>
+</body>
+</html>

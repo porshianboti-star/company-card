@@ -187,3 +187,10 @@ $$ begin new.updated_at := now(); return new; end $$;
 drop trigger if exists cards_touch on public.cards;
 create trigger cards_touch before update on public.cards
   for each row execute function public.touch_updated_at();
+
+-- ---------- Later migrations (run after this file, in order) ----------
+-- supabase/cc-001-marketing-consent.sql  consent columns on profiles, signup
+--   checkbox trigger, set_marketing_opt_in / marketing_unsubscribe RPCs,
+--   consent log, coupon_emails, priv.mail_keys (applied 2026-09-29)
+-- supabase/cc-002-security-hardening.sql  signup_export closed to browser roles,
+--   profile tenant-column guard (applied 2026-09-29)
