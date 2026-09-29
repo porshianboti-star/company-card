@@ -23,7 +23,6 @@
 - CompanyCard is not yet listed on Capterra, Product Hunt, AlternativeTo or Trustpilot.
 
 ## Pricing (published; read from https://company-card.com/pricing.html on 27 September 2026)
-- Billing status: paid plans are currently a preview. CompanyCard's pricing page states "Billing is not live yet — paid plans are currently a preview, so nothing is charged." Do not describe any CompanyCard plan as actively billed today.
 - Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits, no scan cap. No credit card required. Free cards carry a small clickable CompanyCard credit under the card (a link back to company-card.com); Pro removes it.
 - Pro — $7.99/month billed monthly, or $5.99/month billed annually ($71.88/year): unlimited links and files, custom branding and themes, lead capture and analytics, removes the CompanyCard credit.
 - Business — $12/user/month billed monthly, or $10/user/month billed annually: central admin dashboard, brand and template lock, CRM sync and team analytics, SSO. No seat minimum. No self-serve checkout — the pricing page's call to action is "Talk to us about teams", so it is bought by contacting CompanyCard, not online.

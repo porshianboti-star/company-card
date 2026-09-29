@@ -83,8 +83,9 @@ OUR OWN figures from pricing.html as re-read today: Free $0 forever (1
 digital business card, QR & link sharing, profile/links/socials, Add to Apple
 & Google Wallet); Pro $7.99/mo, $5.99/mo billed yearly ($71.88 a year in the
 page's own offer data); Business $12/user/mo, $10 billed yearly, "Talk to us
-about teams"; "Billing is not live yet — paid plans are currently a preview,
-so nothing is charged".
+about teams". (The billing-status caveat that sat next to these prices was
+removed 2026-09-29 by owner directive —
+seo/remove_billing_preview_note_2026_09_29.py.)
 
 WHAT THIS PAGE CONCEDES, DELIBERATELY. HiHello's free plan is four cards to
 our one, and ours carries a credit. HiHello Business is $6 per user billed
@@ -169,8 +170,7 @@ PAGE = {
     "shared admin or template lock, or buying Business at its five-user floor for $30. Popl "
     "gives you a quote. CompanyCard Business has no seat minimum, so three people are $36 a "
     "month billed monthly or $30 billed yearly, with the admin dashboard and brand lock "
-    "included; our pricing page adds that billing is not live yet and paid plans are a "
-    "preview. Three users is the one headcount where our published team rate is competitive; "
+    "included. Three users is the one headcount where our published team rate is competitive; "
     "at five HiHello is cheaper."),
    ("Why does HiHello show $6 in one place and $8 in another?",
     "Because its pricing page opens with the \"Billed yearly up to 25% off\" switch already "
@@ -261,8 +261,7 @@ PAGE["sections"] = [
     note=("Arithmetic from hihello.com/pricing (switch on and off), popl.co/pages/pricing, popl.co "
           "and our own <a href=\"pricing.html\">pricing page</a>, all read on " + VERIFIED + ". "
           "HiHello's five-user figure assumes Business is bought at the bottom of its "
-          "“5-100 users” range. CompanyCard's paid plans are a preview: the pricing page says "
-          "billing is not live yet and nothing is charged. Rates move — reread both vendors "
+          "“5-100 users” range. Rates move — reread both vendors "
           "before you buy."),
   ), tint=True),
   prose("The switch on HiHello's pricing page", [

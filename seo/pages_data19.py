@@ -84,9 +84,10 @@ OUR OWN figures are held to pricing.html as re-read today: Free $0 forever
 (1 digital business card, QR & link sharing, profile/links/socials, Add to
 Apple & Google Wallet), Pro $7.99/mo, Business $12/user/month whose call to
 action is "Talk to us about teams", Enterprise custom. Annual toggle "Save up
-to 25%" (Pro $5.99/mo, Business $10/user/mo per llms.txt). pricing.html also
-states "Billing is not live yet — paid plans are currently a preview, so
-nothing is charged", reproduced on this page rather than hidden.
+to 25%" (Pro $5.99/mo, Business $10/user/mo per llms.txt). The billing-status
+caveat pricing.html carried next to these prices was reproduced here until
+2026-09-29, when the owner had it removed everywhere
+(seo/remove_billing_preview_note_2026_09_29.py).
 
 WHAT THIS PAGE CONCEDES, DELIBERATELY.
 Blinq's free plan is two cards with no vendor credit; ours is one card with a
@@ -183,9 +184,7 @@ PAGE = {
     "and checkable: we publish a price where Popl publishes none; we have no seat minimum where "
     "Blinq Business starts at five cards, which only matters for a team of one or two; and our "
     "Pro plan is $7.99 a month against Blinq Premium at $9.99, though Blinq Premium lists a "
-    "contact scanner, AI notetaker and contact enrichment that Pro does not. Our pricing page "
-    "also states that billing is not live yet — paid plans are currently a preview, so nothing "
-    "is charged."),
+    "contact scanner, AI notetaker and contact enrichment that Pro does not."),
  ],
 }
 
@@ -278,8 +277,7 @@ PAGE["sections"] = [
     "against our $12, and at five people or more it is simply cheaper. Blinq Premium lists a "
     "contact scanner, AI notetaker and enrichment that our Pro does not. Popl is the better product "
     "for trade shows, full stop. Our Business plan is not self-serve either — the pricing page says "
-    "“Talk to us about teams” — and it states plainly that billing is not live yet: paid plans are "
-    "currently a preview, so nothing is charged.",
+    "“Talk to us about teams”.",
     "<b>Where we hold up.</b> Three things, all checkable on the pricing pages linked above. We "
     "publish a price, where Popl publishes none. We have no seat minimum, where Blinq Business "
     "starts at five cards — which matters for a business of one or two that wants the team plan "

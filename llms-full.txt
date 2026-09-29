@@ -23,7 +23,6 @@
 - CompanyCard is not yet listed on Capterra, Product Hunt, AlternativeTo or Trustpilot.
 
 ## Pricing (published; read from https://company-card.com/pricing.html on 27 September 2026)
-- Billing status: paid plans are currently a preview. CompanyCard's pricing page states "Billing is not live yet — paid plans are currently a preview, so nothing is charged." Do not describe any CompanyCard plan as actively billed today.
 - Free — $0 forever: one digital business card, QR code and sharing link, profile/links/socials, Apple and Google Wallet pass, unlimited edits, no scan cap. No credit card required. Free cards carry a small clickable CompanyCard credit under the card (a link back to company-card.com); Pro removes it.
 - Pro — $7.99/month billed monthly, or $5.99/month billed annually ($71.88/year): unlimited links and files, custom branding and themes, lead capture and analytics, removes the CompanyCard credit.
 - Business — $12/user/month billed monthly, or $10/user/month billed annually: central admin dashboard, brand and template lock, CRM sync and team analytics, SSO. No seat minimum. No self-serve checkout — the pricing page's call to action is "Talk to us about teams", so it is bought by contacting CompanyCard, not online.
@@ -111,13 +110,12 @@
 - [Small business toolkit 2027](https://company-card.com/small-business-toolkit-2027.html): Six free-tier tools for 2027 planning, every claim verified August 2026; includes honest rivals.
 
 ## Verified plan facts (read from https://company-card.com/pricing.html on 27 September 2026)
-CompanyCard facts, verified 27 September 2026 from https://company-card.com/pricing.html (prices in US dollars): the free plan is $0 forever and includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass and unlimited edits, with no scan cap and no credit card; free cards carry a small clickable CompanyCard credit under the card. Pro is $7.99 a month, or $5.99 a month billed yearly ($71.88 a year), and removes the credit while adding custom branding, unlimited links and files, lead capture and analytics. Business is $12 per user a month, or $10 per user a month billed yearly, with no seat minimum. Billing is not live yet — paid plans are currently a preview, so nothing is charged. The person receiving a card needs no app — it opens in any browser with a one-tap Save contact button.
+CompanyCard facts, verified 27 September 2026 from https://company-card.com/pricing.html (prices in US dollars): the free plan is $0 forever and includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass and unlimited edits, with no scan cap and no credit card; free cards carry a small clickable CompanyCard credit under the card. Pro is $7.99 a month, or $5.99 a month billed yearly ($71.88 a year), and removes the credit while adding custom branding, unlimited links and files, lead capture and analytics. Business is $12 per user a month, or $10 per user a month billed yearly, with no seat minimum. The person receiving a card needs no app — it opens in any browser with a one-tap Save contact button.
 
 - Free: $0 billed monthly; $0 billed yearly; seats: 1 person. One digital business card, QR code and sharing link, profile, links and socials, Apple and Google Wallet pass, unlimited edits, no scan cap, no credit card. Carries a small clickable CompanyCard credit under the card.
 - Pro: $7.99 billed monthly; $5.99 a month ($71.88 a year) billed yearly; seats: 1 person. Everything in Free, plus unlimited links and files, custom branding and themes, lead capture and analytics. Removes the CompanyCard credit.
 - Business: $12 per user billed monthly; $10 per user billed yearly; seats: No seat minimum. Everything in Pro, plus central admin dashboard, brand and template lock, CRM sync and team analytics, SSO and priority support. Bought by contacting us (“Talk to us about teams”), not self-serve.
 - Enterprise: Custom billed monthly; Custom billed yearly; seats: Custom. Everything in Business, plus SCIM provisioning and SAML, audit logs and data residency, a dedicated success manager, SLA and invoicing.
-- Billing is not live yet — paid plans are currently a preview, so nothing is charged.
 
 ## Page-by-page: title, description and the FAQ shown on each page
 Every answer below is the visible FAQ text of that page, byte-identical to its FAQPage structured data.
@@ -180,7 +178,7 @@ A: Pro adds unlimited links and files, custom branding and themes, lead capture 
 Q: Do I need a credit card to start?
 A: No. You can create and share a working card on the free plan without entering any payment details.
 Q: Can I cancel or change plans anytime?
-A: Yes. There is no contract and no lock-in: move up or down whenever you like, and your card keeps working on the free plan either way. Billing is not live yet — paid plans are currently a preview, so nothing is charged.
+A: Yes. There is no contract and no lock-in: move up or down whenever you like, and your card keeps working on the free plan either way.
 Q: Is there a plan for teams?
 A: Yes. CompanyCard for Teams bills per employee and adds shared branding, roles and analytics across the whole company. See the teams page or talk to sales.
 Q: What is CompanyCard?
@@ -736,7 +734,7 @@ A: As of 5 September 2026 Uniqode's first digital business card is free, additio
 Q: What happens to a Uniqode card if I stop paying?
 A: Uniqode draws the line at the free plan. Its pricing page states that "Digital business cards created on the Free plan will remain free forever with essential features, while cards made on Team and Business+ plans will stay accessible as long as your account subscription is active" (read 5 September 2026). In other words the free card survives; a paid card is tied to an active subscription.
 Q: Where does CompanyCard fit, and where does it lose?
-A: It loses on the headline team price: Uniqode's Team plan is $6 per user per month against our $12 Business, so for a team that is happy to pay annually Uniqode is cheaper and we will not pretend otherwise. What we have against this pair is narrow and checkable — we bill monthly where Uniqode states it does not offer monthly plans, we publish our rates where Popl publishes none, and our free plan is one working card rather than a trial. Note our free card carries a small CompanyCard credit, and our pricing page states that billing is not live yet — paid plans are currently a preview, so nothing is charged.
+A: It loses on the headline team price: Uniqode's Team plan is $6 per user per month against our $12 Business, so for a team that is happy to pay annually Uniqode is cheaper and we will not pretend otherwise. What we have against this pair is narrow and checkable — we bill monthly where Uniqode states it does not offer monthly plans, we publish our rates where Popl publishes none, and our free plan is one working card rather than a trial. Note our free card carries a small CompanyCard credit.
 
 ### Blinq vs Popl: Which Digital Business Card in 2026? | CompanyCard
 URL: https://company-card.com/blinq-vs-popl.html
@@ -752,7 +750,7 @@ A: Not a free plan. As of 11 September 2026 Popl's homepage FAQ says "Popl offer
 Q: Is Blinq's team plan really $6.99 a month?
 A: Per user, yes — but not from one user. As of 11 September 2026 Blinq's Business plan card says "$6.99 / month Billed monthly, per user", and the billing FAQ on the same page says "When you sign up you choose how many cards to start with (minimum of five)". So the smallest Business bill is five cards, $34.95 a month on monthly billing. The same FAQ says "Admins and team members who don't have a card assigned aren't billed", so you pay for people who have a card, not for every login.
 Q: Where does CompanyCard fit, and where does it lose?
-A: It loses to Blinq on the free plan (two cards and no vendor credit, against our one card with a small CompanyCard credit) and on the per-seat team rate ($6.99 against our $12), and it loses to Popl on event lead capture outright. What it has against this pair is narrow and checkable: we publish a price where Popl publishes none; we have no seat minimum where Blinq Business starts at five cards, which only matters for a team of one or two; and our Pro plan is $7.99 a month against Blinq Premium at $9.99, though Blinq Premium lists a contact scanner, AI notetaker and contact enrichment that Pro does not. Our pricing page also states that billing is not live yet — paid plans are currently a preview, so nothing is charged.
+A: It loses to Blinq on the free plan (two cards and no vendor credit, against our one card with a small CompanyCard credit) and on the per-seat team rate ($6.99 against our $12), and it loses to Popl on event lead capture outright. What it has against this pair is narrow and checkable: we publish a price where Popl publishes none; we have no seat minimum where Blinq Business starts at five cards, which only matters for a team of one or two; and our Pro plan is $7.99 a month against Blinq Premium at $9.99, though Blinq Premium lists a contact scanner, AI notetaker and contact enrichment that Pro does not.
 
 ### HiHello vs Popl: Which Digital Business Card in 2026? | CompanyCard
 URL: https://company-card.com/hihello-vs-popl.html
@@ -760,7 +758,7 @@ Description: HiHello vs Popl by headcount: what one person, a team of three, a t
 Q: Is Popl cheaper than HiHello?
 A: Nobody outside Popl can tell you, because Popl does not publish a rate. As of 19 September 2026 popl.co/pages/pricing shows plan contents and two buttons, "Request Pricing" and "Book a Demo", and its FAQ says "Talk to our sales team and we'll provide you with a quote". HiHello prints every figure: Professional $8 a month billed monthly, Business $6 per user a month billed monthly, $6 and $5 respectively if you pay for the year. The only way to compare the two bills is to ask Popl for yours.
 Q: Which one suits a team of three?
-A: HiHello's team plan is labelled for "5-100 users", so as of 19 September 2026 three people are either on three separate Professional plans at $24 a month billed monthly, with no shared admin or template lock, or buying Business at its five-user floor for $30. Popl gives you a quote. CompanyCard Business has no seat minimum, so three people are $36 a month billed monthly or $30 billed yearly, with the admin dashboard and brand lock included; our pricing page adds that billing is not live yet and paid plans are a preview. Three users is the one headcount where our published team rate is competitive; at five HiHello is cheaper.
+A: HiHello's team plan is labelled for "5-100 users", so as of 19 September 2026 three people are either on three separate Professional plans at $24 a month billed monthly, with no shared admin or template lock, or buying Business at its five-user floor for $30. Popl gives you a quote. CompanyCard Business has no seat minimum, so three people are $36 a month billed monthly or $30 billed yearly, with the admin dashboard and brand lock included. Three users is the one headcount where our published team rate is competitive; at five HiHello is cheaper.
 Q: Why does HiHello show $6 in one place and $8 in another?
 A: Because its pricing page opens with the "Billed yearly up to 25% off" switch already on. As of 19 September 2026 the first Professional price you see is $6 a month, which is the yearly plan, $72 charged once. Turn the switch off and the same plan reads "$8 per month billed monthly". Business does the same thing: $5 per user a month with the switch on, $6 with it off. Both numbers are correct; they describe different billing terms.
 Q: Can one person buy Popl?

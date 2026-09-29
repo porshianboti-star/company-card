@@ -53,8 +53,9 @@ INTEGRITY NOTES for anyone re-running or editing this file:
     QR and link sharing, profile/links/socials, Apple and Google Wallet,
     unlimited edits, no credit card, and the card carries a small CompanyCard
     credit. Pro $7.99/mo ($5.99 billed annually). Business $12/user/mo, no seat
-    minimum. Billing is not live — paid plans are a preview and nothing is
-    charged. The one-card limit is stated in the co-owners section where it is
+    minimum. (The billing-status caveat that sat after these prices was
+    removed 2026-09-29 by owner directive —
+    seo/remove_billing_preview_note_2026_09_29.py.) The one-card limit is stated in the co-owners section where it is
     an actual disadvantage, not buried.
 """
 
@@ -157,8 +158,7 @@ S_COOWNERS_PROSE = prose("The honest cost of one card each", [
     "of two-person businesses use it — or a paid plan if you want both cards managed "
     "in one place with the CompanyCard credit removed. Our team plan is $12 per user "
     "per month with no seat minimum, so a two-person business pays for two people "
-    "rather than a five-seat floor. Billing is not live yet; paid plans are currently "
-    "a preview and nothing is charged.",
+    "rather than a five-seat floor.",
 ])
 
 S_NO_BUSINESS = prose("What to put on the card when the business isn't registered yet", [

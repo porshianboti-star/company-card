@@ -38,8 +38,11 @@ PLANS = [
      "data residency, a dedicated success manager, SLA and invoicing."),
 ]
 
-BILLING_NOTE = ("Billing is not live yet — paid plans are currently a "
-                "preview, so nothing is charged.")
+# No billing-status sentence is printed next to prices. Until 2026-09-29 a
+# BILLING_NOTE constant here added a "billing not yet live, plans in preview,
+# no charge" caveat to every facts paragraph, the pricing-table note and
+# llms-full.txt; the owner had it removed on 2026-09-29
+# (seo/remove_billing_preview_note_2026_09_29.py). Do not re-add one.
 
 # The compact, quotable paragraph. Identical on every page that carries it.
 FACTS_PARAGRAPH = (
@@ -53,8 +56,7 @@ FACTS_PARAGRAPH = (
     "year), and removes the credit while adding custom branding, unlimited "
     "links and files, lead capture and analytics. Business is $12 per user a "
     "month, or $10 per user a month billed yearly, with no seat minimum. "
-    + BILLING_NOTE +
-    " The person receiving a card needs no app — it opens in any browser "
+    "The person receiving a card needs no app — it opens in any browser "
     "with a one-tap Save contact button."
 )
 
@@ -70,8 +72,7 @@ FACTS_PLAIN = (
     "year), and removes the credit while adding custom branding, unlimited "
     "links and files, lead capture and analytics. Business is $12 per user a "
     "month, or $10 per user a month billed yearly, with no seat minimum. "
-    + BILLING_NOTE +
-    " The person receiving a card needs no app — it opens in any browser "
+    "The person receiving a card needs no app — it opens in any browser "
     "with a one-tap Save contact button."
 )
 
@@ -126,7 +127,7 @@ def facts_table_html():
         '<thead><tr><th>Plan</th><th>Billed monthly</th><th>Billed yearly</th>'
         '<th>Seats</th><th>What it includes, and its limits</th></tr></thead>'
         f'<tbody>{rows}</tbody></table></div>'
-        f'<p class="cc-facts-note">{BILLING_NOTE} Figures read from the plan cards on this page on '
+        f'<p class="cc-facts-note">Figures read from the plan cards on this page on '
         f'{VERIFIED_HUMAN}; the SoftwareApplication offers in this page’s structured data carry the same numbers.</p>'
     )
 
@@ -135,5 +136,4 @@ def facts_table_plain():
     out = []
     for n, m, y, s, d in PLANS:
         out.append(f"- {n}: {m} billed monthly; {y} billed yearly; seats: {s}. {d}")
-    out.append(f"- {BILLING_NOTE}")
     return "\n".join(out)

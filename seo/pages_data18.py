@@ -77,9 +77,9 @@ OUR OWN figures are held to pricing.html as re-read today: Free $0 forever
 Apple & Google Wallet), Pro $7.99/mo, Business $12/user/month whose call to
 action is "Talk to us about teams", Enterprise custom. The annual toggle is
 labelled "Save up to 25%" (Pro $5.99/mo, Business $10/user/mo per llms.txt).
-pricing.html also states "Billing is not live yet — paid plans are currently a
-preview, so nothing is charged", and that sentence is reproduced on this page
-rather than hidden.
+The billing-status caveat pricing.html carried next to these prices was
+reproduced here until 2026-09-29, when the owner had it removed everywhere
+(seo/remove_billing_preview_note_2026_09_29.py).
 
 WHAT THIS PAGE CONCEDES, DELIBERATELY.
 Uniqode's Team plan at $6 per user per month is HALF our $12 Business rate.
@@ -170,8 +170,7 @@ PAGE = {
     "not pretend otherwise. What we have against this pair is narrow and checkable — we "
     "bill monthly where Uniqode states it does not offer monthly plans, we publish our rates "
     "where Popl publishes none, and our free plan is one working card rather than a trial. Note "
-    "our free card carries a small CompanyCard credit, and our pricing page states that billing "
-    "is not live yet — paid plans are currently a preview, so nothing is charged."),
+    "our free card carries a small CompanyCard credit."),
  ],
 }
 
@@ -263,8 +262,7 @@ PAGE["sections"] = [
     "the lowest published rate, Uniqode is the better buy and this page is not going to argue "
     "otherwise. Our free plan is also one card, and it carries a small CompanyCard credit — "
     "removing that is part of Pro. Our Business plan is not self-serve either; the pricing page "
-    "says “Talk to us about teams”. And our own pricing page states plainly that "
-    "billing is not live yet — paid plans are currently a preview, so nothing is charged.",
+    "says “Talk to us about teams”.",
     "<b>Where we hold up.</b> Three things, all checkable on the three pricing pages linked above. "
     "We bill monthly, where Uniqode states it does not offer monthly plans. We publish our rates, "
     "where Popl publishes none and quotes over a meeting. And our free tier is a complete working "
