@@ -1,6 +1,7 @@
 /* CompanyCard PWA service worker — cache the app shell for offline + installability.
    (Active only when the app is served over http(s)/localhost or wrapped natively.) */
-const CACHE = "companycard-v9"; /* v9 (2026-09-29): marketing-consent checkbox + email preferences in auth.js/app.css */
+const CACHE = "companycard-v10"; /* v10 (2026-09-29): coupon checkout takes no card details (checkout.html) — purge cache-first copies */
+/* v9 (2026-09-29): marketing-consent checkbox + email preferences in auth.js/app.css */
 /* v8 (2026-09-29): new prices + CC.coupon in product.js, welcome-offer CSS in app.css — purge cache-first copies */
 const SHELL = [
   "mobile.html", "mobile.css", "product.js", "app.css", "config.js", "auth.js",

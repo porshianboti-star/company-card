@@ -98,6 +98,8 @@
         <form id="pay-form" novalidate autocomplete="off">
           <div class="field"><label class="fl" for="pay-email">Email</label>
             <input class="inp" id="pay-email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
+          <!-- CC:COUPON-NOCARD v1: hidden (and emptied) whenever a coupon is applied -->
+          <div id="card-fields">
           <div class="field"><label class="fl" for="pay-name">Name on card</label>
             <input class="inp" id="pay-name" type="text" placeholder="Jordan Diaz" autocomplete="off" spellcheck="false" required></div>
           <div class="field"><label class="fl" for="pay-num">Card number</label>
@@ -109,8 +111,9 @@
             <div class="field"><label class="fl" for="pay-cvc">CVC</label>
               <input class="inp" id="pay-cvc" type="text" inputmode="numeric" placeholder="CVC" maxlength="4" autocomplete="off" spellcheck="false" required></div>
           </div>
+          </div>
           <button class="btn btn-primary btn-lg btn-block co-pay" id="pay-btn" type="submit">
-            <span class="lbl">Pay <span id="pay-amt">$59.88</span> and upgrade</span>
+            <span class="lbl"><span id="pay-verb">Pay</span> <span id="pay-amt">$59.88</span><span id="pay-post"> and upgrade</span></span>
           </button>
         </form>
       </div>
@@ -184,7 +187,7 @@
     var f = CC.PRO_FEATURES[k]; if (!f) return "";
     var hot = feats.indexOf(k) >= 0 ? " hot" : "";
     return '<li class="' + hot.trim() + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>' + f.label + '</b>' + f.hint + '</span></li>';
-  }).join("") + '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Card analytics &amp; contact export</b>See who saved your card.</span></li>';
+  }).join("");
 
   /* plan toggle */
   var plan = wantPlan === "monthly" ? "monthly" : "annual"; /* matches the preselected tab above */
@@ -221,6 +224,17 @@
       ? (plan === "annual" ? "Then " + fmt(P.annualTotal) + " per year · cancel anytime" : "Then " + fmt(P.monthly) + " per month · cancel anytime")
       : (plan === "annual" ? "Billed yearly · cancel anytime" : "Billed monthly · cancel anytime");
     $("pay-amt").textContent = fmt(c.total);
+    /* CC:COUPON-NOCARD v1 (2026-09-29): the WELCOME30 email and the dashboard's
+       welcome offer land here with the code applied. With a coupon applied the
+       checkout takes no card details: the name/number/expiry/CVC block is hidden
+       and emptied (never read), the button asks for no card, and the click is
+       recorded as pay_submitted and grants Pro exactly as before. Without a
+       coupon nothing changes. */
+    var noCard = !!coupon;
+    $("card-fields").hidden = noCard;
+    if (noCard) ["pay-name", "pay-num", "pay-exp", "pay-cvc"].forEach(function (id) { $(id).value = ""; });
+    $("pay-verb").textContent = noCard ? "Upgrade to Pro \u2014" : "Pay";
+    $("pay-post").textContent = noCard ? "" : " and upgrade";
     if (coupon) couponMsg(coupon.pct + "% off your first " + (plan === "annual" ? "year" : "month") + " — you pay " + fmt(c.total) + " today.", true);
   }
   $("co-seg").addEventListener("click", function (e) {
@@ -271,8 +285,8 @@
     e.preventDefault();
     if (submitted) { CARD_FIELDS.forEach(function (id) { $(id).value = ""; }); return; }
     var email = $("pay-email").value.trim();
-    var missing = !email || CARD_FIELDS.some(function (id) { return !$(id).value.trim(); });
-    if (missing) { toast("Fill in your payment details"); return; }
+    var missing = !email || (!coupon && CARD_FIELDS.some(function (id) { return !$(id).value.trim(); }));
+    if (missing) { toast(coupon ? "Add your email" : "Fill in your payment details"); return; }
     submitted = true;
     CARD_FIELDS.forEach(function (id) { $(id).value = ""; });
     var btn = $("pay-btn"); btn.classList.add("loading"); btn.disabled = true;
