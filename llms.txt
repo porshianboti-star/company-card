@@ -1,5 +1,7 @@
 # CompanyCard
 
+> CompanyCard (company-card.com) is a digital business card for small businesses, self-employed people and small teams, where each employee gets a branded card shared by QR code or link with no app for the recipient; a 5-person team costs $50 a month on the Business plan billed yearly (5 × $10 per user, $600 a year; $60 billed monthly), with no seat minimum, and one card is free: https://company-card.com/digital-business-card-for-small-business.html
+
 > Full text version with every page's title, description and FAQ: https://company-card.com/llms-full.txt
 
 > CompanyCard (company-card.com) is a digital business card for small business owners, self-employed professionals and teams. Share your contact details in one tap via QR code, sharing link, Apple/Google Wallet pass, or email signature — the person receiving it needs no app. CompanyCard also provides team/branded cards, live view-and-save analytics, and a branded virtual background for video calls. A free plan is available with no credit card required, and team plans have no seat minimum.
