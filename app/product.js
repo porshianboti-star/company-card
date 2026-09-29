@@ -286,8 +286,9 @@
      ============================================================ */
   CC.FREE_FIELD_LIMIT = 5;
   CC.FREE_CARD_LIMIT = 1;
-  CC.PRICING = { currency: "$", monthly: 5.99, annual: 4.99, annualTotal: 59.88 }; /* annual = per-month, billed yearly (2026-09-29) */
-  /* Business is per user and is not sold in checkout (pricing.html: "Talk to us about teams"). */
+  CC.PRICING = { currency: "$", monthly: 4.99, annual: 3.99, annualTotal: 47.88 }; /* annual = per-month, billed yearly (2026-09-29) */
+  /* Business is per user and is not sold in checkout (pricing.html: "Talk to us about teams").
+     Business is Pro plus team tooling, so its per-seat price is never below Pro's. */
   CC.BUSINESS_PRICING = { currency: "$", monthly: 4.99, annual: 3.99 };
 
   /* ---------- Coupons ----------
@@ -306,7 +307,7 @@
     var c = CC.COUPONS[code];
     return { code: code, pct: c.pct, plans: c.plans.slice() };
   };
-  /* Money in whole cents so 30% of $59.88 is exactly $17.96, never 17.964. */
+  /* Money in whole cents so 30% of $47.88 is exactly $14.36, never 14.364. */
   CC.applyCoupon = function (amount, coupon, plan) {
     var cents = Math.round(amount * 100);
     if (!coupon || (plan && coupon.plans.indexOf(plan) < 0)) return { subtotal: cents / 100, discount: 0, total: cents / 100 };

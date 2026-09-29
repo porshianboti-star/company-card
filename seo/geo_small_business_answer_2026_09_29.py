@@ -52,10 +52,11 @@ def _num(s):
     return float(re.search(r"\$([\d.]+)", s).group(1))
 BIZ_M = _num(_plan["Business"][1])     # 4.99
 BIZ_Y = _num(_plan["Business"][2])     # 3.99
-PRO_M = _num(_plan["Pro"][1])          # 5.99
-PRO_Y = _num(_plan["Pro"][2])          # 4.99
-PRO_YEAR = float(re.search(r"\(\$([\d.]+) a year\)", _plan["Pro"][2]).group(1))  # 59.88
-assert (BIZ_M, BIZ_Y, PRO_M, PRO_Y, PRO_YEAR) == (4.99, 3.99, 5.99, 4.99, 59.88), "facts.py changed — re-read the copy below"
+PRO_M = _num(_plan["Pro"][1])          # 4.99
+PRO_Y = _num(_plan["Pro"][2])          # 3.99
+PRO_YEAR = float(re.search(r"\(\$([\d.]+) a year\)", _plan["Pro"][2]).group(1))  # 47.88
+assert (BIZ_M, BIZ_Y, PRO_M, PRO_Y, PRO_YEAR) == (4.99, 3.99, 4.99, 3.99, 47.88), "facts.py changed — re-read the copy below"
+assert BIZ_M >= PRO_M and BIZ_Y >= PRO_Y, "plan ladder: Business per seat below Pro"
 assert "No seat minimum" in _plan["Business"][3]
 
 def usd(x):

@@ -96,7 +96,7 @@ def _free(h, f):
                      block("FACTS", f'<p style="max-width:760px;margin:14px auto 0;">{FACTS_PARAGRAPH}</p>\n' + block("UPDATED", UPDATED_LINE)), f)
     h = replace_once(h,
         "<p>Free cards carry a small 'Made with CompanyCard' note. Pro removes it and adds your own branding.</p>",
-        "<p>Yes. Free cards carry a small clickable CompanyCard credit under the card that links back to company-card.com. Pro — $5.99 a month, or $4.99 a month billed yearly — removes it and adds your own branding.</p>", f)
+        "<p>Yes. Free cards carry a small clickable CompanyCard credit under the card that links back to company-card.com. Pro — $4.99 a month, or $3.99 a month billed yearly — removes it and adds your own branding.</p>", f)
     h = replace_once(h,
         "<p>With some providers, expiring trials or locked exports. CompanyCard's free plan is a working card — the paid plans sell branding, analytics and team features, not your basic card back to you.</p>",
         "<p>With some providers, expiring trials or locked exports. CompanyCard's free plan is a working card with two limits, stated plainly: it is one card per account, and it carries a small clickable CompanyCard credit under the card. The paid plans sell branding, analytics and team features, not your basic card back to you.</p>", f)
@@ -114,7 +114,7 @@ def _index(h, f):
     h = insert_after(h, FAQ_HEAD + "\n" + block("FACTS", FACTS_P), block("UPDATED", UPDATED_LINE.replace("margin:14px auto 0", "margin:-8px auto 18px")), f)
     h = replace_once(h,
         "<p>Yes. The free plan includes a full digital business card with a QR code, sharing link and unlimited updates, with no credit card required. Paid and team plans add branding, wallet passes and analytics.</p>",
-        "<p>Yes. The free plan is $0 forever and includes a full digital business card with a QR code, sharing link, Apple and Google Wallet pass and unlimited updates, with no credit card required; free cards carry a small clickable CompanyCard credit under the card. Pro ($5.99 a month, or $4.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business is $4.99 per user a month with no seat minimum.</p>", f)
+        "<p>Yes. The free plan is $0 forever and includes a full digital business card with a QR code, sharing link, Apple and Google Wallet pass and unlimited updates, with no credit card required; free cards carry a small clickable CompanyCard credit under the card. Pro ($4.99 a month, or $3.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business is $4.99 per user a month with no seat minimum.</p>", f)
     h = replace_once(h,
         '"offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free plan: full digital business card with QR code, link and unlimited updates."}',
         '"offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free plan: one digital business card with QR code, sharing link, Apple and Google Wallet pass and unlimited updates. Free cards carry a small CompanyCard credit; Pro removes it."}', f)
@@ -128,7 +128,7 @@ def _qr(h, f):
     h = facts_at_faq(h, f)
     h = replace_once(h,
         "<p>Build your card in the CompanyCard builder — your QR code is generated automatically on the free plan, along with a short link you can share anywhere.</p>",
-        "<p>Build your card in the CompanyCard builder — your QR code is generated automatically on the free plan ($0 forever, one card), along with a short link and an Apple and Google Wallet pass. Free cards carry a small clickable CompanyCard credit under the card; branded QR codes and credit removal are part of Pro at $5.99 a month, or $4.99 a month billed yearly.</p>", f)
+        "<p>Build your card in the CompanyCard builder — your QR code is generated automatically on the free plan ($0 forever, one card), along with a short link and an Apple and Google Wallet pass. Free cards carry a small clickable CompanyCard credit under the card; branded QR codes and credit removal are part of Pro at $4.99 a month, or $3.99 a month billed yearly.</p>", f)
     return h
 
 @page("digital-business-card.html")
@@ -139,7 +139,7 @@ def _dbc(h, f):
     h = facts_at_faq(h, f)
     h = replace_once(h,
         "<p>Yes. CompanyCard's free plan includes a full digital business card with QR code, sharing link and unlimited updates. Paid plans add custom branding, lead capture, analytics and team management.</p>",
-        "<p>Yes. CompanyCard's free plan is $0 forever and includes one digital business card with QR code, sharing link, Apple and Google Wallet pass and unlimited updates; free cards carry a small clickable CompanyCard credit under the card. Pro ($5.99 a month, or $4.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business adds team management at $4.99 per user a month with no seat minimum.</p>", f)
+        "<p>Yes. CompanyCard's free plan is $0 forever and includes one digital business card with QR code, sharing link, Apple and Google Wallet pass and unlimited updates; free cards carry a small clickable CompanyCard credit under the card. Pro ($4.99 a month, or $3.99 a month billed yearly) removes the credit and adds custom branding, lead capture and analytics; Business adds team management at $4.99 per user a month with no seat minimum.</p>", f)
     return h
 
 @page("best-digital-business-card.html")

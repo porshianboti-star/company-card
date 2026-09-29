@@ -1,9 +1,20 @@
 #!/usr/bin/env python3
 """Owner decision 2026-09-29: new CompanyCard prices, printed everywhere at once.
 
-    Pro       $5.99 a month billed monthly, $4.99 a month billed yearly ($59.88 a year)
+    Pro       $4.99 a month billed monthly, $3.99 a month billed yearly ($47.88 a year)
     Business  $4.99 per user a month billed monthly, $3.99 billed yearly, no seat minimum
     Free / Enterprise unchanged
+
+Plan ladder (fix of the same day). The first version of this script priced Pro
+at $5.99 / $4.99 on its own, which left Business -- "Everything in Pro, plus
+admin, brand lock, CRM sync, SSO", no seat minimum -- $1 a seat CHEAPER than
+Pro on both terms: one person could take a single Business seat for less and
+get more. Rule now: Business per seat is never below Pro. Business stays at the
+competitor-derived $4.99 / $3.99 (below), and Pro comes down to the same
+$4.99 / $3.99, the $3.99 floor. Pro is the self-serve single-user plan bought in
+checkout; Business adds the team tooling at the same per-seat rate and is set
+up by talking to us. The LADDER pairs below move every sentence the first
+version printed ($5.99 / $4.99 / $59.88 for Pro) to the new figures.
 
 Why Business is $3.99: the pricing rule was "$5.99 billed yearly, unless a
 competitor's comparable per-user team plan is below $5.99 on yearly billing;
@@ -54,7 +65,7 @@ Run from repo root, in this order:
 import glob, json, re, sys
 
 DATE = "2026-09-29"
-PRO_M, PRO_Y, PRO_YEAR = "5.99", "4.99", "59.88"
+PRO_M, PRO_Y, PRO_YEAR = "4.99", "3.99", "47.88"
 BIZ_M, BIZ_Y = "4.99", "3.99"
 TOK = {"«PM»": "$" + PRO_M, "«PY»": "$" + PRO_Y, "«PT»": "$" + PRO_YEAR,
        "«BM»": "$" + BIZ_M, "«BY»": "$" + BIZ_Y}
@@ -88,7 +99,7 @@ PAGE = [
 
     # ---------------- hihello-vs-blinq ----------------
     ("Pro $7.99/mo, or $5.99/mo billed yearly — <b>within a cent of HiHello on either term, for one card instead of sixteen</b>",
-     "Pro «PM»/mo, or «PY»/mo billed yearly — <b>about $2 a month below HiHello billed monthly and $1 below billed yearly, "
+     "Pro «PM»/mo, or «PY»/mo billed yearly — <b>about $3 a month below HiHello billed monthly and $2 below billed yearly, "
      "for one card instead of sixteen</b>"),
     ("Business $12/user/mo, or $10/user/mo annually — <b>the most expensive of the three</b>",
      "Business «BM»/user/mo, or «BY»/user/mo annually — <b>the lowest per-user rate of the three</b>"),
@@ -355,7 +366,82 @@ GENERIC = [
     ("Upgrade — from $5.99/mo", "Upgrade — from «PY»/mo"),
 ]
 
-PAIRS = PAGE + GENERIC
+# ---------------------------------------------------------------------------
+# LADDER: the first run of this script printed Pro at $5.99 / $4.99 ($59.88 a
+# year). Every sentence it wrote is re-derived here with those first-run
+# figures and mapped back to its «TOKEN» form, so it re-expands at the current
+# constants; longest first. Sentences with Pro prices that the first run did
+# not write (hand-edited FAQ answers, leads, table cells, llms.txt plan lines;
+# the facts.py blocks are reprinted by add_verified_facts.py) are listed
+# explicitly. Once applied the old strings are gone, so a re-run is a no-op.
+# ---------------------------------------------------------------------------
+V1 = {"«PM»": "$5.99", "«PY»": "$4.99", "«PT»": "$59.88", "«BM»": "$4.99", "«BY»": "$3.99"}
+PRO_TOKENS = ("«PM»", "«PY»", "«PT»")
+
+
+def expand_v1(s):
+    for k, v in V1.items():
+        s = s.replace(k, v)
+    return s
+
+
+LADDER_EXPLICIT = [
+    # hihello-vs-blinq: the size of the gap to HiHello Professional ($8 / $6) changes
+    ("Pro $5.99/mo, or $4.99/mo billed yearly — <b>about $2 a month below HiHello billed monthly and $1 below billed "
+     "yearly, for one card instead of sixteen</b>",
+     "Pro «PM»/mo, or «PY»/mo billed yearly — <b>about $3 a month below HiHello billed monthly and $2 below billed "
+     "yearly, for one card instead of sixteen</b>"),
+    # pricing.html plan table (printed from facts.py) and llms.txt plan lines
+    ("<td>$5.99</td><td>$4.99 a month ($59.88 a year)</td>", "<td>«PM»</td><td>«PY» a month («PT» a year)</td>"),
+    ("Pro: $5.99 billed monthly; $4.99 a month ($59.88 a year) billed yearly",
+     "Pro: «PM» billed monthly; «PY» a month («PT» a year) billed yearly"),
+    ("Pro — $5.99/month billed monthly, or $4.99/month billed annually ($59.88/year)",
+     "Pro — «PM»/month billed monthly, or «PY»/month billed annually («PT»/year)"),
+    # hand-edited FAQ answers, leads and cells (visible copy; the FAQPage JSON-LD
+    # carries the same sentences and seo/sync_faq_schema.py re-checks them)
+    ("Pro is $4.99 a month billed yearly ($59.88 a year), or $5.99 billed monthly",
+     "Pro is «PY» a month billed yearly («PT» a year), or «PM» billed monthly"),
+    ("Pro is $4.99 a month billed yearly ($59.88 a year) or $5.99 billed monthly",
+     "Pro is «PY» a month billed yearly («PT» a year) or «PM» billed monthly"),
+    ("$5.99 a month, or $4.99 a month billed yearly ($59.88 a year)", "«PM» a month, or «PY» a month billed yearly («PT» a year)"),
+    ("<b>$5.99/mo</b> · $4.99/mo billed yearly ($59.88/yr)", "<b>«PM»/mo</b> · «PY»/mo billed yearly («PT»/yr)"),
+    ("$5.99 per month (or $4.99 a month billed yearly)", "«PM» per month (or «PY» a month billed yearly)"),
+    ("$5.99 a month, or $4.99 a month billed yearly", "«PM» a month, or «PY» a month billed yearly"),
+    ("$5.99 a month, or $4.99 a month billed annually", "«PM» a month, or «PY» a month billed annually"),
+    ("$5.99 a month or $4.99 billed yearly", "«PM» a month or «PY» billed yearly"),
+    ("$5.99 a month ($4.99 billed yearly)", "«PM» a month («PY» billed yearly)"),
+    ("$5.99 a month ($4.99 yearly)", "«PM» a month («PY» yearly)"),
+    ("$5.99 a month for Pro ($4.99 billed yearly)", "«PM» a month for Pro («PY» billed yearly)"),
+    ("$5.99 for Pro ($4.99/mo billed yearly)", "«PM» for Pro («PY»/mo billed yearly)"),
+    ("$5.99 Pro ($4.99/mo billed yearly)", "«PM» Pro («PY»/mo billed yearly)"),
+    ("$5.99/month for Pro ($4.99/month billed annually)", "«PM»/month for Pro («PY»/month billed annually)"),
+    ("$5.99/month or $4.99/month billed yearly", "«PM»/month or «PY»/month billed yearly"),
+    ("$5.99/mo, or $4.99/mo billed annually", "«PM»/mo, or «PY»/mo billed annually"),
+    ("$5.99/mo, or $4.99/mo billed yearly", "«PM»/mo, or «PY»/mo billed yearly"),
+    ("$5.99/mo Pro ($4.99/mo billed annually)", "«PM»/mo Pro («PY»/mo billed annually)"),
+    ("$5.99/mo ($4.99/mo annual)", "«PM»/mo («PY»/mo annual)"),
+    ("$5.99/mo ($4.99 annual)", "«PM»/mo («PY» annual)"),
+    ("$5.99 per month Pro plan is for ($4.99 per month billed annually)", "«PM» per month Pro plan is for («PY» per month billed annually)"),
+    ("our $5.99 ($4.99 billed yearly)", "our «PM» («PY» billed yearly)"),
+    ("$4.99/mo Pro billed yearly ($5.99/mo billed monthly)", "«PY»/mo Pro billed yearly («PM»/mo billed monthly)"),
+    ("our $4.99/mo annual or $5.99 monthly", "our «PY»/mo annual or «PM» monthly"),
+    ("our $4.99 billed annually or $5.99 monthly", "our «PY» billed annually or «PM» monthly"),
+    ("Professional $8 vs our Pro $5.99 monthly, $6 vs $4.99 yearly", "Professional $8 vs our Pro «PM» monthly, $6 vs «PY» yearly"),
+    # Pro monthly on its own, always next to the word Pro
+    ("Pro $5.99/mo, Business", "Pro «PM»/mo, Business"),
+    ("$5.99/mo Pro · ", "«PM»/mo Pro · "),
+    ("$5.99 Pro, ", "«PM» Pro, "),
+    ("Pro at $5.99 vs Blinq Premium", "Pro at «PM» vs Blinq Premium"),
+    ("Pro plan is $5.99 a month against Blinq Premium", "Pro plan is «PM» a month against Blinq Premium"),
+    ("$5.99 a month if you want custom branding", "«PM» a month if you want custom branding"),
+]
+# The HiHello gap sentence goes first: its first-run text starts with a shorter
+# GENERIC phrase that would otherwise consume it.
+LADDER = LADDER_EXPLICIT[:1] + sorted(
+    {(expand_v1(n), n) for _, n in PAGE + GENERIC if n and any(t in n for t in PRO_TOKENS)},
+    key=lambda p: (-len(p[0]), p[0])) + LADDER_EXPLICIT[1:]
+
+PAIRS = LADDER + PAGE + GENERIC
 
 
 def expand(s):
@@ -405,6 +491,8 @@ def offers_jsonld(h):
 
 
 def pricing_cards(h):
+    h = h.replace('<span data-monthly="5.99" data-annual="4.99">5.99</span>',
+                  f'<span data-monthly="{PRO_M}" data-annual="{PRO_Y}">{PRO_M}</span>')
     h = h.replace('<span data-monthly="7.99" data-annual="5.99">7.99</span>',
                   f'<span data-monthly="{PRO_M}" data-annual="{PRO_Y}">{PRO_M}</span>')
     h = h.replace('<span data-monthly="12" data-annual="10">12</span>',

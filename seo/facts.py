@@ -3,8 +3,10 @@
 
 Every figure here was read from pricing.html (the visible plan cards, the
 Pricing FAQ and the OFFERS JSON-LD) on VERIFIED_DATE. Prices changed on
-2026-09-29 (owner decision; seo/reprice_2026_09_29.py): Pro $5.99 monthly /
-$4.99 yearly, Business $4.99 / $3.99 per user. add_verified_facts.py
+2026-09-29 (owner decision; seo/reprice_2026_09_29.py): Pro $4.99 monthly /
+$3.99 yearly, Business $4.99 / $3.99 per user. Business is "Everything in Pro,
+plus ...", so its per-seat price must never be below Pro's (the first version
+of the change had Pro at $5.99 / $4.99, above Business; fixed the same day). add_verified_facts.py
 prints these constants into pages, build_llms_full.py prints them into
 llms-full.txt, and the FAQ answers hand-edited on the same day quote the same
 sentences — so an assistant that reads two of our pages cannot find two
@@ -28,7 +30,7 @@ PLANS = [
      "One digital business card, QR code and sharing link, profile, links and "
      "socials, Apple and Google Wallet pass, unlimited edits, no scan cap, no "
      "credit card. Carries a small clickable CompanyCard credit under the card."),
-    ("Pro", "$5.99", "$4.99 a month ($59.88 a year)", "1 person",
+    ("Pro", "$4.99", "$3.99 a month ($47.88 a year)", "1 person",
      "Everything in Free, plus unlimited links and files, custom branding and "
      "themes, lead capture and analytics. Removes the CompanyCard credit."),
     ("Business", "$4.99 per user", "$3.99 per user", "No seat minimum",
@@ -39,6 +41,17 @@ PLANS = [
      "Everything in Business, plus SCIM provisioning and SAML, audit logs and "
      "data residency, a dedicated success manager, SLA and invoicing."),
 ]
+
+def _usd(s):
+    import re as _re
+    return float(_re.search(r"\$([\d.]+)", s).group(1))
+
+
+_P = {p[0]: p for p in PLANS}
+# Business is "Everything in Pro, plus ..." with no seat minimum: one person can
+# buy one seat. Its per-seat price must never be below Pro on either term.
+assert _usd(_P["Business"][1]) >= _usd(_P["Pro"][1]), "plan ladder: Business monthly per seat below Pro"
+assert _usd(_P["Business"][2]) >= _usd(_P["Pro"][2]), "plan ladder: Business yearly per seat below Pro"
 
 # No billing-status sentence is printed next to prices. Until 2026-09-29 a
 # BILLING_NOTE constant here added a "billing not yet live, plans in preview,
@@ -54,7 +67,7 @@ FACTS_PARAGRAPH = (
     "code and sharing link, your profile, links and socials, an Apple and "
     "Google Wallet pass and unlimited edits, with no scan cap and no credit "
     "card; free cards carry a small clickable CompanyCard credit under the "
-    "card. Pro is $5.99 a month, or $4.99 a month billed yearly ($59.88 a "
+    "card. Pro is $4.99 a month, or $3.99 a month billed yearly ($47.88 a "
     "year), and removes the credit while adding custom branding, unlimited "
     "links and files, lead capture and analytics. Business is $4.99 per user a "
     "month, or $3.99 per user a month billed yearly, with no seat minimum. "
@@ -70,7 +83,7 @@ FACTS_PLAIN = (
     "code and sharing link, your profile, links and socials, an Apple and "
     "Google Wallet pass and unlimited edits, with no scan cap and no credit "
     "card; free cards carry a small clickable CompanyCard credit under the "
-    "card. Pro is $5.99 a month, or $4.99 a month billed yearly ($59.88 a "
+    "card. Pro is $4.99 a month, or $3.99 a month billed yearly ($47.88 a "
     "year), and removes the credit while adding custom branding, unlimited "
     "links and files, lead capture and analytics. Business is $4.99 per user a "
     "month, or $3.99 per user a month billed yearly, with no seat minimum. "
@@ -82,7 +95,7 @@ FACTS_PLAIN = (
 LEAD_PRICING = (
     "CompanyCard is free for one digital business card — $0 forever, no "
     "credit card, with a small clickable CompanyCard credit under the card. Pro "
-    "is $5.99 a month, or $4.99 a month billed yearly ($59.88 a year), and "
+    "is $4.99 a month, or $3.99 a month billed yearly ($47.88 a year), and "
     "removes the credit. Business is $4.99 per user a month, or $3.99 per user a "
     "month billed yearly, with no seat minimum. Prices in US dollars, verified "
     f"{VERIFIED_HUMAN}."
@@ -93,7 +106,7 @@ LEAD_QR = (
     "CompanyCard the QR code, sharing link and Apple and Google Wallet pass are "
     "included on the free plan ($0 forever, one card, with a small clickable "
     "CompanyCard credit under the card); a branded QR code with your logo and "
-    "colours is part of Pro at $5.99 a month, or $4.99 a month billed yearly."
+    "colours is part of Pro at $4.99 a month, or $3.99 a month billed yearly."
 )
 LEAD_DBC = (
     "A digital business card is an online profile that replaces the paper card: "
@@ -101,8 +114,8 @@ LEAD_DBC = (
     "land in the other person’s phone with a one-tap save — no app on "
     "their side. CompanyCard’s free plan is $0 forever for one card, with a "
     "QR code, sharing link and Apple and Google Wallet pass, and a small "
-    "clickable CompanyCard credit under the card; Pro at $5.99 a month, or "
-    "$4.99 a month billed yearly, removes it."
+    "clickable CompanyCard credit under the card; Pro at $4.99 a month, or "
+    "$3.99 a month billed yearly, removes it."
 )
 
 UPDATED_LINE = (
