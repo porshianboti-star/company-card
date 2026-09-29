@@ -178,8 +178,9 @@ def write_pages(pages):
     written = []
     for p in pages:
         fn = os.path.join(ROOT, p["slug"])
+        from add_card_gallery import apply as add_gallery
         with open(fn, "w", encoding="utf-8") as f:
-            f.write(render(p))
+            f.write(add_gallery(render(p), p["slug"]))
         written.append(p["slug"])
     return written
 

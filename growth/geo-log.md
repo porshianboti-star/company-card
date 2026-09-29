@@ -2,6 +2,23 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-09-29 (later) — card-example gallery on 47 landing pages
+
+- Owner request: every landing page should show at least one CompanyCard card,
+  ideally three side by side. `seo/add_card_gallery.py` inserts a "What a
+  CompanyCard looks like" section (three cards) right after the hero on every
+  page-hero page that showed no card yet — 47 pages (all profession pages,
+  feature/how-to pages, comparison and alternative pages). Utility/legal/tool
+  pages skipped (about, contact, pricing, features, business, privacy,
+  email-signature-generator, virtual-background, open-vcf-file, index).
+- Images: the existing product screenshots in assets/examples/ (webp + png
+  fallback, width/height set, lazy). Copy says the people and companies are
+  demo examples. QR/vCard/event/NFC/paper/wallet/how-to/free pages show the
+  QR-code card in the middle.
+- Marker-bounded + idempotent (second run: 0 changes); build_pages.write_pages
+  now calls it, so rebuilt pages keep the gallery. h1 count unchanged (1) on
+  all 47; sync_faq_schema OK. Rendered check in headless Chrome at 1280px.
+
 ## 2026-09-29 — /digital-business-card-for-therapists (batch 26)
 
 - Shipped `digital-business-card-for-therapists.html` (commit efe8bba), a positive
