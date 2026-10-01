@@ -2,6 +2,42 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-01 — monthly re-verification of the two comparison pages
+
+- Re-read every competitor source cited on best-digital-business-card.html and
+  free-digital-business-card-comparison.html in the Browser pane, flipping each
+  billing toggle both ways: Blinq (Premium $9.99 / $7.33 yearly, Business
+  $6.99 / $4.99 per card, "minimum of five", 2 free cards), HiHello
+  (Professional $8 / $6 yearly, Business $6 / $5 per user, 5-100 users, 4 free
+  cards, 5 scans/mo), Wave Connect (Pro $9 / $7, Teams $7 / $5, 3 minimum
+  seats), Popl ("Request pricing", no free plan on pricing page or homepage),
+  Uniqode (first card free, Team $6/user/mo, "No, we do not offer monthly
+  plans"), Mobilo (Pro $3/month). **No figure and no quoted wording had changed.**
+- So the change is dates only: competitor stamps September -> October 2026,
+  "Last updated" -> 1 October 2026, dateModified + sitemap lastmod 2026-10-01
+  on those two pages (seo/refresh_verified_oct2026.py, idempotent). The
+  CompanyCard "verified 29 September 2026" facts line is pricing.html's own
+  stamp, shared sitewide, re-read live today and left unchanged.
+- NOT restamped: the alternative/vs pages (Linq, V1CE and extra vendor quotes
+  not re-read today) — they still say September 2026; due before November.
+- llms-full.txt regenerated (67 pages, 347 Q&A). sync_faq_schema exit 0;
+  xmllint sitemap OK; both pages 1 h1, title, meta, canonical, valid JSON-LD.
+
+**Measured 2026-10-01**
+- Sitemap URLs: 67 (live) — no new page this run.
+- GSC indexed: 64 flat; not indexed 25 = 13 alternate-with-canonical, 11 page
+  with redirect, 1 discovered-not-indexed. Crawled-not-indexed 0. Report still
+  dated 9/21 (4th repeat). No new reasons.
+- GSC Performance, 28 days: impressions 3,680 (5th consecutive fall, from
+  3,880), avg position 45.8 (10th consecutive improvement, from 48.4), clicks
+  8 (from 6; 5 are brand queries). 382 queries.
+- Comparison-page queries: best digital business card 147 @ 48.0, best digital
+  business cards 137 @ 39.9, free digital business card 64 @ 65.5. Others:
+  virtual business cards 142 @ 21.2, qr code business card 95 @ 69.9, popl
+  alternative 85 @ 43.6.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-09-29 (later) — card-example gallery on 47 landing pages
 
 - Owner request: every landing page should show at least one CompanyCard card,
