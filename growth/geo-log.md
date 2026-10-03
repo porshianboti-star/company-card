@@ -2,6 +2,39 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-03 — realtors page improved (no new URL)
+
+- Picked from GSC (3 months to 9/29): /digital-business-card-for-realtors =
+  99 impressions @ 74.3, 0 clicks — "digital business cards for realtors" 35 @
+  72.5, "digital business card for realtors" 34 @ 76.7, "digital business
+  cards for real estate agents" 15 @ 77.1, "realtor digital business card" 14
+  @ 69.1. Title already named real estate agents; the H1 did not.
+- Shipped (seo/improve_realtors_2026_10_03.py, idempotent): H1 now "realtors &
+  real estate agents"; new section "Open houses, showings and team cards"
+  (Free = visitor saves you + Wallet pass; Pro = lead capture replaces the
+  sign-in sheet; Business = no seat minimum, admin dashboard, brand/template
+  lock) — facts from seo/facts.py only, no prices printed; two new FAQs
+  visible + in FAQPage JSON-LD. dateModified + sitemap lastmod 2026-10-03 for
+  this page only (add_freshness.py NOT run — its hardcoded DATE rolls dates
+  back to 2026-08-02).
+- Validation: 1 h1, title, meta, canonical, 4 valid JSON-LD blocks;
+  sync_faq_schema exit 0 (every question has a visible twin); xmllint OK.
+
+**Measured 2026-10-03**
+- Sitemap URLs: 67 (live), unchanged.
+- GSC indexed: 64 flat; not indexed 25 = 13 alternate-with-canonical, 11
+  page with redirect, 1 discovered-not-indexed; crawled-not-indexed 0. No new
+  reasons.
+- GSC Performance, 28 days (data still ends 9/29): impressions 3,640 (from
+  3,680, 6th fall), avg position 44.9 (from 45.8, 11th improvement), clicks 8
+  (5 brand). 393 queries.
+- Notable: virtual business cards 133 @ 20.9, uniqode alternative 28 @ 11.0,
+  business card maker free 26 @ 10.5, business cards maker free 11 @ 4.4.
+  Unserved cluster: "business card maker online / free online" ~200 impr @
+  75-85 — candidate for the maker page next.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-10-01 — monthly re-verification of the two comparison pages
 
 - Re-read every competitor source cited on best-digital-business-card.html and
