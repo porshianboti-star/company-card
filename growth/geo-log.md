@@ -2,6 +2,43 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-05 — maker page retargeted at "free online business card maker" (no new URL)
+
+- Picked from GSC (3 months to 10/2), queries containing "maker": 398
+  impressions, 0 clicks, avg pos 64.4. Generic cluster unserved: business card
+  maker online 40 @ 84.8, business card maker free online 30 @ 80.0, business
+  card online maker 28 @ 83.9, online free business card maker 26 @ 75.8, free
+  online business card maker 25 @ 80.3, online business card maker free 23 @
+  81.4. Served already: business card maker free 26 @ 10.5, virtual business
+  card maker 37 @ 34.5, digital business card maker 29 @ 66.2.
+- Shipped (seo/improve_maker_2026_10_05.py, idempotent; commit 409e4da): title
+  "Free Online Business Card Maker — Digital Card, QR & Link" (+ og/WebPage
+  name), H1 "The free online business card maker where nothing goes to
+  print.", meta leads with the same words; new section "What the free online
+  maker makes" (in-browser, six fields, QR + .vcf download, no signup to try;
+  digital card not a print file; free = 1 card with a small credit, Pro
+  removes it — no prices printed); two FAQs visible + in FAQPage JSON-LD.
+  dateModified + sitemap lastmod 2026-10-05 for this page only
+  (add_freshness.py NOT run). llms.txt line updated; llms-full.txt rebuilt (67
+  pages, 351 Q&A).
+- Validation: 1 h1, title, meta, canonical, 4 valid JSON-LD; sync_faq_schema
+  exit 0; xmllint OK. Live 200 with the new title, section and FAQs.
+- Watch: "digital business card maker" (66.2) lost the exact phrase from the
+  title start — check it does not fall in the next 2-3 runs.
+
+**Measured 2026-10-05**
+- Sitemap URLs: 67 (live), unchanged.
+- GSC indexed: 64 flat; not indexed 25 = 13 alternate-with-canonical, 11 page
+  with redirect, 1 discovered-not-indexed; crawled-not-indexed 0. No new reasons.
+- GSC Performance, 28 days (data to 10/2): impressions 3,620 (from 3,640, 7th
+  fall), avg position 42.0 (from 44.9, 12th improvement), clicks 14 (from 8;
+  9 brand: companycard 6, company card 2, the company card 1). 395 queries.
+- Top non-brand: best digital business card 149, best digital business cards
+  136, virtual business cards 113, qr code business card 81, popl alternative
+  80, virtual business card 69, free digital business card 67 — all 0 clicks.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-10-03 — realtors page improved (no new URL)
 
 - Picked from GSC (3 months to 9/29): /digital-business-card-for-realtors =
