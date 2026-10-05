@@ -330,9 +330,9 @@ A: Copy your details, links and photo from your existing card, paste them into t
 Q: Will I have to migrate again later?
 A: Nobody can promise what another company does next, so the honest answer is: choose on portability. With CompanyCard your link and QR code are permanent, and you can export the contacts you capture, so you are never locked to us by your own data.
 
-### Digital Business Card Maker — Design Your Card Online Free | CompanyCard
+### Free Online Business Card Maker — Digital Card, QR & Link | CompanyCard
 URL: https://company-card.com/digital-business-card-maker.html
-Description: Make a digital business card online, free: type your details, watch the live preview and QR code update, download it or save it as a real card with a permanent link. No signup to try.
+Description: Free online business card maker: type your details, watch the live preview and QR code update, download the QR or .vcf, or save it as a digital card with a permanent link. No signup to try.
 Q: Is the digital business card maker free?
 A: Yes — designing and publishing your card, including the QR code and link, is part of the free plan. Premium templates and custom branding come with Pro.
 Q: Can I match my company's brand?
@@ -341,6 +341,10 @@ Q: Can I make cards for my whole team?
 A: Yes — the team onboarding flow imports employees from CSV, Google Workspace or Microsoft 365 and issues everyone a card from one locked template.
 Q: Do I need design skills?
 A: No. Templates handle the design; you only fill in your details and pick colours with a live preview.
+Q: Is this an online business card maker I can use without signing up?
+A: Yes. The maker runs in your browser on this page: fill in your details, watch the card and QR code update, and download the QR code or a .vcf file without an account. Saving it as a CompanyCard with a permanent link is free and needs a free account.
+Q: Can I print the business card I make here?
+A: The maker produces a digital card rather than a print file. To combine it with paper, download the QR code and print it on a simple card; anyone who scans it opens your digital card, which you can keep editing without reprinting.
 
 ### Free Email Signature Generator — With a Live Business Card | CompanyCard
 URL: https://company-card.com/email-signature-generator.html
@@ -495,6 +499,10 @@ Q: Should a realtor link to a specific listing or to a listings page?
 A: Link to your listings page or brokerage profile, not to one property. A single listing sells or expires and the link goes dead; a listings page stays current. A property-specific link belongs on that house's open-house sign, swapped when the sale closes.
 Q: Do I have to show my licence number and brokerage name on the card?
 A: It depends on your state or province. Many real estate commissions require the brokerage name on all advertising, and some also require the brokerage phone number or your licence number. Check your commission's advertising rule and your association's guidance, then add the required fields so they appear on every share.
+Q: Can open-house visitors leave their details on my card?
+A: Yes, on Pro. Lead capture lets a visitor send their name and contact details back from your card, and they are saved in your account, which replaces the paper sign-in sheet. On the free plan visitors can save your details in one tap, but the card does not collect theirs.
+Q: Can a real estate team give every agent a matching card?
+A: Yes. The Business plan has no seat minimum, so a two-agent team pays for two cards. It adds a central admin dashboard and brand and template lock, so every agent's card shows the same brokerage name and logo, and a change to the office details is made once for the whole team.
 
 ### Digital Business Card for Consultants & Coaches | CompanyCard
 URL: https://company-card.com/digital-business-card-for-consultants.html
