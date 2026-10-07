@@ -2,6 +2,59 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-07 — /digital-business-card-for-sales-teams (batch 27)
+
+- Picked from GSC (28 days to 10/4): a sales cluster with no page serving it —
+  "digital business card for field sales" 3 @ 57, "best digital business card
+  for sales teams" 1 @ 59, "best virtual business card tools for field sales
+  professionals" 1 @ 65, "best digital business card platforms for global field
+  sales" 1 @ 58, "most recommended digital business card app by sales
+  professionals" 1 @ 62, "business card for employees" 5 @ 50. The QR cluster
+  (~250 impr @ 60-80) was considered first but qr-code-business-card.html
+  already carries the generator and a generator title since 2026-09-13.
+- Shipped `digital-business-card-for-sales-teams.html` (seo/pages_data25.py +
+  seo/wire_batch27.py): a positive use-case page for sales teams and field sales
+  reps. No competitor named. Facts only from pricing.html / features.html
+  (lead capture = Pro and up; CRM sync, CSV/Zapier export, brand and template
+  lock, admin dashboard, no seat minimum = Business, bought by contacting us;
+  SCIM/SAML, audit logs, data residency, SLA = Enterprise). No prices printed.
+  Nothing claimed about offboarding, named CRMs, badge scanning or NFC.
+- Wired: footer "For Sales Teams" after "Cards for Teams" (67 files),
+  sitemap.xml after the teams entry, llms.txt under "Pages by audience",
+  llms-full.txt rebuilt (68 pages, 357 Q&A). _redirects: forced 301 for the
+  bare slug, plus the one batch 26 missed (/digital-business-card-for-therapists
+  answered 200 live, not 301). Only the new page is date-stamped
+  (add_freshness.py NOT run).
+- Validation: 1 h1, title, meta, canonical, 3 valid JSON-LD (FAQPage,
+  BreadcrumbList, WebPage); sync_faq_schema exit 0; xmllint sitemap OK.
+- Live check runs after this single push (one deploy); result in the run
+  report and restated in the next entry.
+
+**Measured 2026-10-07**
+- Sitemap URLs: 67 (live, before push) -> 68.
+- GSC Page indexing (report now dated 10/4, first refresh since 9/21): indexed
+  64 -> **67**; not indexed 25 -> 27 = 24 page with redirect (from 11; the
+  round-69 forced 301s being recorded), 2 discovered-not-indexed (from 1),
+  **1 crawled-not-indexed (from 0) = business.html**, first detected 7/11;
+  alternate-with-canonical 13 -> 0 (the duplicate forms are gone). business.html
+  is the older "CompanyCard for Teams" marketing page (same audience as
+  digital-business-cards-for-teams.html, 64 -> 67 indexed includes the newer
+  profession pages). Candidate for a later run: differentiate or canonicalise
+  business.html rather than leave Google to pick.
+- GSC Performance, 28 days (data to 10/4): impressions 3,590 (from 3,620, 8th
+  fall), avg position 40.3 (from 42.0, 13th improvement), clicks 17 (from 14; 9
+  brand: companycard 6, company card 2, the company card 1). 397 queries.
+- Top non-brand: best digital business card 143 @ 47.9, best digital business
+  cards 132 @ 41.6, virtual business cards 109 @ 22.8, popl alternative 75 @
+  42.5, qr code business card 75 @ 67.2, virtual business card 62 @ 58.7, free
+  digital business card 57 @ 63.7 — all 0 clicks. Page-1 non-brand: business
+  cards maker free 11 @ 4.4, free business cards maker 6 @ 1.8, event planner
+  business cards 4 @ 6.5, what to put on business card as owner 3 @ 9.0.
+- Maker watch (10-05 retarget): "digital business card maker" 11 @ 64.0 (was 29
+  @ 66.2 over 3 months; not comparable windows) — keep watching.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-10-05 — maker page retargeted at "free online business card maker" (no new URL)
 
 - Picked from GSC (3 months to 10/2), queries containing "maker": 398
