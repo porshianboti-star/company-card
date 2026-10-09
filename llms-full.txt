@@ -59,6 +59,7 @@
 - Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
 - Digital business card for personal trainers: https://company-card.com/digital-business-card-for-personal-trainers.html
 - Digital business card for electricians: https://company-card.com/digital-business-card-for-electricians.html
+- Digital business card for plumbers (QR on the van, invoices and fridge magnets, emergency callouts in one tap, licence and insurance shown up front): https://company-card.com/digital-business-card-for-plumbers.html
 - Digital business card for notaries & mobile signing agents: https://company-card.com/digital-business-card-for-notaries.html
 - Digital business card for tutors & private teachers: https://company-card.com/digital-business-card-for-tutors.html
 - Digital business card for cleaners & cleaning businesses: https://company-card.com/digital-business-card-for-cleaners.html
@@ -914,6 +915,20 @@ Q: What happens when I change my number, move areas or add a second van?
 A: You edit the card and every QR code already on the van or on a certificate keeps opening the new details. The van, the certificates in customers' drawers and last year's quotes all point at the same card, so nothing needs reprinting. Edit the service area or number and it is live at the next scan.
 Q: Do homeowners and builders need an app to open an electrician's card?
 A: No. They scan the QR code with the normal camera app or tap the link in a text or email, and the card opens as a web page. The save-contact button adds your number, email and company to their phone, which is where an electrician needs to be when the power goes off.
+
+### Digital Business Card for Plumbers — QR for the Van & Invoices | CompanyCard
+URL: https://company-card.com/digital-business-card-for-plumbers.html
+Description: A digital business card for plumbers — one tap to call from the QR code on your van, your licence and insurance shown up front, and a number you can change without repainting. Free to start, no app needed.
+Q: What should a plumber's digital business card include?
+A: A tap-to-call number and whether you take emergency callouts, the kinds of work you take, the area you cover, your licence or registration and insurance details as your licensing body requires, links to finished jobs and reviews, and a way to ask for a quote.
+Q: How do I use a digital business card on the van?
+A: Put the card's QR code on the van next to your number. A customer points their phone camera at it, the card opens in the browser and they can call or save you in one tap. The same code works on quotes, invoices, job sheets and fridge magnets.
+Q: What happens to the QR codes on the van if my number changes?
+A: Nothing needs reprinting. The code opens your live card, so you edit the number once and every code already on the van, the paperwork and the magnets shows the new one.
+Q: Do my customers need an app?
+A: No. The card opens in any browser from a QR code or a link, and saving you to their contacts is one tap. Only you need an account.
+Q: Is it free for a one-van plumber?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro. Lead capture, analytics, custom branding and unlimited links and files are part of Pro.
 
 ### Digital Business Cards for Events, Conferences & Networking | CompanyCard
 URL: https://company-card.com/digital-business-card-for-events.html
