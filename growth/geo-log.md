@@ -2,6 +2,48 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-09 — /digital-business-card-for-plumbers (batch 28)
+
+- Picked from the standing backlog (self-employed trade pages): plumbing had no
+  page of its own although "a one-van plumber" / "your plumber" already appear
+  as examples on the small-business and contractors pages. No GSC query asked
+  for it yet, so this is a coverage page, not a query-driven one. Written around
+  emergency callouts + repeat/referral work so it does not duplicate the
+  electricians page.
+- Shipped `digital-business-card-for-plumbers.html` (seo/pages_data26.py,
+  seo/build_pages25.py, seo/wire_batch28.py). No competitor named. Facts only
+  from pricing.html / features.html; no prices printed; no licensing rule
+  claimed for any country ("as your licensing body requires"); no gallery
+  feature claimed (work photos are "links to").
+- Wired: "For Plumbers" after "For Electricians" in the Solutions footer (20
+  files), sitemap.xml after electricians, llms.txt after electricians,
+  llms-full.txt rebuilt (69 pages, 362 Q&A), forced 301 for the bare slug.
+  Only the new page is date-stamped (add_freshness.py NOT run).
+- Validation: 1 h1, title, meta, canonical, 3 valid JSON-LD (FAQPage,
+  BreadcrumbList, WebPage); sync_faq_schema exit 0; xmllint sitemap OK.
+- Live: 200 with the expected h1; bare slug 301 -> .html; live sitemap 69;
+  homepage footer and llms.txt carry the link. IndexNow 200.
+
+**Measured 2026-10-09**
+- Sitemap URLs: 68 (live, before push) -> 69.
+- GSC Page indexing (report dated 10/4, unchanged since last run): indexed 67
+  flat; not indexed 27 = 24 page with redirect, 2 discovered-not-indexed,
+  1 crawled-not-indexed (business.html, still). No new reasons.
+- GSC Performance, 28 days (data to 10/6): impressions 3,590 (flat vs 3,590),
+  avg position 38.5 (from 40.3, 14th improvement), clicks 19 (from 17; 11
+  brand). 397 queries.
+- Top non-brand: best digital business card 138 @ 47.8, best digital business
+  cards 129 @ 42.9, virtual business cards 102 @ 23.8, popl alternative 68 @
+  43.6, qr code business card 66 @ 65.8, virtual business card 55 @ 58.1 — all
+  0 clicks. Page-1 non-brand: free business cards maker 6 @ 1.8, business cards
+  maker free 11 @ 4.4, event planner business cards 4 @ 6.5, uniqode
+  alternative 29 @ 11.8, business card maker free 26 @ 10.5 (new near page 1).
+- Unserved small cluster noted: "what to put on business card as owner" 4 @
+  13.5, "business card for owner of company" 3 @ 33.7, "should i put owner on
+  my business card" 1 @ 1 -> strengthen business-card-for-business-owners.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-10-07 — /digital-business-card-for-sales-teams (batch 27)
 
 - Picked from GSC (28 days to 10/4): a sales cluster with no page serving it —
