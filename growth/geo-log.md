@@ -2,6 +2,43 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-12 — /digital-business-card-for-recruiters (batch 29)
+
+- Picked from GSC (28 days to 10/10): recruiting queries with no page serving
+  them — "digital business cards for recruiters" 1 @ 45, "best digital
+  business card for recruiting and hr teams at hiring events" 1 @ 9. Written
+  around the two audiences (candidates and clients) so it does not duplicate
+  the sales-teams or events pages. The owners cluster ("what to put on business
+  card as owner" 8 @ 11.4) was considered, but that page already targets it in
+  its H1 and sections, so no change was made there this run.
+- Shipped `digital-business-card-for-recruiters.html` (seo/pages_data27.py,
+  seo/build_pages26.py, seo/wire_batch29.py). No competitor named. Facts only
+  from pricing.html / features.html; no prices printed; no ATS integration
+  claimed.
+- Wired: "For Recruiters" after "For Sales Teams" in the Solutions footer (67
+  files), sitemap.xml, llms.txt, llms-full.txt rebuilt (70 pages, 367 Q&A),
+  forced 301 for the bare slug. Only the new page is date-stamped.
+- Validation: 1 h1, title, meta, canonical, 3 valid JSON-LD (FAQPage,
+  BreadcrumbList, WebPage); sync_faq_schema exit 0; xmllint sitemap OK.
+- Live: 200 with the expected h1; bare slug 301 -> .html; live sitemap 70;
+  homepage footer and llms.txt carry the link. IndexNow 200.
+
+**Measured 2026-10-12**
+- Sitemap URLs: 69 (live, before push) -> 70.
+- GSC Page indexing: indexed 67 flat; not indexed 27 = 24 page with redirect,
+  2 discovered-not-indexed, 1 crawled-not-indexed. No new reasons.
+- GSC Performance, 28 days (data to 10/10): impressions 3,560 (from 3,590),
+  avg position 34.6 (from 38.5, 15th improvement), clicks 21 (from 19; 12
+  brand). 389 queries.
+- Top non-brand: best digital business card 128 @ 48.8, best digital business
+  cards 118 @ 43.4, virtual business cards 79 @ 24.2, popl alternative 60 @
+  43.5, hihello vs blinq 57 @ 49.8 — all 0 clicks. Near page 1: business cards
+  maker free 11 @ 4.4, free business cards maker 6 @ 1.8, what to put on
+  business card as owner 8 @ 11.4 (from 4 @ 13.5), uniqode alternative 27 @
+  11.9, business card maker free 26 @ 10.5.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+
 ## 2026-10-09 — /digital-business-card-for-plumbers (batch 28)
 
 - Picked from the standing backlog (self-employed trade pages): plumbing had no
