@@ -2,6 +2,38 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-13 — /digital-business-card.html de-index fix (batch 30)
+
+- Picked from GSC, not the backlog: Page indexing now lists
+  `digital-business-card.html` as "Crawled - currently not indexed" (2 pages,
+  was 1 = business.html). Live URL Inspection: "URL is not on Google", last
+  crawl 2026-08-22, fetch OK, indexing allowed, user canonical self. Bare slug
+  301s, no noindex, linked from 70 pages, max 8-gram overlap 11% (index.html),
+  so the cause is value, not a technical fault. Every backlog profession and
+  feature page already exists; comparison re-verify is next due ~11-01.
+- Shipped (seo/improve_dbc_hub_2026_10_13.py, idempotent): removed the
+  unverified Allied Market Research "$6 billion by 2030" statistic (rule 1);
+  new sections "What the other person sees when you share your card",
+  "What to check before you choose a digital business card" (facts.py only,
+  no competitor named, states free = 1 card + credit) and "Digital business
+  cards by profession" (29 internal links); 2 FAQs visible + FAQPage JSON-LD;
+  Last updated / dateModified / sitemap lastmod -> 2026-10-13. llms-full.txt
+  rebuilt (70 pages, 369 Q&A). No footer/llms.txt change (page already wired).
+- Validation: 1 h1, title, meta, canonical, 5 valid JSON-LD blocks;
+  sync_faq_schema exit 0; xmllint sitemap OK.
+- Live: 200, new sections present, statistic gone, "Last updated: 13 October
+  2026". IndexNow 200. GSC "Indexing requested" (priority crawl queue).
+
+**Measured 2026-10-13**
+- Sitemap URLs: 70 live (flat; no new page this run).
+- GSC Page indexing: indexed 67 flat; not indexed 28 = 24 page with redirect,
+  2 discovered-not-indexed, 2 crawled-not-indexed (NEW: digital-business-card).
+- GSC Performance, 28 days: data still ends 10/10, identical to 10-12
+  (3,560 impr, pos 34.6, 21 clicks). 3-month view: 9.84K impr, pos 49.9, 26 clicks.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+- Checkpoint: re-inspect digital-business-card.html on or after 2026-10-20.
+
 ## 2026-10-12 — /digital-business-card-for-recruiters (batch 29)
 
 - Picked from GSC (28 days to 10/10): recruiting queries with no page serving
