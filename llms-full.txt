@@ -210,6 +210,10 @@ Q: Are digital business cards professional?
 A: Increasingly they're the professional choice: your details are always current, the receiver never types anything, and a branded card with a matching email signature and video-call background presents more consistently than paper ever did.
 Q: What happens if I change jobs or get promoted?
 A: Edit your card once. Every QR code, link, wallet pass and email signature you've ever shared now shows the new details — no reprints, no outdated cards in circulation.
+Q: What does the other person see when I share my digital business card?
+A: They see your card as a web page in their phone's browser, with no app to install and no sign-up. A Save contact button adds your name, title, company, phone, email, photo and links to their contacts as a vCard, on iPhone or Android.
+Q: What should I check before choosing a digital business card?
+A: Check that the receiver needs no app, what the free plan includes and what it limits, whether the price is published and whether teams have a seat minimum. CompanyCard's free plan is one card with a QR code, sharing link, Apple and Google Wallet pass and a small CompanyCard credit; prices are on the pricing page and the Business plan has no seat minimum.
 
 ### Virtual Business Card Maker — Free, Live Preview, No App Needed | CompanyCard
 URL: https://company-card.com/virtual-business-card.html
