@@ -52,6 +52,7 @@
 - Digital business card for photographers: https://company-card.com/digital-business-card-for-photographers.html
 - Digital business card for coaches & therapists: https://company-card.com/digital-business-card-for-coaches.html
 - Digital business card for insurance agents: https://company-card.com/digital-business-card-for-insurance-agents.html
+- Digital business card for financial advisors (clients and referral partners forward one link, prospects save you in one tap and book a first meeting, wording approved like other marketing, lead capture on Pro): https://company-card.com/digital-business-card-for-financial-advisors.html
 - Digital business card for salons & barbers: https://company-card.com/digital-business-card-for-salons.html
 - Digital business card for accountants & bookkeepers: https://company-card.com/digital-business-card-for-accountants.html
 - Digital business card for bookkeepers (monthly bookkeeping, catch-up work, remote clients referred by accountants): https://company-card.com/digital-business-card-for-bookkeepers.html
@@ -650,6 +651,20 @@ Q: Can I change my details after the QR code is printed on closing folders?
 A: Yes. The QR code and link point to the card, not to a snapshot of it. Move agencies, change your mobile or swap your quote form, and every folder and dealership flyer already in circulation opens the current version. Edits are unlimited.
 Q: Can an insurance agent put a licence number and carrier logos on the card?
 A: Your licence number, usually yes; many states expect it on marketing, so add it as a field. Carrier logos generally need the carrier's permission and sometimes a line saying you are an agent, not the insurer. Titles such as broker or adviser may be reserved for licence holders, so check your state department of insurance.
+
+### Digital Business Card for Financial Advisors — Referrals & Clients | CompanyCard
+URL: https://company-card.com/digital-business-card-for-financial-advisors.html
+Description: A digital business card for financial advisors and planners — clients and referral partners forward one link, prospects save you in one tap and book a first meeting. Free to start, no app needed.
+Q: What should a financial advisor's digital business card include?
+A: Who you help and what you help them with, your firm name and logo or your own name if you are independent, your qualifications and any details your firm or compliance reviewer asks you to show, a booking link for an introductory meeting, a direct number and email, and a link to your LinkedIn profile and website.
+Q: Does CompanyCard check my card's wording for compliance?
+A: No. CompanyCard is the card and the sharing; it does not review what you write. Treat the card like the rest of your marketing and have its wording approved by whoever reviews your materials. Because the card is live, a change they ask for is one edit, and every link and QR code you have already shared shows it.
+Q: How does a digital business card help with referrals?
+A: A client or referral partner can forward your card link in a message or an email, and the person they introduce opens it in any browser and saves you to their contacts in one tap. On Pro, lead capture lets that person send their own name and details back from your card.
+Q: Do my clients need an app to open my card?
+A: No. The card opens in any browser from a QR code or a link, and saving you to their contacts is one tap. Only you need an account.
+Q: Is it free for an independent financial advisor?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro. Lead capture, analytics, custom branding and unlimited links and files are part of Pro.
 
 ### Digital Business Card for Salons, Barbers & Stylists | CompanyCard
 URL: https://company-card.com/digital-business-card-for-salons.html
