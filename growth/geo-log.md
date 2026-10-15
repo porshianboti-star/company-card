@@ -2,6 +2,44 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-15 — /digital-business-card-for-financial-advisors (batch 31)
+
+- Picked from the standing backlog (self-employed professionals): every listed
+  profession/feature page already exists and the comparison re-verify is due
+  ~11-01. Financial advisors had no page; GSC shows only adjacent queries
+  ("digital business cards for insurance professionals" 7 @ 51.1, "... for loan
+  officers" 1 @ 54) that the insurance-agents and mortgage-brokers pages serve,
+  so the page is written around referrals, introductions and annual reviews to
+  avoid cannibalising them. Coverage page, not query-driven.
+- Shipped `digital-business-card-for-financial-advisors.html`
+  (seo/pages_data28.py, seo/build_pages27.py, seo/wire_batch31.py). No
+  competitor named, no prices printed, no compliance/regulatory claim — the page
+  says CompanyCard does not review wording and tells advisors to have the card
+  approved like their other marketing.
+- Wired: "For Financial Advisors" after "For Insurance Agents" in the Solutions
+  footer (20 files), sitemap.xml, llms.txt, llms-full.txt rebuilt (71 pages,
+  374 Q&A), forced 301 for the bare slug. Only the new page is date-stamped
+  (seo/add_freshness.py NOT run: its hardcoded 2026-08-02 rolls dates back).
+- Validation: 1 h1, title, meta, canonical, 3 valid JSON-LD (FAQPage,
+  BreadcrumbList, WebPage); sync_faq_schema exit 0; xmllint sitemap OK.
+- Live: 200 with the expected h1; bare slug 301 -> .html; live sitemap 71;
+  homepage footer and llms.txt carry the link. IndexNow 200.
+
+**Measured 2026-10-15**
+- Sitemap URLs: 70 (live, before push) -> 71.
+- GSC Page indexing: indexed 67 flat; not indexed 28 = 24 page with redirect,
+  2 discovered-not-indexed, 2 crawled-not-indexed. No new reasons.
+- GSC Performance, 28 days (data to 10/12): impressions 3,490 (from 3,560),
+  avg position 32.6 (from 34.6, 16th improvement), clicks 21 flat, 363 queries.
+- Top non-brand: best digital business card 121, best digital business cards
+  110, virtual business cards 68, hihello vs blinq 57, popl alternative 56 —
+  all 0 clicks. Near page 1: event planner business cards 4 @ 6.5, should i put
+  owner on my business card 3 @ 4.0, what to put on business card as owner
+  8 @ 11.2, affordable universal badge scanners for small business events 4 @ 2.8.
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+- Checkpoint: re-inspect digital-business-card.html on or after 2026-10-20.
+
 ## 2026-10-13 — /digital-business-card.html de-index fix (batch 30)
 
 - Picked from GSC, not the backlog: Page indexing now lists
