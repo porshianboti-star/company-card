@@ -47,6 +47,7 @@
 
 ## Pages by profession
 - Digital business card for realtors: https://company-card.com/digital-business-card-for-realtors.html
+- Digital business card for property managers (one QR code and link for owners, tenants and contractors, labelled tenant repair link and emergency line, details stay current in every welcome pack): https://company-card.com/digital-business-card-for-property-managers.html
 - Digital business card for consultants & coaches: https://company-card.com/digital-business-card-for-consultants.html
 - Digital business card for contractors & trades: https://company-card.com/digital-business-card-for-contractors.html
 - Digital business card for photographers: https://company-card.com/digital-business-card-for-photographers.html
@@ -541,6 +542,20 @@ Q: Can open-house visitors leave their details on my card?
 A: Yes, on Pro. Lead capture lets a visitor send their name and contact details back from your card, and they are saved in your account, which replaces the paper sign-in sheet. On the free plan visitors can save your details in one tap, but the card does not collect theirs.
 Q: Can a real estate team give every agent a matching card?
 A: Yes. The Business plan has no seat minimum, so a two-agent team pays for two cards. It adds a central admin dashboard and brand and template lock, so every agent's card shows the same brokerage name and logo, and a change to the office details is made once for the whole team.
+
+### Digital Business Card for Property Managers — Owners & Tenants | CompanyCard
+URL: https://company-card.com/digital-business-card-for-property-managers.html
+Description: A digital business card for property managers — one QR code and link for owners, tenants and contractors, with your emergency line and repair link, and details that stay current. Free to start, no app needed.
+Q: What should a property manager's digital business card include?
+A: Who you manage for and where, your business name and logo or your own name, a tenant link such as a maintenance request form or portal, an emergency number labelled as such, a booking link for owners, any licence or registration details you are expected to show, and a direct number and email.
+Q: Can tenants and owners see different links on one card?
+A: They see the same card, so label each link for who it is for — for example “Tenants: report a repair” and “Owners: book a valuation”. On the free plan you add your profile, links and socials; Pro adds unlimited links and files.
+Q: What happens to the QR codes I have already handed out when my number changes?
+A: Nothing needs reprinting. The QR code and link point to your live card, so you edit the card once and every welcome pack, notice and email you have already sent shows the new details.
+Q: Do tenants need an app to open my card?
+A: No. The card opens in any browser from a QR code or a link, and saving you to their contacts is one tap. Only you need an account.
+Q: Is it free for an independent property manager?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro. Lead capture, analytics, custom branding and unlimited links and files are part of Pro.
 
 ### Digital Business Card for Consultants & Coaches | CompanyCard
 URL: https://company-card.com/digital-business-card-for-consultants.html
