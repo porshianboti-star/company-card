@@ -2,6 +2,44 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-17 — /digital-business-card-for-property-managers (batch 32)
+
+- Picked from the standing backlog (self-employed / small-business
+  professionals): every listed profession and feature page already exists and
+  the comparison re-verify is next due ~11-01. Property managers appeared only
+  as clients on the cleaners/contractors/electricians/landscapers pages, so this
+  page is written from the manager's side (owners, tenants, contractors). GSC
+  shows no property-manager query; coverage page, not query-driven.
+- Shipped `digital-business-card-for-property-managers.html`
+  (seo/pages_data29.py, seo/build_pages28.py, seo/wire_batch32.py). No
+  competitor named, no prices printed, no licensing/tenancy-law claim.
+- Wired: "For Property Managers" after "For Realtors" in the Solutions footer
+  (20 files), sitemap.xml, llms.txt, llms-full.txt rebuilt (72 pages, 379
+  Q&A), forced 301 for the bare slug. Only the new page is date-stamped
+  (add_freshness.py NOT run).
+- Validation: 1 h1, title, meta, canonical, 3 valid JSON-LD (FAQPage,
+  BreadcrumbList, WebPage); sync_faq_schema exit 0; xmllint sitemap OK.
+- Live: 200 with the expected h1; bare slug 301 -> .html; live sitemap 72;
+  homepage footer and llms.txt carry the link. IndexNow 200.
+
+**Measured 2026-10-17**
+- Sitemap URLs: 71 (live, before push) -> 72.
+- GSC Page indexing: indexed 67 flat; not indexed 28 = 24 page with redirect,
+  2 discovered-not-indexed, 2 crawled-not-indexed. No new reasons.
+- GSC Performance, 28 days (data to 10/14): impressions 3,660 (from 3,490),
+  avg position 31.9 (from 32.6), clicks 20 (from 21), 380 queries (from 363).
+- Top non-brand: best digital business card 117 @ 47.8, best digital business
+  cards 110 @ 42.9, virtual business cards 56 @ 26.2, popl alternative 51,
+  hihello vs blinq 50 — all 0 clicks. Near page 1: best business cards for
+  employees 2 @ 1.0, small business with employees who need their own cards
+  2 @ 1.5, affordable universal badge scanners 4 @ 2.8, should i put owner on
+  my business card 3 @ 4.0, what to put on business card as owner 10 @ 10.9.
+  Gap noted: "digital business card for field sales" 13 @ 58.2 (served only by
+  the sales-teams page).
+- OFF-SITE: still no Capterra / Product Hunt / AlternativeTo / Trustpilot /
+  social profiles; sameAs holds only G2 and the Chrome Web Store listing.
+- Checkpoint: re-inspect digital-business-card.html on or after 2026-10-20.
+
 ## 2026-10-15 — /digital-business-card-for-financial-advisors (batch 31)
 
 - Picked from the standing backlog (self-employed professionals): every listed
