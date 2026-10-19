@@ -51,6 +51,7 @@
 - Digital business card for consultants & coaches: https://company-card.com/digital-business-card-for-consultants.html
 - Digital business card for contractors & trades: https://company-card.com/digital-business-card-for-contractors.html
 - Digital business card for photographers: https://company-card.com/digital-business-card-for-photographers.html
+- Digital business card for interior designers (portfolio, Instagram and booking link one tap from a QR code, saved to a client's phone without typing, PDF lookbook on Pro, stays current when the studio moves): https://company-card.com/digital-business-card-for-interior-designers.html
 - Digital business card for coaches & therapists: https://company-card.com/digital-business-card-for-coaches.html
 - Digital business card for insurance agents: https://company-card.com/digital-business-card-for-insurance-agents.html
 - Digital business card for financial advisors (clients and referral partners forward one link, prospects save you in one tap and book a first meeting, wording approved like other marketing, lead capture on Pro): https://company-card.com/digital-business-card-for-financial-advisors.html
@@ -596,6 +597,20 @@ Q: Can I change my booking window after the QR code is printed on my packaging?
 A: Yes. The QR code and link open the live card, not a snapshot. Move from this year's weddings to next, add elopements or take a new studio, and the print-box inserts, album backs, thank-you cards and wedding-fair sign all show the current version.
 Q: What do wedding planners and venues need to see on a photographer's card?
 A: A planner wants the styles you shoot, your booking window and whether you deliver a vendor gallery she can use in her own marketing. A venue coordinator wants to know you carry liability insurance and how to request the certificate. Both want a direct email that skips your client enquiry form.
+
+### Digital Business Card for Interior Designers — Portfolio in One Tap | CompanyCard
+URL: https://company-card.com/digital-business-card-for-interior-designers.html
+Description: A digital business card for interior designers — your portfolio, Instagram and booking link one tap from a QR code, saved to a client's phone without typing, and always current when your studio or work changes. Free to start, no app needed.
+Q: What should an interior designer's digital business card include?
+A: What you design and for whom, your studio name and logo or your own name, your website and portfolio, your Instagram, Pinterest or Houzz, a consultation booking link, any membership or certification you already show elsewhere, and a direct number and email.
+Q: Can I put my portfolio on the card?
+A: Yes. On the free plan the card carries your profile, links and socials, so your portfolio page and your project galleries are one tap away. Pro adds unlimited links and files, so a PDF lookbook or a project sheet can sit on the card as well.
+Q: What happens to the cards I have already handed out when my studio moves?
+A: Nothing needs reprinting. The QR code and link point to your live card, so you edit the address once and every card, brochure and email you have already sent shows the new details.
+Q: Do clients need an app to open my card?
+A: No. The card opens in any browser from a QR code or a link, and saving you to their contacts is one tap. Only you need an account.
+Q: Is it free for a self-employed interior designer?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro. Lead capture, analytics, custom branding and unlimited links and files are part of Pro.
 
 ### Digital Business Card in Apple Wallet & Google Wallet (Free) | CompanyCard
 URL: https://company-card.com/digital-business-card-apple-wallet.html
