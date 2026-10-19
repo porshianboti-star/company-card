@@ -2,6 +2,56 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-19 — /digital-business-card-for-interior-designers (batch 33)
+
+- Picked from the standing backlog (self-employed professionals): every listed
+  profession and feature page already exists and the comparison re-verify is
+  next due ~11-01. GSC (28 days to 10/17) shows no un-served query gap — the
+  one candidate, "digital business card for field sales" (18 @ 53.3, up from
+  13 @ 58.2), is already served by the sales-teams page whose title names
+  field sales reps, so a new page would only cannibalise it. Interior
+  designers (portfolio + referral trade, small studios) had no page and are
+  not mentioned on any existing trade page. Coverage page, not query-driven.
+- Shipped `digital-business-card-for-interior-designers.html`
+  (seo/pages_data30.py, seo/build_pages29.py, seo/wire_batch33.py). No
+  competitor named, no prices printed, no accreditation claim — "show whatever
+  membership or certification you already show elsewhere".
+- Wired: "For Interior Designers" after "For Photographers" in the Solutions
+  footer (20 files), sitemap.xml, llms.txt, llms-full.txt rebuilt (73 pages,
+  384 Q&A), forced 301 for the bare slug. Only the new page is date-stamped
+  (add_freshness.py NOT run).
+- Validation: 1 h1, unique title, meta, canonical, 3 valid JSON-LD (FAQPage,
+  BreadcrumbList, WebPage); sync_faq_schema exit 0; xmllint sitemap OK.
+- Live: 200 with the expected h1 ~10 s after push; bare slug 301 -> .html;
+  live sitemap 73; homepage footer and llms.txt carry the link. IndexNow 200
+  (first attempt got no response; retry with keyLocation returned 200).
+
+**Measured 2026-10-19**
+- Sitemap URLs: 72 (live, before push) -> 73.
+- GSC Page indexing: indexed 67 flat; not indexed 28 = 24 page with redirect,
+  2 discovered-not-indexed, 2 crawled-not-indexed. No new reasons.
+- GSC Performance, 28 days (data to 10/17): impressions 3,890 (from 3,660),
+  avg position 32.2 (from 31.9 — first non-improvement after 16 straight),
+  clicks 23 (from 20), 381 queries (from 380).
+- Top non-brand: best digital business card 123 @ 49.1, best digital business
+  cards 115 @ 43.5, online business card 60 @ 70.2, popl alternative 53 @ 40.8,
+  hihello vs blinq 53 @ 43.9, blinq alternative 48 @ 37.1, virtual business
+  card maker 48 @ 37.6 — all 0 clicks. Near page 1: free business cards maker
+  6 @ 1.8, business cards maker free 11 @ 4.4, business card maker free 26 @
+  10.5, uniqode alternative 29 @ 12.2, what to put on business card as owner
+  11 @ 12.3, self-employed card 2 @ 14.0, hihello alternative 10 @ 14.9,
+  business card for owner of company 5 @ 17.2. Noted: most secure digital
+  business card 24 @ 45.6 (no page answers it), digital business cards law
+  firm 11 @ 69.3 (lawyers page), mobile hairdressing business cards 2 @ 36.5
+  (salons page).
+- OFF-SITE (checked today in the browser pane): Capterra search for
+  "CompanyCard" returns unrelated products, AlternativeTo search returns Pleo
+  and CompanyCam only, Trustpilot /review/company-card.com is "page not
+  found", Product Hunt /products/companycard is 404. sameAs still holds only
+  G2 and the Chrome Web Store listing.
+- Checkpoint: re-inspect digital-business-card.html on or after 2026-10-20
+  (not done this run; due tomorrow).
+
 ## 2026-10-17 — /digital-business-card-for-property-managers (batch 32)
 
 - Picked from the standing backlog (self-employed / small-business
