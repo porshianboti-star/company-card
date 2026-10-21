@@ -2,6 +2,53 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-21 — business.html: unverified security + stat claims removed
+
+- Picked over a new profession page: while checking whether "most secure
+  digital business card" (22 impressions @ 45.4, no page answers it) could be
+  served, found business.html (live, indexed) asserting "SOC 2 Type II & GDPR
+  compliant", "encryption in transit & at rest", "the certifications
+  procurement asks for", a SOC 2 badge, and stat tiles "3x more contacts
+  captured / 100% brand-consistent / 5 min company-wide rollout". None is in
+  seo/facts.py, pricing.html or privacy-policy.html, and the off-site kit
+  records that we hold no verified security facts. Rule 1 (never invent
+  facts) outranks page #74.
+- Shipped commit ece3f0f (seo/fix_business_unverified_claims_2026_10_21.py):
+  stat tiles now 0 seat minimum / 1 locked brand template / Live edits /
+  SSO on Business; security section restates only the privacy policy (HTTPS,
+  secured access-controlled storage, hashed passwords, delete/export rights)
+  and the published plan facts (SSO on Business; SAML, SCIM, audit logs, data
+  residency on Enterprise). Meta + og description no longer say "enterprise
+  security". dateModified and sitemap lastmod 2026-10-21.
+- STILL UNVERIFIED on business.html, left for the owner to confirm or remove:
+  integrations block (Salesforce two-way sync, HubSpot, Okta/Azure SSO & SCIM,
+  "Zapier 5,000+ apps"), "bulk import", "onboard hundreds of people in
+  minutes". Plan facts list "CRM sync" generically, not named vendors.
+- Validation: 1 h1, title, meta, canonical, all JSON-LD parses;
+  sync_faq_schema exit 0 (70 FAQ pages, 0 synced); xmllint sitemap OK.
+- Live: 200 ~20 s after push, new copy present, 0 matches for SOC 2 / at rest
+  / 3x. IndexNow 200.
+- The "most secure digital business card" page stays unwritten until the
+  owner states what is true (hosting, DPA, at-rest encryption, certifications).
+
+**Measured 2026-10-21**
+- Sitemap URLs: 73 (live), unchanged (no new page).
+- GSC Page indexing: indexed 67 flat; not indexed 28 = 24 page with redirect,
+  2 discovered-not-indexed, 2 crawled-not-indexed. No new reasons.
+- GSC Performance, 28 days: impressions 3,960 (from 3,890), avg position
+  32.5 (from 32.2 — second non-improvement in a row), clicks 23 (flat), 385
+  queries (from 381).
+- Top non-brand: best digital business card 121 @ 49.3, best digital business
+  cards 113 @ 44.3, online business card 70 @ 69.9, popl alternative 57 @
+  41.6, blinq alternative 54 @ 37.5, hihello vs blinq 53 @ 44.2, digital
+  business card app 51 @ 54.3 — all 0 clicks. Near page 1: free business cards
+  maker 6 @ 1.8, business cards maker free 11 @ 4.4, event planner business
+  cards 4 @ 6.5, business card maker free 26 @ 10.5, uniqode alternative 29 @
+  12.2, what to put on business card as owner 11 @ 12.3. Bookkeeping business
+  card 23 @ 23.7, bookkeeper business card(s) 18 @ 24.3 / 18 @ 27.0.
+- OFF-SITE: not re-checked (checked 2026-10-19: Capterra, AlternativeTo,
+  Trustpilot, Product Hunt all absent). sameAs still G2 + Chrome Web Store.
+
 ## 2026-10-19 — /digital-business-card-for-interior-designers (batch 33)
 
 - Picked from the standing backlog (self-employed professionals): every listed
