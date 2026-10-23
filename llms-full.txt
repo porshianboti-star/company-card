@@ -162,7 +162,7 @@ A: CompanyCard is a digital business card for professionals and small-to-medium 
 
 ### CompanyCard for Teams — Branded digital business cards at scale
 URL: https://company-card.com/business.html
-Description: Roll out branded digital business cards across your whole company. Central admin, SSO, CRM sync, analytics and enterprise security. CompanyCard for Teams.
+Description: Roll out branded digital business cards across your whole company. Central admin, brand lock, SSO, CRM sync and analytics, with no seat minimum. CompanyCard for Teams.
 Q: How do digital business cards work for a whole team?
 A: You create branded cards for every employee from one dashboard. Each person gets their own card with a consistent company look, and admins can add, edit or remove cards centrally.
 Q: Can I keep branding consistent across everyone?
@@ -499,6 +499,10 @@ Q: Is CEO the right title for a one-person business?
 A: It is accurate in the narrow sense and it can still work against you. CEO signals that there are layers of management underneath, so on a business with no employees it can read as inflated to the person holding the card — particularly if they meet you doing the work yourself an hour later. Owner or Founder carries the same authority without the mismatch. If you deal mostly with large organisations where CEO is the expected counterpart title, that is a reasonable argument for using it.
 Q: Can I change the title on a digital business card after I've shared it?
 A: Yes. On CompanyCard the QR code and the sharing link are permanent and the details behind them are editable, so changing your title, phone number or business name updates the card everyone already has. Unlimited edits are included on the free plan. This is the practical difference from paper, where changing a title means reprinting and every card already in circulation stays wrong.
+Q: Should I put Sole Proprietor on my business card?
+A: Only where it is the customary designation on a visiting card, or when the card is for a bank or a supplier who needs to know how the business is set up. Sole Proprietor describes a legal form, not what you do, so for customers Owner or the trade itself — Plumber, Bookkeeper, Photographer — says the same thing in plainer words. Whichever you choose, use one title.
+Q: How do I put LLC on a business card?
+A: Attach it to the business name, not to your own name: “Sam Okafor, Owner” above “Okafor Bookkeeping LLC”. Write the registered name once, with the suffix, on the business-name line, and do not repeat it after your title. Whether the suffix must appear at all depends on your jurisdiction, so check your own registrar. On a digital card the name line is edited once and every card already shared shows the change.
 
 ### Digital Business Card for Freelancers & Self-Employed | CompanyCard
 URL: https://company-card.com/digital-business-card-for-freelancers.html
