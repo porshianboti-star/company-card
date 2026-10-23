@@ -2,6 +2,66 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-23 — business-card-for-business-owners: owner-title long tail (batch 34)
+
+- Picked from GSC, not the profession backlog: every listed profession and
+  feature page exists and the comparison re-verify is due ~11-01 (the pages
+  already say "October 2026", so restamping today would change nothing). The
+  owner-title cluster is the site's closest non-brand cluster to page 1 —
+  what to put on business card as owner 10 @ 12.6, business card for owner of
+  company 8 @ 14.1 — with a long tail the page did not answer in its own
+  words: sole proprietor title on business card 2 @ 17.5, proprietor
+  designation on visiting card 2 @ 32, proprietor business card 2 @ 43.5,
+  co owner on business card 2 @ 38.5, business card titles for owners 1 @ 45,
+  how to put llc on business cards 1 @ 50. The page's title table never said
+  Sole Proprietor, Proprietor or Managing Member, and it covered LLC/Ltd only
+  as "do not claim it before registration", not where it goes once registered.
+- Shipped commit ab9a65e (seo/improve_owners_titles_2026_10_23.py,
+  idempotent): two rows in the existing title table (Sole Proprietor /
+  Proprietor; Managing Member), new section "Where LLC, Ltd or Inc goes on
+  the card" before the co-owners section, two FAQs visible + FAQPage JSON-LD
+  ("Should I put Sole Proprietor on my business card?", "How do I put LLC on
+  a business card?"), dateModified + sitemap lastmod 2026-10-23, llms.txt page
+  line extended, llms-full.txt rebuilt (73 pages, 386 Q&A). No prices printed;
+  no legal rule asserted (naming rules differ by jurisdiction — "check your own
+  registrar"). add_freshness.py NOT run. No footer change (page already wired).
+- Validation: 1 h1, title, meta, canonical, 4 valid JSON-LD blocks, 8 visible
+  FAQs = 8 schema questions; sync_faq_schema exit 0 (70 FAQ pages, 0 synced);
+  xmllint sitemap OK.
+- Live: 200 with the new table rows, section and 8 FAQs ~10 s after push;
+  live sitemap lastmod 2026-10-23; llms.txt and llms-full.txt carry the new
+  text. IndexNow 200 (page + llms.txt + llms-full.txt).
+- Declined this run: "digital business card for field sales" is still rising
+  (13 -> 18 -> 26 @ 51.0) but stays served by the sales-teams page, per the
+  10-19 decision; "most secure digital business card" 21 @ 45.4 stays
+  unwritten until the owner states the security facts.
+
+**Measured 2026-10-23**
+- Sitemap URLs: 73 (live), unchanged (improvement, not a new page).
+- GSC Page indexing: indexed 68 (from 67); not indexed 29 = 24 page with
+  redirect, 4 discovered-not-indexed (app/builder.html, plumbers, recruiters,
+  embed-digital-business-card-on-your-website — up from 2), 1 crawled-not-
+  indexed (business.html only — digital-business-card.html has left the
+  bucket, so the 10-13 hub fix got the head-term page back into the index).
+  No new reasons.
+- GSC Performance, 28 days (data to 10/21): impressions 4,320 (from 3,960),
+  avg position 33.3 (from 32.5 — third non-improvement in a row; the growth is
+  in deep-position impressions), clicks 28 (from 23), 392 queries (from 385).
+- Top non-brand: best digital business card 137 @ 49.7, best digital business
+  cards 118 @ 45.8, online business card 96 @ 69.6, digital business card app
+  62 @ 54.0, blinq alternative 61 @ 37.8, popl alternative 55 @ 40.8, hihello
+  vs blinq 54 @ 41.1, qr code business card 48 @ 64.6, virtual business card
+  maker 47 @ 35.3 — all 0 clicks. Near page 1: free business cards maker 6 @
+  1.8, business cards maker free 11 @ 4.4, event planner business cards 4 @
+  6.5, business card maker free 25 @ 10.6, uniqode alternative 29 @ 12.2, what
+  to put on business card as owner 10 @ 12.6, business card for owner of
+  company 8 @ 14.1, blinq vs popl 9 @ 16.3, digital business card at events
+  6 @ 16.5. Bookkeeping business card 26 @ 23.6, bookkeeper business cards
+  20 @ 26.9 / 19 @ 24.3. hihello alternative 24 @ 20.9 (from 10 @ 14.9).
+- OFF-SITE (curl today): Product Hunt /products/companycard 404; Trustpilot,
+  AlternativeTo and Capterra URLs return 403 to curl (last confirmed absent in
+  the browser pane 2026-10-19). sameAs still G2 + Chrome Web Store only.
+
 ## 2026-10-21 — business.html: unverified security + stat claims removed
 
 - Picked over a new profession page: while checking whether "most secure
