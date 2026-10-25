@@ -39,7 +39,7 @@
 
 ## Pages by audience
 - Digital business card for small business: https://company-card.com/digital-business-card-for-small-business.html
-- Business card for the owner of a company — what job title to use when you own the business (Owner, Founder, Director and Principal all read correctly; Director is commonly a registry-filed role, so it should only be claimed if held), how two or more co-owners should split cards (one card each on the same design, not one shared two-name card), and what may go on a card before the business is registered (trade under your own name; no Ltd/LLC/Inc, company number or registered address you do not have). States plainly that CompanyCard's free plan is one card per account, so two co-owners need two free accounts or a paid plan: https://company-card.com/business-card-for-business-owners.html
+- Business card for the owner of a company — what job title to use when you own the business (Owner, Founder, Director and Principal all read correctly; Director is commonly a registry-filed role; Sole Proprietor and Managing Member are legal forms, best kept for bank and contract paperwork; LLC/Ltd belongs on the business-name line, not after your name, so it should only be claimed if held), how two or more co-owners should split cards (one card each on the same design, not one shared two-name card), and what may go on a card before the business is registered (trade under your own name; no Ltd/LLC/Inc, company number or registered address you do not have). States plainly that CompanyCard's free plan is one card per account, so two co-owners need two free accounts or a paid plan: https://company-card.com/business-card-for-business-owners.html
 - Digital business card for freelancers & the self-employed (also solopreneurs and sole traders): https://company-card.com/digital-business-card-for-freelancers.html
 - Digital business cards for teams: https://company-card.com/digital-business-cards-for-teams.html
 - Digital business card for sales teams & field sales reps (prospect saves the rep in one tap, lead capture on Pro and Business, brand and template lock, CRM sync and no seat minimum on Business): https://company-card.com/digital-business-card-for-sales-teams.html
@@ -50,6 +50,7 @@
 - Digital business card for property managers (one QR code and link for owners, tenants and contractors, labelled tenant repair link and emergency line, details stay current in every welcome pack): https://company-card.com/digital-business-card-for-property-managers.html
 - Digital business card for consultants & coaches: https://company-card.com/digital-business-card-for-consultants.html
 - Digital business card for contractors & trades: https://company-card.com/digital-business-card-for-contractors.html
+- Digital business card for handymen (QR code for the van and the invoice, tap to call or text, photos of finished work and reviews one tap away, details editable without reprinting, no app for customers): https://company-card.com/digital-business-card-for-handymen.html
 - Digital business card for photographers: https://company-card.com/digital-business-card-for-photographers.html
 - Digital business card for interior designers (portfolio, Instagram and booking link one tap from a QR code, saved to a client's phone without typing, PDF lookbook on Pro, stays current when the studio moves): https://company-card.com/digital-business-card-for-interior-designers.html
 - Digital business card for coaches & therapists: https://company-card.com/digital-business-card-for-coaches.html
@@ -589,6 +590,20 @@ Q: Do homeowners need an app to open a contractor's digital business card?
 A: No, they point the phone camera at the code on your van or quote, or tap the link in your text, and the card opens as a web page with your number one tap from saved. There is nothing to install, which matters when the person scanning has a leaking pipe behind them.
 Q: Can I show my licence and insurance on the card?
 A: Yes, add the licence number and classification as text and an insured-and-bonded line, so a homeowner or general contractor sees them before asking. Some state boards regulate how a contractor's licence number appears in advertising, so check yours and follow it. Keep the certificate of insurance ready to send: the card states it, the certificate proves it.
+
+### Digital Business Card for Handymen — Saved in One Tap | CompanyCard
+URL: https://company-card.com/digital-business-card-for-handymen.html
+Description: A digital business card for handymen and home repair pros — a QR code for the van and the invoice, tap to call or text, photos of your work, and details you can change without reprinting a thing. Free to start, no app for your customers.
+Q: What should a handyman's digital business card include?
+A: The jobs you take and the ones you do not, your service area, tap-to-call and tap-to-text numbers, photos of finished work, a link to where your reviews live, and whatever insurance or licensing information your own state, county, city and insurer expect you to show.
+Q: Do my customers need an app to open the card?
+A: No. The card opens in any phone browser from a QR code or a link, and saving you to their contacts is one tap. Only you need an account.
+Q: What happens to the QR code on my van when I change my number or add a service?
+A: Nothing needs repainting or reprinting. The QR code and the link point to your live card, so you edit the number or the service list once and every van sticker, invoice and door hanger you have already given out shows the new details.
+Q: Can I show photos of my work on the card?
+A: Yes. On the free plan the card carries your profile, links and socials, so your Google Business Profile gallery, Facebook page or Instagram are one tap away. Pro adds unlimited links and files, so a before-and-after sheet can sit on the card itself.
+Q: Is it free for a self-employed handyman?
+A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro. Lead capture, analytics, custom branding and unlimited links and files are part of Pro.
 
 ### Digital Business Card for Photographers | CompanyCard
 URL: https://company-card.com/digital-business-card-for-photographers.html
