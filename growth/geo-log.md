@@ -2,6 +2,71 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-25 — /digital-business-card-for-handymen (batch 35)
+
+- Picked from the standing backlog (self-employed trades): every listed
+  profession and feature page already exists and the comparison re-verify is
+  next due ~11-01 (pages already stamped October). GSC (28 days to 10/23)
+  shows no un-served gap a positive page can honestly fill: the vCard cluster
+  (business vcard 42 @ 46.2, qr code vcard format 16 @ 42.4, what is a vcard
+  2 @ 49) is already served by vcard-qr-code, open-vcf-file and electronic-
+  business-card; "digital business card for field sales" 29 @ 50.7 stays with
+  the sales-teams page (10-19 decision); "most secure digital business card"
+  22 @ 45.8 waits on owner-stated security facts. Handymen = one-person,
+  one-van, word-of-mouth businesses (the ICP); the word appeared on no page
+  (contractors, electricians, plumbers, landscapers, cleaners checked), so
+  nothing to cannibalise. Coverage page, not query-driven.
+- Shipped commit 0fb2148: `digital-business-card-for-handymen.html`
+  (seo/pages_data31.py, seo/build_pages30.py, seo/wire_batch35.py). No
+  competitor named, no prices printed, no licensing or insurance rule
+  asserted ("licensing differs by state, county and city; some work is
+  reserved for licensed electricians or plumbers — show what your own rules
+  require"). Reviews and photos are described as links to pages the reader
+  already has (Google Business Profile, Facebook, Nextdoor); CompanyCard does
+  not host or verify reviews.
+- Wired: "For Handymen" after "For Contractors" in the Solutions footer (20
+  files), sitemap.xml, llms.txt (after the contractors line), llms-full.txt
+  rebuilt (74 pages, 391 Q&A), forced 301 for the bare slug. Only the new
+  page is date-stamped (add_freshness.py NOT run). Script note: the first
+  wire_batch35 draft lost its llms.txt `if` block to a regex edit and
+  silently skipped the line — caught by grepping llms.txt, fixed before
+  commit.
+- Validation: 1 h1, unique title, meta, canonical, 3 valid JSON-LD
+  (FAQPage, BreadcrumbList, WebPage), 5 visible FAQs = 5 schema questions;
+  sync_faq_schema exit 0 (71 FAQ pages, 0 synced); xmllint sitemap OK.
+- Live: 200 with the expected h1 ~5 s after push; bare slug 301 -> .html;
+  live sitemap 74; homepage footer, llms.txt and llms-full.txt carry the
+  link. IndexNow 200 (page + llms.txt + llms-full.txt + sitemap).
+
+**Measured 2026-10-25**
+- Sitemap URLs: 73 (live, before push) -> 74.
+- GSC Page indexing: indexed 68 flat; not indexed 29 = 24 page with
+  redirect, 4 discovered-not-indexed, 1 crawled-not-indexed (business.html).
+  No new reasons.
+- GSC Performance, 28 days (data to 10/23): impressions 4,510 (from 4,320),
+  avg position 34.0 (from 33.3 — fourth non-improvement in a row; growth is
+  still deep-position impressions), clicks 28 (flat), 395 queries (from 392).
+- Top non-brand: best digital business card 143 @ 48.9, best digital
+  business cards 121 @ 45.9, online business card 112 @ 69.3, digital
+  business card app 67 @ 53.7, blinq alternative 59 @ 38.9, popl alternative
+  57 @ 42.1, hihello vs blinq 55 @ 41.2, qr code business card 52 @ 64.2,
+  business vcard 42 @ 46.2, virtual business card maker 40 @ 40.0 — all 0
+  clicks. Near page 1: event planner business cards 4 @ 6.5, business card
+  maker free 15 @ 11.7, uniqode alternative 23 @ 12.5, what to put on
+  business card as owner 10 @ 12.6, business card for owner of company 8 @
+  14.1, blinq vs popl 9 @ 16.3, digital business card at events 6 @ 16.5,
+  sole proprietor title on business card 2 @ 17.5 (the 10-23 rows have not
+  moved it yet). hihello alternative 26 @ 20.7, bookkeeping business card 28
+  @ 23.8, bookkeeper business cards 22 @ 26.8 / 21 @ 24.3. Candidate for a
+  future strengthen: digital business cards law firm 16 @ 69.6 + digital
+  business cards for legal teams 1 @ 50 — the lawyers page does not address
+  firms/teams.
+- OFF-SITE (browser pane today): Product Hunt /products/companycard 404;
+  Trustpilot /review/company-card.com "could not be found"; AlternativeTo
+  search "companycard" returns only Pleo and CompanyCam; Capterra search
+  stayed behind a bot challenge (not bypassed; last confirmed absent
+  2026-10-19). sameAs still G2 + Chrome Web Store only.
+
 ## 2026-10-23 — business-card-for-business-owners: owner-title long tail (batch 34)
 
 - Picked from GSC, not the profession backlog: every listed profession and
