@@ -2,6 +2,38 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-27 — lawyers page: whole-law-firm section (batch 36)
+
+- NOT a new page. GSC (28 days to 10/25): "digital business cards law firm"
+  17 @ 69.8, "digital business cards for legal teams" 1 @ 50 — the firm-wide
+  case was one FAQ on a page written for a single lawyer. Wallet cluster
+  (apple wallet business card 9 @ 74.8, digital business card apple wallet
+  9 @ 69.8, google wallet business card 5 @ 67.6) is already served by
+  digital-business-card-apple-wallet.html (title names both wallets) — a
+  separate Google Wallet page would cannibalise; candidate for a strengthen
+  pass next.
+- Shipped commit aab3a53 via seo/improve_lawyers_firm_2026_10_27.py: title
+  -> "Digital Business Cards for Lawyers & Law Firms", meta/og/twitter
+  description names the whole-firm case, new section "Digital business cards
+  for a whole law firm" (roles table: partners, associates/of counsel,
+  paralegals, intake; Business plan facts from seo/facts.py — re-read against
+  pricing.html today, unchanged), 1 FAQ "How much do digital business cards
+  cost for a law firm?" (JSON-LD Question appended). No competitor named, no
+  bar rule asserted. llms.txt line + llms-full.txt rebuilt (74 pages, 392
+  Q&A), sitemap lastmod 10-27. sync_faq_schema: 0 synced, OK. One h1, one
+  title/canonical/description, 3 valid JSON-LD; xmllint OK.
+- LIVE 200 in ~20 s with the new title; IndexNow 200.
+- MEASURED 10-27: sitemap 74 (flat). GSC indexing (last update 10/23):
+  indexed 68 flat; not indexed 35 (was 29): redirect 26, 404 2 (NEW, first
+  detected 10/24 — the URLs are the Chrome extension manifest match patterns
+  `https://company-card.com/app/*` and `https://company-card.com/*`, not real
+  pages; no action), discovered-not-indexed 6 (was 4), crawled-not-indexed 1.
+  Performance 28d (to 10/25): clicks 27, impressions 4,720, avg position 34.8
+  (5th non-improvement), 396 queries.
+- OFF-SITE STILL BLOCKED: Organization.sameAs empty — no G2 / Capterra /
+  Product Hunt / AlternativeTo / Trustpilot / social profiles. Owner only.
+- Next: comparison re-verify due 11-01; strengthen the wallet page.
+
 ## 2026-10-25 — /digital-business-card-for-handymen (batch 35)
 
 - Picked from the standing backlog (self-employed trades): every listed
