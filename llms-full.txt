@@ -59,7 +59,7 @@
 - Digital business card for salons & barbers: https://company-card.com/digital-business-card-for-salons.html
 - Digital business card for accountants & bookkeepers: https://company-card.com/digital-business-card-for-accountants.html
 - Digital business card for bookkeepers (monthly bookkeeping, catch-up work, remote clients referred by accountants): https://company-card.com/digital-business-card-for-bookkeepers.html
-- Digital business card for lawyers & small law firms (practice areas, jurisdictions, first consultations for referred clients): https://company-card.com/digital-business-card-for-lawyers.html
+- Digital business cards for lawyers & law firms (practice areas, jurisdictions, first consultations for referred clients; one firm design for every lawyer, paralegal and intake person on Business, no seat minimum): https://company-card.com/digital-business-card-for-lawyers.html
 - Digital business card for therapists in private practice (what you work with, where you are licensed, fees, openings, first calls from referrals): https://company-card.com/digital-business-card-for-therapists.html
 - Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
 - Digital business card for personal trainers: https://company-card.com/digital-business-card-for-personal-trainers.html
@@ -757,9 +757,9 @@ A: It depends where you work. Some countries and states regulate bookkeeping ser
 Q: Is it free?
 A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
 
-### Digital Business Card for Lawyers & Small Law Firms | CompanyCard
+### Digital Business Cards for Lawyers & Law Firms | CompanyCard
 URL: https://company-card.com/digital-business-card-for-lawyers.html
-Description: A digital business card for lawyers and small law firms — show your practice areas and where you practise, let referred clients book a first consultation, and edit it any time. Free to start.
+Description: Digital business cards for lawyers and law firms — practice areas, where you are admitted and how to book a first consultation, with one firm design for every lawyer and staff member. Free to start.
 Q: What should a lawyer put on a digital business card?
 A: Your name and firm, your practice areas in plain words, the jurisdictions where you are admitted, your office address and hours, how a first consultation works, a direct way to reach you or your intake team, and any wording your regulator requires on lawyer marketing.
 Q: Is a digital business card allowed for lawyers?
@@ -772,6 +772,8 @@ Q: Do the people I share it with need an app?
 A: No. The card opens in any browser from a link or a QR code, and the reader saves your details to their contacts with one tap.
 Q: Is it free?
 A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: How much do digital business cards cost for a law firm?
+A: A solo lawyer can use the free plan: one card, $0 forever, with a small CompanyCard credit under the card. Pro is $4.99 a month, or $3.99 a month billed yearly, and removes the credit. A firm that wants one locked design and a central admin dashboard uses Business at $4.99 per user a month, or $3.99 per user a month billed yearly, with no seat minimum, arranged by talking to us about teams. Prices are in US dollars.
 
 ### Digital Business Card for Therapists in Private Practice | CompanyCard
 URL: https://company-card.com/digital-business-card-for-therapists.html
