@@ -2,6 +2,39 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-10-29 — NOTHING SHIPPED: the wallet-pass claim is not backed by the product
+
+- Planned item (from 10-27 "Next"): strengthen digital-business-card-apple-wallet.html
+  for the wallet cluster. GSC 28d to 10/27: digital business card apple wallet
+  13 @ 74.1, google wallet business card 11 @ 73.7, apple wallet business card
+  9 @ 74.8, digital business card google wallet 6 @ 23.5 (11 queries, 59 impr,
+  0 clicks, avg 67.2).
+- STOPPED before writing: the product code has no wallet pass. grep of app/,
+  server/, supabase/, extension/ for wallet/pkpass/passkit/walletobjects: the only
+  hits are app/builder.html's meta description and app/mobile.html, where the
+  Wallet button calls toast("Added to Apple Wallet (demo)"). The public card page
+  (app/card-view.js, live copy checked: 0 "wallet") offers QR, link and a vCard
+  download only. There is no Apple pass signing and no Google Wallet API code.
+- Yet "Apple and Google Wallet pass" is stated as a free-plan fact on 76 pages
+  (574 mentions incl. llms.txt / llms-full.txt), in seo/facts.py PLANS, the
+  SoftwareApplication featureList and the pricing Offer JSON-LD; the wallet page's
+  step list tells readers to "Tap Add to Apple Wallet" — a button that does not
+  exist. It is also one of the three "checkable edges" in the loop's own brief.
+- Not fixed unilaterally: the owner either builds the pass (Apple needs a Pass
+  Type ID certificate from a paid Apple Developer account; Google needs a Wallet
+  issuer account — both owner accounts) or the claim comes off every page via
+  facts.py + a sweep script. Until decided, no new page or strengthen pass repeats
+  the wallet claim, and every new page would (pages_data31 / add_verified_facts
+  print it) — so no page shipped this run.
+- MEASURED 10-29: sitemap 74 (flat). GSC indexing: indexed 68 flat; not indexed
+  35 flat (redirect 26, 404 2 = extension match patterns, discovered-not-indexed 6,
+  crawled-not-indexed 1). Performance 28d: clicks 25, impressions 5,040, avg
+  position 35.5 (6th non-improvement), 402 queries.
+- Off-site: Organization.sameAs = G2 (unclaimed profile) + Chrome Web Store only.
+  No Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Next: owner decision on the wallet claim; comparison re-verify due 11-01 (those
+  pages also list our wallet pass — fix together).
+
 ## 2026-10-27 — lawyers page: whole-law-firm section (batch 36)
 
 - NOT a new page. GSC (28 days to 10/25): "digital business cards law firm"
