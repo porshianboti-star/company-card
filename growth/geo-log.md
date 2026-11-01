@@ -2,6 +2,43 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-01 (second run) — sales-teams page: single sales rep section (batch 37)
+
+- NOT a new page (every template still prints the wallet-pass claim; owner
+  decision pending since 10-29). GSC 28d to 10/30: "sales rep business card"
+  23 @ 53.4, "sales representative business card" 22 @ 66.5 (47 impr, all on
+  digital-business-card-for-sales-teams.html at 59.8), "digital business card
+  for field sales" 40 @ 49.0. The page was written for a manager rolling cards
+  out to a team; the one rep setting up their own card was a single FAQ, and
+  the title never said "sales rep".
+- Shipped commit ebbadcb via seo/improve_sales_rep_2026_11_01.py: title/og/
+  twitter -> "Digital Business Card for Sales Reps, Field Sales & Sales Teams"
+  (keeps every word the old title ranked for; H1 unchanged), meta description
+  names the single rep, new section "A digital business card for one sales rep"
+  with a by-role table (inside sales/SDR, field or territory rep, account
+  executive, manufacturer's or distributor's rep) + a paper-card QR note,
+  2 FAQs ("What should a sales rep put on a business card?", "Can a sales
+  representative use CompanyCard without a company account?") visible + JSON-LD.
+  All plan facts from seo/facts.py; the new text does NOT repeat the wallet
+  claim; no statistic, no competitor. sync_faq_schema OK (0 synced), llms-full
+  rebuilt (74 pages, 394 Q&A), llms.txt line updated, sitemap lastmod 11-01,
+  xmllint OK; 1 h1 / title / canonical / description, 3 valid JSON-LD blocks.
+- LIVE 200 on the first poll (~1 min after push) with the new title, both FAQs
+  and the sitemap lastmod; IndexNow 200 (page + llms.txt + llms-full.txt +
+  sitemap).
+- MEASURED (same data as this morning, GSC still ends 10/30): sitemap 74 flat;
+  indexed 68 flat; not indexed 35 flat (redirect 26, 404 2, discovered 6,
+  crawled-not-indexed 1); 28d clicks 21, impressions 5,660, pos 35.9, 416
+  queries. Other clusters read while choosing: "online business card" 164 @
+  70.4 (all on the maker page), "digital business card app" cluster 135 @ 59.5
+  (113 on best-digital-business-card), bookkeeper cluster ~70 impr @ 25-27,
+  "digital business card for small business" 10 @ 37.5.
+- Off-site: unchanged — sameAs = G2 (unclaimed) + Chrome Web Store only; no
+  Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Next: owner decision on the wallet claim still blocks every new page; watch
+  the sales-rep pair and "best digital business card(s)" in the 11-15 run;
+  comparison re-verify due 12-01.
+
 ## 2026-11-01 — monthly competitor re-verify: HiHello's free plan shrank to 2 cards
 
 - Due today (10-01 restamp set 11-01). All six sources on best-digital-business-card
