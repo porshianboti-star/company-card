@@ -2,6 +2,60 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-01 — monthly competitor re-verify: HiHello's free plan shrank to 2 cards
+
+- Due today (10-01 restamp set 11-01). All six sources on best-digital-business-card
+  and free-digital-business-card-comparison re-read 2026-11-01: hihello.com/pricing,
+  wavecnct.com/pricing (Monthly toggle clicked: Pro $9, Teams $7 "(min 3)") and
+  mobilocard.com/pricing-2 (Pro "$3 /month", "Start for Free"; only seat text is a
+  "* Requires 100 seats or more" footnote on two enterprise features) in the in-app
+  browser; blinq.me/pricing, popl.co/pages/pricing, uniqode.com/pricing by fetch.
+- CHANGED: HiHello Personal (free) is now "2 digital business cards" (was 4) and
+  Professional is "8 digital business cards" (was 16); Enterprise is "100+ users"
+  (we quoted "101+"). Prices unchanged ($6 yearly / $8 monthly; Business $5 / $6
+  per user, "5-100 users", "five-seat minimum"). UNCHANGED: Blinq (2 free, Premium
+  $9.99 / $7.33 for up to 5 cards, Business $6.99 / $4.99, "minimum of five", the
+  billing-FAQ quotes we print), Wave, Popl ("Request Pricing", no free plan),
+  Uniqode ($6/user, "we do not offer monthly plans"), Mobilo.
+- CORRECTED a misleading framing that was ours, not a vendor's: the two comparison
+  pages contrasted CompanyCard's "no monthly cap on how often it is scanned" with
+  HiHello's "5 card & badge scans / month". HiHello's cap is on its paper-card and
+  badge SCANNER (the lead-capture feature); its page states "Other people can scan
+  your own HiHello QR code as often as they like, on every plan." Both pages now
+  say so, and the free page's "Scan caps" section says no free plan here caps
+  scans of your own card. (hihello-alternative and hihello-vs-blinq already had
+  it right.)
+- Shipped commit 71ae7dd via seo/refresh_verified_nov2026.py: card counts fixed on
+  best-digital-business-card, free-digital-business-card-comparison,
+  hihello-alternative, hihello-vs-blinq, hihello-vs-popl, digital-business-card-cost
+  and llms.txt (sentence-level stamps bumped to November / 1 November 2026 only
+  where the sentence was re-checked; the hihello-vs-blinq page-level "read on 13
+  September 2026" lines stay — its other quoted strings were not all re-read).
+  llms-full.txt rebuilt (74 pages, 392 Q&A). sync_faq_schema: 0 synced, OK.
+  Each touched page: 1 h1, 1 title/canonical/description, valid JSON-LD,
+  dateModified 2026-11-01; sitemap lastmod for the 6 pages; xmllint OK.
+- NOT touched: the free-plan "Apple and Google Wallet pass" claim (still on all 76
+  pages incl. these two) — owner decision pending since 10-29. No new page this
+  run: every template prints that claim.
+- LIVE: the Netlify deploy carried all four checks (best page "two each", free page
+  HiHello row "2", vs-blinq "8 cards", llms.txt "free 2 cards each") on the first
+  poll, ~2 min after push; best page 200; live sitemap 74 with lastmod 2026-11-01.
+  IndexNow 200 for the 6 pages + llms.txt + llms-full.txt + sitemap.
+- MEASURED 11-01: sitemap 74 (flat). GSC indexing: indexed 68 flat; not indexed
+  35 flat (redirect 26, 404 2 = extension match patterns, discovered-not-indexed 6,
+  crawled-not-indexed 1). Performance 28d (to 10/30): clicks 21, impressions
+  5,660, avg position 35.9 (7th non-improvement), 416 queries. Top impressions:
+  "company card" 320, "online business card" 164, "best digital business card"
+  151 / "best digital business cards" 124 (0 clicks on both), "wave connect
+  alternatives" 98, "qr code business card" 94, "free digital business card" 77.
+  Clicks: "companycard" 4 / 26.
+- Off-site: Organization.sameAs = G2 (unclaimed profile) + Chrome Web Store only.
+  No Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Next: owner decision on the wallet claim (blocks every new page); next
+  comparison re-verify due 12-01; the "best digital business card(s)" pair
+  (275 impr, 0 clicks) is the money query the refreshed page targets — watch its
+  position in the 11-15 run.
+
 ## 2026-10-29 — NOTHING SHIPPED: the wallet-pass claim is not backed by the product
 
 - Planned item (from 10-27 "Next"): strengthen digital-business-card-apple-wallet.html
