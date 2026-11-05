@@ -2,6 +2,42 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-05 — bookkeepers page: bookkeeping-business section (batch 38)
+
+- NOT a new page (every template still prints the wallet-pass claim; owner
+  decision pending since 10-29). GSC 28d: "bookkeeping business card" 24 @ 25.2,
+  "bookkeeper business card" 19 @ 26.0, "bookkeeper business cards" 17 @ 27.2,
+  "bookkeeping business cards" 1 @ 34.0 (61 impr, 0 clicks, avg 26.2) — the
+  profession cluster closest to page 2. The page addressed the bookkeeper as a
+  person; the title never said "bookkeeping" or covered a practice / printed cards.
+- Shipped commit 75ac7fb via seo/improve_bookkeeping_business_2026_11_05.py:
+  title/og/twitter -> "Digital Business Card for Bookkeepers & Bookkeeping
+  Businesses" (H1 unchanged), description names the practice and printed cards;
+  new section "Business cards for a bookkeeping business" with a by-practice table
+  (sole practitioner own name / trading name, small practice with staff, printed
+  cards + QR); 2 FAQs ("What should a bookkeeping business card say?", "Can a
+  bookkeeping practice with staff give everyone a card?") visible + JSON-LD. Plan
+  facts from seo/facts.py only; new text does NOT repeat the wallet claim (page
+  wallet count 4 before and after); no statistic, no regulation, no competitor.
+  sync_faq_schema OK (0 synced), llms-full rebuilt (74 pages, 396 Q&A), llms.txt
+  line updated, sitemap lastmod 11-05, xmllint OK; 1 h1 / title / canonical /
+  description, 3 valid JSON-LD blocks.
+- LIVE 200 on poll 4 (~40 s after push) with the new title, the new FAQ and
+  sitemap lastmod 2026-11-05; IndexNow 200 (page + llms.txt + llms-full.txt +
+  sitemap).
+- MEASURED 2026-11-05: sitemap 74 flat; indexed 68 flat; not indexed 35 flat
+  (redirect 26, 404 2, discovered 6, crawled-not-indexed 1); 28d clicks 21 flat,
+  impressions 6,480 (up from 5,660), pos 35.1 (from 35.9), 466 queries (from 416).
+  Top: "company card" 339 @ 21.6, "wave connect alternatives" 255 @ 6.7, "online
+  business card" 198 @ 70.5, "best digital business card(s)" 153 @ 49.9 + 127 @
+  50.1, "qr code business card" 112 @ 66.9, "free digital business card" 90 @ 70.7.
+- Off-site: unchanged — sameAs = G2 (unclaimed) + Chrome Web Store only; no
+  Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Gotcha: a fresh clone has no git identity; set user.name/email from the last
+  commit before committing.
+- Next: wallet-claim decision still blocks new pages; watch the bookkeeping
+  cluster in the 11-15 run; comparison re-verify due 12-01.
+
 ## 2026-11-01 (second run) — sales-teams page: single sales rep section (batch 37)
 
 - NOT a new page (every template still prints the wallet-pass claim; owner
