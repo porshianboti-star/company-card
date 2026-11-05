@@ -58,7 +58,7 @@
 - Digital business card for financial advisors (clients and referral partners forward one link, prospects save you in one tap and book a first meeting, wording approved like other marketing, lead capture on Pro): https://company-card.com/digital-business-card-for-financial-advisors.html
 - Digital business card for salons & barbers: https://company-card.com/digital-business-card-for-salons.html
 - Digital business card for accountants & bookkeepers: https://company-card.com/digital-business-card-for-accountants.html
-- Digital business card for bookkeepers (monthly bookkeeping, catch-up work, remote clients referred by accountants): https://company-card.com/digital-business-card-for-bookkeepers.html
+- Digital business card for bookkeepers & bookkeeping businesses (monthly bookkeeping, catch-up work, remote clients referred by accountants; one card per person in a practice, QR code for printed cards): https://company-card.com/digital-business-card-for-bookkeepers.html
 - Digital business cards for lawyers & law firms (practice areas, jurisdictions, first consultations for referred clients; one firm design for every lawyer, paralegal and intake person on Business, no seat minimum): https://company-card.com/digital-business-card-for-lawyers.html
 - Digital business card for therapists in private practice (what you work with, where you are licensed, fees, openings, first calls from referrals): https://company-card.com/digital-business-card-for-therapists.html
 - Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
@@ -745,9 +745,9 @@ A: Yes: the QR code and link point to the card, not to a copy of it, so an edit 
 Q: Is there a free plan for a sole practitioner or bookkeeper?
 A: Yes: a sole practitioner's or bookkeeper's free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
 
-### Digital Business Card for Bookkeepers | CompanyCard
+### Digital Business Card for Bookkeepers & Bookkeeping Businesses | CompanyCard
 URL: https://company-card.com/digital-business-card-for-bookkeepers.html
-Description: A digital business card for bookkeepers — show the software you work in, your monthly services and catch-up work, and let referred clients book a discovery call. Free to start.
+Description: A digital business card for bookkeepers and bookkeeping businesses — the software you work in, your monthly services and catch-up work, a discovery-call link, one card per person in a practice, and a QR code for printed cards. Free to start.
 Q: What should a bookkeeper put on a digital business card?
 A: Your name and business, the accounting software you work in and any certification you hold for it, the monthly services you provide, whether you take catch-up work, the client types you specialise in, how you price, a link to book a discovery call and a link to the secure portal clients use to send documents.
 Q: How is a bookkeeper's card different from an accountant's?
@@ -760,6 +760,10 @@ Q: Do I need to show a registration or licence number?
 A: It depends where you work. Some countries and states regulate bookkeeping services or require registration for certain work, such as payroll or tax filings; many do not. Check the rules that apply to you, and if you hold a registration, adding it to the card is quick.
 Q: Is it free?
 A: Yes. The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited updates — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: What should a bookkeeping business card say?
+A: The business name and the person to contact, "Bookkeeper" or the title you use, the accounting software you work in, the monthly services you offer, whether you take catch-up work, a phone number and email, and a link to book a discovery call. On a CompanyCard those details open from a link or a QR code, and every one of them can be edited later without handing out a new card.
+Q: Can a bookkeeping practice with staff give everyone a card?
+A: Yes. Each person gets their own card with their own direct line and booking link. The Business plan is priced per user with no seat minimum, at $4.99 per user a month or $3.99 per user a month billed yearly, and adds a central admin dashboard and brand and template lock so every card in the practice uses the same design. Business is set up by contacting us. A sole practitioner only needs one card, and the free plan covers it.
 
 ### Digital Business Cards for Lawyers & Law Firms | CompanyCard
 URL: https://company-card.com/digital-business-card-for-lawyers.html
