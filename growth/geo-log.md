@@ -2,6 +2,42 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-07 — insurance-agents page: insurance-professionals agency section (batch 39)
+
+- NOT a new page (every template still prints the wallet-pass claim; owner
+  decision pending since 10-29). GSC 28d: "insurance professionals digital
+  business cards" 9 @ 26.4, "digital business cards for insurance professionals"
+  7 @ 46.9, "insurance sales digital business cards" 4 @ 40.5 (20 impr, 0 clicks).
+  The title said "Agents & Brokers" only and the page never covered an agency.
+- Shipped commit 973235c via seo/improve_insurance_professionals_2026_11_07.py:
+  title/og/twitter/WebPage name -> "Digital Business Cards for Insurance Agents,
+  Brokers & Insurance Professionals" (H1 unchanged), description names producers
+  and account managers in an agency; new section "Cards for insurance
+  professionals across an agency" with a by-role table (producer/agent, account
+  manager/service rep, agency principal, printed cards + QR); 2 FAQs ("Can an
+  insurance agency give every producer and account manager a digital business
+  card?", "What should an insurance sales professional put on a digital business
+  card?") visible + JSON-LD. Plan facts from seo/facts.py only; new text does NOT
+  repeat the wallet claim; no statistic, no new licensing rule, no competitor.
+  sync_faq_schema OK (0 synced), llms-full rebuilt (74 pages, 398 Q&A), llms.txt
+  line updated, sitemap lastmod 11-07, xmllint OK; 1 h1 / title / canonical /
+  description, 3 valid JSON-LD blocks. Footer already links the page.
+- LIVE 200 on poll 2 with the new title, section, FAQ and sitemap lastmod
+  2026-11-07; IndexNow 200 (page + llms.txt + llms-full.txt + sitemap).
+- MEASURED 2026-11-07: sitemap 74 flat; indexed 68 flat; not indexed 35 flat
+  (redirect 26, 404 2, discovered 6, crawled-not-indexed 1); 28d clicks 20 (from
+  21), impressions 6,680 (from 6,480), pos 34.8 (from 35.1), 471 queries (from
+  466). Top: "company card" 353 @ 21.7, "wave connect alternatives" 312 @ 6.6,
+  "online business card" 204 @ 70.8, "best digital business card(s)" 151 @ 50.4 +
+  134 @ 51.2, "qr code business card" 109 @ 66.8. Bookkeeping cluster after the
+  11-05 change: "bookkeeping business card" 23 @ 25.5, "bookkeeper business card"
+  18 @ 26.2, "bookkeeper business cards" 17 @ 27.2 (flat; too early).
+- Off-site: unchanged — sameAs = G2 (unclaimed) + Chrome Web Store only; no
+  Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Next: wallet-claim decision still blocks new pages; "business cards for large
+  teams" 18 @ 25.2 is on the teams page (not ICP, left alone); comparison
+  re-verify due 12-01.
+
 ## 2026-11-05 — bookkeepers page: bookkeeping-business section (batch 38)
 
 - NOT a new page (every template still prints the wallet-pass claim; owner
