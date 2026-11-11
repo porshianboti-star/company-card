@@ -2,6 +2,43 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-11 — notaries page: printed + digital notary business cards (batch 40)
+
+- NOT a new page (every template still prints the wallet-pass claim; owner
+  decision pending since 10-29). GSC 28d to 11-08: "notary business card" 16 @
+  35.1, "business cards notary" 16 @ 37.8, "notary business cards" 7 @ 34.6; all
+  "notar*" impressions (46 @ 35.4) land on digital-business-card-for-notaries.html.
+  The title never said "notary business card" and the page never covered the
+  printed card a notary still hands out.
+- Shipped commit ed84c80 via seo/improve_notary_business_cards_2026_11_11.py:
+  title/og/twitter/WebPage name -> "Notary Business Cards: Digital Business Card
+  for Notaries & Signing Agents" (H1 unchanged), description names printed notary
+  business cards; new section "Notary business cards, printed and digital" with a
+  by-format table (printed card, folder sticker, link sent to a booker, email
+  signature) pointing to the existing state-rules section (new id="state-rules");
+  2 FAQs ("What should a notary business card say?", "Do notaries still need
+  printed business cards if they have a digital one?") visible + JSON-LD. Plan
+  facts from seo/facts.py only; no wallet text, no statistic, no new state rule,
+  no competitor. sync_faq_schema OK (0 synced), llms-full rebuilt (74 pages, 400
+  Q&A), llms.txt line updated, sitemap lastmod 11-11, xmllint OK; 1 h1 / title /
+  canonical / description, 3 valid JSON-LD blocks. Footer already links the page.
+- Gotcha caught before push: the new title CONTAINS the old one, so a plain
+  `if OLD in s: replace` doubles the prefix on a re-run; guard with `NEW not in s`.
+- LIVE 200 on poll 2 with the new title, section, FAQ and sitemap lastmod
+  2026-11-11; IndexNow 200 (page + llms.txt + llms-full.txt + sitemap).
+- MEASURED 2026-11-11: sitemap 74 flat; indexed 70 (up from 68); not indexed 36
+  (from 35: redirect 26, 404 2, discovered 6, NEW noindex 1, NEW blocked by
+  robots.txt 1, crawled-not-indexed 0 from 1); 28d clicks 22 (from 20),
+  impressions 7,760 (from 6,680), pos 35.1 (from 34.8), 485 queries (from 471).
+  Top: "wave connect alternatives" 468 @ 6.6, "company card" 372 @ 21.2, "online
+  business card" 223 @ 72.3, "best digital business card(s)" 162 @ 51.0 + 143 @
+  52.0. Earlier changes: "insurance professionals digital business cards" 23 @
+  26.5 (from 9 @ 26.4), bookkeeping cluster flat (~49 impr @ ~26.7).
+- Off-site: unchanged — sameAs = G2 (unclaimed) + Chrome Web Store only; no
+  Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Next: identify the new noindex + robots.txt URLs in GSC; wallet-claim decision
+  still blocks new pages; comparison re-verify due 12-01.
+
 ## 2026-11-07 — insurance-agents page: insurance-professionals agency section (batch 39)
 
 - NOT a new page (every template still prints the wallet-pass claim; owner
