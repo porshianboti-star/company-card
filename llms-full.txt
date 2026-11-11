@@ -65,7 +65,7 @@
 - Digital business card for personal trainers: https://company-card.com/digital-business-card-for-personal-trainers.html
 - Digital business card for electricians: https://company-card.com/digital-business-card-for-electricians.html
 - Digital business card for plumbers (QR on the van, invoices and fridge magnets, emergency callouts in one tap, licence and insurance shown up front): https://company-card.com/digital-business-card-for-plumbers.html
-- Digital business card for notaries & mobile signing agents: https://company-card.com/digital-business-card-for-notaries.html
+- Notary business cards: digital business card for notaries & mobile signing agents (commission details, same-day bookings, QR code for printed notary business cards): https://company-card.com/digital-business-card-for-notaries.html
 - Digital business card for tutors & private teachers: https://company-card.com/digital-business-card-for-tutors.html
 - Digital business card for cleaners & cleaning businesses: https://company-card.com/digital-business-card-for-cleaners.html
 - Digital business card for landscapers & gardeners: https://company-card.com/digital-business-card-for-landscapers.html
@@ -1069,9 +1069,9 @@ A: If you want a premium physical NFC card and a CRM with follow-ups, booking an
 Q: Can I use my V1CE card with CompanyCard?
 A: If your NFC card lets you write a custom URL, you can point it at your CompanyCard link and a tap will open your card. CompanyCard does not sell hardware, so anything you already own keeps working alongside QR and link sharing.
 
-### Digital Business Card for Notaries & Signing Agents | CompanyCard
+### Notary Business Cards: Digital Business Card for Notaries & Signing Agents | CompanyCard
 URL: https://company-card.com/digital-business-card-for-notaries.html
-Description: A digital business card for notaries and mobile signing agents — carry your commission details, take same-day signings with one tap, and stay in every title company's contacts.
+Description: Notary business cards that stay current: a digital business card for notaries and mobile signing agents, with a QR code for your printed cards — carry your commission details, take same-day signings with one tap, and stay in every title company's contacts.
 Q: What should a notary's digital business card include?
 A: Your commission state, number and expiry date, whether you do loan signings and hold a current background screening, your E&O amount, whether you offer remote online notarization, your service counties, hours, languages and a direct number or booking link. Check your state's notary advertising rules before you publish.
 Q: How does a mobile signing agent get title companies to save the card?
@@ -1080,6 +1080,10 @@ Q: What happens to the printed QR code when my commission renews?
 A: Nothing needs reprinting. The QR code and link open the live card, so you change the expiry date, commission number or E&O amount once and every card, folder sticker and flyer already out there shows the current details.
 Q: Should I show both mobile and remote online notarization on the card?
 A: Only what your state has authorised you for. If you hold a RON authorisation, name it and the platform so lenders who need remote closings can find you; if you are mobile only, say so, and no signing service books you for the wrong appointment type.
+Q: What should a notary business card say?
+A: Your name, Notary Public or Notary Public and Loan Signing Agent, your direct number and a QR code. Details that change, such as your commission expiry, E&O amount, service area and travel fee, are better kept on the digital card the QR code opens, so a card printed today is still right after a renewal. Check your state's notary advertising rules before you print anything.
+Q: Do notaries still need printed business cards if they have a digital one?
+A: Many still hand them out, at the signing table and in the closing folder. The two work together: print a short card with the QR code from your CompanyCard, and the code opens your current commission, coverage and booking details. When those change you edit the digital card once and every printed card already handed out shows the update.
 
 ### Digital Business Card for Tutors & Private Teachers | CompanyCard
 URL: https://company-card.com/digital-business-card-for-tutors.html
