@@ -2,6 +2,48 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-13 — realtors page: how to choose the best card for a realtor (batch 41)
+
+- NOT a new page (every template still prints the wallet-pass claim; owner
+  decision pending since 10-29). GSC 28d to 11-10: all "real*" queries = 142
+  impr @ 73.6, every one landing on digital-business-card-for-realtors.html, the
+  largest profession cluster on the property: "best digital business card for
+  realtors" 38 @ 53.4, "best digital business card for real estate agents" 18 @
+  51.4, "real estate digital business card" 26 @ 81.5, "digital business card
+  for realtors" 21 @ 91.0. The page never answered the "which is best" question.
+- Shipped commit ca50a02 via seo/improve_realtors_best_card_2026_11_13.py: new
+  section "How to choose the best digital business card for a realtor" (id
+  best-card) with a six-point table (what to check / why it matters in real
+  estate / what CompanyCard does), limits stated (free = one card with a small
+  credit; lead capture is Pro; Business bought by contacting us); 2 FAQs ("What
+  is the best digital business card for realtors?", "Is a free digital business
+  card enough for a real estate agent?") visible + JSON-LD; description names
+  the checklist; existing commission-rules heading got id="commission-rules".
+  Title and H1 unchanged; we do not call ourselves the best. Plan facts from
+  seo/facts.py only; no wallet text, no statistic, no new licensing rule, no
+  competitor. sync_faq_schema OK (0 synced), llms-full rebuilt (74 pages, 402
+  Q&A), llms.txt line updated, sitemap lastmod 11-13, xmllint OK; 1 h1 / title /
+  canonical / description, JSON-LD parses (FAQPage 9 questions).
+- LIVE 200 with the new section, FAQ, llms.txt line and sitemap lastmod
+  2026-11-13 (within ~4 min of push); IndexNow sent (page + llms + sitemap).
+- MEASURED 2026-11-13: sitemap 74 flat; indexed 69 (from 70); not indexed 37
+  (from 36: redirect 26, 404 2, noindex 1, robots.txt 1, discovered 6,
+  crawled-not-indexed 1 from 0); 28d clicks 23 (from 22), impressions 8,310
+  (from 7,760), pos 35.1 flat, 492 queries (from 485). Identified: noindex =
+  /app/onboarding.html (correct, app screen); crawled-not-indexed =
+  /app/builder (the -1 indexed; app screen, not a landing page). The
+  robots.txt URL was not read (the GSC tab hung twice on that drilldown).
+  Top: "wave connect alternatives" 557 @ 6.6, "company card" 370 @ 21.3,
+  "online business card" 234 @ 72.9, "best digital business card(s)" 163 @ 51.6
+  + 153 @ 52.2, "digital business card for field sales" 73 @ 38.6. Earlier
+  changes: notary cluster 52 @ 35.5 (from 46 @ 35.4), insurance 53 @ 33.5,
+  bookkeeping 42 @ 27.1.
+- Off-site: unchanged — sameAs = G2 (unclaimed) + Chrome Web Store only; no
+  Capterra / Product Hunt / AlternativeTo / Trustpilot / social. Owner only.
+- Next: personal-trainers page for "personal trainer business cards" 20 @ 55.1
+  (page untouched since 08-02); read the robots.txt-blocked URL; wallet-claim
+  decision still blocks new pages; comparison re-verify due 12-01.
+
 ## 2026-11-11 — notaries page: printed + digital notary business cards (batch 40)
 
 - NOT a new page (every template still prints the wallet-pass claim; owner
