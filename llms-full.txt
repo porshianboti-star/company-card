@@ -46,7 +46,7 @@
 - Digital business card for recruiters (candidates save the recruiter in one tap at career fairs and on calls, sectors placed and where to send a CV, lead capture on Pro, matching agency cards on Business): https://company-card.com/digital-business-card-for-recruiters.html
 
 ## Pages by profession
-- Digital business card for realtors: https://company-card.com/digital-business-card-for-realtors.html
+- Digital business card for realtors & real estate agents (open houses, brokerage and licence details, a six-point checklist for choosing the best card for an agent): https://company-card.com/digital-business-card-for-realtors.html
 - Digital business card for property managers (one QR code and link for owners, tenants and contractors, labelled tenant repair link and emergency line, details stay current in every welcome pack): https://company-card.com/digital-business-card-for-property-managers.html
 - Digital business card for consultants & coaches: https://company-card.com/digital-business-card-for-consultants.html
 - Digital business card for contractors & trades: https://company-card.com/digital-business-card-for-contractors.html
@@ -537,7 +537,7 @@ A: Be aware of the trade-off rather than surprised by it: CompanyCard's free pla
 
 ### Digital Business Card for Realtors & Real Estate Agents | CompanyCard
 URL: https://company-card.com/digital-business-card-for-realtors.html
-Description: A digital business card for realtors and real estate agents — share by QR at viewings and open houses, link straight to your listings, and update your details without reprinting anything.
+Description: A digital business card for realtors and real estate agents — share by QR at viewings and open houses, link straight to your listings, and update your details without reprinting anything. Includes a checklist for choosing the best digital business card for a real estate agent.
 Q: What should a realtor's digital business card include?
 A: Your headshot, the brokerage you hang your licence with, a mobile number for calls and texts, a link to your current listings, a booking link for showings, and the areas you work. Add your licence number and brokerage phone if your state's commission requires them on advertising.
 Q: How do I use a digital business card at an open house?
@@ -552,6 +552,10 @@ Q: Can open-house visitors leave their details on my card?
 A: Yes, on Pro. Lead capture lets a visitor send their name and contact details back from your card, and they are saved in your account, which replaces the paper sign-in sheet. On the free plan visitors can save your details in one tap, but the card does not collect theirs.
 Q: Can a real estate team give every agent a matching card?
 A: Yes. The Business plan has no seat minimum, so a two-agent team pays for two cards. It adds a central admin dashboard and brand and template lock, so every agent's card shows the same brokerage name and logo, and a change to the office details is made once for the whole team.
+Q: What is the best digital business card for realtors?
+A: The best one for a real estate agent is the one that passes six checks: the person receiving it needs no app, the QR code keeps working after you edit the card, edits are unlimited, there is room for your brokerage name and licence number, visitors can send their details back at an open house, and a team can have matching cards. CompanyCard covers the first four on its free plan, which is one card with a small CompanyCard credit under it. Lead capture is on Pro at $4.99 a month, or $3.99 a month billed yearly, and matching team cards are on Business.
+Q: Is a free digital business card enough for a real estate agent?
+A: For many solo agents, yes. The free CompanyCard plan is one card with a QR code and a sharing link, your listings link, brokerage and licence details, and unlimited edits, and the person scanning it needs no app. It carries a small CompanyCard credit under the card. Pro removes the credit and adds custom branding, lead capture for open-house sign-ins and analytics.
 
 ### Digital Business Card for Property Managers — Owners & Tenants | CompanyCard
 URL: https://company-card.com/digital-business-card-for-property-managers.html
