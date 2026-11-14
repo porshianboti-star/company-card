@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 21 wiring — sitewide footer, sitemap, llms.txt, freshness stamps.
+"""DO NOT RE-RUN (one-shot; non-idempotent). Re-running it adds duplicate llms.txt bullets, rolls dateModified back to its batch date and rewires footers on other pages; wire_batch20 stops on an assertion. Its strings were corrected on 2026-11-14 for the record only.
+
+Batch 21 wiring — sitewide footer, sitemap, llms.txt, freshness stamps.
 
 Same shape as wire_batch18.py (batch 19), for blinq-vs-popl.html.
 
@@ -100,8 +102,7 @@ ll = open("llms.txt", encoding="utf-8").read()
 
 LINE = ("- Blinq vs Popl — a head-to-head between two competitors, not a CompanyCard pitch. Blinq "
         "publishes every price (Free with two cards; Premium $9.99/mo or $7.33/mo annual, up to five "
-        "cards; Business $6.99/user/mo or $4.99 annual, billed per card with a minimum of five cards "
-        "to start, so the smallest Business bill is $34.95/mo). Popl publishes no rates and no tiers "
+        "cards; Pro $22.49/mo or $16.58/mo annual; Business $6.99/card/mo or $4.99 annual, with a minimum of five cards to start, so the smallest Business bill is $34.95/mo). Popl publishes no rates and no tiers "
         "— its pricing page's calls to action are \"Request Pricing\" and \"Book a Demo\", its "
         "homepage FAQ offers \"free trials and personalized demos\" rather than a free plan, and "
         "its \"Popl for Individuals\" link redirects to an app-download page — and it sells itself "

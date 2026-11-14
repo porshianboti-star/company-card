@@ -3,6 +3,11 @@
 import os, sys
 HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, HERE)
+# OVERWRITE-LIVE-GUARD-2026-11-14: the live hihello-vs-popl.html is the source of truth; this renderer's template
+# (nav, footer, Organization/WebSite JSON-LD) is older than the live page.
+if "--overwrite-live" not in sys.argv:
+    sys.exit("refusing to overwrite hihello-vs-popl.html: the live HTML is the source of truth. "
+             "Render into a scratch copy (build_pages.ROOT) and diff, or pass --overwrite-live.")
 from build_pages import write_pages
 from pages_data20 import PAGES
 for s in write_pages(PAGES):

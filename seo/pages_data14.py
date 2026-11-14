@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 14: digital-business-card-cost.html — the cross-vendor cost page.
+"""SUPERSEDED IN PART, 2026-11-14. No script renders this file any more and the live HTML is the source of truth: do not render it with build_pages.write_pages or re-run it. seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the corrected competitor lines from the live page (HiHello: 2 free cards, 8 on Professional, Business 4 cards and 50 scans per user a month pooled, unlimited only on Enterprise; Blinq: scanner on Free, 'Remove Blinq branding' on Premium, a separate Pro tier, Business per card from 5 cards). Stamps, CompanyCard's own prices and other text in this file are NOT guaranteed to match the live page.
+
+Batch 14: digital-business-card-cost.html — the cross-vendor cost page.
 
 WHY THIS PAGE, AND WHY NOW (demand-verified, not guessed).
 Google Search Console, 28d to 2026-08-19, read at the start of this run
@@ -93,17 +95,13 @@ COST = {
  "slug": "digital-business-card-cost.html",
  "crumb": "Digital Business Card Cost",
  "title": "How Much Does a Digital Business Card Cost? (2026 Prices) | CompanyCard",
- "meta": ("Most digital business cards have a free plan. Paid personal plans run about $3–$10 a "
-          "month and team plans about $4–$7 per user. Every vendor's published price, compared and "
-          "dated."),
+ "meta": ("Most digital business cards have a free plan. Paid personal plans mostly run $3–$10 a month (Blinq Pro: $22.49) and team plans $4–$7 per user, compared and dated."),
  "og": ("What a digital business card actually costs in 2026 — every published price from Blinq, "
         "HiHello, Mobilo, Uniqode, Wave, V1CE and CompanyCard, plus the billing terms that change "
         "the real number."),
  "h1": 'How much does a <span class="gradient-text">digital business card</span> cost?',
  "lead": ("For one person, usually nothing: every major digital business card except V1CE and Popl "
-          "publishes a free plan, and a free plan is enough for most self-employed people. Paid "
-          "personal plans run from $3 to about $10 a month, and team plans from about $4 to $7 per "
-          "user a month. The prices below were read off each vendor's own pricing page on "
+          "publishes a free plan, and a free plan is enough for most self-employed people. Most paid personal plans run from $3 to about $10 a month — Blinq's Pro tier for one person is $22.49 (re-checked 14 November 2026) — and team plans from about $4 to $7 per user a month. The prices below were read off each vendor's own pricing page on "
           "22 August 2026."),
  "cta_btn": "Start free — no credit card",
  "cta2": ("See CompanyCard's plans", "pricing.html"),
@@ -117,8 +115,7 @@ COST = {
     "and you need one card with your details on it, the honest answer is that you should not be "
     "paying anything.",
 
-    "<b>About $3–$10 a month if you pay.</b> Paid personal plans start at $3 a month (Mobilo Pro) "
-    "and top out around $9.99 a month (Blinq Premium). What you buy at that price is broadly the "
+    "<b>Mostly $3–$10 a month if you pay.</b> Most paid personal plans cost between $3 a month (Mobilo Pro) and $9.99 a month (Blinq Premium). Blinq also sells a Pro tier for one person at $22.49 a month, or $16.58 billed annually (re-checked 14 November 2026), which adds AI contact enrichment, unlimited AI notes and CSV export. What you buy at that price is broadly the "
     "same everywhere: custom branding, removal of the vendor's own credit from your card, lead "
     "capture and analytics.",
 
@@ -142,11 +139,11 @@ COST = {
        "No seat minimum, but team plans are not self-serve — the button says “Talk to us about teams”"],
       ["<b>Blinq</b>",
        "Yes — two free digital business cards",
-       "Premium $9.99/mo, or $7.33/mo billed annually",
+       "Premium $9.99/mo, or $7.33/mo billed annually; Pro $22.49/mo, or $16.58/mo billed annually (re-checked 14 November 2026)",
        "Business $6.99 per card/mo, or $4.99 billed annually",
        "“You choose how many cards to start with (minimum of five)”, and billing is per card rather than per person"],
       ["<b>HiHello</b>",
-       "Yes — 4 cards, capped at 5 card &amp; badge scans a month",
+       "Yes — 2 cards; its paper-card and badge scanner is capped at 5 scans a month",
        "Professional $8/mo billed monthly, or $72 a year ($6/mo) billed yearly",
        "Business $6 per user/mo billed monthly, or $60 per user/year ($5/mo) billed yearly",
        "The Business plan is sold for 5–100 users; below five people you are on Professional"],
@@ -213,8 +210,7 @@ COST = {
     "$12 per user a month, or $10 per user a month billed annually, with no seat minimum.",
 
     "Three honest comparisons, because you can check all of them in the table above. "
-    "<b>Our free plan is the smallest here:</b> one card, where HiHello gives four and Blinq gives "
-    "two, and our free cards carry a small CompanyCard credit that theirs do not. "
+    "<b>Our free plan is the smallest here:</b> one card, where HiHello and Blinq give two each, and our free cards carry a small CompanyCard credit. "
     "<b>Mobilo's Pro plan is less than half our Pro price</b> — $3 against $7.99. "
     "<b>Our Business plan is the most expensive team plan on this page</b>, at roughly twice "
     "HiHello's or Wave Connect's per-user rate.",
@@ -222,25 +218,17 @@ COST = {
     "What is genuinely ours: the Apple and Google Wallet pass is on the $0 plan rather than behind "
     "a paid tier; there is no seat minimum, so two people can be a team; and every price is "
     "published, monthly billing included, so you can compare us without talking to anyone. If what "
-    "you need is the cheapest paid personal plan, that is Mobilo. If you need several free cards, "
-    "that is HiHello. If you need an NFC card in your pocket, that is Mobilo or V1CE. We would "
+    "you need is the cheapest paid personal plan, that is Mobilo. If you need two free cards, that is HiHello or Blinq. If you need an NFC card in your pocket, that is Mobilo or V1CE. We would "
     "rather you found that here than found it out later.",
   ]),
  ],
 
  "faqs": [
   ("How much does a digital business card cost?",
-   "For one person, usually nothing — CompanyCard, Blinq, HiHello, Mobilo, Uniqode and Wave "
-   "Connect all publish a free plan. Paid personal plans run from $3 a month (Mobilo Pro) to $9.99 "
-   "a month (Blinq Premium), and team plans from about $4 to $7 per user a month. Prices verified "
-   "22 August 2026 on each vendor's own pricing page."),
+   "For one person, usually nothing — CompanyCard, Blinq, HiHello, Mobilo, Uniqode and Wave Connect all publish a free plan. Most paid personal plans run from $3 a month (Mobilo Pro) to about $10 a month, and team plans from about $4 to $7 per user a month; Blinq's Pro tier for one person is $22.49 a month ($16.58 billed annually). Prices verified 1 September 2026 on each vendor's own pricing page; Blinq re-checked 14 November 2026."),
 
   ("Is there a genuinely free digital business card?",
-   "Yes. Six of the eight products compared here publish a free plan that does not expire. The "
-   "differences are in the limits: CompanyCard's free plan is one card and carries a small "
-   "CompanyCard credit, Blinq's is two cards, and HiHello's is four cards but caps you at five "
-   "card and badge scans a month. V1CE offers a 30-day trial rather than a free plan, and Popl "
-   "publishes no pricing at all."),
+   "Yes. Six of the eight products compared here publish a free plan that does not expire. The differences are in the limits: CompanyCard's free plan is one card and carries a small CompanyCard credit, Blinq's is two cards, and HiHello's is two cards but caps its paper-card and badge scanner at five scans a month. V1CE offers a 30-day trial rather than a free plan, and Popl publishes no pricing at all."),
 
   ("What is the cheapest digital business card?",
    "The cheapest paid personal plan on this page is Mobilo Pro at $3 a month, which is less than "

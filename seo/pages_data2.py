@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 2: competitor-alternative pages + profession pages.
+"""SUPERSEDED IN PART, 2026-11-14. No script renders this file any more and the live HTML is the source of truth: do not render it with build_pages.write_pages or re-run it. seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the corrected competitor lines from the live page (HiHello: 2 free cards, 8 on Professional, Business 4 cards and 50 scans per user a month pooled, unlimited only on Enterprise; Blinq: scanner on Free, 'Remove Blinq branding' on Premium, a separate Pro tier, Business per card from 5 cards). Stamps, CompanyCard's own prices and other text in this file are NOT guaranteed to match the live page.
+
+Batch 2: competitor-alternative pages + profession pages.
 
 VERIFIED BY DIRECT FETCH 2026-07-26:
   linqapp.com   — pivoted out of the category entirely. Headline is now
@@ -85,45 +87,26 @@ HIHELLO = {
  "slug": "hihello-alternative.html",
  "crumb": "HiHello Alternative",
  "title": "HiHello Alternative for Small Business & Teams (2026) | CompanyCard",
- "meta": ("A HiHello alternative for small businesses: no 5-user minimum on team plans, no monthly "
-          "scan cap on the free card, and published flat pricing. Compared and verified July 2026."),
- "og": ("HiHello alternative for small teams — no 5-user Business minimum, no free-tier scan cap, "
-        "published pricing."),
+ "meta": ("A HiHello alternative for small businesses: no 5-user minimum on team plans and published flat pricing. HiHello's two-card free tier wins for individuals — compared honestly, verified November 2026."),
+ "og": ("HiHello alternative for small teams — no 5-user Business minimum and published pricing, honest about where HiHello wins."),
  "h1": 'A <span class="gradient-text">HiHello alternative</span> built for small teams',
- "lead": ("HiHello has a genuinely generous free tier. Where it gets awkward is the two ends: a "
-          "monthly scan cap on free, and a Business plan that starts at five users. CompanyCard "
-          "has neither."),
+ "lead": ("The honest short answer: for an individual optimising for free cards, HiHello is the better pick — two free cards to our one. The gap is at the team end: HiHello's Business plan is sold from five users, while CompanyCard has no seat minimum."),
  "cta_btn": "Create your free card",
  "cta2": ("See the full comparison", "best-digital-business-card.html"),
- "cta_h": "No minimum, no scan cap",
+ "cta_h": "No seat minimum",
  "cta_p": "Start free, add a colleague when you actually have one.",
  "sections": [],
  "faqs": [
    ("Is CompanyCard a good HiHello alternative?",
-    "It depends which limit is bothering you. HiHello's free plan is generous on card count — four "
-    "cards as of " + VERIFIED + ", including an email signature and virtual background. But that "
-    "free tier caps card and badge scans at five per month, and its Business plan starts at five "
-    "users. CompanyCard has no monthly scan cap on the free card and no seat minimum on team "
-    "plans, which is what matters if you hand your card out often or your team is two people."),
+    "It depends which limit is bothering you. HiHello's free plan is generous on card count — two cards as of November 2026, including an email signature and virtual background. But its Business plan starts at five users, and the free tier caps HiHello's paper-card and badge scanner — the feature that captures other people's cards into your contacts — at five scans a month. CompanyCard has no seat minimum on team plans, which is what matters when your team is two people. If you are an individual optimising for free cards, HiHello is the better pick."),
    ("Does HiHello have a free plan?",
-    "Yes — as of " + VERIFIED + " HiHello's Personal plan is free and includes four cards, a "
-    "personal email signature, virtual backgrounds and wallet support, with card and badge scans "
-    "capped at five per month. We would rather point you at their pricing page than characterise "
-    "it second-hand: check hihello.com/pricing for the current terms."),
+    "Yes — as of November 2026 HiHello's Personal plan is free and includes two cards, a personal email signature, virtual backgrounds and wallet support. Its paper-card and badge scanner — the feature that saves other people's cards and event badges as contacts — is capped at five scans per month on the free plan. We would rather point you at their pricing page than characterise it second-hand: check hihello.com/pricing for the current terms."),
    ("What does CompanyCard cost?",
-    "Free forever for one card. Pro is $8 per month and removes the CompanyCard credit while adding "
-    "unlimited links, custom branding, lead capture and analytics. Business is $12 per user per "
-    "month for admin controls, brand lock, CRM sync and SSO — with no minimum number of seats."),
+    "Free forever for one card. Pro is $4.99 per month (or $3.99 a month billed yearly) and removes the CompanyCard credit while adding unlimited links, custom branding, lead capture and analytics. Business is $4.99 per user per month for admin controls, brand lock, CRM sync and SSO — with no minimum number of seats."),
    ("Can a two-person business get a team plan?",
-    "With CompanyCard, yes — there is no seat minimum. This is the specific gap worth checking "
-    "elsewhere: as of " + VERIFIED + " HiHello's Business plan is sold for 5-100 users and Blinq's "
-    "Business plan bills a minimum of five team cards, so very small teams are structurally "
-    "excluded from both."),
+    "With CompanyCard, yes — there is no seat minimum. This is the specific gap worth checking elsewhere: as of November 2026 HiHello's Business plan is sold for 5-100 users and Blinq's Business plan bills a minimum of five team cards, so very small teams are structurally excluded from both."),
    ("Do I lose anything by switching?",
-    "Be aware of the trade-off rather than surprised by it: CompanyCard's free plan is one card and "
-    "carries a small CompanyCard credit, where HiHello's free plan gives you four cards without "
-    "one. If free card count is what you optimise for, HiHello wins that column and we will not "
-    "pretend otherwise."),
+    "Be aware of the trade-off rather than surprised by it: CompanyCard's free plan is one card and carries a small CompanyCard credit, where HiHello's free plan gives you two cards. If free card count is what you optimise for, HiHello wins that column and we will not pretend otherwise."),
  ],
  "related": [("Best digital business cards compared", "best-digital-business-card.html"),
              ("Blinq alternative", "blinq-alternative.html"),
@@ -164,24 +147,21 @@ LINQ["sections"] = [
 HIHELLO["sections"] = [
   prose("Where HiHello is strong — and where it isn't", [
     "HiHello makes a good product and its free tier is one of the most generous in the category. "
-    "As of " + VERIFIED + " it gives four cards, an email signature, virtual backgrounds and "
+    "As of November 2026 it gives two cards, an email signature, virtual backgrounds and "
     "wallet support at $0. If free card count is your deciding factor, it wins that column.",
-    "Two limits push people to look elsewhere. The free plan caps card and badge scans at five per "
-    "month, which is easy to hit if you hand your card out at events or on a counter. And the "
+    "Two limits push people to look elsewhere. The free plan caps HiHello's paper-card and badge scanner — the feature that captures other people's cards and event badges into your contacts — at five scans per month, which matters if you collect leads at events. And the "
     "Business plan is sold for five to one hundred users — so if your team is you and two others, "
     "you cannot buy it at the size you actually are.",
-    "CompanyCard is aimed squarely at that second gap: no seat minimum, and no monthly cap on how "
-    "often your free card gets scanned.",
+    "CompanyCard is aimed squarely at that second gap: no seat minimum, so a two- or three-person business pays for exactly the seats it has.",
   ]),
   block("The differences that decide it", table(
-    ["What to check", "HiHello (verified " + VERIFIED + ")", "CompanyCard"],
-    [["<b>Free plan card count</b>", "4 cards", "1 card"],
-     ["<b>Scan cap on free</b>", "5 card &amp; badge scans per month", "No monthly scan cap"],
+    ["What to check", "HiHello (verified November 2026)", "CompanyCard"],
+    [["<b>Free plan card count</b>", "2 cards", "1 card"],
+     ["<b>Card &amp; badge scanner on free</b>", "Capped at 5 scans per month", "No scanner on free — lead capture is a Pro feature"],
      ["<b>Team plan minimum</b>", "Business sold for 5-100 users", "No seat minimum"],
-     ["<b>Published pricing</b>", "$6 Professional · $5 per user Business, billed yearly ($8 · $6 billed monthly)", "$7.99 Pro ($5.99/mo billed yearly) · $12 per user Business ($10 billed yearly)"],
-     ["<b>Branding on free card</b>", "No HiHello credit", "Carries a small CompanyCard credit"]],
-    note='Read from <a href="https://www.hihello.com/pricing" target="_blank" rel="noopener nofollow">hihello.com/pricing</a> in '
-         + VERIFIED + '. Plans change — check before deciding. CompanyCard figures are our published rates.')),
+     ["<b>Published pricing</b>", "$6 Professional · $5 per user Business, billed yearly ($8 · $6 billed monthly)", "$4.99 Pro ($3.99/mo billed yearly) · $4.99 per user Business ($3.99 billed yearly)"],
+     ["<b>Branding on free card</b>", "Not stated on hihello.com/pricing", "Carries a small CompanyCard credit"]],
+    note='Read from <a href="https://www.hihello.com/pricing" target="_blank" rel="noopener nofollow">hihello.com/pricing</a> on 14 November 2026. Plans change — check before deciding. CompanyCard figures are our published rates.')),
 ]
 
 # --------------------------------------------------------------- profession pages

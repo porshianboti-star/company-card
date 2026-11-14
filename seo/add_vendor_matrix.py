@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Add a real multi-vendor comparison matrix to /best-digital-business-card.html
+"""SUPERSEDED IN PART, 2026-11-14. No script renders this file any more and the live HTML is the source of truth: do not render it with build_pages.write_pages or re-run it. seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the corrected competitor lines from the live page (HiHello: 2 free cards, 8 on Professional, Business 4 cards and 50 scans per user a month pooled, unlimited only on Enterprise; Blinq: scanner on Free, 'Remove Blinq branding' on Premium, a separate Pro tier, Business per card from 5 cards). Stamps, CompanyCard's own prices and other text in this file are NOT guaranteed to match the live page.
+
+Add a real multi-vendor comparison matrix to /best-digital-business-card.html
 and retarget it at the small-business query.
 
 WHY: the entire "best digital business card" answer set in Google AI Overviews /
@@ -44,18 +46,18 @@ ROWS = [
  ("<b>CompanyCard</b>",
   "1 card, QR + link, Apple/Google Wallet, unlimited edits (carries a small CompanyCard credit)",
   "None",
-  "$8 Pro · $12 per user Business",
+  "$4.99 Pro ($3.99/mo billed yearly) · $4.99 per user Business ($3.99 billed yearly)",
   "Small businesses and self-employed pros who don't want a seat minimum"),
  ("<b>Blinq</b>",
-  "2 cards, email signature, virtual background, Apple Wallet",
+  "2 cards, email signature, virtual background, Apple &amp; Google Wallet",
   "5 team cards",
-  "$9.99 Premium · $6.99 per card Business",
-  "Individuals who want the most generous free tier"),
+  "$9.99 Premium ($7.33/mo billed yearly) · $6.99 per card Business ($4.99 billed yearly)",
+  "Individuals who want two free cards with signature, background and wallet included"),
  ("<b>HiHello</b>",
-  "4 cards, email signature, virtual background, wallet — capped at 5 card &amp; badge scans per month",
+  "2 cards, email signature, virtual background, wallet — its paper-card &amp; badge scanner is capped at 5 scans per month",
   "5 users",
   "$6 Professional · $5 per user Business, billed yearly ($8 · $6 billed monthly)",
-  "Someone who wants several free cards and low scan volume"),
+  "Someone who wants two free cards and scans few paper cards or badges"),
  ("<b>Popl</b>",
   "No free plan",
   "n/a",
@@ -81,7 +83,7 @@ MATRIX = f'''<section class="section">
 <section class="section">
   <div class="container lp-prose">
     <div class="section-head" style="margin-bottom:24px;"><h2>What that table means if you're a small business</h2></div>
-    <p><b>If you want the biggest free tier, Blinq or HiHello win it.</b> Blinq gives two cards and HiHello four, and both include an email signature and a virtual background at $0 — we won't pretend otherwise. HiHello's free plan does cap card and badge scans at five per month, which matters if you hand your card out at events.</p>
+    <p><b>If you want the biggest free tier, Blinq or HiHello win it.</b> Blinq and HiHello each give two cards, and both include an email signature and a virtual background at $0 — we won't pretend otherwise. HiHello's free plan does cap its paper-card and badge scanner — the feature that saves other people's cards as contacts — at five scans per month; scans of your own HiHello card are not limited.</p>
     <p><b>Where CompanyCard wins is the moment you stop being one person.</b> Blinq's Business plan bills a minimum of five team cards and HiHello's Business plan starts at five users — so a two- or three-person business pays for seats nobody uses. CompanyCard has no seat minimum: add one colleague, pay for one colleague.</p>
     <p><b>And you can see the price before you talk to anyone.</b> Popl no longer publishes pricing — you book a demo to get a number. For a small business comparing options on a Tuesday night, a published rate is worth something.</p>
     <p>The honest summary: if you're an individual who wants the most free cards, try Blinq or HiHello. If you're a small business or self-employed professional who wants a card that stays free, includes a wallet pass, and won't force you onto a five-seat plan the day you hire, that's the gap <a href="digital-business-card-for-small-business.html">CompanyCard is built for</a>.</p>

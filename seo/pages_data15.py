@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""SUPERSEDED IN PART, 2026-09-13. Every HiHello "$6" and "$5" in this file is the
+"""SUPERSEDED IN PART, 2026-11-14. The live HTML is the source of truth for this page; do not re-render it (its build_pages script refuses without --overwrite-live). seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the live page's text into this file, competitor lines and CompanyCard's own prices alike, and a scratch render was then diffed sentence by sentence against the live page: the content matched. What a render still gets wrong is the shared template, which later scripts wrote straight into the HTML: the nav, the footer and the Organization/WebSite/WebPage JSON-LD with the page's dates. A re-render would revert those.
+
+SUPERSEDED IN PART, 2026-09-13. Every HiHello "$6" and "$5" in this file is the
 YEARLY-billed rate; hihello.com/pricing renders "$8 per month billed monthly" and
 "$6 per user/month billed monthly" with its default-on "Billed yearly" switch turned
 off. The live page was corrected by seo/fix_hihello_billing_2026_09_13.py (which
@@ -111,25 +113,21 @@ Run from repo root:  python3 seo/build_pages15.py
 """
 from build_pages import prose, block, checklist, table
 
-VERIFIED = "verified 27 August 2026"
+VERIFIED = "verified 14 November 2026"
 
 VS = {
  "slug": "hihello-vs-blinq.html",
  "crumb": "HiHello vs Blinq",
 
  "title": "HiHello vs Blinq (2026): Free Plans, Prices and Seat Minimums Compared | CompanyCard",
- "meta": ("HiHello vs Blinq compared on published prices, verified 27 August 2026. HiHello's free "
-          "plan gives 4 cards but caps scans; Blinq's gives 2 with unlimited sharing. HiHello is "
-          "cheaper on both paid tiers."),
- "og": ("A straight head-to-head between HiHello and Blinq using each vendor's own pricing page, "
-        "read on 27 August 2026 — free-plan limits, personal and team prices, and the five-seat "
+ "meta": ("HiHello vs Blinq compared on published prices, verified 14 November 2026. HiHello's free plan gives 2 cards, the same as Blinq's, but caps its paper-card scanner. HiHello is cheaper for one person; the team tier is a near tie."),
+ "og": ("A straight head-to-head between HiHello and Blinq using each vendor's own pricing page, read on 14 November 2026 — free-plan limits, personal and team prices, and the five-seat "
         "floor both of them put on team plans."),
  "h1": 'HiHello vs <span class="gradient-text">Blinq</span>',
  "lead": ("Both are strong digital business cards with genuinely free plans, and for most people "
           "either one will do the job. The differences that actually decide it are the shape of the "
           "free tier, the price of the first paid tier, and the fact that both put a five-seat floor "
-          "under their team plans. Every figure below was read off each vendor's own pricing page "
-          "on 27 August 2026."),
+          "under their team plans. Every HiHello and Blinq figure below was read off each vendor's own pricing page on 14 November 2026."),
  "cta_btn": "Try CompanyCard free",
  "cta2": ("See how all eight compare", "best-digital-business-card.html"),
  "cta_h": "Want a third option with no seat minimum?",
@@ -137,14 +135,12 @@ VS = {
 
  "sections": [
   prose("The short answer", [
-    "<b>Pick HiHello if you want more for less money.</b> Its free plan gives you four cards "
-    "against Blinq's two, and its first paid tier is $8 a month billed monthly — $6 a month if you pay $72 for the year — "
-    "for sixteen cards, against Blinq's $9.99 (or $7.33 yearly) for five. On published price HiHello is cheaper for one person on either billing term; the team tiers are within a dollar of each other and the billing term decides it.",
+    "<b>Pick HiHello if you want more for less money.</b> Its free plan gives you two cards, the same as Blinq's, and its first paid tier is $8 a month billed monthly — $6 a month if you pay $72 for the year — "
+    "for eight cards, against Blinq's $9.99 (or $7.33 yearly) for five. On published price HiHello is cheaper for one person on either billing term; the team tiers are within a dollar of each other and the billing term decides it.",
 
     "<b>Pick Blinq if you scan a lot of paper cards, or if your team has people who don't need a "
     "card.</b> HiHello's free plan caps you at five card and badge scans a month and its Professional tier "
-    "at twenty; Blinq puts its universal contact scanner and AI notetaker in Premium with no "
-    "monthly count on the page. And Blinq bills per card rather than per person — its page states "
+    "at twenty; Blinq lists a universal contact scanner and an AI notetaker on its free plan, with no monthly cap published for that scanner. And Blinq bills per card rather than per person — its page states "
     "that “Admins and team members who don't have a card assigned aren't billed”, which HiHello's "
     "per-user pricing does not do.",
 
@@ -163,66 +159,58 @@ VS = {
     ["", "HiHello", "Blinq"],
     [
       ["<b>Free plan</b>",
-       "“Free Forever” — 4 digital business cards, 1 user",
+       "“Free forever” — 2 digital business cards, 1 user",
        "“Free forever” — “Two free digital business cards”, unlimited sharing"],
       ["<b>Free-plan catch</b>",
-       "Capped at “5 card &amp; badge scans /mo”",
-       "No monthly scan count published; the contact scanner is a Premium feature"],
+       "Capped at “Scan 5 paper business cards or badges a month”",
+       "No monthly scan count published; the free plan lists a “Universal contact scanner”"],
       ["<b>Included free on both</b>",
        "Personal email signature, virtual backgrounds, Apple &amp; Google wallet, QR/widget/email/SMS sharing",
        "Personal email signature, virtual backgrounds, Apple &amp; Google Wallet, QR/widget/email/SMS sharing"],
       ["<b>First paid tier</b>",
-       "Professional — “$6 per month” or “$72 billed yearly”",
+       "Professional — “$8 per month billed monthly”, or “$6 per month” / “$72 billed yearly” with the page's “Billed yearly” switch on (it is on by default)",
        "Premium — “$9.99 / month” or “$7.33 / month” billed annually"],
       ["<b>Cards at that tier</b>",
-       "16 cards, 1 user",
+       "8 cards, 1 user",
        "Up to 5 cards"],
       ["<b>What the paid tier adds</b>",
        "20 scans/mo (unlimited add-on), contact enrichment, card analytics, full card customisation",
-       "Universal contact scanner, AI notetaker, AI contact enrichment, branded QR code, custom design, contact export"],
+       "Up to five cards, branded QR code, custom card colours and design, “Remove Blinq branding”. AI contact enrichment, unlimited AI notes and CSV export are in a separate Pro tier for one person, “$22.49 / month” or “$16.58 / month” billed annually"],
       ["<b>Team tier</b>",
-       "Business — “$5 per user/month” or “$60 per user/year”",
-       "Business — “$6.99 / month” per user, or “$4.99 / month” billed annually"],
+       "Business — “$6 per user/month” billed monthly, or “$5 per user/month” (“$60 per user/year”) billed yearly",
+       "Business — “$6.99 / month” “per card, from 5 cards” billed monthly, or “$4.99 / month” billed annually"],
       ["<b>Team floor</b>",
        "Sold for “5-100 users”",
        "“minimum of five” cards"],
       ["<b>How the team tier bills</b>",
        "Per user",
-       "“Billed per card, per month” — “Admins and team members who don't have a card assigned aren't billed”"],
+       "“billed per card, per month” — “Admins and team members who don't have a card assigned aren't billed”"],
       ["<b>Team features</b>",
-       "Unlimited cards and scans, team email signatures, event lead capture, team analytics, sub-team templates, SSO &amp; directory sync",
-       "Team management, CRM sync, lead capture, event campaigns, 20+ native CRM integrations"],
+       "4 cards and 50 paper-card or badge scans per user a month, pooled across the team; email signatures deployed to Gmail and Outlook; event lead capture; team analytics; 10 card and 10 signature templates; Google and Microsoft SSO with directory sync; Salesforce, HubSpot and Microsoft Dynamics",
+       "Team cards and admin platform, admin-controlled email signatures, event lead capture with badge scanning (“$9.99 per lead captured and enriched”, credits billed monthly), event campaigns, native integrations with Salesforce, HubSpot, Dynamics 365 “and more”"],
       ["<b>Enterprise</b>",
-       "“Custom”, “101+ users” — SAML/SCIM, SOC 2, verified badges, dedicated account manager",
+       "“Custom”, “100+ users” — SAML/SCIM, SOC 2, verified cards, dedicated account manager",
        "“Custom” — SOC 2 Type II &amp; GDPR, enforced SSO, volume pricing, dedicated CSM"],
     ],
-    note=("Read off hihello.com/pricing and blinq.me/pricing on 27 August 2026. Quoted strings are "
+    note=("Read off hihello.com/pricing and blinq.me/pricing on 14 November 2026. Quoted strings are "
           "the vendors' own wording. Prices change — if you are reading this much later, check both "
           "pages before relying on it. Feature lists are what each vendor advertises; we have not "
           "tested either product's features and make no claim about how well they work.")), tint=True),
 
   block("Where each one actually wins", checklist([
-    ("HiHello wins on price, at every tier",
-     "$6 a month against $9.99 for the first paid tier, and $5 per user against $6.99 for the team "
-     "tier. Annual pricing narrows it — $7.33 for Blinq Premium against HiHello's $72 a year, which "
-     "is $6 a month — but it does not close it. HiHello is the cheaper product on its published "
-     "numbers."),
-    ("HiHello wins on card count",
-     "Four cards free against two, and sixteen at $6 a month against five at $9.99. If you run more "
-     "than one role, side business or language and want a separate card for each, this is the "
-     "single biggest gap between the two products."),
+    ("HiHello wins on price for one person; the team tier is a near tie",
+     "Billed monthly, HiHello Professional is $8 against Blinq Premium at $9.99; billed yearly it is $6 against $7.33. For the team tier it is $6 per user against $6.99 billed monthly, but $5 against $4.99 billed yearly — a cent in Blinq's favour. HiHello is the cheaper product for an individual on its published numbers; for a team of five or more, the billing term decides it."),
+    ("HiHello wins on paid card count",
+     "Two cards free on each, then eight at $8 a month ($6 billed yearly) against five at $9.99 ($7.33 billed yearly). If you run more "
+     "than one role, side business or language and want a separate card for each, the paid tiers are where the two products differ."),
     ("Blinq wins if you collect contacts rather than hand them out",
      "HiHello meters the thing you do with other people's cards: five scans a month on free, twenty "
-     "on Professional, unlimited only on the Business tier you cannot buy under five users. Blinq "
-     "publishes no monthly scan count and bundles the universal contact scanner and AI notetaker "
-     "into Premium. If you come home from an event with forty paper cards, that is the difference."),
+     "on Professional (unlimited with an add-on), fifty per user a month pooled on Business, which you cannot buy under five users, and unlimited only on Enterprise. Blinq publishes no monthly cap for the universal contact scanner on its free plan (and so on every plan above it), where it also lists an AI notetaker; event lead capture on Business is billed separately, at “$9.99 per lead captured and enriched”. If you come home from an event with forty paper cards, that is the difference."),
     ("Blinq wins on how a team is billed",
      "Per card rather than per person, with admins who hold no card not billed at all. A ten-person "
-     "business where four people need a card and the office manager administers it pays for four "
-     "cards on Blinq. On HiHello's per-user pricing you are counting users."),
-    ("Blinq wins on CRM reach, on paper",
-     "Its Business tier advertises native integrations with 20+ CRMs; HiHello's Business tier "
-     "advertises SSO and directory sync but does not publish a CRM count. Both are vendor claims we "
+     "business where six people need a card and the office manager administers it pays for six cards on Blinq, not ten. On HiHello's per-user pricing you are counting users."),
+    ("On CRM sync it is close, on paper",
+     "Blinq's Business tier advertises native integrations with Salesforce, HubSpot, Dynamics 365 “and more”; HiHello's Business tier lists Salesforce, HubSpot and Microsoft Dynamics. Both are vendor claims we "
      "have not verified beyond the pricing page."),
     ("Neither wins for a team of two, three or four",
      "HiHello's Business plan starts at five users. Blinq's requires a minimum of five cards. Below "
@@ -231,23 +219,19 @@ VS = {
   ])),
 
   prose("The free plans are not the same shape", [
-    "The headline is that HiHello gives four free cards and Blinq gives two, and that is true. But "
+    "The headline is that HiHello and Blinq give the same two free cards. But "
     "the two free plans are metered on different things, and which one is more generous depends "
     "entirely on what you do.",
 
-    "HiHello's free plan is generous about <b>having</b> cards and stingy about <b>scanning</b> "
-    "them: four cards, but “5 card &amp; badge scans /mo”. That limit is on HiHello's scanner — "
+    "HiHello's free plan matches Blinq on <b>having</b> cards and is stingy about <b>scanning</b> other people's: two cards, but “Scan 5 paper business cards or badges a month”. That limit is on HiHello's scanner — "
     "the feature that reads someone else's paper card or event badge into your contacts. Five a "
     "month is enough for ordinary week-to-week networking and runs out in the first hour of a "
     "trade show.",
 
-    "Blinq's free plan is the other way round: two cards, but its page emphasises unlimited "
-    "sharing and unlimited contact creation, and it does not publish a monthly cap on the free "
-    "tier. The scanner is what you pay for, not something you are rationed.",
+    "Blinq's free plan is the other way round: two cards, unlimited sharing and unlimited contact creation, and a “Universal contact scanner” with no monthly cap published for the free tier.",
 
     "So the honest test is not “which free plan is bigger”. It is whether you are the person "
-    "handing cards out or the person collecting them. Hand out: HiHello, more cards. Collect: "
-    "Blinq, no scan meter. If you do both heavily, both free plans will push you to a paid tier "
+    "handing cards out or the person collecting them. Hand out: either — both give two cards. Collect: Blinq's free scanner has no published cap; event lead capture on Business is billed per lead. If you do both heavily, both free plans will push you to a paid tier "
     "sooner than you expect.",
   ]),
 
@@ -255,17 +239,17 @@ VS = {
     ["", "HiHello", "Blinq", "CompanyCard"],
     [
       ["<b>Free plan</b>",
-       "4 cards, 5 scans/mo",
+       "2 cards, 5 scans/mo",
        "2 cards, unlimited sharing",
        "<b>1 card</b>, carries a small CompanyCard credit — the smallest free plan of the three"],
       ["<b>First paid tier</b>",
-       "$6/mo (16 cards)",
-       "$9.99/mo (5 cards)",
-       "Pro $7.99/mo, or $5.99/mo billed annually — <b>more than HiHello</b>"],
+       "$8/mo billed monthly, or $6/mo billed yearly (8 cards)",
+       "$9.99/mo, or $7.33/mo billed yearly (5 cards)",
+       "Pro $4.99/mo, or $3.99/mo billed yearly — <b>about $3 a month below HiHello billed monthly and $2 below billed yearly, for one card instead of eight</b>"],
       ["<b>Team tier</b>",
-       "$5/user/mo",
-       "$6.99/card/mo",
-       "Business $12/user/mo, or $10/user/mo annually — <b>the most expensive of the three</b>"],
+       "$6/user/mo billed monthly, or $5 billed yearly",
+       "$6.99/card/mo, or $4.99 billed yearly",
+       "Business $4.99/user/mo, or $3.99/user/mo annually — <b>the lowest per-user rate of the three</b>"],
       ["<b>Team seat minimum</b>",
        "Sold for 5–100 users",
        "Minimum of five cards",
@@ -275,23 +259,15 @@ VS = {
        "No",
        "Yes on price, but <b>not self-serve</b> — the pricing page says “Talk to us about teams”"],
     ],
-    note=("CompanyCard figures from our own pricing page, re-read 27 August 2026. We are the "
-          "publisher of this page and the comparison is stated plainly rather than framed to "
-          "flatter us: HiHello and Blinq are both cheaper than CompanyCard at every paid tier, and "
-          "both give a bigger free plan.")), tint=True),
+    note=("CompanyCard figures from our own pricing page, re-read 29 September 2026. We are the publisher of this page and the comparison is stated plainly rather than framed to flatter us: CompanyCard has the lowest per-user team rate of the three and a lower Pro price than HiHello Professional, but HiHello Professional includes eight cards to our one, and both give a bigger free plan.")), tint=True),
 
   prose("The one thing we do differently", [
-    "There is exactly one axis on this page where CompanyCard is not simply the more expensive "
-    "option, and it is the seat floor. HiHello sells its Business plan for five to a hundred users. "
+    "CompanyCard has the lowest published per-user rate on this page, but the thing we do differently is the seat floor. HiHello sells its Business plan for five to a hundred users. "
     "Blinq bills Business per card and starts you at a minimum of five cards. CompanyCard's Business plan has no "
     "seat minimum, so a two-person or three-person business can buy team features at the listed "
     "per-user rate instead of being told the smallest bill is five.",
 
-    "That is worth stating precisely, because the caveat matters as much as the claim. Our "
-    "per-user rate is $12 a month, which is more than double HiHello's $5 — so two people on "
-    "CompanyCard Business pay $24 a month against a five-user HiHello Business floor of $25. The "
-    "advantage is real but it is narrow, and it disappears entirely the moment you have five "
-    "people. And our team plans are not self-serve: you have to talk to us, which is friction "
+    "That is worth stating precisely, because the caveat matters as much as the claim. Our per-user rate is $4.99 a month billed monthly, against HiHello's $6 — so two people on CompanyCard Business pay $9.98 a month against a five-user HiHello Business floor of $30 billed monthly, or $7.98 against $25 if both are billed yearly. At five people the gap is the per-user rate alone: $24.95 against $30 billed monthly, $19.95 against $25 billed yearly. And our team plans are not self-serve: you have to talk to us, which is friction "
     "neither HiHello nor Blinq puts in your way.",
 
     "We are not going to tell you that email signatures or virtual backgrounds are a reason to "
@@ -306,30 +282,16 @@ VS = {
 
  "faqs": [
   ("Is HiHello or Blinq better?",
-   "On published prices HiHello is cheaper at every tier and gives more cards: 4 free against "
-   "Blinq's 2, 16 cards at $6 a month against 5 at $9.99, and $5 per user against $6.99 for teams. "
-   "Blinq is the better choice if you scan a lot of paper cards and badges, because HiHello caps "
-   "free users at 5 card and badge scans a month and Professional users at 20, while Blinq "
-   "publishes no monthly scan count. Verified 27 August 2026 on each vendor's own pricing page."),
+   "On published prices HiHello is cheaper for one person and gives more paid cards: 2 free on each, and 8 cards at $8 a month ($6 billed yearly) against 5 at $9.99 ($7.33 billed yearly). The team tier is a near tie — $6 per user against $6.99 billed monthly, $5 against $4.99 billed yearly. Blinq is the better choice if you scan a lot of paper cards and badges, because HiHello caps free users at 5 card and badge scans a month and Professional users at 20 (unlimited with an add-on), while Blinq publishes no monthly cap on its universal contact scanner. Verified 14 November 2026 on each vendor's own pricing page."),
 
   ("Which has the better free plan, HiHello or Blinq?",
-   "It depends on what you do. HiHello's free plan gives 4 digital business cards but caps you at "
-   "“5 card & badge scans /mo”. Blinq's gives 2 cards with unlimited sharing and no published "
-   "monthly cap, but keeps its contact scanner in the paid Premium tier. If you hand cards out, "
-   "HiHello gives you more. If you collect other people's cards, Blinq does not meter you."),
+   "It depends on what you do. HiHello's free plan gives 2 digital business cards but caps its paper-card and badge scanner at 5 scans a month. Blinq's gives 2 cards with unlimited sharing and lists a universal contact scanner with no published monthly cap. On free card count the two are level. If you collect other people's cards, Blinq publishes no limit on that scanner."),
 
   ("How much does HiHello cost?",
-   "HiHello's Personal plan is free forever with 4 cards, 1 user and 5 card and badge scans a "
-   "month. Professional is $6 per month or $72 billed yearly for 16 cards and 20 scans a month. "
-   "Business is $5 per user per month or $60 per user per year with unlimited cards and scans, and "
-   "is sold for 5 to 100 users. Enterprise is custom pricing for 101+ users. Verified 27 August "
-   "2026 on hihello.com/pricing."),
+   "HiHello's Personal plan is free forever with 2 cards, 1 user and 5 paper-card and badge scans a month. Professional is $8 a month billed monthly, or $72 a year ($6 a month) billed yearly, for 8 cards and 20 scans a month. Business is $6 per user a month billed monthly, or $60 per user a year ($5 a month) billed yearly, with 4 cards and 50 paper-card and badge scans per user a month, pooled across the team, and is sold for 5 to 100 users. Enterprise is custom pricing for 100+ users, with unlimited cards and scans. Verified 14 November 2026 on hihello.com/pricing."),
 
   ("How much does Blinq cost?",
-   "Blinq's Free plan is free forever with two digital business cards. Premium is $9.99 a month, "
-   "or $7.33 a month billed annually, for up to 5 cards. Business is $6.99 per month, or $4.99 "
-   "billed annually, with a minimum of five cards and billing per card rather than per user. "
-   "Enterprise is custom. Verified 27 August 2026 on blinq.me/pricing."),
+   "Blinq's Free plan is free forever with two digital business cards. Premium is $9.99 a month, or $7.33 a month billed annually, for up to 5 cards. Pro, also for one person, is $22.49 a month, or $16.58 a month billed annually, and adds AI contact enrichment, unlimited AI notes and CSV export. Business is $6.99 per card a month, or $4.99 billed annually, with a minimum of five cards and billing per card rather than per user. Enterprise is custom. Verified 14 November 2026 on blinq.me/pricing."),
 
   ("Do HiHello and Blinq have a minimum number of users?",
    "Yes, both effectively require five. HiHello sells its Business plan for “5-100 users”. Blinq's "
@@ -338,10 +300,7 @@ VS = {
    "without shared branding, team analytics or admin control."),
 
   ("Does Blinq bill per user or per card?",
-   "Per card. Blinq's pricing page states that Business is “Billed per card, per month” and that "
-   "“Admins and team members who don't have a card assigned aren't billed”. HiHello bills per user. "
-   "The difference matters if some people in your organisation administer the account or need "
-   "access but do not need a card of their own — on Blinq those people are free."),
+   "Per card. Blinq's pricing page states that Business is “billed per card, per month” and that “Admins and team members who don't have a card assigned aren't billed”. HiHello bills per user. The difference matters if some people in your organisation administer the account or need access but do not need a card of their own — on Blinq those people are free."),
 
   ("Do HiHello and Blinq both include an email signature and virtual backgrounds free?",
    "Yes. Both vendors list a personal email signature and virtual backgrounds on their free plans, "
@@ -351,13 +310,7 @@ VS = {
    "choose any of the three."),
 
   ("How does CompanyCard compare to HiHello and Blinq?",
-   "CompanyCard is more expensive than both and has a smaller free plan: 1 card carrying a small "
-   "CompanyCard credit against HiHello's 4 and Blinq's 2, Pro at $7.99 a month against HiHello's "
-   "$6, and Business at $12 per user against HiHello's $5 and Blinq's $6.99. The one axis where "
-   "CompanyCard differs is the seat floor — it has no seat minimum on team plans, so a two-person "
-   "or three-person business can buy team features that HiHello and Blinq both gate behind five "
-   "seats. CompanyCard's team plans are not self-serve, though; the pricing page directs you to "
-   "talk to us."),
+   "CompanyCard is cheaper than both on published rates but has a smaller free plan: 1 card carrying a small CompanyCard credit against HiHello's 2 and Blinq's 2; Pro at $4.99 a month ($3.99 yearly) against HiHello's $8 billed monthly ($6 yearly), for one card instead of eight; and Business at $4.99 per user ($3.99 yearly) against HiHello's $6 ($5 yearly) and Blinq's $6.99 ($4.99 yearly). The other axis where CompanyCard differs is the seat floor — it has no seat minimum on team plans, so a two-person or three-person business can buy team features that HiHello and Blinq both gate behind five seats. CompanyCard's team plans are not self-serve, though; the pricing page directs you to talk to us."),
  ],
 
  "related": [

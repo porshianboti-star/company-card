@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 17: business-card-for-business-owners.html
+"""SUPERSEDED IN PART, 2026-11-14. The live page carries sections and FAQs this file does not: the title-table rows, the LLC section and two FAQs from seo/improve_owners_titles_2026_10_23.py, and the LLC heading, punctuation sentence, business-name field item and the 'Do I need to put LLC on my business card?' FAQ from seo/improve_owners_llc_2026_11_14.py. Do not rebuild this page from here; the live HTML and those scripts are its source of truth.
+
+Batch 17: business-card-for-business-owners.html
 
 WHY THIS PAGE (demand-verified from GSC, not guessed).
 Google Search Console read 2026-08-31. 28-day window to 08-28: 3.23K
@@ -301,11 +303,8 @@ PAGES = [{
     "slug": SLUG,
     "crumb": "Business Cards for Business Owners",
     "title": "What to Put on a Business Card When You Own the Company | CompanyCard",
-    "meta": ("What job title to use when you own the business, how two co-owners should "
-             "handle cards, and what to put on a card when the business isn't registered "
-             "yet. A practical guide for small business owners and the self-employed."),
-    "og": ("Owner, Founder, Director or Principal? How co-owners should split cards, and "
-           "what you can put on a card before the business is registered."),
+    "meta": ("Owner, Founder, Director or the trade itself? How to pick one title, where LLC goes, and what co-owners or unregistered businesses put on a card."),
+    "og": ("Owner, Founder, Director or the trade itself? How to pick one title, where LLC goes, and what co-owners or unregistered businesses put on a card."),
     "h1": "What to put on a business card when you own the company",
     "lead": ("Nobody hands an owner a job title — you pick it yourself, usually at the "
              "worst possible moment. Here is how to choose one that reads right, how two "

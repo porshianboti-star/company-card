@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 22 wiring — sitewide footer (+ template), sitemap, llms.txt, stamps.
+"""DO NOT RE-RUN (one-shot; non-idempotent). Re-running it adds duplicate llms.txt bullets, rolls dateModified back to its batch date and rewires footers on other pages; wire_batch20 stops on an assertion. Its strings were corrected on 2026-11-14 for the record only.
+
+Batch 22 wiring — sitewide footer (+ template), sitemap, llms.txt, stamps.
 
 Same shape as wire_batch19.py (batch 21), for hihello-vs-popl.html.
 
@@ -115,18 +117,17 @@ ll = open("llms.txt", encoding="utf-8").read()
 LINE = ("- HiHello vs Popl — a head-to-head between two competitors, not a CompanyCard pitch. HiHello "
         "publishes every price, but its pricing page opens with a \"Billed yearly\" switch turned on, "
         "so the $6 (Professional) and $5 per user (Business) most comparisons quote are yearly rates; "
-        "billed monthly they are $8 and $6 per user. Its Personal plan is free forever with four cards, "
-        "capped at 5 card and badge scans a month; Business is sold for 5–100 users. Popl publishes no "
+        "billed monthly they are $8 and $6 per user. Its Personal plan is free forever with two cards, and its free plan caps HiHello's paper-card and badge scanner at 5 scans a month; Business is sold for 5–100 users. Popl publishes no "
         "rates and no tiers — its pricing page's calls to action are \"Request Pricing\" and \"Book a "
         "Demo\", its homepage FAQ offers \"free trials and personalized demos\" rather than a free "
         "plan, its \"Popl for Individuals\" link redirects to an app-download page, and its pricing "
         "FAQ says the plan is not charged per user, per seat or per license — and it sells itself as "
         "an AI platform for in-person event lead capture. Verdict on the page: HiHello for an "
         "individual or small business, Popl for an events team. CompanyCard loses to HiHello on the "
-        "free plan (4 cards, no credit vs our 1 with a credit) and on the per-seat team rate ($6 "
+        "free plan (2 cards vs our 1 with a credit) and on the per-seat team rate ($6 "
         "monthly / $5 yearly vs our $12 / $10); HiHello Professional and CompanyCard Pro are within a "
         "cent of each other on either billing term ($8 vs $7.99 monthly, $6 vs $5.99 yearly) and "
-        "HiHello's includes sixteen cards to our one; our checkable edges are a published price where "
+        "HiHello's includes eight cards to our one; our checkable edges are a published price where "
         "Popl has none and no seat minimum where HiHello Business starts at five users. Verified 13 "
         "September 2026: " + BASE + SLUG)
 

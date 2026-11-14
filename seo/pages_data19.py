@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 21: blinq-vs-popl.html — the third vendor-vs-vendor page.
+"""SUPERSEDED IN PART, 2026-11-14. The live HTML is the source of truth for this page; do not re-render it (its build_pages script refuses without --overwrite-live). seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the live page's text into this file, competitor lines and CompanyCard's own prices alike, and a scratch render was then diffed sentence by sentence against the live page: the content matched. What a render still gets wrong is the shared template, which later scripts wrote straight into the HTML: the nav, the footer and the Organization/WebSite/WebPage JSON-LD with the page's dates. A re-render would revert those.
+
+Batch 21: blinq-vs-popl.html — the third vendor-vs-vendor page.
 
 WHY THIS PAGE (the pair both vendors publish a page for, and we do not).
 
@@ -90,10 +92,10 @@ caveat pricing.html carried next to these prices was reproduced here until
 (seo/remove_billing_preview_note_2026_09_29.py).
 
 WHAT THIS PAGE CONCEDES, DELIBERATELY.
-Blinq's free plan is two cards with no vendor credit; ours is one card with a
-CompanyCard credit. Blinq's per-seat Business rate ($6.99, $4.99 annual) is
-far below our $12, and Blinq Premium bundles a contact scanner, AI notetaker
-and enrichment that our Pro does not list. Popl is the better product for
+Blinq's free plan is two cards to our one; both free cards carry vendor branding
+(Blinq lists "Remove Blinq branding" on Premium; ours is a CompanyCard credit). Blinq's per-seat Business rate ($6.99, $4.99 annual) is
+far below our $12, and Blinq's free plan lists a contact scanner and AI notetaker
+(its Pro tier adds enrichment) that our Pro does not list. Popl is the better product for
 trade-show lead capture, full stop. Our checkable edges against THIS pair are
 narrow and are the only ones claimed: (1) we publish a price where Popl
 publishes none; (2) we have no seat minimum where Blinq Business starts at
@@ -126,7 +128,7 @@ PAGE = {
  "title": "Blinq vs Popl: Which Digital Business Card in 2026? | CompanyCard",
  "meta": ("Blinq vs Popl compared on what each vendor actually publishes: Blinq lists every "
           "price, Popl lists none. Which one fits a freelancer, a small team, or an events "
-          "team. Both re-checked " + VERIFIED + "."),
+          "team. Blinq re-checked 14 November 2026, Popl " + VERIFIED + "."),
  "og": ("Blinq publishes every price; Popl publishes none. A head-to-head on pricing, "
         "billing terms and what each product is really built for."),
  "h1": "Blinq vs Popl",
@@ -141,13 +143,7 @@ PAGE = {
  "related": REL,
  "faqs": [
    ("Blinq or Popl — which should I pick?",
-    "For one person or a small business, Blinq: as of " + VERIFIED + " it publishes a free "
-    "plan with two cards, a Premium plan at $9.99 a month, and a Business plan at $6.99 per user "
-    "a month, and you can buy any of them online without talking to anyone. For a team whose job "
-    "is capturing leads at trade shows and conferences, Popl: its pricing page sells unlimited "
-    "events, an AI-native universal badge scanner, contact and company data enrichment, and "
-    "Salesforce, HubSpot and Marketo sync — and you get the price on a call, because it does not "
-    "publish one."),
+    "For one person or a small business, Blinq: as of 14 November 2026 it publishes a free plan with two cards, a Premium plan at $9.99 a month, and a Business plan at $6.99 per card a month, and you can buy any of them online without talking to anyone. For a team whose job is capturing leads at trade shows and conferences, Popl: its pricing page sells unlimited events, an AI-native universal badge scanner, contact and company data enrichment, and Salesforce, HubSpot and Marketo sync — and you get the price on a call, because it does not publish one."),
    ("How much does Popl cost?",
     "Popl does not say. As of " + VERIFIED + " its pricing page publishes no rates and no "
     "tiers; it is headed \"Simple pricing for teams of all sizes\" and the calls to action are "
@@ -157,12 +153,7 @@ PAGE = {
     "price is not on the web either. If a comparison you are reading quotes a Popl monthly price, "
     "check its date."),
    ("How much does Blinq cost?",
-    "As of " + VERIFIED + " Blinq publishes four plans. Free is $0 forever with two digital "
-    "business cards. Premium is $9.99 a month billed monthly or $7.33 a month billed annually, "
-    "with up to five cards. Business is $6.99 a month billed monthly or $4.99 a month billed "
-    "annually, per user, and Blinq's billing FAQ says it is billed per card with a minimum of "
-    "five cards to start. Enterprise is custom. Check blinq.me/pricing before deciding — "
-    "prices change."),
+    "As of 14 November 2026 Blinq publishes five plans. Free is $0 forever with two digital business cards. Premium is $9.99 a month billed monthly or $7.33 a month billed annually, with up to five cards. Pro, also for one person, is $22.49 a month billed monthly or $16.58 a month billed annually. Business is $6.99 a month billed monthly or $4.99 a month billed annually, per card, from five cards, and Blinq's billing FAQ says it is billed per card, per month, with a minimum of five cards to start. Enterprise is custom. Check blinq.me/pricing before deciding — prices change."),
    ("Does Popl have a free plan?",
     "Not a free plan. As of " + VERIFIED + " Popl's homepage FAQ says \"Popl offers free trials "
     "and personalized demos\" and that the trials are \"designed for individuals to explore and "
@@ -171,20 +162,9 @@ PAGE = {
     "\"Get the free mobile app\". Blinq's free plan, by contrast, is a permanent plan with two "
     "cards."),
    ("Is Blinq's team plan really $6.99 a month?",
-    "Per user, yes — but not from one user. As of " + VERIFIED + " Blinq's Business plan card "
-    "says \"$6.99 / month Billed monthly, per user\", and the billing FAQ on the same page says "
-    "\"When you sign up you choose how many cards to start with (minimum of five)\". So the "
-    "smallest Business bill is five cards, $34.95 a month on monthly billing. The same FAQ says "
-    "\"Admins and team members who don't have a card assigned aren't billed\", so you pay for "
-    "people who have a card, not for every login."),
+    "Per card, yes — but not from one card. As of 14 November 2026 Blinq's Business plan card says \"$6.99 / month Billed monthly, per card, from 5 cards\", and the billing FAQ on the same page says \"When you sign up you choose how many cards to start with (minimum of five)\". So the smallest Business bill is five cards, $34.95 a month on monthly billing. The same FAQ says \"Admins and team members who don't have a card assigned aren't billed\", so you pay for people who have a card, not for every login."),
    ("Where does CompanyCard fit, and where does it lose?",
-    "It loses to Blinq on the free plan (two cards and no vendor credit, against our one card "
-    "with a small CompanyCard credit) and on the per-seat team rate ($6.99 against our $12), and "
-    "it loses to Popl on event lead capture outright. What it has against this pair is narrow "
-    "and checkable: we publish a price where Popl publishes none; we have no seat minimum where "
-    "Blinq Business starts at five cards, which only matters for a team of one or two; and our "
-    "Pro plan is $7.99 a month against Blinq Premium at $9.99, though Blinq Premium lists a "
-    "contact scanner, AI notetaker and contact enrichment that Pro does not."),
+    "It loses to Blinq on the free plan (two cards against our one; Blinq's free card carries Blinq branding, which its Premium plan removes, as our Pro removes our small CompanyCard credit) and it loses to Popl on event lead capture outright. What it has against this pair is checkable: we publish a price where Popl publishes none; we have no seat minimum where Blinq Business starts at five cards, and our per-user team rate is lower ($4.99 against $6.99 billed monthly, $3.99 against $4.99 billed yearly); and our Pro plan is $4.99 a month against Blinq Premium at $9.99, though Blinq's free plan already lists a universal contact scanner and an AI notetaker, and Blinq Pro ($22.49 a month) adds AI contact enrichment, which our Pro does not list."),
  ],
 }
 
@@ -193,9 +173,7 @@ PAGE["sections"] = [
     "These two started in the same place — a card you share by tap or QR — and have ended up "
     "selling to different buyers. That is the first thing to know, because it settles most of the "
     "choice before you look at a single feature.",
-    "<b>Choose Blinq if you are one person or a small business.</b> As of " + VERIFIED + " "
-    "blinq.me/pricing lists a Free plan (\"$0 Free forever\", two cards), Premium at $9.99 a month, "
-    "and Business at $6.99 per user a month, every one of them purchasable online. It is the "
+    "<b>Choose Blinq if you are one person or a small business.</b> As of 14 November 2026 blinq.me/pricing lists a Free plan (\"$0 Free forever\", two cards), Premium at $9.99 a month, Pro at $22.49 a month, and Business at $6.99 per card a month, every one of them purchasable online. It is the "
     "vendor in this pair that still behaves like a card product.",
     "<b>Choose Popl if your job is events.</b> popl.co now leads with \"Your AI GTM platform for "
     "in-person events\", and its pricing page sells unlimited events and conferences, an AI-native "
@@ -212,21 +190,21 @@ PAGE["sections"] = [
     ["What to check", "Blinq", "Popl", "CompanyCard"],
     [
       ["<b>Published price</b>",
-       "Yes — Free, Premium <b>$9.99/mo</b> ($7.33 annual), Business <b>$6.99/user/mo</b> ($4.99 annual), Enterprise custom",
+       "Yes — Free, Premium <b>$9.99/mo</b> ($7.33 annual), Pro <b>$22.49/mo</b> ($16.58 annual), Business <b>$6.99/card/mo</b> ($4.99 annual), Enterprise custom",
        "None. Calls to action are “Request Pricing” and “Book a Demo”",
-       "Yes — Free, Pro $7.99/mo, Business $12/user/mo"],
+       "Yes — Free, Pro $4.99/mo, Business $4.99/user/mo"],
       ["<b>Free plan</b>",
        "Yes — “Two free digital business cards”, unlimited sharing, Google and Apple Wallet, personal email signature, virtual backgrounds",
        "No free plan listed. Homepage FAQ: “Popl offers free trials and personalized demos”",
        "1 card, QR &amp; link sharing, Apple and Google Wallet — carries a small CompanyCard credit"],
       ["<b>Cards on the individual paid plan</b>",
-       "Premium: “Create up to five cards”",
+       "Premium: “Create up to five digital business cards”",
        "Not published",
        "Pro builds on the one free card: unlimited links and files, custom branding, lead capture and analytics"],
       ["<b>Smallest team bill</b>",
        "Five cards — “minimum of five” — so <b>$34.95/mo</b> on monthly billing",
        "Not published",
-       "No seat minimum: one user is $12/mo, two are $24/mo"],
+       "No seat minimum: one user is $4.99/mo, two are $9.98/mo"],
       ["<b>How team billing works</b>",
        "Per card, per month; “Admins and team members who don't have a card assigned aren't billed”",
        "Not published",
@@ -244,22 +222,16 @@ PAGE["sections"] = [
        "Request pricing, then a call; individuals are sent to the app download",
        "Sign up free; teams talk to us"],
     ],
-    note=("Read from blinq.me/pricing, popl.co and popl.co/pages/pricing on " + VERIFIED
-          + "; the “Popl for Individuals” link was followed the same day and redirected to "
+    note=("Blinq column re-read from blinq.me/pricing on 14 November 2026, with both billing tabs; Popl read from popl.co and popl.co/pages/pricing on " + VERIFIED + "; the “Popl for Individuals” link was followed the same day and redirected to "
             "popl.co/pages/download-popl. Vendor terms change — check both before deciding. "
-            "CompanyCard figures are our own published rates on our "
-            "<a href=\"pricing.html\">pricing page</a>, where annual billing is labelled "
-            "“Save up to 25%”."),
+            "CompanyCard figures are our own published rates on our <a href=\"pricing.html\">pricing page</a>, re-read 29 September 2026."),
   ), tint=True),
   prose("Where each one genuinely wins", [
     "<b>Blinq wins on the free plan and on price transparency.</b> Two free cards, forever, with "
     "Google and Apple Wallet, a personal email signature and virtual backgrounds all on the $0 "
     "tier, and every paid price on the page with a monthly/annual toggle. If you want to know "
     "what you will pay before you sign up, Blinq tells you and Popl does not.",
-    "<b>Blinq's Premium is also the richer individual plan.</b> $9.99 a month buys up to five cards, "
-    "a universal contact scanner, an AI notetaker and AI contact enrichment. Those are sales tools, "
-    "not card tools, and if you meet a lot of people they are worth the two dollars over cheaper "
-    "single-card plans, ours included.",
+    "<b>Blinq also has the richer individual plans.</b> Its free plan already lists a universal contact scanner and an AI notetaker (notes from the last 30 days); Premium at $9.99 a month adds up to five cards, a branded QR code, custom design and no Blinq branding; Pro at $22.49 a month ($16.58 billed annually) adds AI contact enrichment, unlimited AI notes and CSV export. Those are sales tools, not card tools, and if you meet a lot of people they are worth the extra over cheaper single-card plans, ours included.",
     "<b>Popl wins on events, and it is not close.</b> If you staff a booth, what decides your "
     "quarter is how fast a scanned badge becomes an enriched, deduplicated record in Salesforce. "
     "That is the product Popl now builds, with a dedicated CSM and SOC 2 Type 2 on the plan card. "
@@ -272,18 +244,11 @@ PAGE["sections"] = [
   prose("Where CompanyCard fits — and where it does not", [
     "We are the third option in that last paragraph, and it is worth being precise about how "
     "small the advantage is.",
-    "<b>Where we lose.</b> Blinq's free plan is two cards with no vendor credit; ours is one card, "
-    "and it carries a small CompanyCard credit that Pro removes. Blinq Business is $6.99 per user "
-    "against our $12, and at five people or more it is simply cheaper. Blinq Premium lists a "
-    "contact scanner, AI notetaker and enrichment that our Pro does not. Popl is the better product "
+    "<b>Where we lose.</b> Blinq's free plan is two cards to our one. Both free cards carry their maker's branding — Blinq lists “Remove Blinq branding” as a Premium feature, and our free card carries a small CompanyCard credit that Pro removes. Blinq's free plan also lists a universal contact scanner and an AI notetaker, and Blinq Pro adds AI contact enrichment, which our Pro does not list. Popl is the better product "
     "for trade shows, full stop. Our Business plan is not self-serve either — the pricing page says "
     "“Talk to us about teams”.",
     "<b>Where we hold up.</b> Three things, all checkable on the pricing pages linked above. We "
-    "publish a price, where Popl publishes none. We have no seat minimum, where Blinq Business "
-    "starts at five cards — which matters for a business of one or two that wants the team plan "
-    "($12 or $24 against $34.95) and stops mattering at three ($36 against $34.95). And our Pro "
-    "plan is $7.99 a month against "
-    "Blinq Premium at $9.99, for a plainer card without the sales tooling.",
+    "publish a price, where Popl publishes none. We have no seat minimum, where Blinq Business starts at five cards — so one or two people can buy the team plan ($4.99 or $9.98 a month, against Blinq's five-card floor of $34.95) — and our per-user rate is the lower one at any size: $4.99 against $6.99 billed monthly, $3.99 against $4.99 billed yearly. And our Pro plan is $4.99 a month against Blinq Premium at $9.99, for a plainer card without the sales tooling.",
     "If you are a sole trader or a business of two who wants one good card this afternoon, with "
     "the price on the page and no five-card floor, that is the case. If you want the fuller free "
     "plan, take Blinq. If you are staffing booths, go and book the Popl demo.",

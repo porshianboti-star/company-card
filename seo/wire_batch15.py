@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 15 wiring — footer link, sitemap entry, llms.txt entry, freshness stamp.
+"""DO NOT RE-RUN (one-shot; non-idempotent). Re-running it adds duplicate llms.txt bullets, rolls dateModified back to its batch date and rewires footers on other pages; wire_batch20 stops on an assertion. Its strings were corrected on 2026-11-14 for the record only.
+
+Batch 15 wiring — footer link, sitemap entry, llms.txt entry, freshness stamp.
 
 FOOTER. Same method as batch 14: anchor-insert against the single byte-identical
 "Best Digital Card Apps" <li> at the head of the Compare & Tools column. A
@@ -71,9 +73,7 @@ else:
 ll = open("llms.txt", encoding="utf-8").read()
 
 VS_LINE = ("- HiHello vs Blinq — a head-to-head between two competitors, not a CompanyCard pitch. "
-           "On published prices HiHello is cheaper at every tier (free 4 cards vs 2; $6/mo vs "
-           "$9.99/mo; $5/user vs $6.99/card) while Blinq does not meter contact scanning and bills "
-           "per card rather than per user. Both gate team plans behind five seats. Verified "
+           "On published prices HiHello is cheaper for one person (free 2 cards each; Professional $8/mo vs Premium $9.99/mo billed monthly, $6 vs $7.33 yearly) and the team tier is a near tie (HiHello $6/user vs Blinq $6.99/card billed monthly; $5 vs $4.99 yearly) while Blinq publishes no cap on the universal contact scanner its free plan lists, and bills per card rather than per user. Both gate team plans behind five seats. Verified "
            "27 August 2026: " + BASE + SLUG)
 if VS_LINE not in ll:
     head = "- Best digital business card apps (2026): " + BASE + "best-digital-business-card.html"

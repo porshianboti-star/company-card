@@ -2,6 +2,119 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-14 — competitor-claim correction pass + owners LLC + vCard format (rank plan CC-2, CC-1, CC-5)
+
+- SHIP STATUS: committed and pushed 2026-11-14 on base d2e37c7 (the commit that adds this entry), deployed by
+  Netlify on push. Plus seo/fix_hihello_pro_scans_2026_11_14.py (HiHello Professional = "20, or unlimited with
+  add-on", hihello.com/pricing 2026-11-14). FREEZE until the 12-24 read: no loop run edits
+  business-card-for-business-owners.html or vcard-qr-code.html. Three idempotent scripts; sitemap 74 URLs flat; lastmod/dateModified
+  2026-11-14 on the 11 changed URLs only (add_freshness.py not run). Scope = the 11-12 rank-plan moves as
+  modified by the two verifiers; CC-3/CC-4 retitles and links, new pages, homepage and
+  footer are out.
+- Evidence, re-read 2026-11-14 (curl 09:58Z + blinq.me/pricing in the in-app browser with
+  both billing tabs clicked; default tab = Annual): HiHello Personal 2 cards, 5 paper-card/
+  badge scans; Professional 8 cards, $8 monthly / $6 ($72) yearly; Business $6 monthly /
+  $5 ($60) yearly per user, "5-100 users", "5 users minimum", 4 cards + 50 scans per user
+  pooled; Enterprise "Custom", "100+ users", unlimited. Blinq Free 2 cards + "Universal
+  contact scanner" + AI notetaker (30 days); Premium $9.99 / $7.33, 5 cards, "Remove Blinq
+  branding"; NEW Pro $22.49 / $16.58 (enrichment, CSV export); Business $6.99 / $4.99
+  "per card, from 5 cards"; no "20+ CRM" on the page. Popl: no prices, "Request Pricing".
+  Uniqode: Team $6/user, annual only, 30-day money-back. beaconstac.com 301 -> uniqode.com.
+- CC-2 (seo/fix_vendor_claims_2026_11_14.py): HiHello free cards four -> two (and
+  Professional 16 -> 8) on best-virtual-business-card (FAQ visible + JSON-LD, short
+  answer, table), blinq-alternative (prose + table), digital-business-card-cost (prose +
+  table), free-digital-business-card-comparison (FAQ x2), hihello-vs-blinq, llms.txt.
+  best-virtual FAQ: retracted "no monthly cap on scans" comparison -> the 11-01 scanner
+  wording. hihello-vs-blinq: description "cheaper on both paid tiers" -> "cheaper for one
+  person; the team tier is a near tie"; Blinq scanner is on Free; Premium/Pro split;
+  HiHello Business 4 cards + 50 scans pooled (not unlimited); "20+ CRMs" -> the CRMs each
+  page names; "pays for four cards" -> six people/six cards; HiHello $5 labelled yearly;
+  hero/H2/note/og stamps 13 September -> 14 November (every HiHello/Blinq figure re-read).
+  blinq-vs-popl: Business "per card, from 5 cards" (was quoted "per user"), five plans,
+  "no vendor credit" -> both free cards carry vendor branding, Premium no longer holds
+  scanner/enrichment; Blinq stamps 14 November, Popl stamps left at 11 September.
+  free-comparison: Blinq branding cell + prose. hihello-alternative: table header
+  September -> November. small-business-toolkit-2027: Blinq Business per card (checked
+  14 November). Stamps elsewhere: "(re-checked 14 November 2026)" beside the corrected
+  figure; no page-wide restamp where not every figure was re-read.
+- CC-2 repair, same day, after the two verifiers (same script, re-run from d2e37c7):
+  hihello-vs-popl: HiHello Business "unlimited scans and unlimited contact enrichment"
+  (FAQ visible + JSON-LD) and "unlimited badge scans" (table) -> 50 scans and 50
+  enrichments per user a month, pooled, unlimited only on Enterprise; plan label "Free
+  Forever" -> "Free forever"; dateModified/lastmod 2026-11-14 (page 11). digital-business-
+  card-cost: the personal range no longer tops out at Blinq Premium — Blinq's Pro tier for
+  one person is $22.49 a month ($16.58 yearly), in meta, lead, short answer, FAQ x2 and the
+  Blinq row; the 1 September table header is NOT restamped; "several free cards, that is
+  HiHello" -> "two free cards, that is HiHello or Blinq". hihello-vs-blinq: Blinq's
+  Business event lead capture is "$9.99 per lead captured and enriched" (credits billed
+  monthly) — now in the team-features cell, the "collect contacts" verdict and Hand
+  out/Collect; every "no scan count / no scan limit" sentence is scoped to the universal
+  contact scanner; hero "Every HiHello and Blinq figure ..." (the CompanyCard note still
+  says re-read 29 September); "unlimited with a paid add-on" -> "an add-on" (the page
+  does not say paid). free-comparison: visible "Last updated: 14 November 2026" (an
+  update stamp, matching dateModified); Blinq cheapest cell yearly-first "$7.33/mo
+  Premium billed yearly ($9.99/mo billed monthly)". vcard-qr-code: WebPage JSON-LD name
+  has a plain apostrophe (was "&#x27;" since before this pass).
+- Generators: pages_data15/19/20 now match the live pages' content (competitor lines and
+  our own prices); a render of build_pages15/19/20 was diffed sentence by sentence
+  against the live pages and only the shared template differs (nav, footer,
+  Organization/WebSite/WebPage JSON-LD). Those three build scripts now refuse to run
+  without --overwrite-live. pages_data2/4/6/14 and add_vendor_matrix have no renderer;
+  their flagged competitor lines were synced, their stamps and our own prices were not,
+  and their notes say so. wire_batch15/19/20 say DO NOT RE-RUN (one-shot, non-
+  idempotent). pages_data12's note now says do not rebuild vcard-qr-code from it.
+  refresh_verified_nov2026.py notes its wrong Blinq "UNCHANGED".
+- seo/check_vendor_claims.py (visible text + table rows + meta + JSON-LD + llms + seo
+  sources with adjacent literals joined + renders of pages_data15/19/20 in a temp dir):
+  self-test of 14 stale and 11 corrected sentences on every run; the per-user allowance
+  only applies to HiHello sentences that do not name Blinq. Hits: 286 on d2e37c7
+  (201 files + 85 render), 29 on the first 11-14 build (the verifiers' findings), 0 now.
+  A 0 means none of the retired strings it knows is present, not that the pages are
+  right.
+- CC-1 (seo/improve_owners_llc_2026_11_14.py), business-card-for-business-owners: title
+  and H1 unchanged; description = og = twitter (145 chars, was 220 and differed); H2
+  "How to write LLC, Ltd or Inc on a business card" (id="llc"); one punctuation sentence
+  (copy "LLC" / ", LLC" / "L.L.C." as registered); business-name field item; ONE new FAQ
+  "Do I need to put LLC on my business card?" (visible + JSON-LD; no legal rule). The
+  near-duplicate "How do I write LLC" FAQ was dropped. pages_data17 meta/og synced + note.
+- CC-5 (seo/improve_vcard_format_2026_11_14.py), vcard-qr-code: title "vCard QR Code
+  Format: What's Encoded Inside | CompanyCard" (57); description 152; H2 "The vCard QR
+  code format, line by line"; labelled fictional vCard 3.0 example (N then FN,
+  TEL;TYPE=CELL:+1-202-555-0100, example.com). "Sources, verified August 2026" not
+  restamped. pages_data12 title/meta/og/H2 synced + note.
+- Checks: sync_faq_schema 0 mismatches; check_vendor_claims 0 (self-test ok); xmllint
+  OK; 11 changed pages = 1 h1 / title / description / canonical, JSON-LD parses
+  (sitewide 0 failures); llms-full rebuilt (74 pages, 403 Q&A); every script's second
+  run changes 0 bytes; no wallet text added; no "no watermark".
+- Not measured this run (GSC not opened). Baselines are the 11-12 reads (90d to 11-10):
+  owners page 13 clicks / 1,658 impr / pos 7.2, "llc" cluster 4 rows / 21 impr ("how to
+  write llc on business card" 11 @ 17.8); vcard-qr-code 0 / 90 @ 31.3, "vcard" cluster
+  9 rows / 52 impr ("qr code vcard format" 35 @ 33.1, 28d 29 @ 30.5); controls "hihello
+  vs blinq" 28d 77 @ 28.5 (blinq-alternative 50 @ 20.0, hihello-vs-blinq 16 @ 36.4),
+  "blinq alternative" 28d 100 @ 36.9, "hihello alternative" 28d 60 @ 20.8.
+- PRE-REGISTERED CHECKPOINT (reads on/after 2026-12-03 and 2026-12-24; S = ship date):
+  page-level, custom window S+1 .. read-date-minus-GSC-lag against the EQUAL-length
+  window ending S-1 — never the 28d preset (it mixes pre-ship days) and never single
+  rows of 3-11 impressions. CC-1: owners page clicks / impressions / CTR / position plus
+  the regex "llc" cluster sum on that page; expected 0-4 extra clicks a month, likely
+  not detectable at 12-03. CC-5: vcard-qr-code page plus regex "vcard" cluster;
+  expected a position change at most, 0 clicks. CC-2: no ranking effect expected;
+  pass = the 12-01 re-verify reads every competitor sentence on the 11 changed pages
+  against that day's vendor pages and finds no drift, AND check_vendor_claims prints 0
+  with its self-test ok. The checker alone is not the pass test: on 11-14 it printed 0
+  while "unlimited scans" and "Blinq's Premium ... buys ... scanner" were live. CC-3 RULE: if "popl vs beaconstac" (28d 57 @ 10.2) and "beaconstac vs popl"
+  (34 @ 10.6) are BOTH still >= 9 at the 12-03 read (28d window ending 12-01), propose
+  the popl-vs-uniqode retitle to the owner (rule 7; no sitewide anchors); otherwise
+  keep watching. Judge any retitle against the daily series (pos ~80 Sep 1-2, 35-41,
+  22-35 in Oct, 3-15 Oct 27-Nov 7) and the page-level "beaconstac" filter in a post-change
+  window, never against 90d averages (verifier 1, CC-3 mod 5). popl-vs-uniqode still says "re-checked 5 September 2026" — include it
+  in the 12-01 re-verify.
+- Next: owner ships (one loop run, loop paused or sequenced — the loop also writes
+  llms-full/sitemap); IndexNow for the 11 URLs + llms.txt after deploy; 12-01 monthly
+  re-verify (sentence read + check_vendor_claims.py). Fixed in the repair above, so not
+  open any more: hihello-vs-popl "Free Forever" label and its "unlimited scans" claim,
+  Blinq's per-lead charge on hihello-vs-blinq, Blinq Pro on the cost page.
+
 ## 2026-11-13 — realtors page: how to choose the best card for a realtor (batch 41)
 
 - NOT a new page (every template still prints the wallet-pass claim; owner

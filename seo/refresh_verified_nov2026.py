@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Monthly competitor re-verification — November 2026.
+"""SUPERSEDED IN PART, 2026-11-14. Its Blinq line ('UNCHANGED') was wrong by 2026-11-12 at the latest: blinq.me/pricing now lists the Universal contact scanner on Free, 'Remove Blinq branding' on Premium, a new individual Pro tier ($22.49 monthly / $16.58 annually) holding AI enrichment and CSV export, and Business 'per card, from 5 cards'. Its HiHello sweep also missed five pages, because the checker below required the word 'cards' right after the numeral. Both were corrected by seo/fix_vendor_claims_2026_11_14.py; the wider checker is seo/check_vendor_claims.py.
+
+Monthly competitor re-verification — November 2026.
 
 All six sources cited on best-digital-business-card.html and
 free-digital-business-card-comparison.html were re-read on 2026-11-01

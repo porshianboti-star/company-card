@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 4: the free-plan fine-print comparison + an /about entity page.
+"""SUPERSEDED IN PART, 2026-11-14. No script renders this file any more and the live HTML is the source of truth: do not render it with build_pages.write_pages or re-run it. seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the corrected competitor lines from the live page (HiHello: 2 free cards, 8 on Professional, Business 4 cards and 50 scans per user a month pooled, unlimited only on Enterprise; Blinq: scanner on Free, 'Remove Blinq branding' on Premium, a separate Pro tier, Business per card from 5 cards). Stamps, CompanyCard's own prices and other text in this file are NOT guaranteed to match the live page.
+
+Batch 4: the free-plan fine-print comparison + an /about entity page.
 
 The comparison page is the asset research called "the highest-value AEO asset
 available": a dated, sourced, factual table of what each vendor's FREE tier
@@ -53,21 +55,14 @@ FREEPLANS = {
  "sections": [],
  "faqs": [
    ("Which digital business card has the best free plan?",
-    "It depends what you need. On free card count, HiHello leads with four and Blinq gives two, "
-    "both without a branding line — as of " + VERIFIED + ". CompanyCard's free plan is one card and "
-    "carries a small CompanyCard credit, but includes an Apple and Google Wallet pass with no "
-    "monthly cap on how often it is scanned, where HiHello's free tier caps card and badge scans at "
-    "five per month. Popl has no free plan at all."),
+    "It depends what you need. On free card count, HiHello and Blinq each give two as of November 2026; Blinq lists “Remove Blinq branding” as a Premium feature, so its free card carries Blinq branding. CompanyCard's free plan is one card and carries a small CompanyCard credit, but includes an Apple and Google Wallet pass and unlimited edits. HiHello's free tier caps its paper-card and badge scanner at five scans a month; none of these plans caps how often your own card is scanned. Popl has no free plan at all."),
    ("Are digital business card free plans really free, or trials?",
     "Most of the ones compared here are genuinely free rather than timed trials, but the limits "
     "differ and they are what matter: how many cards, whether a wallet pass is included, whether "
     "scans are capped monthly, and whether the free card carries the vendor's branding. Check those "
     "four before you commit."),
    ("What is the catch with CompanyCard's free plan?",
-    "Two things, stated plainly. It is one card, where Blinq gives two and HiHello four. And free "
-    "cards carry a small CompanyCard credit — removing it is part of Pro at $8 a month. What you get "
-    "in exchange is an Apple and Google Wallet pass, unlimited edits, no monthly scan cap and no "
-    "credit card required."),
+    "Two things, stated plainly. It is one card, where Blinq and HiHello give two each. And free cards carry a small CompanyCard credit — removing it is part of Pro at $4.99 a month, or $3.99 a month billed yearly. What you get in exchange is an Apple and Google Wallet pass, unlimited edits, no monthly scan cap and no credit card required."),
    ("Which is cheapest if I do need to pay?",
     "On published rates as of " + VERIFIED + ", Mobilo is the cheapest of the tools here at $3 a "
     "month for Pro, though it is built around NFC cards it sells separately. Uniqode's Team plan is "
@@ -101,8 +96,8 @@ FREEPLANS["sections"] = [
   block("What each free plan actually includes", table(
     ["Tool", "Free cards", "Wallet pass on free", "Scan cap on free", "Vendor branding on free", "Team seat minimum", "Cheapest paid plan"],
     [["<b>CompanyCard</b>", "1", "Apple &amp; Google", "None", "Small CompanyCard credit", "None", "$8/mo Pro"],
-     ["<b>Blinq</b>", "2", "Apple Wallet", NS, "None listed", "5 team cards", "$9.99/mo Premium"],
-     ["<b>HiHello</b>", "4", "Apple &amp; Google", "5 card &amp; badge scans / month", "None listed", "5 users (Business)", "$6/mo Professional billed yearly ($8/mo billed monthly)"],
+     ["<b>Blinq</b>", "2", "Apple &amp; Google", "None listed", "Yes — Premium lists “Remove Blinq branding”", "5 team cards", "$7.33/mo Premium billed yearly ($9.99/mo billed monthly)"],
+     ["<b>HiHello</b>", "2", "Apple &amp; Google", "5 paper-card &amp; badge scans / month (its scanner; your own card is not capped)", "None listed", "5 users (Business)", "$6/mo Professional billed yearly ($8/mo billed monthly)"],
      ["<b>Uniqode</b>", "1 (single user)", NS, NS, NS, "2 seats, annual only", "$6/user/mo (annual)"],
      ["<b>Mobilo</b>", "Free card offered; count " + NS, NS, NS, NS, "None stated", "$3/mo Pro"],
      ["<b>Popl</b>", "No free plan", "—", "—", "—", NS, "Not published"]],
@@ -115,16 +110,13 @@ FREEPLANS["sections"] = [
          'CompanyCard figures are our published rates on <a href="pricing.html">our pricing page</a>.')),
   prose("What the differences actually mean", [
     "<h3>Card count is the headline, and we lose it</h3>"
-    "<p>HiHello's four free cards and Blinq's two are more generous than our one. If you genuinely "
+    "<p>HiHello's and Blinq's two free cards are more generous than our one. If you genuinely "
     "need several cards — separate roles, separate businesses, a personal and a work identity — "
     "that is a real reason to choose one of them.</p>",
     "<h3>Scan caps are the limit people discover late</h3>"
-    "<p>A monthly cap on how often your card can be scanned matters enormously if you work events, "
-    "a counter or a shop floor, and not at all if you share your card a few times a month. "
-    "HiHello's free tier caps card and badge scans at five per month; ours has no monthly cap.</p>",
+    "<p>None of the free plans here caps how often your own card can be scanned — HiHello's pricing page says other people can scan your QR code as often as they like on every plan. What HiHello does cap on its free tier is its paper-card and badge scanner, the feature that saves other people's cards and event badges as contacts, at five scans a month. CompanyCard's free plan has no scanner at all; lead capture is a Pro feature.</p>",
     "<h3>Branding on free is a fair trade, not a trick</h3>"
-    "<p>Our free cards carry a small CompanyCard credit and Blinq's and HiHello's free tiers do not "
-    "list one. That is a genuine point against us; the honest framing is that the credit is how a "
+    "<p>Our free cards carry a small CompanyCard credit. Blinq's free card carries Blinq branding too — it lists “Remove Blinq branding” as a Premium feature — while HiHello's pricing page does not say either way. Against HiHello that is a genuine point against us; the honest framing is that the credit is how a "
     "free plan with a wallet pass and unlimited edits gets paid for, and removing it costs $8.</p>",
     "<h3>Seat minimums are where small businesses get caught</h3>"
     "<p>This is the one that decides it for a very small team. Blinq bills a minimum of five team "

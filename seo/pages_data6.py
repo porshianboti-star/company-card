@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 6: own the "best virtual business card / best virtual card" cluster.
+"""SUPERSEDED IN PART, 2026-11-14. No script renders this file any more and the live HTML is the source of truth: do not render it with build_pages.write_pages or re-run it. seo/fix_vendor_claims_2026_11_14.py re-read hihello.com/pricing and blinq.me/pricing on 2026-11-14 and copied the corrected competitor lines from the live page (HiHello: 2 free cards, 8 on Professional, Business 4 cards and 50 scans per user a month pooled, unlimited only on Enterprise; Blinq: scanner on Free, 'Remove Blinq branding' on Premium, a separate Pro tier, Business per card from 5 cards). Stamps, CompanyCard's own prices and other text in this file are NOT guaranteed to match the live page.
+
+Batch 6: own the "best virtual business card / best virtual card" cluster.
 
 Audited 2026-07-26: "best virtual business card" and "best virtual card" appear
 on ZERO pages, while "best digital business card" appears on 10. The site has
@@ -56,11 +58,7 @@ BEST_VIRTUAL = {
     "receiving it, a permanent link and QR code, and no seat minimum if you later add someone. "
     "CompanyCard is built for exactly that case; its free plan includes " + FREE_SPEC),
    ("What is the best free virtual business card?",
-    "On free card count, HiHello leads with four and Blinq gives two, both without a vendor "
-    "branding line as of " + VERIFIED + " — we won't pretend otherwise. CompanyCard's free plan is "
-    "one card carrying a small CompanyCard credit, but it includes an Apple and Google Wallet pass "
-    "and has no monthly cap on scans, where HiHello's free tier caps card and badge scans at five "
-    "per month. See our full free-plan comparison for the fine print."),
+    "On free card count, HiHello and Blinq give two each and we give one — we won't pretend otherwise. CompanyCard's free plan is one card carrying a small CompanyCard credit, but it includes an Apple and Google Wallet pass and unlimited edits. HiHello's free plan caps its paper-card and badge scanner at five scans a month; scans of your own HiHello card are not limited. See our full free-plan comparison for the fine print."),
    ("What makes a virtual business card look professional?",
     "Four things, in order: your own logo and brand colour rather than a stock template; a photo "
     "that looks deliberate; only the contact routes you actually answer; and one clear next step "
@@ -120,7 +118,7 @@ BEST_VIRTUAL["sections"] = [
       "CompanyCard's free plan — wallet pass included, no scan cap"],
      ["<b>Someone who needs several separate cards</b>",
       "Free card count",
-      "HiHello (4 free) or Blinq (2 free) beat us here as of " + VERIFIED],
+      "HiHello or Blinq (2 free each) beat us here as of November 2026"],
      ["<b>A two or three person team</b>",
       "Being able to buy a team plan at your actual size",
       "CompanyCard — no seat minimum, where several rivals floor at five"],

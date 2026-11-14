@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Batch 12: vcard-qr-code.html — the payload/encoding-mechanics page.
+"""SUPERSEDED IN PART, 2026-11-14 (vcard-qr-code.html). Do not rebuild vcard-qr-code.html from this file: the live HTML and seo/improve_vcard_format_2026_11_14.py are its source of truth. A render from here lacks what later scripts added to the live page (the WebPage JSON-LD with its dates, and the example vCard payload block under 'The vCard QR code format, line by line'), and the improve script stops on such a render rather than patching it.
+
+Batch 12: vcard-qr-code.html — the payload/encoding-mechanics page.
 
 POSITIONING (anti-cannibalisation). Two live pages already touch this topic and
 neither is being rewritten:
@@ -53,11 +55,9 @@ RFC2426 = ('<a href="https://www.rfc-editor.org/rfc/rfc2426" target="_blank" rel
 VCARD_QR = {
  "slug": "vcard-qr-code.html",
  "crumb": "vCard QR Code",
- "title": "vCard QR Code: What's Encoded Inside | CompanyCard",
- "meta": ("What a vCard QR code actually encodes: the .vcf payload, why extra fields make the "
-          "code denser and harder to scan, and when a link works better."),
- "og": ("What a vCard QR code actually encodes: the .vcf payload, why extra fields make the "
-        "code denser and harder to scan, and when a link works better."),
+ "title": "vCard QR Code Format: What's Encoded Inside | CompanyCard",
+ "meta": ("What a vCard QR code contains, line by line: the vCard format (3.0 or 4.0), why extra fields make the code harder to scan, and when a link works better."),
+ "og": ("What a vCard QR code contains, line by line: the vCard format (3.0 or 4.0), why extra fields make the code harder to scan, and when a link works better."),
  "h1": 'What is actually inside a <span class="gradient-text">vCard QR code</span>',
  "lead": ("A vCard QR code carries your contact details inside the code itself, rather than a link "
           "to them. That single design choice explains what it is good at and the two ways it goes "
@@ -93,7 +93,7 @@ VCARD_QR = {
     "optional additions — and each one makes the payload longer.",
   ]),
 
-  block("The anatomy of the payload", checklist([
+  block("The vCard QR code format, line by line", checklist([
     ("BEGIN:VCARD and END:VCARD",
      "the wrapper. Every vCard opens and closes with these two lines."),
     ("VERSION",
