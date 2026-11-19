@@ -62,7 +62,7 @@
 - Digital business cards for lawyers & law firms (practice areas, jurisdictions, first consultations for referred clients; one firm design for every lawyer, paralegal and intake person on Business, no seat minimum): https://company-card.com/digital-business-card-for-lawyers.html
 - Digital business card for therapists in private practice (what you work with, where you are licensed, fees, openings, first calls from referrals): https://company-card.com/digital-business-card-for-therapists.html
 - Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
-- Digital business card for personal trainers: https://company-card.com/digital-business-card-for-personal-trainers.html
+- Personal trainer business cards: digital business card for personal trainers & coaches (open slots, booking link, clinic referrals, QR code for printed personal trainer business cards): https://company-card.com/digital-business-card-for-personal-trainers.html
 - Digital business card for electricians: https://company-card.com/digital-business-card-for-electricians.html
 - Digital business card for plumbers (QR on the van, invoices and fridge magnets, emergency callouts in one tap, licence and insurance shown up front): https://company-card.com/digital-business-card-for-plumbers.html
 - Notary business cards: digital business card for notaries & mobile signing agents (commission details, same-day bookings, QR code for printed notary business cards): https://company-card.com/digital-business-card-for-notaries.html
@@ -993,9 +993,9 @@ A: Usually not. Rates change daily, so a saved rate is stale within days, and in
 Q: What happens to my card when I move firms or change networks?
 A: Edit the firm name, licence details and status line once. The QR code and link point to the live card, not a snapshot, so leaflets in estate agents' offices and decision-in-principle letters already printed show the new firm.
 
-### Digital Business Card for Personal Trainers & Coaches | CompanyCard
+### Personal Trainer Business Cards: Digital Business Card for Personal Trainers & Coaches | CompanyCard
 URL: https://company-card.com/digital-business-card-for-personal-trainers.html
-Description: A digital business card for personal trainers — share it on the gym floor by QR, link to your results and packages, and let people book a session without an awkward exchange.
+Description: Personal trainer business cards that stay current: a digital business card for personal trainers, with a QR code for your printed cards — share it on the gym floor by QR, link to your results and packages, and let people book a session without an awkward exchange.
 Q: What should a personal trainer's digital business card include?
 A: Where you train, your specialisms in the client's words, which slots are open, a booking or consultation link, your packages, a link to results or client stories, and your certification, insurance and first aid status. Check your gym's rules on approaching members before you show it on the floor.
 Q: How do personal trainers share a digital business card on the gym floor?
@@ -1004,6 +1004,10 @@ Q: What happens when I change gyms or my availability fills up?
 A: Edit the card. The QR code on your water bottle, the noticeboard flyer, the car magnet and the poster at the physio's reception all point at the live card, so the new gym and the open slots appear everywhere the moment you save, with nothing reprinted.
 Q: Can I put my certification, before-and-after photos and nutrition coaching on the card?
 A: Use the exact title your certifying body grants and check whether you may show its logo. Before-and-after photos and testimonials fall under advertising rules that differ by country, and some US states restrict individualised nutrition advice to licensed dietitians, so check your state or national rule before describing nutrition coaching. If a claim has to come off, edit the card once and every QR code follows.
+Q: What should a personal trainer business card say?
+A: Your name, the title your certifying body grants, one line on who you train, the number clients text and a QR code. Details that change, such as open slots, prices, packages and the gym you train at, are better kept on the digital card the QR code opens, so a card printed today is still right after you move gyms. Check your gym's rules before you hand cards to members on the floor.
+Q: Do personal trainers still need printed business cards if they have a digital one?
+A: Many still leave them at a gym's front desk or a physio's reception. The two work together: have a short card printed with the QR code from your CompanyCard on it, and the code opens your current slots, packages and booking link. When those change you edit the digital card once and every printed card already handed out shows the update. CompanyCard does not print cards.
 
 ### Digital Business Card for Electricians & Sparkies | CompanyCard
 URL: https://company-card.com/digital-business-card-for-electricians.html
