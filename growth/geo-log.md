@@ -2,6 +2,39 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-19 — personal trainer business cards section on the personal-trainers page (batch 42)
+
+- SHIPPED (0a57e42, live 200 on poll 2, ~20-40 s after push): NOT a new page.
+  digital-business-card-for-personal-trainers.html via
+  seo/improve_personal_trainer_business_cards_2026_11_19.py (idempotent; second run
+  changes nothing): title / og / twitter / WebPage name -> "Personal Trainer Business
+  Cards: Digital Business Card for Personal Trainers & Coaches" (H1 unchanged);
+  description names printed cards; new section "Personal trainer business cards,
+  printed and digital" with a by-format table (printed card, bottle sticker / flyer,
+  link to a clinic or client, email signature); 2 FAQs visible + FAQPage JSON-LD
+  (now 6); dateModified + sitemap lastmod 2026-11-19 on this URL only; llms.txt line;
+  llms-full rebuilt (74 pages, 405 Q&A). IndexNow 200.
+- Why this page: "personal trainer business cards" 20 impr @ 55.1 on the 11-13 read
+  (28d to 11-10), page untouched since 08-02. Baseline is that 11-13 figure.
+- Content rules held: plan facts from seo/facts.py only; says CompanyCard does not
+  print cards; no wallet text added; no statistic; no new gym / certification /
+  health-claim rule (links to the existing rules section, now id="trainer-rules");
+  no competitor named. Frozen pages (owners, vcard-qr-code) untouched.
+- Checks: sync_faq_schema 0 mismatches; check_vendor_claims 0 stale hits (self-test
+  ok); xmllint OK; page = 1 h1 / title / description / canonical, 3 JSON-LD blocks parse.
+- MEASURED 11-19: sitemap 74 (flat). GSC Page indexing: indexed 68 (69 on 11-13),
+  not indexed 38 (37): redirect 26, 404 2, noindex 1, robots.txt 1, discovered-not-
+  indexed 6, crawled-not-indexed 2, alternate-canonical 0, duplicate 0. The buckets
+  were NOT drilled into this run, so which URL moved is unknown.
+- NOT MEASURED: GSC Performance (impressions / position / clicks / queries). The
+  in-app browser declined the second Search Console page in this unattended run; not
+  retried. Last performance read stays 11-13 (8,310 impr, pos 35.1, 23 clicks).
+- Off-site (web search 11-19): no Capterra / Trustpilot / Product Hunt / AlternativeTo
+  result for CompanyCard. sameAs unchanged (G2 seller + product, Chrome Web Store).
+  G2 claim status not re-read. Still owner-only.
+- Still owner-pending: the free-plan Wallet pass claim (unimplemented, 10-29).
+- Next: monthly vendor re-verify ~12-01; CC-3 read 12-03; freeze read 12-24.
+
 ## 2026-11-14 — competitor-claim correction pass + owners LLC + vCard format (rank plan CC-2, CC-1, CC-5)
 
 - SHIP STATUS: committed and pushed 2026-11-14 on base d2e37c7 (the commit that adds this entry), deployed by
