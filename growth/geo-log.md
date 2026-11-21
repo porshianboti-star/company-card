@@ -2,6 +2,40 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-21 — accountant business cards section on the accountants page (batch 43)
+
+- SHIPPED (a29c3e6, live 200 on poll 1, ~60 s after push): NOT a new page.
+  digital-business-card-for-accountants.html via
+  seo/improve_accountant_business_cards_2026_11_21.py (idempotent; second run changes
+  nothing): title / og / twitter / WebPage name -> "Accountant Business Cards: Digital
+  Business Card for Accountants & Bookkeepers" (H1 unchanged); description leads with
+  accountant business cards; new section "Accountant business cards, printed and
+  digital" with a by-format table (printed card, letterhead / engagement letters,
+  link to a referring solicitor / broker / lender, email signature); 2 FAQs visible +
+  FAQPage JSON-LD (now 7); dateModified + sitemap lastmod 2026-11-21 on this URL only;
+  llms.txt line; llms-full rebuilt (74 pages, 407 Q&A). IndexNow 200.
+- Why this page: "accountant business cards" 10 impr @ 21.5 (28d to 11-19), the
+  closest untouched profession query to page 2; page untouched since 09-25.
+- Content rules held: plan facts from seo/facts.py only; says CompanyCard does not
+  print cards; no wallet text added; no statistic; no new licensing rule (links to the
+  existing designation/permit paragraph, now id="accountant-rules"); no competitor.
+  Frozen pages (owners, vcard-qr-code) untouched.
+- Checks: sync_faq_schema 0 mismatches; check_vendor_claims 0 stale hits (self-test
+  ok); xmllint OK; page = 1 h1 / title / description / canonical, 3 JSON-LD blocks parse.
+- MEASURED 11-21: sitemap 74 (flat). GSC Page indexing: indexed 68 (flat vs 11-19),
+  not indexed 38 (flat): redirect 26, 404 2, noindex 1, robots.txt 1, discovered-not-
+  indexed 6, crawled-not-indexed 2. GSC Performance 28d (10-23..11-19): impressions
+  10.1K (8,310 on 11-13), avg position 32.9 (35.1), clicks 24 (23), 565 queries (492).
+  Clicks came from "e name card" (1 @ 18.1, 36 impr), "e name card free" (1 @ 4.7),
+  "e namecard" (1 @ 3.2). Top impressions: "wave connect alternatives" 722 @ 6.8,
+  "company card" 368 @ 21.4, "online business card" 221 @ 73.5. CC-3 watch:
+  "popl vs beaconstac" 78 @ 9.7, "beaconstac vs popl" 52 @ 10.2 (read is 12-03).
+- Next candidates seen: digital-business-card-vs-nfc-card cluster (vs nfc 22 @ 31.0,
+  13 @ 39.4, 11 @ 34.9); teams cluster ("business cards for large teams" 15 @ 25.3,
+  "team business cards" 11 @ 27.5, "business cards many employees" 8 @ 26.0).
+- OFF-SITE: unchanged — G2 + Chrome Web Store in sameAs; no Capterra / Product Hunt /
+  AlternativeTo / Trustpilot / social profiles.
+
 ## 2026-11-19 — personal trainer business cards section on the personal-trainers page (batch 42)
 
 - SHIPPED (0a57e42, live 200 on poll 2, ~20-40 s after push): NOT a new page.

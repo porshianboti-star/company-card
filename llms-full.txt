@@ -57,7 +57,7 @@
 - Digital business cards for insurance agents, brokers & insurance professionals (licence details, one-tap quotes, a card for every producer and account manager in an agency, QR code for printed cards): https://company-card.com/digital-business-card-for-insurance-agents.html
 - Digital business card for financial advisors (clients and referral partners forward one link, prospects save you in one tap and book a first meeting, wording approved like other marketing, lead capture on Pro): https://company-card.com/digital-business-card-for-financial-advisors.html
 - Digital business card for salons & barbers: https://company-card.com/digital-business-card-for-salons.html
-- Digital business card for accountants & bookkeepers: https://company-card.com/digital-business-card-for-accountants.html
+- Accountant business cards: digital business card for accountants & bookkeepers (designation, services by task, new-client status, referral partners, QR code for printed accountant business cards): https://company-card.com/digital-business-card-for-accountants.html
 - Digital business card for bookkeepers & bookkeeping businesses (monthly bookkeeping, catch-up work, remote clients referred by accountants; one card per person in a practice, QR code for printed cards): https://company-card.com/digital-business-card-for-bookkeepers.html
 - Digital business cards for lawyers & law firms (practice areas, jurisdictions, first consultations for referred clients; one firm design for every lawyer, paralegal and intake person on Business, no seat minimum): https://company-card.com/digital-business-card-for-lawyers.html
 - Digital business card for therapists in private practice (what you work with, where you are licensed, fees, openings, first calls from referrals): https://company-card.com/digital-business-card-for-therapists.html
@@ -741,9 +741,9 @@ A: Yes. The card belongs to you, not the salon, and the QR code opens the live c
 Q: Do I need to put my cosmetology or barber licence number on the card?
 A: It depends on your state board or licensing council. Many boards require the licence at your station and some also want the number on advertising, which a card listing prices may count as. Check your board's rule; if it asks for the number, add it once and every printed QR code follows.
 
-### Digital Business Card for Accountants & Bookkeepers | CompanyCard
+### Accountant Business Cards: Digital Business Card for Accountants & Bookkeepers | CompanyCard
 URL: https://company-card.com/digital-business-card-for-accountants.html
-Description: A digital business card for accountants and bookkeepers — carry your qualifications, make the first consultation easy to book, and keep details current through every filing season.
+Description: Accountant business cards that stay current: a digital business card for accountants and bookkeepers — carry your qualifications, make the first consultation easy to book, and keep details current through every filing season.
 Q: What should an accountant's digital business card include?
 A: Your name with the designation you hold (CPA, EA, ACCA, CA or equivalent), your firm and licence or registration number where your board expects it, your services by task, the clients you take, whether you are accepting new clients this season, a consultation booking link, a secure document link, and your filing-season phone number and hours.
 Q: How do accountants use a digital business card for referrals?
@@ -754,6 +754,10 @@ Q: Can I change my new-client status during filing season after the QR code is p
 A: Yes: the QR code and link point to the card, not to a copy of it, so an edit shows everywhere the code already exists: letterhead, engagement letters, your email signature and the card a referral partner saved last year. Close to new tax clients in February, reopen in May or change your portal link, and every scan opens the current accountant's card; edits are unlimited.
 Q: Is there a free plan for a sole practitioner or bookkeeper?
 A: Yes: a sole practitioner's or bookkeeper's free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
+Q: What should an accountant business card say?
+A: Your name with the designation you may use, your firm, a direct number and a QR code. Details that change, such as the services you offer this season, whether you are taking new clients, your filing-season hours and your client portal link, are better kept on the digital card the QR code opens, so a card printed today is still right after the April deadline. Check your board's rule on designations and permit numbers before printing.
+Q: Do accountants still need printed business cards if they have a digital one?
+A: Many still hand them out at networking breakfasts and leave them on the reception desk. The two work together: have a short card printed with the QR code from your CompanyCard on it, and the code opens your current new-client status, hours and booking link. When those change you edit the digital card once and every printed card already handed out shows the update. CompanyCard does not print cards.
 
 ### Digital Business Card for Bookkeepers & Bookkeeping Businesses | CompanyCard
 URL: https://company-card.com/digital-business-card-for-bookkeepers.html
