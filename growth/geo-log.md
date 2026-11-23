@@ -2,6 +2,46 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-23 — which-to-use-where section on the NFC comparison page (batch 44)
+
+- SHIPPED (8b93228, live 200 on poll 1, ~20 s after push): NOT a new page.
+  digital-business-card-vs-nfc-card.html via
+  seo/improve_vs_nfc_business_cards_2026_11_23.py (idempotent; second run changes
+  nothing): title / og / twitter / WebPage name -> "Digital Business Card vs NFC
+  Business Card: Which Do You Actually Need? (2026)" (H1 + breadcrumb unchanged);
+  description names NFC business cards; new section "NFC business card or digital
+  business card: which to use where" with a by-situation table (face to face, stand /
+  counter, van / sign / invoice, email / video call, new hire, details change); 2 FAQs
+  visible + FAQPage JSON-LD (now 7); dateModified + sitemap lastmod 2026-11-23 on this
+  URL only; llms.txt line; llms-full rebuilt (74 pages, 409 Q&A). IndexNow 200.
+- Why this page: 28d to 11-21 "digital business card vs nfc" 22 @ 31.0, "digital
+  business cards vs nfc business cards" 14 @ 38.3, "nfc vs digital business cards"
+  12 @ 34.4 (48 impr, baseline for the next read); page untouched since 08-02 and
+  never used the phrase "NFC business card".
+- Content rules held: plan facts from seo/facts.py only; says CompanyCard does not
+  sell NFC hardware; no wallet text added (the page's 5 older mentions untouched); no
+  vendor, hardware price, phone model or statistic; the details-change answer is
+  conditional on what the tag stores. Frozen pages (owners, vcard-qr-code) untouched.
+- Checks: sync_faq_schema 0 mismatches; check_vendor_claims 0 stale hits (self-test
+  ok); xmllint OK; page = 1 h1 / title / description / canonical, 3 JSON-LD blocks parse.
+- MEASURED 11-23: sitemap 74 (flat). GSC Page indexing (report dated 11-16): indexed
+  68 (flat), not indexed 38 (flat): redirect 26, 404 2, noindex 1, robots.txt 1,
+  discovered-not-indexed 6, crawled-not-indexed 2. GSC Performance 28d
+  (10-25..11-21): impressions 10.4K (10.1K on 11-21), avg position 32.5 (32.9),
+  clicks 28 (24), 573 queries (565). Clicks: "e name card" 1 (39 @ 19.1),
+  "companycard" 1 (35 @ 2.1), "e name card free" 1, "e namecard" 1. Top impressions:
+  "wave connect alternatives" 722 @ 6.8, "company card" 359 @ 21.1, "online business
+  card" 214 @ 72.9. Earlier retitles: "personal trainer business cards" 49 @ 49.8
+  (20 @ 55.1 before), "notary business card" 49 @ 33.6 + "business cards notary"
+  46 @ 38.0, "insurance professionals digital business cards" 45 @ 29.2. CC-3 watch:
+  "popl vs beaconstac" 76 @ 9.3, "beaconstac vs popl" 55 @ 10.6 (read is 12-03).
+- Next candidates seen: teams cluster ("business cards for large teams" 15 @ 25.3,
+  "team business cards" 11 @ 27.5, "business cards many employees" 8 @ 26.0, "digital
+  business cards for companies" 7 @ 29.7); mortgage broker business card(s) 8 @ 32.8
+  + 6 @ 22.8. Vendor re-verify due ~12-01.
+- OFF-SITE: index.html sameAs unchanged (G2 seller + product, Chrome Web Store). The
+  directories were NOT re-opened this run; no new profile is known.
+
 ## 2026-11-21 — accountant business cards section on the accountants page (batch 43)
 
 - SHIPPED (a29c3e6, live 200 on poll 1, ~60 s after push): NOT a new page.
