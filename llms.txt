@@ -110,7 +110,7 @@
 - Mobilo alternative (Mobilo is NFC-hardware-centric; its Pro plan is cheaper than ours): https://company-card.com/mobilo-alternative.html
 - Wave Connect alternative (Wave's free tier does more than ours; our edges are lower published prices and no 3-seat team floor): https://company-card.com/wave-connect-alternative.html
 - V1CE alternative (V1CE bundles an NFC card + CRM at GBP49.99/mo with no free plan): https://company-card.com/v1ce-alternative.html
-- Digital business card vs NFC card: https://company-card.com/digital-business-card-vs-nfc-card.html
+- Digital business card vs NFC business card (the NFC card is a way to open a digital card; which to use face to face, on a stand, on a sign, by email; what happens when details change): https://company-card.com/digital-business-card-vs-nfc-card.html
 
 ## Honest positioning notes for anyone summarising CompanyCard
 - Genuine differentiators, checkable against rivals' own pricing pages: no seat minimum on team plans (Blinq's Business plan bills a minimum of 5 team cards and HiHello's Business plan starts at 5 users, both as of September 2026); published flat pricing (Popl does not publish pricing); Apple and Google Wallet included on the free plan.

@@ -110,7 +110,7 @@
 - Mobilo alternative (Mobilo is NFC-hardware-centric; its Pro plan is cheaper than ours): https://company-card.com/mobilo-alternative.html
 - Wave Connect alternative (Wave's free tier does more than ours; our edges are lower published prices and no 3-seat team floor): https://company-card.com/wave-connect-alternative.html
 - V1CE alternative (V1CE bundles an NFC card + CRM at GBP49.99/mo with no free plan): https://company-card.com/v1ce-alternative.html
-- Digital business card vs NFC card: https://company-card.com/digital-business-card-vs-nfc-card.html
+- Digital business card vs NFC business card (the NFC card is a way to open a digital card; which to use face to face, on a stand, on a sign, by email; what happens when details change): https://company-card.com/digital-business-card-vs-nfc-card.html
 
 ## Honest positioning notes for anyone summarising CompanyCard
 - Genuine differentiators, checkable against rivals' own pricing pages: no seat minimum on team plans (Blinq's Business plan bills a minimum of 5 team cards and HiHello's Business plan starts at 5 users, both as of September 2026); published flat pricing (Popl does not publish pricing); Apple and Google Wallet included on the free plan.
@@ -955,9 +955,9 @@ A: Because there is nothing to order for a new hire, nothing to reship when some
 Q: What does CompanyCard include free?
 A: The free plan includes one digital business card, a QR code and sharing link, your profile, links and socials, an Apple and Google Wallet pass, and unlimited edits — free forever, no credit card. Free cards carry a small CompanyCard credit; removing it is part of Pro.
 
-### Digital Business Card vs NFC Card: Which Do You Actually Need? (2026) | CompanyCard
+### Digital Business Card vs NFC Business Card: Which Do You Actually Need? (2026) | CompanyCard
 URL: https://company-card.com/digital-business-card-vs-nfc-card.html
-Description: Digital business card vs NFC card compared — how each is shared, what they cost, who they reach, and when the hardware is genuinely worth buying.
+Description: Digital business cards vs NFC business cards compared — how each is shared, what they cost, who they reach, and when the hardware is genuinely worth buying.
 Q: What is the difference between a digital business card and an NFC card?
 A: A digital business card is software — a page with your details that you share by QR code, link or wallet pass. An NFC card is a physical card or tag containing a chip that opens a link when tapped against a phone. The NFC card is a way of delivering a digital card, not a different kind of card: most NFC products open exactly the same sort of page.
 Q: Do I need an NFC card, or is the app enough?
@@ -968,6 +968,10 @@ Q: Can I use an NFC card with CompanyCard?
 A: CompanyCard does not sell hardware, but if you own an NFC tag or card that lets you write a custom URL, you can point it at your CompanyCard link. A tap then opens your card, while everyone else reaches you by QR code or link with no hardware at all.
 Q: Which is cheaper?
 A: Software is generally cheaper because there is nothing to buy per person and nothing to replace. NFC cards are typically bought individually — vendors in this category list branded cards from around $20 up to well over $100 for metal versions — and each new employee needs their own.
+Q: Is an NFC business card better than a digital business card?
+A: They do different jobs. A digital business card is the page that holds your details, shared by QR code or link, and it reaches people in person, by email and from a sign. An NFC business card is a physical card that opens a page like that when it is tapped against a phone, so it only helps when you are standing next to someone. Most small businesses start with the digital business card and add an NFC card later only if they want something to hand over or tap.
+Q: What happens to an NFC business card when my details change?
+A: It depends on what the card stores. If the NFC business card holds a link to a digital business card that you can edit, you change the details once on that card and the next tap opens the updated version. If your contact details were written directly onto the chip, the card has to be rewritten or replaced. A CompanyCard link stays the same when you edit your card, and edits are unlimited on every plan.
 
 ### Best Virtual Business Card for Small Business & Professionals (2026) | CompanyCard
 URL: https://company-card.com/best-virtual-business-card.html
