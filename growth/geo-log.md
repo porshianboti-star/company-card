@@ -2,6 +2,52 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-25 — mortgage broker business cards section on the mortgage-brokers page (batch 45)
+
+- SHIPPED (0ed0519, live 200; deploy landed inside the poll window): NOT a new page.
+  digital-business-card-for-mortgage-brokers.html via
+  seo/improve_mortgage_broker_business_cards_2026_11_25.py (idempotent; second run
+  changes nothing): title / og / twitter / WebPage name -> "Mortgage Broker Business
+  Cards: Digital Business Card for Mortgage Brokers & Loan Officers" (H1 unchanged);
+  description leads with mortgage broker business cards; new section "Mortgage broker
+  business cards, printed and digital" with a by-format table (printed card, leaflet /
+  card holder on an estate agent's counter, link texted by a referrer, email signature
+  and client letters); 2 FAQs visible + FAQPage JSON-LD (now 6); dateModified + sitemap
+  lastmod 2026-11-25 on this URL only; llms.txt line; llms-full rebuilt (74 pages, 411
+  Q&A). IndexNow 200.
+- Why this page: 28d to 11-23 "mortgage broker business cards" 9 @ 31.2, "mortgage
+  broker business card" 6 @ 22.8, "mortgage business cards" 6 @ 38.7, "mortgage agent
+  business card" 4 @ 30.0, "mortgage loan officer business cards" 1 @ 33.0 (26 impr,
+  baseline for the next read); page content untouched since 08-02 and never used the
+  phrase "mortgage broker business cards".
+- Content rules held: plan facts from seo/facts.py only; says CompanyCard does not
+  print cards; no wallet text added; no rate, statistic or competitor; no new
+  regulatory rule (the new text points to the page's existing regulator section and to
+  the reader's compliance officer). Frozen pages (owners, vcard-qr-code) untouched.
+- Checks: sync_faq_schema 0 mismatches; check_vendor_claims 0 stale hits (self-test
+  ok); xmllint OK; page = 1 h1 / title / description / canonical, 3 JSON-LD blocks parse.
+- MEASURED 11-25: sitemap 74 (flat). GSC Page indexing: indexed 68 (flat), not indexed
+  38 (flat): redirect 26, 404 2, noindex 1, robots.txt 1, discovered-not-indexed 6,
+  crawled-not-indexed 2. GSC Performance 28d: impressions 10.7K (10.4K on 11-23), avg
+  position 31.9 (32.5), clicks 32 (28), 579 queries (573). Clicks: "e name card" 1
+  (43 @ 19.5), "companycard" 1 (34 @ 2.2), "e name card free" 1, "e namecard" 1. Top
+  impressions: "wave connect alternatives" 723 @ 6.8, "company card" 350 @ 20.5,
+  "online business card" 212 @ 71.8. Earlier retitles: vs-nfc cluster 63 impr @
+  30.0-34.6 (48 @ 31-38 on 11-23, two days after the change — too early to credit),
+  "personal trainer business cards" 51 @ 49.1, "notary business card" 54 @ 32.9,
+  "accountant business cards" 9 @ 21.7 (flat). CC-3 watch: "popl vs beaconstac" 84 @
+  9.8, "beaconstac vs popl" 59 @ 10.0 (read is 12-03; both currently >= 9).
+- Next candidates seen: teams cluster ("business cards for large teams" 16 @ 25.4,
+  "team business cards" 11 @ 27.5, "business cards many employees" 8 @ 26.0, "digital
+  business cards for companies" 7 @ 29.7); "freelancer business card" 15 @ 49.9;
+  "tutoring business cards" 5 @ 26.8. Vendor re-verify due ~12-01.
+- OFF-SITE (re-opened in the pane): G2 product page still "(0)" reviews and "Claim this
+  profile" (unclaimed); AlternativeTo /software/companycard 404; Trustpilot and Product
+  Hunt returned a bot-verification wall (unresolved, not evidence of absence). sameAs
+  unchanged.
+- Gotcha: the extensionless URL 301s to .html, so a curl poll without -L never sees the
+  new text — poll the .html URL.
+
 ## 2026-11-23 — which-to-use-where section on the NFC comparison page (batch 44)
 
 - SHIPPED (8b93228, live 200 on poll 1, ~20 s after push): NOT a new page.
