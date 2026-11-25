@@ -61,7 +61,7 @@
 - Digital business card for bookkeepers & bookkeeping businesses (monthly bookkeeping, catch-up work, remote clients referred by accountants; one card per person in a practice, QR code for printed cards): https://company-card.com/digital-business-card-for-bookkeepers.html
 - Digital business cards for lawyers & law firms (practice areas, jurisdictions, first consultations for referred clients; one firm design for every lawyer, paralegal and intake person on Business, no seat minimum): https://company-card.com/digital-business-card-for-lawyers.html
 - Digital business card for therapists in private practice (what you work with, where you are licensed, fees, openings, first calls from referrals): https://company-card.com/digital-business-card-for-therapists.html
-- Digital business card for mortgage brokers & loan officers: https://company-card.com/digital-business-card-for-mortgage-brokers.html
+- Mortgage broker business cards: digital business card for mortgage brokers & loan officers (licence details, borrowers you help, fee position, referring estate agents, QR code for printed mortgage broker business cards): https://company-card.com/digital-business-card-for-mortgage-brokers.html
 - Personal trainer business cards: digital business card for personal trainers & coaches (open slots, booking link, clinic referrals, QR code for printed personal trainer business cards): https://company-card.com/digital-business-card-for-personal-trainers.html
 - Digital business card for electricians: https://company-card.com/digital-business-card-for-electricians.html
 - Digital business card for plumbers (QR on the van, invoices and fridge magnets, emergency callouts in one tap, licence and insurance shown up front): https://company-card.com/digital-business-card-for-plumbers.html
@@ -989,9 +989,9 @@ A: Not to start. A free card with your own logo, brand colour and a booking link
 Q: Is 'virtual business card' the same as 'digital business card'?
 A: Yes — virtual, digital and electronic business card all describe the same thing: a shareable card that lives on a link rather than on paper. Vendors use the terms interchangeably, so search whichever phrase you like and compare the same way.
 
-### Digital Business Card for Mortgage Brokers & Loan Officers | CompanyCard
+### Mortgage Broker Business Cards: Digital Business Card for Mortgage Brokers & Loan Officers | CompanyCard
 URL: https://company-card.com/digital-business-card-for-mortgage-brokers.html
-Description: A digital business card for mortgage brokers and loan officers — carry your licence details, make applications one tap away, and stay in the phone of every agent who refers you.
+Description: Mortgage broker business cards that stay current: a digital business card for mortgage brokers and loan officers — carry your licence details, make applications one tap away, and stay in the phone of every agent who refers you.
 Q: What should a mortgage broker's digital business card include?
 A: Your name and firm, your licence or registration number and the firm's, the borrowers you help, a direct mobile with the hours you answer, your fee position, and a link to start an application or book a first call. Check your regulator's rules on required disclosures first.
 Q: How do estate agents use a mortgage broker's digital business card?
@@ -1000,6 +1000,10 @@ Q: Should a mortgage broker put rates on the card?
 A: Usually not. Rates change daily, so a saved rate is stale within days, and in most markets quoting one triggers disclosures such as an APR or representative example. A line saying rates on request, next to a booking link, does the job. Check your regulator's rules before adding a number.
 Q: What happens to my card when I move firms or change networks?
 A: Edit the firm name, licence details and status line once. The QR code and link point to the live card, not a snapshot, so leaflets in estate agents' offices and decision-in-principle letters already printed show the new firm.
+Q: What should a mortgage broker business card say?
+A: Your name, your firm, the licence or registration details your regulator expects on marketing, a direct mobile and a QR code. Details that change, such as the borrowers you are taking, the hours you answer, your application link and the network you sit under, are better kept on the digital card the QR code opens, so a card printed today is still right after you change firms. Leave rates off, and check your regulator's disclosure rules before printing.
+Q: Do mortgage brokers still need printed business cards if they have a digital one?
+A: Many still leave them on estate agents' counters and hand them out at first-time-buyer evenings. The two work together: have a short card printed with the QR code from your CompanyCard on it, and the code opens your current firm details, the borrowers you help and your booking link. When those change you edit the digital card once and every printed card already handed out shows the update. CompanyCard does not print cards.
 
 ### Personal Trainer Business Cards: Digital Business Card for Personal Trainers & Coaches | CompanyCard
 URL: https://company-card.com/digital-business-card-for-personal-trainers.html
