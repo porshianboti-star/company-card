@@ -2,6 +2,53 @@
 
 Measured state, appended each time work ships. Numbers only — no claims.
 
+## 2026-11-27 — team business cards by team size on the teams page (batch 46)
+
+- SHIPPED (758cd0a, live 200 on poll 2, ~25 s after push): NOT a new page.
+  digital-business-cards-for-teams.html via
+  seo/improve_team_business_cards_2026_11_27.py (idempotent; second run changes
+  nothing): title / og / WebPage name -> "Team Business Cards: Digital Business Cards
+  for Teams & Employees" (H1 + breadcrumb unchanged); description leads with team
+  business cards; new section "Team business cards for every employee, from two people
+  to a large team" with a by-team-size table (2-5, 10-25, 50-100 employees, large teams
+  -> Enterprise) where every figure is seats x list price; 2 FAQs visible + FAQPage
+  JSON-LD (now 6); dateModified + sitemap lastmod 2026-11-27 on this URL only; llms.txt
+  line; llms-full rebuilt (74 pages, 413 Q&A). IndexNow 200.
+- Why this page: GSC 28d to 11-25 with Page filter = this URL: 14 query rows, 108
+  impressions, 0 clicks (baseline for the next read): "digital business cards for
+  teams" 31 @ 52.9, "team company cards" 18 @ 15.8, "team business cards" 10 @ 24.7,
+  "business cards for large teams" 9 @ 25.7, "business cards many employees" 8 @ 26.0,
+  "business cards for multiple employees" 5 @ 40.0, "business cards for all employees"
+  4 @ 24.8, "business card for employees" 4 @ 39.5. The page never said "team business
+  cards", priced only the 5-person case and was untouched since 09-29.
+- Content rules held: plan facts from seo/facts.py only; states that Business and
+  Enterprise are not self-serve and that CompanyCard does not print cards; no wallet
+  text added; no statistic, competitor or volume discount. The page's older claims
+  (CSV / Google Workspace / Microsoft 365 import, per-employee signature + background)
+  were NOT re-verified and NOT extended. Frozen pages (owners, vcard-qr-code) untouched.
+- Checks: sync_faq_schema 0 mismatches; check_vendor_claims 0 stale hits (self-test
+  ok); xmllint OK; page = 1 h1 / title / description / canonical, 4 JSON-LD blocks
+  parse; table rendered live (5 rows, 712 px in a 1024 px viewport).
+- MEASURED 11-27: sitemap 74 (flat). GSC Page indexing: indexed 68 (flat), not indexed
+  38 (flat): redirect 26, 404 2, noindex 1, robots.txt 1, discovered-not-indexed 6,
+  crawled-not-indexed 2. GSC Performance 28d (10-29..11-25): impressions 11K (10.7K on
+  11-25), avg position 30.9 (31.9), clicks 37 (32), 587 queries (579). Clicks: "e name
+  card" 2 (47 @ 19.8), "companycard" 1 (35 @ 2.1), "virtual business card free" 1,
+  "e name card free" 1, "e namecard" 1. Top impressions: "wave connect alternatives"
+  704 @ 6.8, "company card" 346 @ 20.2, "online business card" 213 @ 70.2. Earlier
+  retitles: "notary business card" 60 @ 31.9, "personal trainer business cards" 55 @
+  47.8, "insurance professionals digital business cards" 53 @ 29.2, vs-nfc 25 @ 30.0 +
+  20 @ 34.2 + 19 @ 31.2, "accountant business cards" 9 @ 21.7, mortgage rows unchanged
+  (2 days after the change). CC-3 watch: "popl vs beaconstac" 87 @ 9.5, "beaconstac vs
+  popl" 60 @ 9.8 (read is 12-03; both still >= 9).
+- Next candidates seen: "freelancer business card" 15 @ 49.9 (+ "digital business card
+  for freelancer" 5 @ 24.8); "tutoring business cards" 5 @ 26.8; chiropractic cluster
+  ("chiropractic referral cards" 13 @ 42.8, "chiropractic business card(s)" 9 @ ~38).
+  Vendor re-verify due ~12-01 (next run), CC-3 read 12-03.
+- OFF-SITE: G2 product page still shows "Claim this profile" (unclaimed, no reviews
+  seen). Capterra / Product Hunt / AlternativeTo / Trustpilot not re-opened this run
+  (none existed on 11-25). sameAs unchanged.
+
 ## 2026-11-25 — mortgage broker business cards section on the mortgage-brokers page (batch 45)
 
 - SHIPPED (0ed0519, live 200; deploy landed inside the poll window): NOT a new page.
